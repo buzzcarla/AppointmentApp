@@ -26,10 +26,9 @@
 						</div>
 						<nav>
 							<ul>
-								<li><a href="#register">Register</a></li>
-								<li><a href="#login">Login</a></li>
-								<li><a href="#about">About</a></li>
-								<li><a href="#contact">Contact</a></li>
+								<li><a href="#profile">Profile</a></li>
+								<li><a href="#contact">Browse</a></li>
+								<li><a href="#contact">Book</a></li>
 								<!--<li><a href="#elements">Elements</a></li>-->
 							</ul>
 						</nav>
@@ -37,10 +36,26 @@
 
 				<!-- Main -->
 					<div id="main">
- 
-						<!-- register -->
-							<article id="register">
-								<h2 class="major">Register</h2>
+
+						<!-- Intro -->
+							<article id="intro">
+								<h2 class="major">Intro</h2>
+								<span class="image main"><img src="images/pic01.jpg" alt="" /></span>
+								<p>Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin aliquam facilisis ante interdum congue. Integer mollis, nisl amet convallis, porttitor magna ullamcorper, amet egestas mauris. Ut magna finibus nisi nec lacinia. Nam maximus erat id euismod egestas. By the way, check out my <a href="#work">awesome work</a>.</p>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</p>
+							</article>
+
+						<!-- Work -->
+							<article id="work">
+								<h2 class="major">Work</h2>
+								<span class="image main"><img src="images/pic02.jpg" alt="" /></span>
+								<p>Adipiscing magna sed dolor elit. Praesent eleifend dignissim arcu, at eleifend sapien imperdiet ac. Aliquam erat volutpat. Praesent urna nisi, fringila lorem et vehicula lacinia quam. Integer sollicitudin mauris nec lorem luctus ultrices.</p>
+								<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus pharetra. Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus amet feugiat tempus.</p>
+							</article>
+
+						<!-- profile -->
+							<article id="profile">
+								<h2 class="major">Profile</h2>
 								<form method="post" action="#">
 									<div class="field">
 										<label for="fname">First Name</label>
@@ -99,7 +114,6 @@
 										</div>
 									</div>
 
-
 									<div class="field">
 										<label for="email">Email</label>
 										<input type="text" name="email" id="email" placeholder="email@email.com" />
@@ -113,42 +127,56 @@
 										<input type="password" name="password" id="password" placeholder="*******" />
 									</div>
 									<ul class="actions">
-										<li><button class="special"><a href="index.html#login">Register</a></button></li>
-										<li><input type="reset" value="Reset" /></li>
+										<li><button class="special"><a href="loggedin.php#profile">Update</a></button></li>
+										<li><button class=""><a href="loggedin.php#pinfo">Patient Info</a></button></li>
 									</ul>
 								</form>
 							</article>
 
-						<!-- login -->
-							<article id="login">
-								<h2 class="major">Login</h2>
+						<!-- Patient Info -->
+							<article id="pinfo">
+								<h2 class="major">Patient Information</h2>
 								<form method="post" action="#">
 									<div class="field">
-										<label for="email">Email</label>
-										<input type="text" name="email" id="email" />
+										<label for="medcon">Existing Medical Conditions</label>
+										<textarea name="medcon" id="medcon" placeholder="High Blood Pressure, Diabetes, etc." rows="4"></textarea>
 									</div>
 									<div class="field">
-										<label for="name">Password</label>
-										<input type="password" name="password" id="password" />
+										<label for="allergies">Allergies</label>
+										<textarea name="allergies" id="allergies" placeholder="Shellfish, Chicken, etc." rows="4"></textarea>
 									</div>
+									<div class="field">
+										<label for="btype">Blood Type</label>
+										<div class="select-wrapper">
+											<select name="btype" id="btype">
+												<option value="1">A</option>
+												<option value="2">B</option>
+												<option value="3">O</option>
+												<option value="4">AB</option>
+											</select>
+										</div>
+									</div>
+
+									<div class="field">
+										<label for="econtact">Emergency Contact</label>
+										<input type="text" name="econtact" id="econtact" placeholder="John Doe" />
+									</div>
+
+									<div class="field">
+										<label for="relation">Contact Relationship</label>
+										<input type="text" name="relation" id="relation" placeholder="Mother, Father, etc." />
+									</div>
+
+									<div class="field">
+										<label for="connum">Contact Number</label>
+										<input type="text" name="connum" id="connum" placeholder="+63 123 456 7890" />
+									</div>
+
 									<ul class="actions">
-										<li><button class="special"><a href="loggedin.php">Login</a></button></li>
-										<li><button><a href="loggedin.php"><p style="text-decoration: none;">Forgot Password</p></a></button></li>
-										
+										<li><button class="special"><a href="loggedin.php#pinfo">Update</a></button></li>
+										<li><button class=""><a href="loggedin.php#profile">Back</a></button></li>
 									</ul>
 								</form>
-								<ul class="icons">
-									<li>LOGIN VIA:</li>
-									<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-									<li><a href="#" class="icon fa-google"><span class="label">Google</span></a></li>
-								</ul>
-							</article>
-
-						<!-- About -->
-							<article id="about">
-								<h2 class="major">About</h2>
-								<span class="image main"><img src="images/pic03.jpg" alt="" /></span>
-								<p>Lorem ipsum dolor sit amet, consectetur et adipiscing elit. Praesent eleifend dignissim arcu, at eleifend sapien imperdiet ac. Aliquam erat volutpat. Praesent urna nisi, fringila lorem et vehicula lacinia quam. Integer sollicitudin mauris nec lorem luctus ultrices. Aliquam libero et malesuada fames ac ante ipsum primis in faucibus. Cras viverra ligula sit amet ex mollis mattis lorem ipsum dolor sit amet.</p>
 							</article>
 
 						<!-- Contact -->
