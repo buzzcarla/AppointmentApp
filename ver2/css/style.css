@@ -468,18 +468,18 @@ ul#top_access li#user figure img{
     line-height:1
 }
 #logo_home h1 a{
-    width:110px;
+    width:100px;
     height:36px;
     display:block;
     background:url(../img/icon.png) no-repeat;
-    background-size:110px 36px;
+    background-size:100px 36px;
     text-indent:-9999px;
      overflow: hidden;
 }
 @media only screen and (min--moz-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2 / 1),only screen and (-webkit-min-device-pixel-ratio:2),only screen and (min-device-pixel-ratio:2){
     #logo_home h1 a{
         background-image:url(../img/icon.png);
-        background-size:110px 36px
+        background-size:100px 36px
     }
 }
 @media (max-width:991px){
