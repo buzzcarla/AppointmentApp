@@ -925,7 +925,7 @@ ul#additional_links li:after{
 @media (max-width:575px){
     #custom-search-input input[type=submit]{
         text-indent:-999px;
-        background:url(http://www.ansonika.com/findoctor/menu_2/img/search.svg) center center no-repeat #FF5959
+        background:url(http://www.ansonika.com/Finding Doctors/menu_2/img/search.svg) center center no-repeat #FF5959
     }
 }
 .box_feat{
