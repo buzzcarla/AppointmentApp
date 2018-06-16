@@ -4,11 +4,10 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="description" content="Find doctors easily and book an appointment online">
-	<meta name="author" content="ict-capstone">
-	<title>FINDING DOCTORS - Find doctors easily and book an appointment online</title>
+	<meta name="description" content="Find easily a doctor and book online an appointment">
+	<meta name="author" content="Ansonika">
+	<title>FINDOCTOR - Find easily a doctor and book online an appointment</title>
 
 	<!-- Favicons-->
 	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
@@ -59,7 +58,7 @@
 			<div class="row">
 				<div class="col-lg-3 col-6">
 					<div id="logo_home">
-						<h1><a href="index.html" title="Finding Doctors">Finding Doctors</a></h1>
+						<h1><a href="index.html" title="Findoctor">Finding Doctors</a></h1>
 					</div>
 				</div>
 				<div class="col-lg-9 col-6">
