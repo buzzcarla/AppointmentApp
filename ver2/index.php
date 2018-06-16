@@ -46,9 +46,9 @@
 				<p>
 					Lorem ipsum dolor sit amet, novum assentior contentiones nec et, ius putent scripserit ne.
 				</p>
-				<form method="post" action="list.html">
+				<form method="post" action="list-map.html">
 					<div id="custom-search-input">
-						<div class="input-group">
+						<div class="input-group text-center">
 							<input type="text" class=" search-query" placeholder="Ex. Name, Specialization ....">
 							<input type="submit" class="btn_search" value="Search">
 						</div>
@@ -101,7 +101,7 @@
 				</div>
 			</div>
 			<!-- /row -->
-			<p class="text-center"><a href="list.html" class="btn_1 medium">Find Doctor</a></p>
+			<p class="text-center"><a href="list-map.html" class="btn_1 medium">Find Doctor</a></p>
 
 		</div>
 		<!-- /container -->
@@ -173,16 +173,16 @@
 							<h3>Search by City or Zone</h3>
 						</div>
 						<ul>
-							<li><a href="list.html"><strong>23</strong>Albany</a></li>
-							<li><a href="list.html"><strong>23</strong>Albuquerque</a></li>
-							<li><a href="list.html"><strong>23</strong>Atlanta</a></li>
-							<li><a href="list.html"><strong>23</strong>Baltimore</a></li>
-							<li><a href="list.html"><strong>23</strong>Baton Rouge</a></li>
-							<li><a href="list.html"><strong>23</strong>Birmingham</a></li>
-							<li><a href="list.html"><strong>23</strong>Boston</a></li>
-							<li><a href="list.html"><strong>23</strong>Buffalo</a></li>
-							<li><a href="list.html"><strong>23</strong>Charleston</a></li>
-							<li><a href="list.html">More...</a></li>
+							<li><a href="list-map.html"><strong>23</strong>Albany</a></li>
+							<li><a href="list-map.html"><strong>23</strong>Albuquerque</a></li>
+							<li><a href="list-map.html"><strong>23</strong>Atlanta</a></li>
+							<li><a href="list-map.html"><strong>23</strong>Baltimore</a></li>
+							<li><a href="list-map.html"><strong>23</strong>Baton Rouge</a></li>
+							<li><a href="list-map.html"><strong>23</strong>Birmingham</a></li>
+							<li><a href="list-map.html"><strong>23</strong>Boston</a></li>
+							<li><a href="list-map.html"><strong>23</strong>Buffalo</a></li>
+							<li><a href="list-map.html"><strong>23</strong>Charleston</a></li>
+							<li><a href="list-map.html">More...</a></li>
 						</ul>
 					</div>
 				</div>
@@ -193,16 +193,16 @@
 							<h3>Search by type</h3>
 						</div>
 						<ul>
-							<li><a href="list.html"><strong>23</strong>Allergist</a></li>
-							<li><a href="list.html"><strong>23</strong>Cardiologist</a></li>
-							<li><a href="list.html"><strong>23</strong>Chiropractor</a></li>
-							<li><a href="list.html"><strong>23</strong>Dentist</a></li>
-							<li><a href="list.html"><strong>23</strong>Dermatologist</a></li>
-							<li><a href="list.html"><strong>23</strong>Gastroenterologist</a></li>
-							<li><a href="list.html"><strong>23</strong>Ophthalmologist</a></li>
-							<li><a href="list.html"><strong>23</strong>Optometrist</a></li>
-							<li><a href="list.html"><strong>23</strong>Pediatrician</a></li>
-							<li><a href="list.html">More....</a></li>
+							<li><a href="list-map.html"><strong>23</strong>Allergist</a></li>
+							<li><a href="list-map.html"><strong>23</strong>Cardiologist</a></li>
+							<li><a href="list-map.html"><strong>23</strong>Chiropractor</a></li>
+							<li><a href="list-map.html"><strong>23</strong>Dentist</a></li>
+							<li><a href="list-map.html"><strong>23</strong>Dermatologist</a></li>
+							<li><a href="list-map.html"><strong>23</strong>Gastroenterologist</a></li>
+							<li><a href="list-map.html"><strong>23</strong>Ophthalmologist</a></li>
+							<li><a href="list-map.html"><strong>23</strong>Optometrist</a></li>
+							<li><a href="list-map.html"><strong>23</strong>Pediatrician</a></li>
+							<li><a href="list-map.html">More....</a></li>
 						</ul>
 					</div>
 				</div>
@@ -219,7 +219,7 @@
 					</div>
 					<div class="col-md-6">
 						<small>Application</small>
-						<h3>Download <strong>Findoctor App</strong> Now!</h3>
+						<h3>Download <strong>Finding Doctors App</strong> Now!</h3>
 						<p class="lead">Tota omittantur necessitatibus mei ei. Quo paulo perfecto eu, errem percipit ponderum no eos. Has eu mazim sensibus. Ad nonumes dissentiunt qui, ei menandri electram eos. Nam iisque consequuntur cu.</p>
 						<div class="app_buttons wow" data-wow-offset="100">
 							<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 43.1 85.9" style="enable-background:new 0 0 43.1 85.9;" xml:space="preserve">
