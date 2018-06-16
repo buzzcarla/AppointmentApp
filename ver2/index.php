@@ -34,59 +34,11 @@
 	<!-- /Preload-->
 	
 	<!-- start of the page -->
-	<div id="page">		
+	<div id="page">		 
+		<?php
+			require('header.php');
+		?>
 
-	<!-- header -->
-
-	<header class="header_sticky">	
-		<a href="#menu" class="btn_mobile">
-			<div class="hamburger hamburger--spin" id="hamburger">
-				<div class="hamburger-box">
-					<div class="hamburger-inner"></div>
-				</div>
-			</div>
-		</a>
-		<!-- /btn_mobile-->
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-3 col-6">
-					<div id="logo_home">
-						<h1><a href="index.html" title="Findoctor">Finding Doctors</a></h1>
-					</div>
-				</div>
-				<div class="col-lg-9 col-6">
-					<ul id="top_access">
-						<li><a href="login.html"><i class="pe-7s-user"></i></a></li>
-						<li><a href="register-doctor.html"><i class="pe-7s-add-user"></i></a></li>
-					</ul>
-					<nav id="menu" class="main-menu">
-						<ul>
-							<li>
-								<span><a href="index.html">Home</a></span>
-							</li>
-							<li>
-								<span><a href="#0">Register</a></span>
-								<ul>
-									<li><a href="register-doctor.html">Register Doctor</a></li>
-									<li><a href="register.html">Register User</a></li>
-								</ul>
-							</li>
-							<li>
-								<span><a href="login.html">Login</a></span>
-							</li>
-							<li>
-								<li><a href="list-map.html">Doctor List</a></li>
-							</li>
-						</ul>
-					</nav>
-					<!-- /main-menu -->
-				</div>
-			</div>
-		</div>
-		<!-- /container -->
-	</header>
-	<!-- /header -->
-	
 	<main>
 		<div class="hero_home version_1">
 			<div class="content">
@@ -288,69 +240,9 @@
 	</main>
 	<!-- /main content -->
 	
-	<footer>
-		<div class="container margin_60_35">
-			<div class="row">
-				<div class="col-lg-3 col-md-12">
-					<p>
-						<a href="index.html" title="Findoctor">
-							<img src="img/logo.png" data-retina="true" alt="" width="163" height="36" class="img-fluid">
-						</a>
-					</p>
-				</div>
-				<div class="col-lg-3 col-md-4">
-					<h5>About</h5>
-					<ul class="links">
-						<li><a href="#0">About us</a></li>
-						<li><a href="blog.html">Blog</a></li>
-						<li><a href="#0">FAQ</a></li>
-						<li><a href="login.html">Login</a></li>
-						<li><a href="register.html">Register</a></li>
-					</ul>
-				</div>
-				<div class="col-lg-3 col-md-4">
-					<h5>Useful links</h5>
-					<ul class="links">
-						<li><a href="#0">Doctors</a></li>
-						<li><a href="#0">Clinics</a></li>
-						<li><a href="#0">Specialization</a></li>
-						<li><a href="#0">Join as a Doctor</a></li>
-						<li><a href="#0">Download App</a></li>
-					</ul>
-				</div>
-				<div class="col-lg-3 col-md-4">
-					<h5>Contact with Us</h5>
-					<ul class="contacts">
-						<li><a href="tel://61280932400"><i class="icon_mobile"></i> + 61 23 8093 3400</a></li>
-						<li><a href="/cdn-cgi/l/email-protection#85ecebe3eac5e3ecebe1eae6f1eaf7abe6eae8"><i class="icon_mail_alt"></i> <span class="__cf_email__" data-cfemail="7119141d013117181f151e12051e035f121e1c">[email&#160;protected]</span></a></li>
-					</ul>
-					<div class="follow_us">
-						<h5>Follow us</h5>
-						<ul>
-							<li><a href="#0"><i class="social_facebook"></i></a></li>
-							<li><a href="#0"><i class="social_twitter"></i></a></li>
-							<li><a href="#0"><i class="social_linkedin"></i></a></li>
-							<li><a href="#0"><i class="social_instagram"></i></a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-			<!--/row-->
-			<hr>
-			<div class="row">
-				<div class="col-md-8">
-					<ul id="additional_links">
-						<li><a href="#0">Terms and conditions</a></li>
-						<li><a href="#0">Privacy</a></li>
-					</ul>
-				</div>
-				<div class="col-md-4">
-					<div id="copy">© 2017 Findoctor</div>
-				</div>
-			</div>
-		</div>
-	</footer>
-	<!--/footer-->
+	<?php 
+		require('footer.php');
+	?>
 	</div>
 	<!-- page -->
 
