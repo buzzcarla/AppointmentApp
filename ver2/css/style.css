@@ -3586,7 +3586,7 @@ ul.bullets li:before{
 }
 #toTop:before{
     font-family:fontello;
-    content:"\e899"
+    content:"\e899";
 }
 .box_badges{
     -webkit-border-radius:5px;
