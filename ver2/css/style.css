@@ -469,10 +469,10 @@ ul#top_access li#user figure img{
 }
 #logo_home h1 a{
     width:100px;
-    height:36px;
+    height:40px;
     display:block;
     background:url(../img/icon.png) no-repeat;
-    background-size:100px 36px;
+    background-size:100px 40px;
     text-indent:-9999px;
      overflow: hidden;
 }
@@ -2982,7 +2982,7 @@ a.social_bt.facebook{
     background-color:#3B5998
 }
 a.social_bt.facebook:before{
-    content:"\e093"
+    content:url(../img/fb-icon.png);
 }
 a.social_bt.google{
     background-color:#DC4E41

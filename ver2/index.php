@@ -141,7 +141,7 @@
 		</div>
 		<!-- /white_bg -->
 
-		<div class="container margin_120_95">
+		<div class="container margin_120_95" style="padding-top: 50px!important;">
 			<div class="main_title">
 				<h2>Find your doctor or clinic</h2>
 				<p>Nec graeci sadipscing disputationi ne, mea ea nonumes percipitur. Nonumy ponderum oporteat cu mel, pro movet cetero at.</p>
