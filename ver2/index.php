@@ -227,7 +227,9 @@
 	</div>
 	<!-- page -->
 
-	<div id="toTop"></div>
+	<div id="toTop">
+		<img src="../img/up_arrow.png">
+	</div>
 	<!-- Back to top button -->
 
 	<!-- COMMON SCRIPTS -->
