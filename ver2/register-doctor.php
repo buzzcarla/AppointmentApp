@@ -58,7 +58,7 @@
 								<div class="row">
 									<div class="col-md-12 ">
 										<div class="form-group">
-											<input id="mname" type="text" class="form-control" placeholder="Middle Name" required>
+											<input id="mname" type="text" class="form-control" placeholder="Middle Name">
 										</div>
 									</div>
 								</div>
@@ -110,15 +110,15 @@
 								<div class="row">
 									<div class="col-md-6">
 										<div class="form-group">
-											<select class="form-control sel-city" disabled required>
-												<option value=""disabled selected>City</option>
+											<select class="form-control sel-prov" required>
+												<option value="" disabled selected>Province</option>
 											</select>
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
-											<select class="form-control sel-prov" required>
-												<option value="" disabled selected>Province</option>
+											<select class="form-control sel-city" disabled required>
+												<option value=""disabled selected>City</option>
 											</select>
 										</div>
 									</div>
@@ -132,7 +132,7 @@
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
-											<input id="onum" type="text" class="form-control" placeholder="Office Phone" required>
+											<input id="onum" type="text" class="form-control" placeholder="Office Phone">
 										</div>
 									</div>
 								</div>
@@ -163,8 +163,21 @@
 									</div>
 								</div>
 								<!-- /row -->
+								<div class="row">
+									<div class="col-lg-12">
+										<div class="form-group">
+											<input id ="password" type="password" class="form-control" placeholder="Confirm Password" required>
+										</div>
+									</div>
+								</div>
+								<!-- /row -->
+								<div class="checkbox-holder text-left">
+									<div class="checkbox_2">
+										<input type="checkbox" value="accept_2" id="check_2" name="check_2" checked>
+										<label for="check_2"><span>By clicking submit and signing up to this website, I agree to have read and understood the <a href="#">terms and agreements.</a></span></label>
+									</div>
+								</div>
 								<p class="text-center add_top_30"><input type="button" class="btn_1 sub" value="Submit"></p>
-								<div class="text-center"><small>Ut nam graece accumsan cotidieque. Has voluptua vivendum accusamus cu. Ut per assueverit temporibus dissentiet.</small></div>
 							</form>
 						</div>
 						<!-- /box_form -->
