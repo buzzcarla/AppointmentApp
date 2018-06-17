@@ -6,9 +6,6 @@
 	<meta name="author" content="ict-capstone">
 	<title>FINDING DOCTORS - Find doctors easily and book an appointment online</title>
 
-	<!-- Favicons-->
-	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-
 	<!-- BASE CSS -->
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet">
