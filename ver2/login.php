@@ -38,7 +38,7 @@
 							</div>
 							<div class="box_login last">
 								<div class="form-group">
-									<input type="email" class="form-control user" placeholder="Your email address">
+									<input type="text" class="form-control user" placeholder="Your username">
 								</div>
 								<div class="form-group">
 									<input type="password" class="form-control pass" placeholder="Your password">
