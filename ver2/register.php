@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php 
+	require('init.php');
+?>
 <html lang="en">
 
 <?php
@@ -19,54 +22,130 @@
 	
 	
 	<main>
-		<div class="bg_color_2">
-			<div class="container margin_60_35">
-				<div id="register">
-					<h1>Please register to Findoctor!</h1>
-					<div class="row justify-content-center">
-						<div class="col-md-5">
-							<form>
-								<div class="box_form">
-									<div class="form-group">
-										<label>Name</label>
-										<input type="text" class="form-control" placeholder="Your name">
-									</div>
-									<div class="form-group">
-										<label>Last name</label>
-										<input type="text" class="form-control" placeholder="Your last name">
-									</div>
-									<div class="form-group">
-										<label>Email</label>
-										<input type="email" class="form-control" placeholder="Your email address">
-									</div>
-									<div class="form-group">
-										<label>Password</label>
-										<input type="password" class="form-control" id="password1" placeholder="Your password">
-									</div>
-									<div class="form-group">
-										<label>Confirm password</label>
-										<input type="password" class="form-control" id="password2" placeholder="Confirm password">
-									</div>
-									<div id="pass-info" class="clearfix"></div>
-									<div class="checkbox-holder text-left">
-										<div class="checkbox_2">
-											<input type="checkbox" value="accept_2" id="check_2" name="check_2" checked>
-											<label for="check_2"><span>I Agree to the <strong>Terms &amp; Conditions</strong></span></label>
+		<div id="hero_register">
+			<div class="container margin_120_95">			
+				<div class="row">
+					<div class="col-lg-6 ml-auto">
+						<div class="box_form">
+							<form id="doctorform">
+								<div class="row">
+									<div class="col-md-12 ">
+										<div class="form-group">
+											<input id="fname" type="text" class="form-control" placeholder="First Name" required>
 										</div>
 									</div>
-									<div class="form-group text-center add_top_30">
-										<input class="btn_1" type="submit" value="Submit">
+								</div>
+								<div class="row">
+									<div class="col-md-12 ">
+										<div class="form-group">
+											<input id="mname" type="text" class="form-control" placeholder="Middle Name">
+										</div>
 									</div>
 								</div>
-								<p class="text-center"><small>Has voluptua vivendum accusamus cu. Ut per assueverit temporibus dissentiet. Eum no atqui putant democritum, velit nusquam sententiae vis no.</small></p>
+								<div class="row">
+									<div class="col-md-12 ">
+										<div class="form-group">
+											<input id="lname" type="text" class="form-control" placeholder="Last Name" required>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6">
+										<div class="form-group">
+											<select class="form-control sel-prov" required>
+												<option value="" disabled selected>Province</option>
+											</select>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<select class="form-control sel-city" disabled required>
+												<option value=""disabled selected>City</option>
+											</select>
+										</div>
+									</div>
+								</div>
+								<!-- /row -->
+								<div class="row">
+									<div class="col-lg-12">
+										<div class="form-group">
+											<input id="cnum" type="text" class="form-control" placeholder="Mobile Phone" required>
+										</div>
+									</div>
+								</div>
+								<!-- /row -->
+								<div class="row">
+									<div class="col-lg-12">
+										<div class="form-group">
+											<input id ="demail" type="email" class="form-control" placeholder="Email Address" required>
+										</div>
+									</div>
+								</div>
+								<!-- /row -->
+								<!-- /row -->
+								<div class="row">
+									<div class="col-lg-12">
+										<div class="form-group">
+											<input id ="username" type="text" class="form-control" placeholder="Username" required>
+										</div>
+									</div>
+								</div>
+								<!-- /row -->
+								<!-- /row -->
+								<div class="row">
+									<div class="col-lg-12">
+										<div class="form-group">
+											<input id ="password" type="password" class="form-control" placeholder="Password" required>
+										</div>
+									</div>
+								</div>
+								<!-- /row -->
+								<div class="row">
+									<div class="col-lg-12">
+										<div class="form-group">
+											<input id ="password" type="password" class="form-control" placeholder="Confirm Password" required>
+										</div>
+									</div>
+								</div>
+								<!-- /row -->
+								<div class="checkbox-holder text-left">
+									<div class="checkbox_2">
+										<input type="checkbox" value="accept_2" id="check_2" name="check_2" checked>
+										<label for="check_2"><span>By clicking submit and signing up to this website, I agree to have read and understood the <a href="#">terms and agreements.</a></span></label>
+									</div>
+								</div>
+								<p class="text-center add_top_30"><input type="button" class="btn_1 sub" value="Submit"></p>
 							</form>
 						</div>
+						<!-- /box_form -->
 					</div>
-					<!-- /row -->
+					<!-- /col -->
+					<div class="col-lg-6">
+						<h1>Booking an appointment has never been easier!</h1>
+						<p class="lead">Te pri adhuc simul. No eros errem mea. Diam mandamus has ad. Invenire senserit ad has, has ei quis iudico, ad mei nonumes periculis.</p>
+						<div class="box_feat_2">
+							<i class="pe-7s-map-2"></i>
+							<h3>Find doctors around you!</h3>
+							<p>Ut nam graece accumsan cotidieque. Has voluptua vivendum accusamus cu. Ut per assueverit temporibus dissentiet.</p>
+						</div>
+						<div class="box_feat_2">
+							<i class="pe-7s-date"></i>
+							<h3>Easly manage Bookings</h3>
+							<p>Has voluptua vivendum accusamus cu. Ut per assueverit temporibus dissentiet. Eum no atqui putant democritum, velit nusquam sententiae vis no.</p>
+						</div>
+						<div class="box_feat_2">
+							<i class="pe-7s-phone"></i>
+							<h3>Instantly via Mobile</h3>
+							<p>Eos eu epicuri eleifend suavitate, te primis placerat suavitate his. Nam ut dico intellegat reprehendunt, everti audiam diceret in pri, id has clita consequat suscipiantur.</p>
+						</div>
+					</div>
+					<!-- /col -->
 				</div>
-				<!-- /register -->
+				<!-- /row -->
 			</div>
+			<!-- /container -->
 		</div>
+		<!-- /hero_register -->
 	</main>
 	<!-- /main -->
 	
@@ -86,8 +165,6 @@
 	<script src="js/jquery-2.2.4.min.js"></script>
 	<script src="js/common_scripts.min.js"></script>
 	<script src="js/functions.js"></script>
-     
-	<!-- SPECIFIC SCRIPTS -->
-	<script src="js/pw_strenght.js"></script>
+
 </body>
 </html>
