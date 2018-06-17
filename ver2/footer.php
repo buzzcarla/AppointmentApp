@@ -4,7 +4,7 @@
 				<div class="col-lg-3 col-md-12">
 					<p>
 						<a href="index.html" title="Findoctor">
-							<img src="img/logo.png" data-retina="true" alt="" width="163" height="36" class="img-fluid">
+							<img src="img/icon.png" data-retina="true" alt="" width="163" height="36" class="img-fluid">
 						</a>
 					</p>
 				</div>
@@ -31,8 +31,7 @@
 				<div class="col-lg-3 col-md-4">
 					<h5>Contact with Us</h5>
 					<ul class="contacts">
-						<li><a href="tel://61280932400"><i class="icon_mobile"></i> + 61 23 8093 3400</a></li>
-						<li><a href="/cdn-cgi/l/email-protection#85ecebe3eac5e3ecebe1eae6f1eaf7abe6eae8"><i class="icon_mail_alt"></i> <span class="__cf_email__" data-cfemail="7119141d013117181f151e12051e035f121e1c">[email&#160;protected]</span></a></li>
+						<li><a href="#"><i class="icon_mobile"></i> + 63 915 123 3400</a></li>
 					</ul>
 					<div class="follow_us">
 						<h5>Follow us</h5>
@@ -55,9 +54,9 @@
 					</ul>
 				</div>
 				<div class="col-md-4">
-					<div id="copy">© 2017 Findoctor</div>
+					<div id="copy">© 2018 Finding Doctors</div>
 				</div>
 			</div>
 		</div>
 	</footer>
-	<!--/footer-->
+	<!--/footer--> 
