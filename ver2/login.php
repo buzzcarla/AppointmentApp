@@ -38,14 +38,14 @@
 							</div>
 							<div class="box_login last">
 								<div class="form-group">
-									<input type="email" class="form-control" placeholder="Your email address">
+									<input type="email" class="form-control user" placeholder="Your email address">
 								</div>
 								<div class="form-group">
-									<input type="password" class="form-control" placeholder="Your password">
+									<input type="password" class="form-control pass" placeholder="Your password">
 									<a href="#0" class="forgot"><small>Forgot password?</small></a>
 								</div>
 								<div class="form-group">
-									<input class="btn_1" type="submit" value="Login">
+									<input class="btn_1 loginbut" type="button" value="Login">
 								</div>
 							</div>
 						</div>
@@ -76,4 +76,33 @@
 
 
 </body>
+<script>
+	$( document ).ready(function() {
+		$('.loginbut').on("click",function(){
+			$.ajax({
+				url: "requests/getUserOrDoctor.php",
+				type: 'GET',
+				dataType: 'text json', // added data type
+				data: {
+						user:$('.user').val(),
+					  	pass:$('.pass').val()
+					  },
+				success: function(res) {
+					console.log(res);
+					if(res == 3){
+						alert("LOGIN FAILED");
+					} else if(res == 2) {
+						
+					} else {
+						alert("LOGIN SUCCESFUL")
+						window.location.replace("index.php");
+					}
+					
+				
+				}
+    		});
+
+		});
+	});
+</script>
 </html>
