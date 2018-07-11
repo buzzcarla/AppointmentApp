@@ -27,7 +27,7 @@
 				<p>
 					Lorem ipsum dolor sit amet, novum assentior contentiones nec et, ius putent scripserit ne.
 				</p>
-				<form method="post" action="list-map.php">
+				<form method="post">
 					<div id="custom-search-input">
 						<div class="input-group">
 							<input type="text" class=" search-query" placeholder="Ex. Name, Specialization ....">
@@ -210,5 +210,12 @@
 	<script src="js/functions.js"></script>
 
 </body>
+<script>
+$( document ).ready(function() {
+	$('.btn_search').on('click',function(){
+		alert('pressed');
 
+	});
+});
+</script>
 </html>

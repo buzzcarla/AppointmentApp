@@ -69,6 +69,17 @@
 										</div>
 									</div>
 								</div>
+								<div class="row">
+									<div class="col-md-12 ">
+										<div class="form-group">
+										  <select  class="form-control sel-gender" required>
+										  		<option value=""disabled selected>Gender</option>
+												<option value="1">Male</option>
+												<option value="0">Female</option>
+										  </select>
+										</div>
+									</div>
+								</div>
 								<!-- /row -->
 								<div class="row">
 									<div class="col-lg-12">
@@ -124,6 +135,43 @@
 									</div>
 								</div>
 								<!-- /row -->
+								<!-- /row -->
+								<div class="row">
+									<div class="col-md-12">
+										<select class="form-control sel-clinic"  required>
+											<option value=""disabled selected>How many Clinics?</option>
+											<option value="1">1</option>
+											<option value="2">2</option>
+											<option value="3">3</option>
+											<option value="4">4</option>
+											<option value="5">5</option>
+											<option value="6">6</option>
+											<option value="7">7</option>
+											<option value="8">8</option>
+											<option value="9">9</option>
+											<option value="10">10</option>
+										</select>
+									</div>
+									<!-- <div class="col-md-6">
+										<div class="form-group">
+											<select class="form-control sel-prov" required>
+												<option value="" disabled selected>Province</option>
+											</select>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<select class="form-control sel-city" disabled required>
+												<option value=""disabled selected>City</option>
+											</select>
+										</div>
+									</div> -->
+								</div>
+								<!-- /row -->
+								<div class="clinics">
+									<div class="form-group clinics-inner">
+									</div>
+								</div>
 								<div class="row">
 									<div class="col-md-6">
 										<div class="form-group">
@@ -228,6 +276,20 @@
 			}
     	});
     });
+	
+	$('.sel-clinic').on("change",function(){
+		var num = this.value;
+		$(".clinics-inner").html("");
+		for (i = 0; i < num; i++) { 
+			$(".clinics-inner").append("</br>");
+			$(".clinics-inner").append("<div class='row'><div class='col-md-6'><input type='text' class='form-control x"+i+"' placeholder='COORDINATE X' required></div><div class='col-md-6'><input type='text' class='form-control y"+num+"' placeholder='COORDINATE Y' required></div></div>");
+			$(".clinics-inner").append("<div class='row'><div class='col-md-12'><input type='text' class='form-control clin_name"+i+"' placeholder='Clinic Name "+(i+1)+"'></div></div>");
+			$(".clinics-inner").append("<div class='row'><div class='col-md-12'><input type='text' class='form-control clin_adderss"+i+"' placeholder='Clinic Address "+(i+1)+"'></div></div>");
+			$(".clinics-inner").append("<div class='row'><div class='col-md-6'><input type='time' class='form-control timestart"+i+"' required value='12:00' required></div><div class='col-md-6'><input type='time' class='form-control timeend"+num+"' required value='12:00' required></div></div>");
+			$(".clinics-inner").append("</br>");
+		}
+	});
+
 	$('.sel-prov').on("change",function(){
 		var provCode = this.value;
 		$('.sel-city').find('option')
@@ -269,6 +331,7 @@
 				dpass:$('#password').val(),
 				demail:$('#demail').val(),
 				dspecial:$('.sel-special').val(),
+				dgender:$('.sel-gender').val(),
 				ccode:$('.sel-city').val(),
 				pcode: $('.sel-prov').val()
 			},

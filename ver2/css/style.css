@@ -3886,3 +3886,10 @@ ul#cat_nav li:last-child a#active,ul#cat_nav li:last-child a.active,ul#cat_nav l
     color:#ff0000
 }
  
+::-webkit-datetime-edit-second-field {
+    background: white;
+    color: transparent;
+    margin-left: -3px;
+    position: absolute;
+    width: 1px;
+  }
