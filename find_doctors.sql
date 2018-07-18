@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 16, 2018 at 06:41 PM
+-- Generation Time: Jul 18, 2018 at 07:50 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 7.0.6
 
@@ -23,31 +23,94 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `booking_list`
+--
+
+CREATE TABLE `booking_list` (
+  `booking_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `doctor_id` int(11) NOT NULL,
+  `book_date` date DEFAULT NULL,
+  `book_time` varchar(8) NOT NULL,
+  `book_stat` int(3) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `clinic`
+--
+
+CREATE TABLE `clinic` (
+  `clinic_id` int(11) NOT NULL,
+  `clinic_name` varchar(300) NOT NULL,
+  `coordinates_x` float NOT NULL,
+  `coordinates_y` float NOT NULL,
+  `clinic_address` varchar(300) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `clinic`
+--
+
+INSERT INTO `clinic` (`clinic_id`, `clinic_name`, `coordinates_x`, `coordinates_y`, `clinic_address`) VALUES
+(1, 'qweqw', 1, 2, 'ewqe'),
+(2, 'eewqw', 3, 3, 'eeqe'),
+(3, 'SOMETHING', 5, 6, 'WQEQWEWQEQW'),
+(4, 'WEQWEE', 3, 3, 'EEEEEEEEEEEEEE'),
+(5, 'WEWEWQQ', 45, 5, 'EWQQQQQQQ'),
+(6, 'qweqw', 1, 2, 'ewqe'),
+(7, 'eewqw', 3, 3, 'eeqe');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `doctors`
 --
 
 CREATE TABLE `doctors` (
   `doctor_id` int(11) NOT NULL,
-  `doc_fname` varchar(250) DEFAULT NULL,
-  `doc_mname` varchar(250) DEFAULT NULL,
-  `doc_lname` varchar(250) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
   `doc_specialization` enum('PEDIATRICIAN','NEPHROLOGIST','CARDIOLOGIST','ALLERGIST','ANESTHESIOLOGIST','DERMATOLOGIST','GASTROENTEROLOGIST','HEMATOLOGIST','INTERNAL MEDICINE PHYSICIAN','NEUROLOGIST','NEUROSURGEON','OBSTETRICIAN','GYNECOLOGIST','NURSE-MIDWIFERY','OCCUPATIONAL PHYSICIAN','OPHTHALMOLOGIST','ORAL AND MAXILOFACIAL SURGEON','PATHOLOGIST','PLASTIC SURGEON','PODIATRIST','PSYCHIATRIST','PULMONARY MEDICINE PHYSICIAN','RADIATION ONCONLOGIST','DIAGNOSTIC RADIOLOGIST','RHEUMATOLOGIST','UROLOGIST') DEFAULT NULL,
-  `doc_city` int(11) DEFAULT NULL,
-  `doc_province` int(11) DEFAULT NULL,
-  `doc_mobile` varchar(13) DEFAULT 'NA',
-  `doc_officeno` varchar(12) DEFAULT 'NA',
-  `doc_email` varchar(250) DEFAULT 'NA',
-  `doc_user` varchar(60) NOT NULL,
-  `doc_pass` varchar(300) NOT NULL,
-  `doc_stat` int(11) NOT NULL
+  `medical_license` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `doctors`
 --
 
-INSERT INTO `doctors` (`doctor_id`, `doc_fname`, `doc_mname`, `doc_lname`, `doc_specialization`, `doc_city`, `doc_province`, `doc_mobile`, `doc_officeno`, `doc_email`, `doc_user`, `doc_pass`, `doc_stat`) VALUES
-(1, 'Joshua', 'Lacaba', 'Lee', 'NEPHROLOGIST', 72230, 722, '09159863138', '5050812', 'joshua.lee@gmail.com', 'doc1', '123', 1);
+INSERT INTO `doctors` (`doctor_id`, `user_id`, `doc_specialization`, `medical_license`) VALUES
+(2, 92, '', 2147483647),
+(3, 93, 'HEMATOLOGIST', 2147483647),
+(4, 92, '', 2147483647);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `location_clinic`
+--
+
+CREATE TABLE `location_clinic` (
+  `location_id` int(11) NOT NULL,
+  `clinic_id` int(11) NOT NULL,
+  `doctor_id` int(11) NOT NULL,
+  `schedule_start` varchar(8) NOT NULL,
+  `schedule_end` varchar(8) NOT NULL,
+  `schedule_type` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `location_clinic`
+--
+
+INSERT INTO `location_clinic` (`location_id`, `clinic_id`, `doctor_id`, `schedule_start`, `schedule_end`, `schedule_type`) VALUES
+(1, 1, 2, '12:00', '13:00', 1),
+(2, 2, 2, '12:00', '13:00', 1),
+(3, 3, 3, '08:00', '14:00', 1),
+(4, 4, 3, '08:00', '18:00', 1),
+(5, 5, 3, '07:00', '18:05', 1),
+(6, 6, 2, '12:00', '13:00', 1),
+(7, 7, 2, '12:00', '13:00', 1);
 
 -- --------------------------------------------------------
 
@@ -1837,15 +1900,58 @@ CREATE TABLE `specialization` (
   `specialization` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `user_id` int(11) NOT NULL,
+  `user_firstn` varchar(150) NOT NULL,
+  `user_middlen` varchar(150) NOT NULL,
+  `user_lastn` varchar(150) NOT NULL,
+  `user_gender` tinyint(1) NOT NULL,
+  `user_level` int(3) NOT NULL,
+  `username` varchar(60) NOT NULL,
+  `user_email` varchar(300) NOT NULL,
+  `user_province` int(150) NOT NULL,
+  `user_city` varchar(150) NOT NULL,
+  `user_mobile` varchar(15) NOT NULL,
+  `user_tele` varchar(15) NOT NULL,
+  `user_password` varchar(60) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`user_id`, `user_firstn`, `user_middlen`, `user_lastn`, `user_gender`, `user_level`, `username`, `user_email`, `user_province`, `user_city`, `user_mobile`, `user_tele`, `user_password`) VALUES
+(92, 'name', 'lee', 'eqw', 0, 1, 'test', 'joshua.l@gmail.com', 0, 'CEBU', '09151454', '50505815', '123'),
+(93, 'Joshua', 'la', 'Lee', 1, 1, 'regretzzz', 'joshua.lee@gmail.com', 1602, '160201', '09159831386', '5050812', '321'),
+(94, 'name', 'lee', 'eqw', 0, 1, 'test', 'joshua.l@gmail.com', 0, 'CEBU', '09151454', '50505815', '123');
+
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `clinic`
+--
+ALTER TABLE `clinic`
+  ADD PRIMARY KEY (`clinic_id`);
 
 --
 -- Indexes for table `doctors`
 --
 ALTER TABLE `doctors`
   ADD PRIMARY KEY (`doctor_id`);
+
+--
+-- Indexes for table `location_clinic`
+--
+ALTER TABLE `location_clinic`
+  ADD PRIMARY KEY (`location_id`);
 
 --
 -- Indexes for table `refcity`
@@ -1860,14 +1966,30 @@ ALTER TABLE `refprovince`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`user_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
+-- AUTO_INCREMENT for table `clinic`
+--
+ALTER TABLE `clinic`
+  MODIFY `clinic_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+--
 -- AUTO_INCREMENT for table `doctors`
 --
 ALTER TABLE `doctors`
-  MODIFY `doctor_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `doctor_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `location_clinic`
+--
+ALTER TABLE `location_clinic`
+  MODIFY `location_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `refcity`
 --
@@ -1878,6 +2000,11 @@ ALTER TABLE `refcity`
 --
 ALTER TABLE `refprovince`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
