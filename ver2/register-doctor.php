@@ -134,6 +134,13 @@
 										</div>
 									</div>
 								</div>
+								<div class="row">
+									<div class="col-md-12 ">
+										<div class="form-group">
+											<input id="license" type="text" class="form-control" placeholder="Medical License" required>
+										</div>
+									</div>
+								</div>
 								<!-- /row -->
 								<!-- /row -->
 								<div class="row">
@@ -282,10 +289,10 @@
 		$(".clinics-inner").html("");
 		for (i = 0; i < num; i++) { 
 			$(".clinics-inner").append("</br>");
-			$(".clinics-inner").append("<div class='row'><div class='col-md-6'><input type='text' class='form-control x"+i+"' placeholder='COORDINATE X' required></div><div class='col-md-6'><input type='text' class='form-control y"+num+"' placeholder='COORDINATE Y' required></div></div>");
+			$(".clinics-inner").append("<div class='row'><div class='col-md-6'><input type='text' class='form-control x"+i+"' placeholder='COORDINATE X' required></div><div class='col-md-6'><input type='text' class='form-control y"+i+"' placeholder='COORDINATE Y' required></div></div>");
 			$(".clinics-inner").append("<div class='row'><div class='col-md-12'><input type='text' class='form-control clin_name"+i+"' placeholder='Clinic Name "+(i+1)+"'></div></div>");
 			$(".clinics-inner").append("<div class='row'><div class='col-md-12'><input type='text' class='form-control clin_adderss"+i+"' placeholder='Clinic Address "+(i+1)+"'></div></div>");
-			$(".clinics-inner").append("<div class='row'><div class='col-md-6'><input type='time' class='form-control timestart"+i+"' required value='12:00' required></div><div class='col-md-6'><input type='time' class='form-control timeend"+num+"' required value='12:00' required></div></div>");
+			$(".clinics-inner").append("<div class='row'><div class='col-md-6'><input type='time' class='form-control timestart"+i+"' required value='12:00' required></div><div class='col-md-6'><input type='time' class='form-control timeend"+i+"' required value='12:00' required></div></div>");
 			$(".clinics-inner").append("</br>");
 		}
 	});
@@ -316,6 +323,20 @@
 		$( ".sel-city" ).prop( "disabled", false );
 	});
 	$( ".sub" ).on("click",function(){
+		var len = $('.sel-clinic').val();
+		var jsonObject = [];
+		for(var i = 0; i < len ; i++){
+			var item = {};
+			item['x']= $('.x'+i).val();
+			item['y']= $('.y'+i).val();
+			item['clinname']= $('.clin_name'+i).val();
+			item['clinaddress']= $('.clin_adderss'+i).val(); 
+			item['clinfrom']= $('.timestart'+i).val();
+			item['clinto']= $('.timeend'+i).val();
+
+			jsonObject.push(item);
+		}
+		console.log(jsonObject);
 		$.ajax({
 			url: "create/createDoctor.php",
 			type: 'POST',
@@ -333,7 +354,9 @@
 				dspecial:$('.sel-special').val(),
 				dgender:$('.sel-gender').val(),
 				ccode:$('.sel-city').val(),
-				pcode: $('.sel-prov').val()
+				pcode: $('.sel-prov').val(),
+				clinics: JSON.stringify(jsonObject),
+				medli: $('#license').val()
 			},
 			success: function(res) {
 				if(res[0]== 1){
@@ -342,6 +365,9 @@
 					alert("ERROR");
 				}else if(res[0] == 0){
 					alert("USER EXISTED");
+				}
+				else if(res[0] == 3){
+					alert("DATA ERROR");
 				}
 				alert(res);
 			}
