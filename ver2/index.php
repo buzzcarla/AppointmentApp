@@ -27,10 +27,10 @@
 				<p>
 					Lorem ipsum dolor sit amet, novum assentior contentiones nec et, ius putent scripserit ne.
 				</p>
-				<form method="post">
+				<form method="GET" action="list-map.php">
 					<div id="custom-search-input">
 						<div class="input-group">
-							<input type="text" class=" search-query" placeholder="Ex. Name, Specialization ....">
+							<input type="text" name="search" class=" search-query" placeholder="Ex. Name, Specialization ....">
 							<input type="submit" class="btn_search" value="Search">
 						</div>
 						<ul>

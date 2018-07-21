@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php 
+	require_once('connect.php');
 
+	
+	$searchname = $_GET['search'];
+	$radiosearch= $_GET['radio_search'];					
+	
+	
+	
+?>
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -37,11 +46,26 @@
 
 <body>
 
-	<div id="preloader" class="Fixed">
-		<div data-loader="circle-side"></div>
-	</div>
-	<!-- /Preload-->
 	
+	<!-- /Preload-->
+	<?php 
+				if($radiosearch == "clinic"){
+					$query = "SELECT * FROM clinic 
+							  WHERE clinic_name='".$searchname."'";
+			
+					$res = mysqli_query($mysql,$query);
+					if($res){
+						while($row = mysqli_fetch_array($res)) {
+							echo '<div class="row" >CLINIC NAME:'.$row[1].'</div>';
+							echo '<div class="row" >CLINIC X:'.$row[2].'</div>';
+							echo '<div class="row" >CLINIC Y:'.$row[3].'</div>';
+							echo '<div class="row" >CLINIC ADDRESS:'.$row[4].'</div>';
+						  }
+					} else {
+						echo '<div class="row" ><h1>FOUND NONE</h1></div>';
+					}
+				}
+			?>
 
 	<div id="page">		
 	
@@ -55,6 +79,7 @@
 		</a>
 		<!-- /btn_mobile-->
 		<div class="container">
+			
 			<div class="row">
 				<div class="col-lg-3 col-6">
 					<div id="logo_home">

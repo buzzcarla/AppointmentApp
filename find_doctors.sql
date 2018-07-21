@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 18, 2018 at 07:50 PM
+-- Generation Time: Jul 21, 2018 at 09:08 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 7.0.6
 
@@ -71,7 +71,7 @@ INSERT INTO `clinic` (`clinic_id`, `clinic_name`, `coordinates_x`, `coordinates_
 CREATE TABLE `doctors` (
   `doctor_id` int(11) NOT NULL,
   `user_id` int(11) DEFAULT NULL,
-  `doc_specialization` enum('PEDIATRICIAN','NEPHROLOGIST','CARDIOLOGIST','ALLERGIST','ANESTHESIOLOGIST','DERMATOLOGIST','GASTROENTEROLOGIST','HEMATOLOGIST','INTERNAL MEDICINE PHYSICIAN','NEUROLOGIST','NEUROSURGEON','OBSTETRICIAN','GYNECOLOGIST','NURSE-MIDWIFERY','OCCUPATIONAL PHYSICIAN','OPHTHALMOLOGIST','ORAL AND MAXILOFACIAL SURGEON','PATHOLOGIST','PLASTIC SURGEON','PODIATRIST','PSYCHIATRIST','PULMONARY MEDICINE PHYSICIAN','RADIATION ONCONLOGIST','DIAGNOSTIC RADIOLOGIST','RHEUMATOLOGIST','UROLOGIST') DEFAULT NULL,
+  `doc_specialization` enum('PEDIATRICIAN','','','') DEFAULT NULL,
   `medical_license` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -81,7 +81,7 @@ CREATE TABLE `doctors` (
 
 INSERT INTO `doctors` (`doctor_id`, `user_id`, `doc_specialization`, `medical_license`) VALUES
 (2, 92, '', 2147483647),
-(3, 93, 'HEMATOLOGIST', 2147483647),
+(3, 93, '', 2147483647),
 (4, 92, '', 2147483647);
 
 -- --------------------------------------------------------
