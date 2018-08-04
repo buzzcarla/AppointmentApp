@@ -48,24 +48,7 @@
 
 	
 	<!-- /Preload-->
-	<?php 
-				if($radiosearch == "clinic"){
-					$query = "SELECT * FROM clinic 
-							  WHERE clinic_name='".$searchname."'";
-			
-					$res = mysqli_query($mysql,$query);
-					if($res){
-						while($row = mysqli_fetch_array($res)) {
-							echo '<div class="row" >CLINIC NAME:'.$row[1].'</div>';
-							echo '<div class="row" >CLINIC X:'.$row[2].'</div>';
-							echo '<div class="row" >CLINIC Y:'.$row[3].'</div>';
-							echo '<div class="row" >CLINIC ADDRESS:'.$row[4].'</div>';
-						  }
-					} else {
-						echo '<div class="row" ><h1>FOUND NONE</h1></div>';
-					}
-				}
-			?>
+	
 
 	<div id="page">		
 	
@@ -156,77 +139,60 @@
 					</div>
 					<!-- /filters -->
 				</form>
-
-				<div class="strip_list">
-					<a href="#0" class="wish_bt"></a>
-					<figure>
-						<a href="detail-page.html"><img src="img/doctor_listing_1.jpg" alt=""></a>
-					</figure>
-					<small>Psicologist</small>
-					<h3>Dr. Butcher</h3>
-					<p>Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis persecuti cuodo....</p>
-					<span class="rating"><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i><i class="icon_star"></i> <small>(145)</small></span>
-					<a href="badges.html" data-toggle="tooltip" data-placement="top" data-original-title="Badge Level" class="badge_list_1"><img src="img/badges/badge_1.svg" width="15" height="15" alt=""></a>
-					<ul>
-						<li><a href="#0" onclick="onHtmlClick('Doctors', 0)" class="btn_listing">View on Map</a></li>
-						<li><a href="https://www.google.com/maps/dir//Assistance+%E2%80%93+H%C3%B4pitaux+De+Paris,+3+Avenue+Victoria,+75004+Paris,+Francia/@48.8606548,2.3348734,14z/data=!4m15!1m6!3m5!1s0x0:0xa6a9af76b1e2d899!2sAssistance+%E2%80%93+H%C3%B4pitaux+De+Paris!8m2!3d48.8568376!4d2.3504305!4m7!1m0!1m5!1m1!1s0x47e67031f8c20147:0xa6a9af76b1e2d899!2m2!1d2.3504327!2d48.8568361" target="_blank">Directions</a></li>
-						<li><a href="detail-page.html">Book now</a></li>
-					</ul>
-				</div>
-				<!-- /strip_list -->
-
-				<div class="strip_list">
-					<a href="#0" class="wish_bt"></a>
-					<figure>
-						<a href="detail-page.html"><img src="img/doctor_listing_2.jpg" alt=""></a>
-					</figure>
-					<small>Pediatrician</small>
-					<h3>Dr. Valentine</h3>
-					<p>Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis persecuti cuodo....</p>
-					<span class="rating"><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i><i class="icon_star"></i> <small>(145)</small></span>
-					<a href="badges.html" data-toggle="tooltip" data-placement="top" data-original-title="Badge Level" class="badge_list_1"><img src="img/badges/badge_2.svg" width="15" height="15" alt=""></a>
-					<ul>
-						<li><a href="#0" onclick="onHtmlClick('Doctors', 1)" class="btn_listing">View on Map</a></li>
-						<li><a href="https://www.google.com/maps/dir//Assistance+%E2%80%93+H%C3%B4pitaux+De+Paris,+3+Avenue+Victoria,+75004+Paris,+Francia/@48.8606548,2.3348734,14z/data=!4m15!1m6!3m5!1s0x0:0xa6a9af76b1e2d899!2sAssistance+%E2%80%93+H%C3%B4pitaux+De+Paris!8m2!3d48.8568376!4d2.3504305!4m7!1m0!1m5!1m1!1s0x47e67031f8c20147:0xa6a9af76b1e2d899!2m2!1d2.3504327!2d48.8568361" target="_blank">Directions</a></li>
-						<li><a href="detail-page.html">Book now</a></li>
-					</ul>
-				</div>
-				<!-- /strip_list -->
-
-				<div class="strip_list">
-					<a href="#0" class="wish_bt"></a>
-					<figure>
-						<a href="detail-page.html"><img src="img/doctor_listing_3.jpg" alt=""></a>
-					</figure>
-					<small>Pediatrician</small>
-					<h3>Dr. Bonebrake</h3>
-					<p>Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis persecuti cuodo....</p>
-					<span class="rating"><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i><i class="icon_star"></i> <small>(145)</small></span>
-					<a href="badges.html" data-toggle="tooltip" data-placement="top" data-original-title="Badge Level" class="badge_list_1"><img src="img/badges/badge_3.svg" width="15" height="15" alt=""></a>
-					<ul>
-						<li><a href="#0" onclick="onHtmlClick('Doctors', 2)" class="btn_listing">View on Map</a></li>
-						<li><a href="https://www.google.com/maps/dir//Assistance+%E2%80%93+H%C3%B4pitaux+De+Paris,+3+Avenue+Victoria,+75004+Paris,+Francia/@48.8606548,2.3348734,14z/data=!4m15!1m6!3m5!1s0x0:0xa6a9af76b1e2d899!2sAssistance+%E2%80%93+H%C3%B4pitaux+De+Paris!8m2!3d48.8568376!4d2.3504305!4m7!1m0!1m5!1m1!1s0x47e67031f8c20147:0xa6a9af76b1e2d899!2m2!1d2.3504327!2d48.8568361" target="_blank">Directions</a></li>
-						<li><a href="detail-page.html">Book now</a></li>
-					</ul>
-				</div>
-				<!-- /strip_list -->
-
-				<div class="strip_list">
-					<a href="#0" class="wish_bt"></a>
-					<figure>
-						<a href="detail-page.html"><img src="img/doctor_listing_4.jpg" alt=""></a>
-					</figure>
-					<small>Psicologist</small>
-					<h3>Dr. Everhart</h3>
-					<p>Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis persecuti cuodo....</p>
-					<span class="rating"><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i><i class="icon_star"></i> <small>(145)</small></span>
-					<a href="badges.html" data-toggle="tooltip" data-placement="top" data-original-title="Badge Level" class="badge_list_1"><img src="img/badges/badge_4.svg" width="15" height="15" alt=""></a>
-					<ul>
-						<li><a href="#0" onclick="onHtmlClick('Doctors', 1)" class="btn_listing">View on Map</a></li>
-						<li><a href="https://www.google.com/maps/dir//Assistance+%E2%80%93+H%C3%B4pitaux+De+Paris,+3+Avenue+Victoria,+75004+Paris,+Francia/@48.8606548,2.3348734,14z/data=!4m15!1m6!3m5!1s0x0:0xa6a9af76b1e2d899!2sAssistance+%E2%80%93+H%C3%B4pitaux+De+Paris!8m2!3d48.8568376!4d2.3504305!4m7!1m0!1m5!1m1!1s0x47e67031f8c20147:0xa6a9af76b1e2d899!2m2!1d2.3504327!2d48.8568361" target="_blank">Directions</a></li>
-						<li><a href="detail-page.html">Book now</a></li>
-					</ul>
-				</div>
+				<?php 
+					if($radiosearch == "clinic"){
+						$query = "SELECT * FROM clinic 
+								LEFT JOIN location_clinic ON clinic.clinic_id = location_clinic.clinic_id
+								LEFT JOIN doctors ON location_clinic.doctor_id = doctors.doctor_id
+								LEFT JOIN user ON doctors.user_id = user.user_id
+								WHERE clinic_name LIKE'%".$searchname."%' OR clinic_address LIKE '%".$searchname."%'";
+				
+						$res = mysqli_query($mysql,$query);
+						if($res){
+							while($row = mysqli_fetch_array($res)) {
+								echo '<div class="strip_list">
+								<a href="#0" class="wish_bt"></a>
+								<figure>
+									<a href="detail-page.html"><img src="img/doctor_listing_1.jpg" alt=""></a>
+								</figure>';
+								echo '<small>'.$row[1].'</small>';
+								echo '<h3>Dr.'.$row[4].'</h3>';
+								echo '<ul>
+										<li><a href="#0" onclick="onHtmlClick("Doctors", 2)" class="btn_listing">View on Map</a></li>
+										<li><a href="https://www.google.com/maps/dir//Assistance+%E2%80%93+H%C3%B4pitaux+De+Paris,+3+Avenue+Victoria,+75004+Paris,+Francia/@48.8606548,2.3348734,14z/data=!4m15!1m6!3m5!1s0x0:0xa6a9af76b1e2d899!2sAssistance+%E2%80%93+H%C3%B4pitaux+De+Paris!8m2!3d48.8568376!4d2.3504305!4m7!1m0!1m5!1m1!1s0x47e67031f8c20147:0xa6a9af76b1e2d899!2m2!1d2.3504327!2d48.8568361" target="_blank">Directions</a></li>
+										<li><a href="detail-page.html">Book now</a></li>
+									</ul> </div>';
+							}
+						} else {
+							echo '<div class="row" ><h1>FOUND NONE</h1></div>';
+						}
+					} else if($radiosearch == "doctor"){
+						$query = "SELECT * FROM user 
+								LEFT JOIN doctors on user.user_id = doctors.user_id
+								WHERE CONCAT(user.user_firstn,' ',user.user_lastn) LIKE '%".$searchname."%' AND user.user_level = '1'";
+				
+						$res = mysqli_query($mysql,$query);
+						if($res){
+							while($row = mysqli_fetch_array($res)) {
+								echo '<div class="strip_list">
+								<a href="#0" class="wish_bt"></a>
+								<figure>
+									<a href="detail-page.html"><img src="img/doctor_listing_1.jpg" alt=""></a>
+								</figure>';
+								echo '<small>'.$row[15].'</small>';
+								echo '<h3>Dr.'.$row[3].'</h3>';
+								echo '<ul>
+										<li><a href="#0" onclick="onHtmlClick("Doctors", 2)" class="btn_listing">View on Map</a></li>
+										<li><a href="https://www.google.com/maps/dir//Assistance+%E2%80%93+H%C3%B4pitaux+De+Paris,+3+Avenue+Victoria,+75004+Paris,+Francia/@48.8606548,2.3348734,14z/data=!4m15!1m6!3m5!1s0x0:0xa6a9af76b1e2d899!2sAssistance+%E2%80%93+H%C3%B4pitaux+De+Paris!8m2!3d48.8568376!4d2.3504305!4m7!1m0!1m5!1m1!1s0x47e67031f8c20147:0xa6a9af76b1e2d899!2m2!1d2.3504327!2d48.8568361" target="_blank">Directions</a></li>
+										<li><a href="detail-page.html">Book now</a></li>
+									</ul> </div>';
+							}
+						} else {
+							echo '<div class="row" ><h1>FOUND NONE</h1></div>';
+						}
+					}
+				?>
+				
 				<!-- /strip_list_map -->
 				
 				<p class="text-center add_top_30"><a href="#0"><strong>Load more</strong></a></p>
