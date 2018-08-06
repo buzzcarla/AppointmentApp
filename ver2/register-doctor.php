@@ -47,193 +47,168 @@
 					<!-- /col -->
 					<div class="col-lg-5 ml-auto">
 						<div class="box_form">
-							<form id="doctorform">
-								<div class="row">
-									<div class="col-md-12 ">
-										<div class="form-group">
-											<input id="fname" type="text" class="form-control" placeholder="First Name" required>
+							<!-- Steps form -->
+							<div class="card">
+							    <div class="card-body mb-4">
+
+							        <h2 class="text-center font-weight-bold pt-4 pb-5"><strong>Enter Credentials</strong></h2>
+
+							        <!-- Stepper -->
+							        <div class="steps-form">
+							            <div class="steps-row setup-panel">
+							                <div class="steps-step">
+							                    <a href="#step-9" type="button" class="btn btn-indigo btn-circle" style="background-color: white; border: none;">1</a>
+							                </div>
+							                <div class="steps-step">
+							                    <a href="#step-10" style="background-color: white; border: none;" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
+							                </div>
+							                <div class="steps-step">
+							                    <a href="#step-11" style="background-color: white; border: none;" type="button" class="btn btn-default btn-circle" disabled="disabled">3</a>
+							                </div>
+							            </div>
+							        </div>
+							        <br>
+							        <form role="form" action="" method="post">
+							            <!-- First Step -->
+							            <div class="row setup-content" id="step-9">
+							                <div class="col-md-12">
+							                    <h3 class="font-weight-bold pl-0 my-4"><strong>Basic Information</strong></h3>
+							                    <div class="form-group md-form">
+							                        <label for="yourName" data-error="wrong" data-success="right">First Name</label>
+							                        <input id="fname" type="text" class="form-control validate" placeholder="First Name" required>
+							                    </div>
+							                    <div class="form-group md-form mt-3">
+							                        <label for="yourLastName" data-error="wrong" data-success="right">Middle Name</label>
+							                        <input id="mname" type="text" class="form-control validate" placeholder="Middle Name">
+							                    </div>
+							                    <div class="form-group md-form mt-3">
+							                        <label for="yourLastName" data-error="wrong" data-success="right">Last Name</label>
+							                        <input id="lname" type="text" class="form-control validate" placeholder="Last Name" required>
+							                    </div>
+							                    <div class="form-group md-form mt-3">
+							                        <label for="yourAddress" data-error="wrong" data-success="right">Gender</label>
+							                        <div class="form-group">
+												  <select  class="form-control sel-gender" required>
+												  		<option value=""disabled selected>Gender</option>
+														<option value="1">Male</option>
+														<option value="0">Female</option>
+												  </select>
 										</div>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-md-12 ">
-										<div class="form-group">
-											<input id="mname" type="text" class="form-control" placeholder="Middle Name">
-										</div>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-md-12 ">
-										<div class="form-group">
-											<input id="lname" type="text" class="form-control" placeholder="Last Name" required>
-										</div>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-md-12 ">
-										<div class="form-group">
-										  <select  class="form-control sel-gender" required>
-										  		<option value=""disabled selected>Gender</option>
-												<option value="1">Male</option>
-												<option value="0">Female</option>
-										  </select>
-										</div>
-									</div>
-								</div>
-								<!-- /row -->
-								<div class="row">
-									<div class="col-lg-12">
-										<div class="form-group">
-											<select  class="form-control sel-special" required>
-												<option value=""disabled selected>Specialization</option>
-												<option value="ALLERGIST">Allergist</option>
-												<option value="ANESTHESIOLOGIST">Anesthesiologist </option>
-												<option value="CARDIOLOGIST">Cardiologist  </option>
-												<option value="DERMATOLOGIST">Dermatologist  </option>
-												<option value="GASTROENTEROLOGIST  ">Gastroenterologist  </option>
-												<option value="HEMATOLOGIST">Hematologist </option>
-												<option value="INTERNAL MEDICINE PHYSICIAN">Internal Medicine Physician </option>
-												<option value="NEPHROLOGIST">Nephrologist  </option>
-												<option value="NEUROLOGIST">Neurologist  </option>
-												<option value="NEUROSURGEON">Neurosurgeon  </option>
-												<option value="OBSTETRICIAN">Obstetrician  </option>
-												<option value="GYNECOLOGIST">Gynecologist  </option>
-												<option value="NURSE-MIDWIFERY">Nurse-Midwifery </option>
-												<option value="OCCUPATIONAL MEDICINE PHYSICIAN">Occupational Medicine Physician </option>
-												<option value="OPHTHALMOLOGIST">Ophthalmologist  </option>
-												<option value="ORAL AND MAXILLOFACIAL SURGEON">Oral and Maxillofacial Surgeon </option>
-												<option value="ORTHOPAEDIC SURGEON">Orthopaedic Surgeon </option>
-												<option value="OTOLARYNGOLOGIST">Otolaryngologist  </option>
-												<option value="PATHOLOGIST">Pathologist  </option>
-												<option value="PLASTIC SURGEON">Plastic Surgeon  </option>
-												<option value="PODIATRIST">Podiatrist </option>
-												<option value="PSYCHIATRIST">Psychiatrist </option>
-												<option value="PULMONARY MEDICINE PHYSICIAN">Pulmonary Medicine Physician</option>
-												<option value="RADIATION ONCONLOGIST">Radiation Onconlogist</option>
-												<option value="DIAGNOSTIC RADIOLOGIST">Diagnostic Radiologist</option>
-												<option value="RHEUMATOLOGIST">Rheumatologist</option>
-												<option value="UROLOGIST">Urologist</option>
-											</select>
-										</div>
-									</div>
-								</div>
-								<!-- /row -->
-								<div class="row">
-									<div class="col-md-6">
-										<div class="form-group">
-											<select class="form-control sel-prov" required>
-												<option value="" disabled selected>Province</option>
-											</select>
-										</div>
-									</div>
-									<div class="col-md-6">
-										<div class="form-group">
-											<select class="form-control sel-city" disabled required>
-												<option value=""disabled selected>City</option>
-											</select>
-										</div>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-md-12 ">
-										<div class="form-group">
-											<input id="license" type="text" class="form-control" placeholder="Medical License" required>
-										</div>
-									</div>
-								</div>
-								<!-- /row -->
-								<!-- /row -->
-								<div class="row">
-									<div class="col-md-12">
-										<select class="form-control sel-clinic"  required>
-											<option value=""disabled selected>How many Clinics?</option>
-											<option value="1">1</option>
-											<option value="2">2</option>
-											<option value="3">3</option>
-											<option value="4">4</option>
-											<option value="5">5</option>
-											<option value="6">6</option>
-											<option value="7">7</option>
-											<option value="8">8</option>
-											<option value="9">9</option>
-											<option value="10">10</option>
-										</select>
-									</div>
-									<!-- <div class="col-md-6">
-										<div class="form-group">
-											<select class="form-control sel-prov" required>
-												<option value="" disabled selected>Province</option>
-											</select>
-										</div>
-									</div>
-									<div class="col-md-6">
-										<div class="form-group">
-											<select class="form-control sel-city" disabled required>
-												<option value=""disabled selected>City</option>
-											</select>
-										</div>
-									</div> -->
-								</div>
-								<!-- /row -->
-								<div class="clinics">
-									<div class="form-group clinics-inner">
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-md-6">
-										<div class="form-group">
-											<input id="cnum" type="text" class="form-control" placeholder="Mobile Phone" required>
-										</div>
-									</div>
-									<div class="col-md-6">
-										<div class="form-group">
-											<input id="onum" type="text" class="form-control" placeholder="Office Phone">
-										</div>
-									</div>
-								</div>
-								<!-- /row -->
-								<div class="row">
-									<div class="col-lg-12">
-										<div class="form-group">
-											<input id ="demail" type="email" class="form-control" placeholder="Email Address" required>
-										</div>
-									</div>
-								</div>
-								<!-- /row -->
-								<!-- /row -->
-								<div class="row">
-									<div class="col-lg-12">
-										<div class="form-group">
-											<input id ="username" type="text" class="form-control" placeholder="Username" required>
-										</div>
-									</div>
-								</div>
-								<!-- /row -->
-								<!-- /row -->
-								<div class="row">
-									<div class="col-lg-12">
-										<div class="form-group">
-											<input id ="password" type="password" class="form-control" placeholder="Password" required>
-										</div>
-									</div>
-								</div>
-								<!-- /row -->
-								<div class="row">
-									<div class="col-lg-12">
-										<div class="form-group">
-											<input id ="password" type="password" class="form-control" placeholder="Confirm Password" required>
-										</div>
-									</div>
-								</div>
-								<!-- /row -->
-								<div class="checkbox-holder text-left">
-									<div class="checkbox_2">
-										<input type="checkbox" value="accept_2" id="check_2" name="check_2" checked>
-										<label for="check_2"><span>By clicking submit and signing up to this website, I agree to have read and understood the <a href="#">terms and agreements.</a></span></label>
-									</div>
-								</div>
-								<p class="text-center add_top_30"><input type="button" class="btn_1 sub" value="Submit"></p>
-							</form>
+							                    </div>
+							                    <button class="btn btn-indigo btn-rounded nextBtn float-right" type="button">Next</button>
+							                </div>
+							            </div>
+
+							            <!-- Second Step -->
+							            <div class="row setup-content" id="step-10">
+							                <div class="col-md-12">
+							                    <h3 class="font-weight-bold pl-0 my-4"><strong>Work Information</strong></h3>
+							                    <div class="form-group md-form">
+							                        <label for="companyName" data-error="wrong" data-success="right">Specialization</label>
+							                        <div class="form-group">
+													<select  class="form-control sel-special" required>
+														<option value=""disabled selected>Specialization</option>
+														<option value="ALLERGIST">Allergist</option>
+														<option value="ANESTHESIOLOGIST">Anesthesiologist </option>
+														<option value="CARDIOLOGIST">Cardiologist  </option>
+														<option value="DERMATOLOGIST">Dermatologist  </option>
+														<option value="GASTROENTEROLOGIST  ">Gastroenterologist  </option>
+														<option value="HEMATOLOGIST">Hematologist </option>
+														<option value="INTERNAL MEDICINE PHYSICIAN">Internal Medicine Physician </option>
+														<option value="NEPHROLOGIST">Nephrologist  </option>
+														<option value="NEUROLOGIST">Neurologist  </option>
+														<option value="NEUROSURGEON">Neurosurgeon  </option>
+														<option value="OBSTETRICIAN">Obstetrician  </option>
+														<option value="GYNECOLOGIST">Gynecologist  </option>
+														<option value="NURSE-MIDWIFERY">Nurse-Midwifery </option>
+														<option value="OCCUPATIONAL MEDICINE PHYSICIAN">Occupational Medicine Physician </option>
+														<option value="OPHTHALMOLOGIST">Ophthalmologist  </option>
+														<option value="ORAL AND MAXILLOFACIAL SURGEON">Oral and Maxillofacial Surgeon </option>
+														<option value="ORTHOPAEDIC SURGEON">Orthopaedic Surgeon </option>
+														<option value="OTOLARYNGOLOGIST">Otolaryngologist  </option>
+														<option value="PATHOLOGIST">Pathologist  </option>
+														<option value="PLASTIC SURGEON">Plastic Surgeon  </option>
+														<option value="PODIATRIST">Podiatrist </option>
+														<option value="PSYCHIATRIST">Psychiatrist </option>
+														<option value="PULMONARY MEDICINE PHYSICIAN">Pulmonary Medicine Physician</option>
+														<option value="RADIATION ONCONLOGIST">Radiation Onconlogist</option>
+														<option value="DIAGNOSTIC RADIOLOGIST">Diagnostic Radiologist</option>
+														<option value="RHEUMATOLOGIST">Rheumatologist</option>
+														<option value="UROLOGIST">Urologist</option>
+													</select>
+													</div>
+							                    </div>
+							                    <div class="form-group md-form mt-3">
+							                        <label for="companyAddress" data-error="wrong" data-success="right">Province</label>
+							                        <select class="form-control sel-prov" required>
+														<option value="" disabled selected>Province</option>
+													</select>
+							                    </div>
+							                    <div class="form-group md-form mt-3">
+							                        <label for="companyAddress" data-error="wrong" data-success="right">City</label>
+							                        <select class="form-control sel-city" disabled required>
+														<option value=""disabled selected>City</option>
+													</select>
+							                    </div>
+							                    <div class="form-group md-form mt-3">
+							                        <label for="companyAddress" data-error="wrong" data-success="right">Medical License</label>
+							                        <input id="license" type="text" class="form-control" placeholder="Medical License" required>
+							                    </div>
+							                    <button class="btn btn-indigo btn-rounded prevBtn float-left" type="button">Previous</button>
+							                    <button class="btn btn-indigo btn-rounded nextBtn float-right" type="button">Next</button>
+							                </div>
+							            </div>
+
+							            <!-- Third Step -->
+							            <div class="row setup-content" id="step-11">
+							                <div class="col-md-12">
+							                    <h3 class="font-weight-bold pl-0 my-4"><strong>Contact Information</strong></h3>
+
+							                    <div class="form-group md-form mt-3">
+							                        <label for="companyAddress" data-error="wrong" data-success="right">Mobile Phone</label>
+							                        <input id="cnum" type="text" class="form-control" placeholder="Mobile Phone" required>
+							                    </div>
+							                    <div class="form-group md-form mt-3">
+							                        <label for="companyAddress" data-error="wrong" data-success="right">Office Phone</label>
+							                        <input id="onum" type="text" class="form-control" placeholder="Office Phone">
+							                    </div>
+							                    <div class="form-group md-form mt-3">
+							                        <label for="companyAddress" data-error="wrong" data-success="right">E-mail Address</label>
+							                        <input id ="demail" type="email" class="form-control" placeholder="Email Address" required>
+							                    </div>
+							                    <div class="form-group md-form mt-3">
+							                        <label for="companyAddress" data-error="wrong" data-success="right">Username</label>
+							                        <input id ="username" type="text" class="form-control" placeholder="Username" required>
+							                    </div>
+							                    <div class="form-group md-form mt-3">
+							                        <label for="companyAddress" data-error="wrong" data-success="right">Password</label>
+							                        <input id ="password" type="password" class="form-control" placeholder="Password" required>
+							                    </div>
+							                    <div class="form-group md-form mt-3">
+							                        <label for="companyAddress" data-error="wrong" data-success="right">Confirm Password</label>
+							                        <input id ="password" type="password" class="form-control" placeholder="Confirm Password" required>
+							                    </div>
+
+							                    <div class="checkbox-holder text-left">
+													<div class="checkbox_2">
+														<input type="checkbox" value="accept_2" id="check_2" name="check_2" checked>
+														<label for="check_2"><span>By clicking submit and signing up to this website, I agree to have read and understood the <a href="#">terms and agreements.</a></span></label>
+													</div>
+												</div>
+												<br>
+							                    <button class="btn btn-indigo btn-rounded prevBtn float-left" type="button">Previous</button>
+							                    <button class="btn btn-default btn-rounded float-right" type="submit">Submit</button>
+							                </div>
+							            </div>
+
+							        </form>
+
+							    </div>
+							</div>
+							<!-- Steps form -->
+
+
+						
 						</div>
 						<!-- /box_form -->
 					</div>
@@ -373,5 +348,57 @@
 			}
     	});
 	});
+
+	$(document).ready(function () {
+    var navListItems = $('div.setup-panel div a'),
+        allWells = $('.setup-content'),
+        allNextBtn = $('.nextBtn'),
+        allPrevBtn = $('.prevBtn');
+
+    allWells.hide();
+
+    navListItems.click(function (e) {
+        e.preventDefault();
+        var $target = $($(this).attr('href')),
+            $item = $(this);
+
+        if (!$item.hasClass('disabled')) {
+            navListItems.removeClass('btn-indigo').addClass('btn-default');
+            $item.addClass('btn-indigo');
+            allWells.hide();
+            $target.show();
+            $target.find('input:eq(0)').focus();
+        }
+    });
+
+    allPrevBtn.click(function(){
+        var curStep = $(this).closest(".setup-content"),
+            curStepBtn = curStep.attr("id"),
+            prevStepSteps = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().prev().children("a");
+
+            prevStepSteps.removeAttr('disabled').trigger('click');
+    });
+
+    allNextBtn.click(function(){
+        var curStep = $(this).closest(".setup-content"),
+            curStepBtn = curStep.attr("id"),
+            nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
+            curInputs = curStep.find("input[type='text'],input[type='url']"),
+            isValid = true;
+
+        $(".form-group").removeClass("has-error");
+        for(var i=0; i< curInputs.length; i++){
+            if (!curInputs[i].validity.valid){
+                isValid = false;
+                $(curInputs[i]).closest(".form-group").addClass("has-error");
+            }
+        }
+
+        if (isValid)
+            nextStepWizard.removeAttr('disabled').trigger('click');
+    });
+
+    $('div.setup-panel div a.btn-indigo').trigger('click');
+});
 	
 </script>
