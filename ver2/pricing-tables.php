@@ -267,7 +267,7 @@
 			<div class="row">
 				<div class="col-lg-3 col-md-12">
 					<p>
-						<a href="index.html" title="Findoctor">
+						<a href="index.php" title="Findoctor">
 							<img src="img/icon.png" data-retina="true" alt="" width="163" height="36" class="img-fluid">
 						</a>
 					</p>
