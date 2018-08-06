@@ -2,7 +2,6 @@
 <html lang="en">
 <?php 
 	require_once('connect.php');
-
 	
 	$searchname = $_GET['search'];
 	$radiosearch= $_GET['radio_search'];					
@@ -66,7 +65,7 @@
 			<div class="row">
 				<div class="col-lg-3 col-6">
 					<div id="logo_home">
-						<h1><a href="index.html" title="Findoctor">Finding Doctors</a></h1>
+						<h1><a href="index.php" title="Findoctor">Finding Doctors</a></h1>
 					</div>
 				</div>
 				<div class="col-lg-9 col-6">
@@ -77,7 +76,7 @@
 					<nav id="menu" class="main-menu">
 						<ul>
 							<li>
-								<span><a href="index.html">Home</a></span>
+								<span><a href="index.php">Home</a></span>
 							</li>
 							<li>
 								<span><a href="#0">Register</a></span>
