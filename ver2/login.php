@@ -50,7 +50,7 @@
 							</div>
 						</div>
 					</form>
-					<p class="text-center link_bright">Do not have an account yet? <a href="#0"><strong>Register now!</strong></a></p>
+					<p style="text-align: -webkit-center;" class="text-center link_bright">Do not have an account yet? <a href="#0"><strong>Register now!</strong></a></p>
 				</div>
 				<!-- /login -->
 			</div>

@@ -114,7 +114,7 @@
 										<label for="check_2"><span>By clicking submit and signing up to this website, I agree to have read and understood the <a href="#">terms and agreements.</a></span></label>
 									</div>
 								</div>
-								<p class="text-center add_top_30"><input type="button" class="btn_1 sub" value="Submit"></p>
+								<p class="text-center index.php"><input type="button" class="btn_1 sub" value="Submit"></p>
 							</form>
 						</div>
 						<!-- /box_form -->
