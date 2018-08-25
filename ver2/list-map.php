@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php 
+<!-- <?php 
 	require_once('connect.php');
 	
 	$searchname = $_GET['search'];
 	$radiosearch= $_GET['radio_search'];					
 	
-	
-	
-?>
+?> -->
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
