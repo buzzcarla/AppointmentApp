@@ -2265,7 +2265,7 @@ a.wish_bt:hover:after{
     color:#74d1c6
 }
 #breadcrumb ul li:after{
-    content:"\e9ee";
+    /*content:"\e9ee";*/
     font-family:fontello;
     position:absolute;
     right:0;
