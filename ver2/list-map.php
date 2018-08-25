@@ -159,7 +159,7 @@
 				<div class="strip_list">
 					<a href="#0" class="wish_bt"></a>
 					<figure>
-						<a href="detail-page.html"><img src="img/doctor_listing_1.jpg" alt=""></a>
+						<a href="detail-page-2.html"><img src="img/doctor_listing_1.jpg" alt=""></a>
 					</figure>
 					<small>Psicologist</small>
 					<h3>Dr. Butcher</h3>
@@ -169,7 +169,7 @@
 					<ul>
 						<li><a href="#0" onclick="onHtmlClick('Doctors', 0)" class="btn_listing">View on Map</a></li>
 						<li><a href="https://www.google.com/maps/dir//Assistance+%E2%80%93+H%C3%B4pitaux+De+Paris,+3+Avenue+Victoria,+75004+Paris,+Francia/@48.8606548,2.3348734,14z/data=!4m15!1m6!3m5!1s0x0:0xa6a9af76b1e2d899!2sAssistance+%E2%80%93+H%C3%B4pitaux+De+Paris!8m2!3d48.8568376!4d2.3504305!4m7!1m0!1m5!1m1!1s0x47e67031f8c20147:0xa6a9af76b1e2d899!2m2!1d2.3504327!2d48.8568361" target="_blank">Directions</a></li>
-						<li><a href="detail-page.html">Book now</a></li>
+						<li><a href="detail-page-2.html">Book now</a></li>
 					</ul>
 				</div>
 				<!-- /strip_list -->
@@ -177,7 +177,7 @@
 				<div class="strip_list">
 					<a href="#0" class="wish_bt"></a>
 					<figure>
-						<a href="detail-page.html"><img src="img/doctor_listing_2.jpg" alt=""></a>
+						<a href="detail-page-2.html"><img src="img/doctor_listing_2.jpg" alt=""></a>
 					</figure>
 					<small>Pediatrician</small>
 					<h3>Dr. Valentine</h3>
@@ -187,7 +187,7 @@
 					<ul>
 						<li><a href="#0" onclick="onHtmlClick('Doctors', 1)" class="btn_listing">View on Map</a></li>
 						<li><a href="https://www.google.com/maps/dir//Assistance+%E2%80%93+H%C3%B4pitaux+De+Paris,+3+Avenue+Victoria,+75004+Paris,+Francia/@48.8606548,2.3348734,14z/data=!4m15!1m6!3m5!1s0x0:0xa6a9af76b1e2d899!2sAssistance+%E2%80%93+H%C3%B4pitaux+De+Paris!8m2!3d48.8568376!4d2.3504305!4m7!1m0!1m5!1m1!1s0x47e67031f8c20147:0xa6a9af76b1e2d899!2m2!1d2.3504327!2d48.8568361" target="_blank">Directions</a></li>
-						<li><a href="detail-page.html">Book now</a></li>
+						<li><a href="detail-page-2.html">Book now</a></li>
 					</ul>
 				</div>
 				<!-- /strip_list -->
@@ -195,7 +195,7 @@
 				<div class="strip_list">
 					<a href="#0" class="wish_bt"></a>
 					<figure>
-						<a href="detail-page.html"><img src="img/doctor_listing_3.jpg" alt=""></a>
+						<a href="detail-page-2.html"><img src="img/doctor_listing_3.jpg" alt=""></a>
 					</figure>
 					<small>Pediatrician</small>
 					<h3>Dr. Bonebrake</h3>
@@ -205,7 +205,7 @@
 					<ul>
 						<li><a href="#0" onclick="onHtmlClick('Doctors', 2)" class="btn_listing">View on Map</a></li>
 						<li><a href="https://www.google.com/maps/dir//Assistance+%E2%80%93+H%C3%B4pitaux+De+Paris,+3+Avenue+Victoria,+75004+Paris,+Francia/@48.8606548,2.3348734,14z/data=!4m15!1m6!3m5!1s0x0:0xa6a9af76b1e2d899!2sAssistance+%E2%80%93+H%C3%B4pitaux+De+Paris!8m2!3d48.8568376!4d2.3504305!4m7!1m0!1m5!1m1!1s0x47e67031f8c20147:0xa6a9af76b1e2d899!2m2!1d2.3504327!2d48.8568361" target="_blank">Directions</a></li>
-						<li><a href="detail-page.html">Book now</a></li>
+						<li><a href="detail-page-2.html">Book now</a></li>
 					</ul>
 				</div>
 				<!-- /strip_list -->
@@ -213,7 +213,7 @@
 				<div class="strip_list">
 					<a href="#0" class="wish_bt"></a>
 					<figure>
-						<a href="detail-page.html"><img src="img/doctor_listing_4.jpg" alt=""></a>
+						<a href="detail-page-2.html"><img src="img/doctor_listing_4.jpg" alt=""></a>
 					</figure>
 					<small>Psicologist</small>
 					<h3>Dr. Everhart</h3>
@@ -223,7 +223,7 @@
 					<ul>
 						<li><a href="#0" onclick="onHtmlClick('Doctors', 1)" class="btn_listing">View on Map</a></li>
 						<li><a href="https://www.google.com/maps/dir//Assistance+%E2%80%93+H%C3%B4pitaux+De+Paris,+3+Avenue+Victoria,+75004+Paris,+Francia/@48.8606548,2.3348734,14z/data=!4m15!1m6!3m5!1s0x0:0xa6a9af76b1e2d899!2sAssistance+%E2%80%93+H%C3%B4pitaux+De+Paris!8m2!3d48.8568376!4d2.3504305!4m7!1m0!1m5!1m1!1s0x47e67031f8c20147:0xa6a9af76b1e2d899!2m2!1d2.3504327!2d48.8568361" target="_blank">Directions</a></li>
-						<li><a href="detail-page.html">Book now</a></li>
+						<li><a href="detail-page-2.html">Book now</a></li>
 					</ul>
 				</div>
 				<!-- /strip_list_map -->
