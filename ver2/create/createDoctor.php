@@ -16,13 +16,13 @@
         $gender = $_POST['dgender'];
         $province = $_POST['pcode'];
         $specialization = $_POST['dspecial'];
-		$query = "SELECT * FROM user WHERE username=".$username." OR (user_firstn =".$first." AND user_middlen =".$middle." AND user_lastn =".$last.")";
+		$query = "SELECT * FROM user WHERE username=".$username." OR (user_firstn =".$first." AND user_middlen =".$middle." AND user_lastn =".$last.") OR user_email ='".$email."'";
 		$clinicarr = json_decode($_POST['clinics']);
         $license = $_POST['medli'];
 		$result = mysqli_query($mysql,$query);
 
 		if ($result){
-			echo json_encode("0");
+			echo json_encode($result);
 		}else{
             $query = "INSERT INTO `user`(`user_id`, `user_firstn`, `user_middlen`, `user_lastn`, `user_gender`, `user_level`, `username`, 
             `user_email`, `user_province`, `user_city`, `user_mobile`, `user_tele`, `user_password`) 
@@ -63,7 +63,7 @@
                         echo json_encode("2");
                     }
                 } else {
-                    echo json_encode($row[0]);
+                    echo json_encode("2");
                 }
 			
 			} else {

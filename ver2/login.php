@@ -83,7 +83,7 @@
 		$('.loginbut').on("click",function(){
 			$.ajax({
 				url: "requests/getUserOrDoctor.php",
-				type: 'GET',
+				type: 'POST',
 				dataType: 'text json', // added data type
 				data: {
 						user:$('.user').val(),
@@ -91,11 +91,9 @@
 					  },
 				success: function(res) {
 					console.log(res);
-					if(res == 3){
+					if(res == 3 || res == 2){
 						alert("LOGIN FAILED");
-					} else if(res == 2) {
-						
-					} else {
+					}  else {
 						alert("LOGIN SUCCESFUL")
 						window.location.replace("index.php");
 					}
