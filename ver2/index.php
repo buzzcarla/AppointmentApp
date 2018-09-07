@@ -95,7 +95,7 @@
 				</div>
 				<div id="reccomended" class="owl-carousel owl-theme">
 					<div class="item">
-						<a href="detail-page-2.html">
+						<a href="detail-page-2.php">
 							<div class="views"><i class="icon-eye-7"></i>140</div>
 							<div class="title">
 								<h4>Dr. John Doe<em>Pediatrician - Cardiologist</em></h4>
@@ -103,7 +103,7 @@
 						</a>
 					</div>
 					<div class="item">
-						<a href="detail-page-2.html">
+						<a href="detail-page-2.php">
 							<div class="views"><i class="icon-eye-7"></i>120</div>
 							<div class="title">
 								<h4>Dr. Jane Doe<em>General Practitioner</em></h4>
@@ -111,7 +111,7 @@
 						</a>
 					</div>
 					<div class="item">
-						<a href="detail-page-2.html">
+						<a href="detail-page-2.php">
 							<div class="views"><i class="icon-eye-7"></i>115</div>
 							<div class="title">
 								<h4>Dr. John Smith<em>Family Medicine</em></h4>
@@ -119,7 +119,7 @@
 						</a>
 					</div>
 					<div class="item">
-						<a href="detail-page-2.html">
+						<a href="detail-page-2.php">
 							<div class="views"><i class="icon-eye-7"></i>98</div>
 							<div class="title">
 								<h4>Dr. Juan de la Cruz<em>ENT Specialist</em></h4>
@@ -127,7 +127,7 @@
 						</a>
 					</div>
 					<div class="item">
-						<a href="detail-page-2.html">
+						<a href="detail-page-2.php">
 							<div class="views"><i class="icon-eye-7"></i>98</div>
 							<div class="title">
 								<h4>Dr. Juana de la Cruz<em>ENT Specialist</em></h4>

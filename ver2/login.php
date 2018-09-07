@@ -81,6 +81,7 @@
 <script>
 	$( document ).ready(function() {
 		$('.loginbut').on("click",function(){
+			alert("here");
 			$.ajax({
 				url: "requests/getUserOrDoctor.php",
 				type: 'POST',

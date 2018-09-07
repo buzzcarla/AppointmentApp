@@ -25,24 +25,7 @@
 		<div id="hero_register">
 			<div class="container margin_120_95">			
 				<div class="row">
-					<div class="col-lg-6">
-						<h1>It's time to find you!</h1>
-						<p class="lead">Te pri adhuc simul. No eros errem mea. Diam mandamus has ad. Invenire senserit ad has, has ei quis iudico, ad mei nonumes periculis.</p>
-						<div class="box_feat_2">
-							<i class="pe-7s-map-2"></i>
-							<h3>Let patients to Find you!</h3>
-							<p>Ut nam graece accumsan cotidieque. Has voluptua vivendum accusamus cu. Ut per assueverit temporibus dissentiet.</p>
-						</div>
-						<div class="box_feat_2">
-							<i class="pe-7s-date"></i>
-							<h3>Easly manage Bookings</h3>
-							<p>Has voluptua vivendum accusamus cu. Ut per assueverit temporibus dissentiet. Eum no atqui putant democritum, velit nusquam sententiae vis no.</p>
-						</div>
-						<div class="box_feat_2">
-							<i class="pe-7s-phone"></i>
-							<h3>Instantly via Mobile</h3>
-							<p>Eos eu epicuri eleifend suavitate, te primis placerat suavitate his. Nam ut dico intellegat reprehendunt, everti audiam diceret in pri, id has clita consequat suscipiantur.</p>
-						</div>
+					<div class="col-lg-6" id="map">
 					</div>
 					<!-- /col -->
 					<div class="col-lg-5 ml-auto">
@@ -72,7 +55,8 @@
 							            <!-- First Step -->
 							            <div class="row setup-content" id="step-9">
 							                <div class="col-md-12">
-							                    <h3 class="font-weight-bold pl-0 my-4"><strong>Basic Information</strong></h3>
+												<h3 class="font-weight-bold pl-0 my-4"><strong>Basic Information</strong></h3>
+												<
 							                    <div class="form-group md-form">
 							                        <label for="yourName" data-error="wrong" data-success="right">First Name</label>
 							                        <input id="fname" type="text" class="form-control validate" placeholder="First Name" required>
@@ -149,6 +133,12 @@
 							                        <select class="form-control sel-city" disabled required>
 														<option value=""disabled selected>City</option>
 													</select>
+												</div>
+												<div class="form-group md-form">
+							                        <label for="yourName" data-error="wrong" data-success="right">Clinic Address</label>
+													<input id="gmap_where" type="text" class="form-control validate" placeholder="Clinic Address" required>
+													<button  onclick="findAddress(); return false;">Search for address</button>
+													
 							                    </div>
 							                    <div class="form-group md-form mt-3">
 							                        <label for="companyAddress" data-error="wrong" data-success="right">Medical License</label>
@@ -197,7 +187,7 @@
 												</div>
 												<br>
 							                    <button class="btn btn-indigo btn-rounded prevBtn float-left" type="button">Previous</button>
-							                    <button class="btn btn-default btn-rounded float-right" type="submit">Submit</button>
+							                    <button class="btn btn-default btn-rounded float-right sub">Submit</button>
 							                </div>
 							            </div>
 
@@ -236,8 +226,21 @@
 	<!-- COMMON SCRIPTS -->
 	<script src="js/email-decode.min.js"></script>
 	<script src="js/jquery-2.2.4.min.js"></script>
-	<script src="js/common_scripts.min.js"></script>
+	<!-- <script src="js/common_scripts.min.js"></script> -->
 	<script src="js/functions.js"></script>
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+	<script src="js/maps_script.js"></script>
+	<!-- <script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 8
+        });
+      }
+    </script> -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAXvaLsga6mWXFOGi9ttJXGh1FmvdowzFw&callback=initMap"
+    async defer></script>
 
 </body>
 </html>
@@ -328,8 +331,8 @@
 				demail:$('#demail').val(),
 				dspecial:$('.sel-special').val(),
 				dgender:$('.sel-gender').val(),
-				ccode:$('.sel-city').val(),
-				pcode: $('.sel-prov').val(),
+				ccode:$('.sel-city').text(),
+				pcode: $('.sel-prov').text(),
 				clinics: JSON.stringify(jsonObject),
 				medli: $('#license').val()
 			},

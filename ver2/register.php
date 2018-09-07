@@ -50,6 +50,16 @@
 									</div>
 								</div>
 								<div class="row">
+									<div class="col-md-12">
+										<div class="form-group">
+											<select class="form-control sel-gender" required>
+												<option value="1" selected>Male</option>
+												<option value="0">Female</option>
+											</select>
+										</div>
+									</div>
+								</div>
+								<div class="row">
 									<div class="col-md-6">
 										<div class="form-group">
 											<select class="form-control sel-prov" required>
@@ -103,7 +113,7 @@
 								<div class="row">
 									<div class="col-lg-12">
 										<div class="form-group">
-											<input id ="password" type="password" class="form-control" placeholder="Confirm Password" required>
+											<input id ="confpass" type="password" class="form-control" placeholder="Confirm Password" required>
 										</div>
 									</div>
 								</div>
@@ -168,3 +178,93 @@
 
 </body>
 </html>
+<script>
+	$( window ).on( "load", function() {
+		$.ajax({
+			url: "requests/getProv.php",
+			type: 'GET',
+			dataType: 'text json', // added data type
+			success: function(res) {
+				$(res).each(function(key,val){
+					$('.sel-prov').append($('<option>', {
+						value: val[4],
+						text: val[2]
+					}));
+				});
+				console.log(res);
+			}
+		});
+    });
+	$('.sel-clinic').on("change",function(){
+		var num = this.value;
+		$(".clinics-inner").html("");
+		for (i = 0; i < num; i++) { 
+			$(".clinics-inner").append("</br>");
+			$(".clinics-inner").append("<div class='row'><div class='col-md-6'><input type='text' class='form-control x"+i+"' placeholder='COORDINATE X' required></div><div class='col-md-6'><input type='text' class='form-control y"+i+"' placeholder='COORDINATE Y' required></div></div>");
+			$(".clinics-inner").append("<div class='row'><div class='col-md-12'><input type='text' class='form-control clin_name"+i+"' placeholder='Clinic Name "+(i+1)+"'></div></div>");
+			$(".clinics-inner").append("<div class='row'><div class='col-md-12'><input type='text' class='form-control clin_adderss"+i+"' placeholder='Clinic Address "+(i+1)+"'></div></div>");
+			$(".clinics-inner").append("<div class='row'><div class='col-md-6'><input type='time' class='form-control timestart"+i+"' required value='12:00' required></div><div class='col-md-6'><input type='time' class='form-control timeend"+i+"' required value='12:00' required></div></div>");
+			$(".clinics-inner").append("</br>");
+		}
+	});
+
+	$('.sel-prov').on("change",function(){
+		var provCode = this.value;
+		$('.sel-city').find('option')
+						.remove()
+						.end()
+		$.ajax({
+			url: "requests/getCity.php",
+			type: 'GET',
+		
+			dataType: 'text json', // added data type
+			data: {
+				pcode: provCode
+			},
+			success: function(res) {
+				$(res).each(function(key,val){
+					$('.sel-city').append($('<option>', {
+						value: val[5],
+						text: val[2]
+					}));
+				});
+				console.log(res);
+			}
+    	});
+		$( ".sel-city" ).prop( "disabled", false );
+	});
+	$( ".sub" ).on("click",function(){
+		$.ajax({
+			url: "create/createUser.php",
+			type: 'POST',
+		
+			dataType: 'text json', // added data type
+			data: {
+				dfname:$('#fname').val(),
+				dmname:$('#mname').val(),
+				dlname:$('#lname').val(),
+				dcnum:$('#cnum').val(),
+				duser:$('#username').val(),
+				dpass:$('#password').val(),
+				demail:$('#demail').val(),
+				dgender:$('.sel-gender').val(),
+				ccode:$('.sel-city').text(),
+				pcode: $('.sel-prov').text(),
+				
+			},
+			success: function(res) {
+				if(res[0]== 1){
+					alert("SUCCESS");
+				} else if(res[0] == 2){
+					alert("ERROR");
+				}else if(res[0] == 0){
+					alert("USER EXISTED");
+				}
+				else if(res[0] == 3){
+					alert("DATA ERROR");
+				}
+				alert(res);
+			}
+    	});
+	});
+</script>
