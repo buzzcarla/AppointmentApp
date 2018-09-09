@@ -27,7 +27,7 @@
 				<p>
 					Lorem ipsum dolor sit amet, novum assentior contentiones nec et, ius putent scripserit ne.
 				</p>
-				<form method="GET" action="list-map.php">
+				<form method="GET" action="list-2.php">
 					<div id="custom-search-input">
 						<div class="input-group">
 							<input type="text" name="search" class=" search-query" placeholder="Ex. Name, Specialization ....">
@@ -82,7 +82,7 @@
 				</div>
 			</div>
 			<!-- /row -->
-			<p class="text-center" style="text-align: center;"><a href="list-map.php" class="btn_1 medium">Find Doctor</a></p>
+			<p class="text-center" style="text-align: center;"><a href="list-2.php" class="btn_1 medium">Find Doctor</a></p>
 
 		</div>
 		<!-- /container -->
@@ -153,16 +153,16 @@
 							<h3>Search by Provice or City</h3>
 						</div>
 						<ul>
-							<li><a href="list-map.php"><strong>23</strong>Abra<img src="./img/nexticon.png" class="nextIcon"></a></li>
-							<li><a href="list-map.php"><strong>23</strong>Agusan Del Norte<img src="./img/nexticon.png" class="nextIcon"></a></li>
-							<li><a href="list-map.php"><strong>23</strong>Agusan Del Sur<img src="./img/nexticon.png" class="nextIcon"></a></li>
-							<li><a href="list-map.php"><strong>23</strong>Aklan<img src="./img/nexticon.png" class="nextIcon"></a></li>
-							<li><a href="list-map.php"><strong>23</strong>Albay<img src="./img/nexticon.png" class="nextIcon"></a></li>
-							<li><a href="list-map.php"><strong>23</strong>Antique<img src="./img/nexticon.png" class="nextIcon"></a></li>
-							<li><a href="list-map.php"><strong>23</strong>Apayao<img src="./img/nexticon.png" class="nextIcon"></a></li>
-							<li><a href="list-map.php"><strong>23</strong>Aurora<img src="./img/nexticon.png" class="nextIcon"></a></li>
-							<li><a href="list-map.php"><strong>23</strong>Basilan<img src="./img/nexticon.png" class="nextIcon"></a></li>
-							<li style="text-align: right;"><strong><a style="font-weight: bold;" href="list-map.php">More...</a></strong></li>
+							<li><a href="list-2.php"><strong>23</strong>Abra<img src="./img/nexticon.png" class="nextIcon"></a></li>
+							<li><a href="list-2.php"><strong>23</strong>Agusan Del Norte<img src="./img/nexticon.png" class="nextIcon"></a></li>
+							<li><a href="list-2.php"><strong>23</strong>Agusan Del Sur<img src="./img/nexticon.png" class="nextIcon"></a></li>
+							<li><a href="list-2.php"><strong>23</strong>Aklan<img src="./img/nexticon.png" class="nextIcon"></a></li>
+							<li><a href="list-2.php"><strong>23</strong>Albay<img src="./img/nexticon.png" class="nextIcon"></a></li>
+							<li><a href="list-2.php"><strong>23</strong>Antique<img src="./img/nexticon.png" class="nextIcon"></a></li>
+							<li><a href="list-2.php"><strong>23</strong>Apayao<img src="./img/nexticon.png" class="nextIcon"></a></li>
+							<li><a href="list-2.php"><strong>23</strong>Aurora<img src="./img/nexticon.png" class="nextIcon"></a></li>
+							<li><a href="list-2.php"><strong>23</strong>Basilan<img src="./img/nexticon.png" class="nextIcon"></a></li>
+							<li style="text-align: right;"><strong><a style="font-weight: bold;" href="list-2.php">More...</a></strong></li>
 						</ul>
 					</div>
 				</div>
@@ -172,16 +172,16 @@
 							<h3>Search by type</h3>
 						</div>
 						<ul>
-							<li><a href="list-map.php"><strong>23</strong>Allergist<img src="./img/nexticon.png" class="nextIcon"></a></li>
-							<li><a href="list-map.php"><strong>23</strong>Cardiologist<img src="./img/nexticon.png" class="nextIcon"></a></li>
-							<li><a href="list-map.php"><strong>23</strong>Chiropractor<img src="./img/nexticon.png" class="nextIcon"></a></li>
-							<li><a href="list-map.php"><strong>23</strong>Dentist<img src="./img/nexticon.png" class="nextIcon"></a></li>
-							<li><a href="list-map.php"><strong>23</strong>Dermatologist<img src="./img/nexticon.png" class="nextIcon"></a></li>
-							<li><a href="list-map.php"><strong>23</strong>Gastroenterologist<img src="./img/nexticon.png" class="nextIcon"></a></li>
-							<li><a href="list-map.php"><strong>23</strong>Ophthalmologist<img src="./img/nexticon.png" class="nextIcon"></a></li>
-							<li><a href="list-map.php"><strong>23</strong>Optometrist<img src="./img/nexticon.png" class="nextIcon"></a></li>
-							<li><a href="list-map.php"><strong>23</strong>Pediatrician<img src="./img/nexticon.png" class="nextIcon"></a></li>
-							<li style="text-align: right;"><a style="font-weight: bold;" href="list-map.php">More....</a></li>
+							<li><a href="list-2.php"><strong>23</strong>Allergist<img src="./img/nexticon.png" class="nextIcon"></a></li>
+							<li><a href="list-2.php"><strong>23</strong>Cardiologist<img src="./img/nexticon.png" class="nextIcon"></a></li>
+							<li><a href="list-2.php"><strong>23</strong>Chiropractor<img src="./img/nexticon.png" class="nextIcon"></a></li>
+							<li><a href="list-2.php"><strong>23</strong>Dentist<img src="./img/nexticon.png" class="nextIcon"></a></li>
+							<li><a href="list-2.php"><strong>23</strong>Dermatologist<img src="./img/nexticon.png" class="nextIcon"></a></li>
+							<li><a href="list-2.php"><strong>23</strong>Gastroenterologist<img src="./img/nexticon.png" class="nextIcon"></a></li>
+							<li><a href="list-2.php"><strong>23</strong>Ophthalmologist<img src="./img/nexticon.png" class="nextIcon"></a></li>
+							<li><a href="list-2.php"><strong>23</strong>Optometrist<img src="./img/nexticon.png" class="nextIcon"></a></li>
+							<li><a href="list-2.php"><strong>23</strong>Pediatrician<img src="./img/nexticon.png" class="nextIcon"></a></li>
+							<li style="text-align: right;"><a style="font-weight: bold;" href="list-2.php">More....</a></li>
 						</ul>
 					</div>
 				</div>

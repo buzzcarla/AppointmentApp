@@ -76,7 +76,7 @@
 								<span><a href="login.html">Login</a></span>
 							</li>
 							<li>
-								<li><a href="list-map.html">Doctor List</a></li>
+								<li><a href="list-2.php">Doctor List</a></li>
 							</li>
 						</ul>
 					</nav>
@@ -264,7 +264,7 @@
 									</ul>
 								</form>					
 								<hr>
-								<p class="text-center"><a style="margin-left: 40%; margin-top: 5%;" href="booking-page.html" class="btn_1 medium">Book Now</a></p>
+								<p class="text-center"><a style="margin-left: 40%; margin-top: 5%;" href="booking-page.php" class="btn_1 medium">Book Now</a></p>
 							</div>
 							<!-- /tab_1 -->
 						</div>
