@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.7.0
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 21, 2018 at 09:08 AM
--- Server version: 10.1.13-MariaDB
--- PHP Version: 7.0.6
+-- Generation Time: Sep 09, 2018 at 10:21 AM
+-- Server version: 10.1.26-MariaDB
+-- PHP Version: 7.1.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -44,8 +46,8 @@ CREATE TABLE `booking_list` (
 CREATE TABLE `clinic` (
   `clinic_id` int(11) NOT NULL,
   `clinic_name` varchar(300) NOT NULL,
-  `coordinates_x` float NOT NULL,
-  `coordinates_y` float NOT NULL,
+  `coordinates_x` double NOT NULL,
+  `coordinates_y` double NOT NULL,
   `clinic_address` varchar(300) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -60,7 +62,10 @@ INSERT INTO `clinic` (`clinic_id`, `clinic_name`, `coordinates_x`, `coordinates_
 (4, 'WEQWEE', 3, 3, 'EEEEEEEEEEEEEE'),
 (5, 'WEWEWQQ', 45, 5, 'EWQQQQQQQ'),
 (6, 'qweqw', 1, 2, 'ewqe'),
-(7, 'eewqw', 3, 3, 'eeqe');
+(7, 'eewqw', 3, 3, 'eeqe'),
+(8, '', 0, 0, ''),
+(9, 'Mactan Doc', 0, 0, ''),
+(10, 'Mactan Doc', 10.2898386, 123.96680830000003, 'Maximo V. Patalinhug Jr. Avenue, Lapu-Lapu City, Cebu, Philippines');
 
 -- --------------------------------------------------------
 
@@ -71,7 +76,7 @@ INSERT INTO `clinic` (`clinic_id`, `clinic_name`, `coordinates_x`, `coordinates_
 CREATE TABLE `doctors` (
   `doctor_id` int(11) NOT NULL,
   `user_id` int(11) DEFAULT NULL,
-  `doc_specialization` enum('PEDIATRICIAN','','','') DEFAULT NULL,
+  `doc_specialization` varchar(60) DEFAULT NULL,
   `medical_license` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -82,7 +87,11 @@ CREATE TABLE `doctors` (
 INSERT INTO `doctors` (`doctor_id`, `user_id`, `doc_specialization`, `medical_license`) VALUES
 (2, 92, '', 2147483647),
 (3, 93, '', 2147483647),
-(4, 92, '', 2147483647);
+(4, 92, '', 2147483647),
+(5, 95, '', 98154),
+(6, 97, '', 0),
+(7, 98, '', 2147483647),
+(8, 99, '', 132132131);
 
 -- --------------------------------------------------------
 
@@ -110,7 +119,10 @@ INSERT INTO `location_clinic` (`location_id`, `clinic_id`, `doctor_id`, `schedul
 (4, 4, 3, '08:00', '18:00', 1),
 (5, 5, 3, '07:00', '18:05', 1),
 (6, 6, 2, '12:00', '13:00', 1),
-(7, 7, 2, '12:00', '13:00', 1);
+(7, 7, 2, '12:00', '13:00', 1),
+(8, 8, 6, '', '', 1),
+(9, 9, 7, '07:08', '20:08', 1),
+(10, 10, 8, '00:00', '12:09', 1);
 
 -- --------------------------------------------------------
 
@@ -659,7 +671,7 @@ INSERT INTO `refcity` (`id`, `psgcCode`, `citymunDesc`, `regDesc`, `provCode`, `
 (525, '175303000', 'ARACELI', '17', '1753', '175303'),
 (526, '175304000', 'BALABAC', '17', '1753', '175304'),
 (527, '175305000', 'BATARAZA', '17', '1753', '175305'),
-(528, '175306000', 'BROOKE''S POINT', '17', '1753', '175306'),
+(528, '175306000', 'BROOKE\'S POINT', '17', '1753', '175306'),
 (529, '175307000', 'BUSUANGA', '17', '1753', '175307'),
 (530, '175308000', 'CAGAYANCILLO', '17', '1753', '175308'),
 (531, '175309000', 'CORON', '17', '1753', '175309'),
@@ -1441,7 +1453,7 @@ INSERT INTO `refcity` (`id`, `psgcCode`, `citymunDesc`, `regDesc`, `provCode`, `
 (1306, '124707000', 'MAKILALA', '12', '1247', '124707'),
 (1307, '124708000', 'MATALAM', '12', '1247', '124708'),
 (1308, '124709000', 'MIDSAYAP', '12', '1247', '124709'),
-(1309, '124710000', 'M''LANG', '12', '1247', '124710'),
+(1309, '124710000', 'M\'LANG', '12', '1247', '124710'),
 (1310, '124711000', 'PIGKAWAYAN', '12', '1247', '124711'),
 (1311, '124712000', 'PIKIT', '12', '1247', '124712'),
 (1312, '124713000', 'PRESIDENT ROXAS', '12', '1247', '124713'),
@@ -1458,7 +1470,7 @@ INSERT INTO `refcity` (`id`, `psgcCode`, `citymunDesc`, `regDesc`, `provCode`, `
 (1323, '126313000', 'SURALLAH', '12', '1263', '126313'),
 (1324, '126314000', 'TAMPAKAN', '12', '1263', '126314'),
 (1325, '126315000', 'TANTANGAN', '12', '1263', '126315'),
-(1326, '126316000', 'T''BOLI', '12', '1263', '126316'),
+(1326, '126316000', 'T\'BOLI', '12', '1263', '126316'),
 (1327, '126317000', 'TUPI', '12', '1263', '126317'),
 (1328, '126318000', 'SANTO NIÑO', '12', '1263', '126318'),
 (1329, '126319000', 'LAKE SEBU', '12', '1263', '126319'),
@@ -1892,17 +1904,6 @@ INSERT INTO `refprovince` (`id`, `psgcCode`, `provDesc`, `regCode`, `provCode`) 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `specialization`
---
-
-CREATE TABLE `specialization` (
-  `doc_id` int(11) NOT NULL,
-  `specialization` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `user`
 --
 
@@ -1915,8 +1916,6 @@ CREATE TABLE `user` (
   `user_level` int(3) NOT NULL,
   `username` varchar(60) NOT NULL,
   `user_email` varchar(300) NOT NULL,
-  `user_province` int(150) NOT NULL,
-  `user_city` varchar(150) NOT NULL,
   `user_mobile` varchar(15) NOT NULL,
   `user_tele` varchar(15) NOT NULL,
   `user_password` varchar(60) NOT NULL
@@ -1926,10 +1925,15 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`user_id`, `user_firstn`, `user_middlen`, `user_lastn`, `user_gender`, `user_level`, `username`, `user_email`, `user_province`, `user_city`, `user_mobile`, `user_tele`, `user_password`) VALUES
-(92, 'name', 'lee', 'eqw', 0, 1, 'test', 'joshua.l@gmail.com', 0, 'CEBU', '09151454', '50505815', '123'),
-(93, 'Joshua', 'la', 'Lee', 1, 1, 'regretzzz', 'joshua.lee@gmail.com', 1602, '160201', '09159831386', '5050812', '321'),
-(94, 'name', 'lee', 'eqw', 0, 1, 'test', 'joshua.l@gmail.com', 0, 'CEBU', '09151454', '50505815', '123');
+INSERT INTO `user` (`user_id`, `user_firstn`, `user_middlen`, `user_lastn`, `user_gender`, `user_level`, `username`, `user_email`, `user_mobile`, `user_tele`, `user_password`) VALUES
+(92, 'name', 'lee', 'eqw', 0, 1, 'test', 'joshua.l@gmail.com', '09151454', '50505815', '123'),
+(93, 'Joshua', 'la', 'Lee', 1, 1, 'regretzzz', 'joshua.lee@gmail.com', '09159831386', '5050812', '321'),
+(94, 'name', 'lee', 'eqw', 0, 1, 'test', 'joshua.l@gmail.com', '09151454', '50505815', '123'),
+(95, 'Joseph', 'Ceniza', 'Alota', 0, 1, 'Jolota', 'alota.j@gmail.com', '0912345678', '486-12345', '123456'),
+(96, 'Kendrick', 'Monserate', 'De la Paz', 1, 0, 'Kenlota', 'kenmon@gmail.com', '091234567', '00', '123456'),
+(97, '', '', '', 0, 1, '', '', '', '', ''),
+(98, 'testnew', 'testnew', 'testnew', 1, 1, 'testnew', 'joshua@mail.com', '09159838138', '5050232', '123'),
+(99, 'Pot', 'Pot', 'Pot', 1, 1, 'pot', 'MAILS@MAIL.COM', '0915873717', '3485868', '123');
 
 --
 -- Indexes for dumped tables
@@ -1979,17 +1983,17 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `clinic`
 --
 ALTER TABLE `clinic`
-  MODIFY `clinic_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `clinic_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `doctors`
 --
 ALTER TABLE `doctors`
-  MODIFY `doctor_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `doctor_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `location_clinic`
 --
 ALTER TABLE `location_clinic`
-  MODIFY `location_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `location_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `refcity`
 --
@@ -2004,7 +2008,8 @@ ALTER TABLE `refprovince`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
