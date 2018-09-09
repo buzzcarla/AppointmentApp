@@ -42,9 +42,29 @@
 </head>
 
 <body>
-
 	
+<<<<<<< Updated upstream
 	<!-- /Preload-->
+=======
+		<?php 
+				if($radiosearch == "clinic"){
+					$query = "SELECT * FROM clinic 
+							  WHERE clinic_name='".$searchname."'";
+			
+					$res = mysqli_query($mysql,$query);
+					if($res){
+						while($row = mysqli_fetch_array($res)) {
+							echo '<div class="row" >CLINIC NAME:'.$row[1].'</div>';
+							echo '<div class="row" >CLINIC X:'.$row[2].'</div>';
+							echo '<div class="row" >CLINIC Y:'.$row[3].'</div>';
+							echo '<div class="row" >CLINIC ADDRESS:'.$row[4].'</div>';
+						  }
+					} else {
+						echo '<div class="row" ><h1>FOUND NONE</h1></div>';
+					}
+				}
+			?>
+>>>>>>> Stashed changes
 
 	<div id="page">		
 	
