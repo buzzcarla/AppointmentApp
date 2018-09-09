@@ -24,20 +24,20 @@
 					<nav id="menu" class="main-menu">
 						<ul>
 							<li>
-								<span><a href="index.php">Home</a></span>
+								<span><a class="removeUnderline" href="index.php">Home</a></span>
 							</li>
 							<li>
-								<span><a href="#0">Register</a></span>
+								<span><a class="removeUnderline" href="#0">Register</a></span>
 								<ul>
-									<li><a href="register-doctor.php">Register Doctor</a></li>
-									<li><a href="register.php">Register User</a></li>
+									<li><a class="removeUnderline" href="register-doctor.php">Register Doctor</a></li>
+									<li><a class="removeUnderline" href="register.php">Register User</a></li>
 								</ul>
 							</li>
 							<li>
-								<span><a href="login.php">Login</a></span>
+								<span><a class="removeUnderline" href="login.php">Login</a></span>
 							</li>
 							<li>
-								<li><a href="list-2.php">Doctor List</a></li>
+								<li><a class="removeUnderline" style="color: red;" href="listall.php">Doctor List</a></li>
 							</li>
 						</ul>
 					</nav>

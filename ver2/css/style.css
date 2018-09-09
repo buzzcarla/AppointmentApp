@@ -1,6 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Poppins:300,400,400i,500,500i,600,600i,700,700i,800);
 a,a:focus,a:hover{
-    text-decoration:none;
+    text-decoration:none!important;
     outline:0
 }
 #reccomended .owl-item,#reccomended .owl-item.active.center{
@@ -3927,3 +3927,7 @@ ul#cat_nav li:last-child a#active,ul#cat_nav li:last-child a.active,ul#cat_nav l
     line-height: 1.428571429;
     border-radius: 15px;
     margin-top: 0; }
+
+    .removeUnderline {
+        text-decoration: none!important;
+    }

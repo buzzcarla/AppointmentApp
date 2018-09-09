@@ -83,7 +83,7 @@
 								<span><a href="login.html">Login</a></span>
 							</li>
 							<li>
-								<li><a href="list-2.php">Doctor List</a></li>
+								<li><a href="listall.php">Doctor List</a></li>
 							</li>
 						</ul>
 					</nav>

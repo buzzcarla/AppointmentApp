@@ -14,54 +14,10 @@
 	<!-- /Preload-->
 	
 	<div id="page">		
-	<header class="header_sticky">	
-		<a href="#menu" class="btn_mobile">
-			<div class="hamburger hamburger--spin" id="hamburger">
-				<div class="hamburger-box">
-					<div class="hamburger-inner"></div>
-				</div>
-			</div>
-		</a>
-		<!-- /btn_mobile-->
-		<div class="container">
-			
-			<div class="row">
-				<div class="col-lg-3 col-6">
-					<div id="logo_home">
-						<h1><a href="index.php" title="Findoctor">Finding Doctors</a></h1>
-					</div>
-				</div>
-				<div class="col-lg-9 col-6">
-					<ul id="top_access">
-						<li><a href="login.html"><i class="pe-7s-user"></i></a></li>
-						<li><a href="register-doctor.html"><i class="pe-7s-add-user"></i></a></li>
-					</ul>
-					<nav id="menu" class="main-menu">
-						<ul>
-							<li>
-								<span><a href="index.php">Home</a></span>
-							</li>
-							<li>
-								<span><a href="#0">Register</a></span>
-								<ul>
-									<li><a href="register-doctor.html">Register Doctor</a></li>
-									<li><a href="register.html">Register User</a></li>
-								</ul>
-							</li>
-							<li>
-								<span><a href="login.html">Login</a></span>
-							</li>
-							<li>
-								<li><a href="list-2.php">Doctor List</a></li>
-							</li>
-						</ul>
-					</nav>
-					<!-- /main-menu -->
-				</div>
-			</div>
-		</div>
-		<!-- /container -->
-	</header>
+	
+	<?php
+		require('header.php');
+	?>
 	<!-- /header -->
 	
 	<main class="theia-exception">
@@ -116,93 +72,63 @@
 		<div class="container margin_60_35" style="padding-top: 0px;">
 			<div class="row">
 				<div class="col-lg-7">
-
 					<div class="strip_list wow fadeIn">
-						<a href="#0" class="wish_bt"></a>
-						<figure>
-							<a href="detail-page.html"><img src="img/doctor_listing_1.jpg" alt=""></a>
-						</figure>
+
 						<small>Pediatrician</small>
 						<h3>Dr. Cornfield</h3>
 						<p>Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis persecuti cuodo....</p>
-						<span class="rating"><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i><i class="icon_star"></i> <small>(145)</small></span>
-						<a href="badges.html" data-toggle="tooltip" data-placement="top" data-original-title="Badge Level" class="badge_list_1"><img src="img/badges/badge_1.svg" width="15" height="15" alt=""></a>
 						<ul>
 							<li><a href="#0" onclick="onHtmlClick('Doctors', 0)" class="btn_listing">View on Map</a></li>
 							<li><a href="https://www.google.com/maps/dir//Assistance+%E2%80%93+H%C3%B4pitaux+De+Paris,+3+Avenue+Victoria,+75004+Paris,+Francia/@48.8606548,2.3348734,14z/data=!4m15!1m6!3m5!1s0x0:0xa6a9af76b1e2d899!2sAssistance+%E2%80%93+H%C3%B4pitaux+De+Paris!8m2!3d48.8568376!4d2.3504305!4m7!1m0!1m5!1m1!1s0x47e67031f8c20147:0xa6a9af76b1e2d899!2m2!1d2.3504327!2d48.8568361" target="_blank">Directions</a></li>
-							<li><a href="detail-page.html">Book now</a></li>
+							<li><a href="detail-page-2.php">Book now</a></li>
 						</ul>
 					</div>
 					<!-- /strip_list -->
 
 					<div class="strip_list wow fadeIn">
-						<a href="#0" class="wish_bt"></a>
-						<figure>
-							<a href="detail-page.html"><img src="img/doctor_listing_2.jpg" alt=""></a>
-						</figure>
 						<small>Psicologist</small>
 						<h3>Dr. Shoemaker</h3>
 						<p>Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis persecuti cuodo....</p>
-						<span class="rating"><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i><i class="icon_star"></i> <small>(145)</small></span>
-						<a href="badges.html" data-toggle="tooltip" data-placement="top" data-original-title="Badge Level" class="badge_list_1"><img src="img/badges/badge_2.svg" width="15" height="15" alt=""></a>
 						<ul>
 							<li><a href="#0" onclick="onHtmlClick('Doctors', 1)" class="btn_listing">View on Map</a></li>
 							<li><a href="https://www.google.com/maps/dir//Assistance+%E2%80%93+H%C3%B4pitaux+De+Paris,+3+Avenue+Victoria,+75004+Paris,+Francia/@48.8606548,2.3348734,14z/data=!4m15!1m6!3m5!1s0x0:0xa6a9af76b1e2d899!2sAssistance+%E2%80%93+H%C3%B4pitaux+De+Paris!8m2!3d48.8568376!4d2.3504305!4m7!1m0!1m5!1m1!1s0x47e67031f8c20147:0xa6a9af76b1e2d899!2m2!1d2.3504327!2d48.8568361" target="_blank">Directions</a></li>
-							<li><a href="detail-page.html">Book now</a></li>
+							<li><a href="detail-page-2.php">Book now</a></li>
 						</ul>
 					</div>
 					<!-- /strip_list -->
 
 					<div class="strip_list wow fadeIn">
-						<a href="#0" class="wish_bt"></a>
-						<figure>
-							<a href="detail-page.html"><img src="img/doctor_listing_3.jpg" alt=""></a>
-						</figure>
 						<small>Pediatrician</small>
 						<h3>Dr. Lachinet</h3>
 						<p>Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis persecuti cuodo....</p>
-						<span class="rating"><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i><i class="icon_star"></i> <small>(145)</small></span>
-						<a href="badges.html" data-toggle="tooltip" data-placement="top" data-original-title="Badge Level" class="badge_list_1"><img src="img/badges/badge_3.svg" width="15" height="15" alt=""></a>
 						<ul>
 							<li><a href="#0" onclick="onHtmlClick('Doctors', 2)" class="btn_listing">View on Map</a></li>
 							<li><a href="https://www.google.com/maps/dir//Assistance+%E2%80%93+H%C3%B4pitaux+De+Paris,+3+Avenue+Victoria,+75004+Paris,+Francia/@48.8606548,2.3348734,14z/data=!4m15!1m6!3m5!1s0x0:0xa6a9af76b1e2d899!2sAssistance+%E2%80%93+H%C3%B4pitaux+De+Paris!8m2!3d48.8568376!4d2.3504305!4m7!1m0!1m5!1m1!1s0x47e67031f8c20147:0xa6a9af76b1e2d899!2m2!1d2.3504327!2d48.8568361" target="_blank">Directions</a></li>
-							<li><a href="detail-page.html">Book now</a></li>
+							<li><a href="detail-page-2.php">Book now</a></li>
 						</ul>
 					</div>
 					<!-- /strip_list -->
 
 					<div class="strip_list wow fadeIn">
-						<a href="#0" class="wish_bt"></a>
-						<figure>
-							<a href="detail-page.html"><img src="img/doctor_listing_4.jpg" alt=""></a>
-						</figure>
 						<small>Pediatrician</small>
 						<h3>Dr. Rainwater</h3>
 						<p>Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis persecuti cuodo....</p>
-						<span class="rating"><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i><i class="icon_star"></i> <small>(145)</small></span>
-						<a href="badges.html" data-toggle="tooltip" data-placement="top" data-original-title="Badge Level" class="badge_list_1"><img src="img/badges/badge_4.svg" width="15" height="15" alt=""></a>
 						<ul>
 							<li><a href="#0" onclick="onHtmlClick('Doctors', 1)" class="btn_listing">View on Map</a></li>
 							<li><a href="https://www.google.com/maps/dir//Assistance+%E2%80%93+H%C3%B4pitaux+De+Paris,+3+Avenue+Victoria,+75004+Paris,+Francia/@48.8606548,2.3348734,14z/data=!4m15!1m6!3m5!1s0x0:0xa6a9af76b1e2d899!2sAssistance+%E2%80%93+H%C3%B4pitaux+De+Paris!8m2!3d48.8568376!4d2.3504305!4m7!1m0!1m5!1m1!1s0x47e67031f8c20147:0xa6a9af76b1e2d899!2m2!1d2.3504327!2d48.8568361" target="_blank">Directions</a></li>
-							<li><a href="detail-page.html">Book now</a></li>
+							<li><a href="detail-page-2.php">Book now</a></li>
 						</ul>
 					</div>
 					<!-- /strip_list -->
 
 					<div class="strip_list wow fadeIn">
-						<a href="#0" class="wish_bt"></a>
-						<figure>
-							<a href="detail-page.html"><img src="img/doctor_listing_5.jpg" alt=""></a>
-						</figure>
 						<small>Psicologist</small>
 						<h3>Dr. Manzone</h3>
 						<p>Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis persecuti cuodo....</p>
-						<span class="rating"><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i><i class="icon_star"></i> <small>(145)</small></span>
-						<a href="badges.html" data-toggle="tooltip" data-placement="top" data-original-title="Badge Level" class="badge_list_1"><img src="img/badges/badge_4.svg" width="15" height="15" alt=""></a>
 						<ul>
 							<li><a href="#0" onclick="onHtmlClick('Doctors', 1)" class="btn_listing">View on Map</a></li>
 							<li><a href="https://www.google.com/maps/dir//Assistance+%E2%80%93+H%C3%B4pitaux+De+Paris,+3+Avenue+Victoria,+75004+Paris,+Francia/@48.8606548,2.3348734,14z/data=!4m15!1m6!3m5!1s0x0:0xa6a9af76b1e2d899!2sAssistance+%E2%80%93+H%C3%B4pitaux+De+Paris!8m2!3d48.8568376!4d2.3504305!4m7!1m0!1m5!1m1!1s0x47e67031f8c20147:0xa6a9af76b1e2d899!2m2!1d2.3504327!2d48.8568361" target="_blank">Directions</a></li>
-							<li><a href="detail-page.html">Book now</a></li>
+							<li><a href="detail-page-2.php">Book now</a></li>
 						</ul>
 					</div>
 					<!-- /strip_list -->
