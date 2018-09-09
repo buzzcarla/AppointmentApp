@@ -3833,7 +3833,7 @@ ul#cat_nav li a{
 }
 ul#cat_nav li a:after{
     font-family:fontello;
-    content:"\e89b";
+    /*content:"\e89b";*/
     position:absolute;
     right:15px;
     top:15px
