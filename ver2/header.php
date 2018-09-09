@@ -37,7 +37,7 @@
 								<span><a href="login.php">Login</a></span>
 							</li>
 							<li>
-								<li><a href="list-map.php">Doctor List</a></li>
+								<li><a href="list-2.php">Doctor List</a></li>
 							</li>
 						</ul>
 					</nav>
