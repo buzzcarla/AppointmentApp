@@ -54,15 +54,7 @@
 							<label for="clinics">Clinics</label>
 						</div>
 					</li>
-					<li>
-						<h6>Sort by</h6>
-						<select name="orderby" class="selectbox">
-						<option value="Closest">Closest</option>
-						<option value="Best rated">Best rated</option>
-						<option value="Men">Men</option>
-						<option value="Women">Women</option>
-						</select>
-					</li>
+					
 				</ul>
 			</div>
 			<!-- /container -->

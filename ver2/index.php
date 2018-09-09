@@ -82,7 +82,7 @@
 				</div>
 			</div>
 			<!-- /row -->
-			<p class="text-center" style="text-align: center;"><a href="list-2.php" class="btn_1 medium">Find Doctor</a></p>
+			<p class="text-center" style="text-align: center;"><a href="listall.php" class="btn_1 medium">Find Doctor</a></p>
 
 		</div>
 		<!-- /container -->
