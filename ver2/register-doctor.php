@@ -56,7 +56,6 @@
 							            <div class="row setup-content" id="step-9">
 							                <div class="col-md-12">
 												<h3 class="font-weight-bold pl-0 my-4"><strong>Basic Information</strong></h3>
-												<
 							                    <div class="form-group md-form">
 							                        <label for="yourName" data-error="wrong" data-success="right">First Name</label>
 							                        <input id="fname" type="text" class="form-control validate" placeholder="First Name" required>
