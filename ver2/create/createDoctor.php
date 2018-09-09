@@ -3,16 +3,23 @@
 
     if(isset($_POST['dfname'])&&isset($_POST['dmname'])&&isset($_POST['duser'])&&isset($_POST['dpass'])
     &&isset($_POST['dlname'])&&isset($_POST['dcnum'])&&isset($_POST['donum'])&&isset($_POST['demail'])&&isset($_POST['ccode'])
-    &&isset($_POST['dgender'])&&isset($_POST['pcode'])&&isset($_POST['dspecial'])&&isset($_POST['medli'])&&isset($_POST['clinics'])){
+    &&isset($_POST['dgender'])&&isset($_POST['pcode'])&&isset($_POST['dspecial'])&&isset($_POST['medli'])&&isset($_POST['clinics'])
+&&isset($_POST['lat'])&&isset($_POST['long'])&&isset($_POST['clinname'])&&isset($_POST['address'])&&isset($_POST['from'])&&isset($_POST['to'])){
 		$username = $_POST['duser'];
 		$password = $_POST['dpass'];
         $first = $_POST['dfname'];
         $middle = $_POST['dmname'];
         $last=	$_POST['dlname'];
+        $clinfrom = $_POST['from'];
+        $clinto = $_POST['to'];
         $celnum = $_POST['dcnum'];
         $ofnum = $_POST['donum'];
         $email = $_POST['demail'];
         $city = $_POST['ccode'];
+        $x = $_POST['lat'];
+        $clinadd = $_POST['address'];
+        $y = $_POST['long'];
+        $clinicname = $_POST['clinname'];
         $gender = $_POST['dgender'];
         $province = $_POST['pcode'];
         $specialization = $_POST['dspecial'];
@@ -43,20 +50,20 @@
                     $result = mysqli_query($mysql,$query3);
                     $row = mysqli_fetch_row($result); 
 
-                    for($i=0;$i<sizeof($clinicarr); $i++){
-                        $query = "INSERT INTO `clinic`(`clinic_id`, `clinic_name`, `coordinates_x`, `coordinates_y`, `clinic_address`) 
-                                VALUES (NULL,'".$clinicarr[$i]->clinname."','".$clinicarr[$i]->x."','".$clinicarr[$i]->y."','".$clinicarr[$i]->clinaddress."')";
-                        $result = mysqli_query($mysql,$query);
-                        
-                        $query3 = "SELECT * FROM clinic WHERE clinic_name='".$clinicarr[$i]->clinname."' ORDER BY clinic_id DESC LIMIT 1";
-                        $result = mysqli_query($mysql,$query3);
-                        $row2 = mysqli_fetch_row($result); 
-                       
-                        $query2 = "INSERT INTO `location_clinic`(`location_id`, `clinic_id`, `doctor_id`, `schedule_start`, `schedule_end`, `schedule_type`) 
-                                     VALUES (NULL,'".$row2[0]."','".$row[0]."','".$clinicarr[$i]->clinfrom."','".$clinicarr[$i]->clinto."','1')";
-                        $result = mysqli_query($mysql,$query2);
-                        
-                    }
+                    
+                    $query = "INSERT INTO `clinic`(`clinic_id`, `clinic_name`, `coordinates_x`, `coordinates_y`, `clinic_address`) 
+                            VALUES (NULL,'".$clinicname."','".$x."','".$y."','".$clinadd."')";
+                    $result = mysqli_query($mysql,$query);
+                    
+                    $query3 = "SELECT * FROM clinic WHERE clinic_name='".$clinicname."' ORDER BY clinic_id DESC LIMIT 1";
+                    $result = mysqli_query($mysql,$query3);
+                    $row2 = mysqli_fetch_row($result); 
+                   
+                    $query2 = "INSERT INTO `location_clinic`(`location_id`, `clinic_id`, `doctor_id`, `schedule_start`, `schedule_end`, `schedule_type`) 
+                                 VALUES (NULL,'".$row2[0]."','".$row[0]."','".$clinfrom."','".$clinto."','1')";
+                    $result = mysqli_query($mysql,$query2);
+                    
+                
                     if($result){
                         echo json_encode("1");
                     } else {

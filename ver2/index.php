@@ -90,7 +90,7 @@
 		<div class="bg_color_1">
 			<div class="container margin_120_95">
 				<div class="main_title">
-					<h2>Most Viewed doctors</h2>
+					<h2>Featured doctors</h2>
 					<p>Usu habeo equidem sanctus no. Suas summo id sed, erat erant oporteat cu pri.</p>
 				</div>
 				<div id="reccomended" class="owl-carousel owl-theme">

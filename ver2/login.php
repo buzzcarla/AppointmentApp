@@ -31,26 +31,25 @@
 					<h1>Please login to Findoctor!</h1>
 					<form>
 						<div class="box_form clearfix">
-							<div class="box_login">
-								<a href="#0" class="social_bt facebook">Login with Facebook</a>
-								<a href="#0" class="social_bt google">Login with Google</a>
-								<a href="#0" class="social_bt linkedin">Login with Linkedin</a>
-							</div>
 							<div class="box_login last">
 								<div class="form-group">
 									<input type="text" class="form-control user" placeholder="Your username">
 								</div>
 								<div class="form-group">
 									<input type="password" class="form-control pass" placeholder="Your password">
-									<a href="#0" class="forgot"><small>Forgot password?</small></a>
+									
 								</div>
-								<div class="form-group">
+								<div class="form-group" style="text-align: center;">
 									<input class="btn_1 loginbut" type="button" value="Login">
 								</div>
 							</div>
+							<div class="box_login" style="margin-bottom: 20px; text-align: center;">
+								<small>Forgot your password?</small>
+								<a href="#0" class="forgot"><small>Click Here.</small></a>
+							</div>
 						</div>
 					</form>
-					<p style="text-align: -webkit-center;" class="text-center link_bright">Do not have an account yet? <a href="#0"><strong>Register now!</strong></a></p>
+					<p style="text-align: -webkit-center;" class="text-center link_bright">Do not have an account yet? <a href="register.php"><strong>Register now!</strong></a></p>
 				</div>
 				<!-- /login -->
 			</div>

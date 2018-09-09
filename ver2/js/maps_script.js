@@ -61,17 +61,19 @@ function findAddress() {
             // we will center map
             var addrLocation = results[0].geometry.location;
             map.setCenter(addrLocation);
-
+            console.log(results[0].formatted_address);
+            document.getElementById('addressclin').value = results[0].formatted_address;
             // store current coordinates into hidden variables
-            document.getElementById('lat').value = results[0].geometry.location.$a;
-            document.getElementById('lng').value = results[0].geometry.location.ab;
+            document.getElementById('lat1').value = results[0].geometry.location.lat();
+            document.getElementById('lng1').value = results[0].geometry.location.lng();
+
+            alert("lat:" + results[0].geometry.location + "  long:"+ results[0].geometry.location);
 
             // and then - add new custom marker
             var addrMarker = new google.maps.Marker({
                 position: addrLocation,
                 map: map,
-                title: results[0].formatted_address,
-                icon: 'marker.png'
+                title: results[0].formatted_address
             });
         } else {
             alert('Geocode was not successful for the following reason: ' + status);

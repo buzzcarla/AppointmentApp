@@ -121,7 +121,7 @@
 													</select>
 													</div>
 							                    </div>
-							                    <div class="form-group md-form mt-3">
+							                   <!--  <div class="form-group md-form mt-3">
 							                        <label for="companyAddress" data-error="wrong" data-success="right">Province</label>
 							                        <select class="form-control sel-prov" required>
 														<option value="" disabled selected>Province</option>
@@ -132,12 +132,19 @@
 							                        <select class="form-control sel-city" disabled required>
 														<option value=""disabled selected>City</option>
 													</select>
-												</div>
+												</div> -->
 												<div class="form-group md-form">
+							                        <label for="yourName" data-error="wrong" data-success="right">Clinic Name</label>
+							                        <input id="clinicname" type="text" class="form-control validate" placeholder="Clinic Name" required>
 							                        <label for="yourName" data-error="wrong" data-success="right">Clinic Address</label>
 													<input id="gmap_where" type="text" class="form-control validate" placeholder="Clinic Address" required>
+													<label for="yourName" data-error="wrong" data-success="right">Clinic Opening Hours</label>
+													<input id="TimeFrom" type="time" class="form-control validate" placeholder="From" required>
+													<input id="TimeTo" type="time" class="form-control validate" placeholder="To" required>
 													<button  onclick="findAddress(); return false;">Search for address</button>
-													
+													<input name="x" id="lat1" type="text" hidden="true">
+													<input name="y" id="lng1" type="text" hidden="true">
+													<input name="clinname" id="addressclin" type="text" hidden="true">
 							                    </div>
 							                    <div class="form-group md-form mt-3">
 							                        <label for="companyAddress" data-error="wrong" data-success="right">Medical License</label>
@@ -256,7 +263,7 @@
 						text: val[2]
 					}));
 				});
-				console.log(res);
+				
 			}
     	});
     });
@@ -294,7 +301,7 @@
 						text: val[2]
 					}));
 				});
-				console.log(res);
+				
 			}
     	});
 		$( ".sel-city" ).prop( "disabled", false );
@@ -314,6 +321,7 @@
 			jsonObject.push(item);
 		}
 		console.log(jsonObject);
+		console.log($('#TimeFrom').val());
 		$.ajax({
 			url: "create/createDoctor.php",
 			type: 'POST',
@@ -333,11 +341,17 @@
 				ccode:$('.sel-city').text(),
 				pcode: $('.sel-prov').text(),
 				clinics: JSON.stringify(jsonObject),
-				medli: $('#license').val()
+				medli: $('#license').val(),
+				lat : $('#lat1').val(),
+				long : $('#lng1').val(),
+				clinname: $('#clinicname').val(),
+				address: $('#addressclin').val(),
+				from: $('#TimeFrom').val(),
+				to: $('#TimeTo').val()
 			},
 			success: function(res) {
 				if(res[0]== 1){
-					alert("SUCCESS");
+					alert("SUCCESS");		//register successful
 				} else if(res[0] == 2){
 					alert("ERROR");
 				}else if(res[0] == 0){
