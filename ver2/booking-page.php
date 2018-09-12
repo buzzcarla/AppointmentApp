@@ -159,18 +159,29 @@
 								<h3>Booking Summary</h3>
 							</div>
 							<div class="summary">
-								<ul>
+								<?php 
+							echo '<ul>
 									<li>Date: <strong class="float-right">11/12/2017</strong></li>
 									<li>Time: <strong class="float-right">10.30 am</strong></li>
-									<li>Dr. Name: <strong class="float-right">Dr. julia Jhones</strong></li>
-									<li>Clinic Name: <strong class="float-right">Mactan Doctors</strong></li>
-									<li>Clinic Address: <strong class="float-right">Lapu-Lapu City, Cebu</strong></li>
+									<li>Dr. Name: <strong class="float-right">'.$_GET["docfname"].' '.$_GET["doclname"].'</strong></li>
+									<li>Clinic Name: <strong class="float-right">Mactan Doc</strong></li>
+									<li>Clinic Address: <strong class="float-right">';
+								if(empty($_GET["clinadd"])){
+									echo 'Address did not Share</strong></li>
+									
+																	 </ul>';
+								}	else {
 
-								</ul>
+									echo ''.$_GET["clinadd"].'</strong></li>
+									
+																	 </ul>';
+								}
+									
+								?>
 							</div>
 							
 							<hr>
-							<a href="confirm.php" class="btn_1 full-width">Confirm Booking</a>
+							<a href="confirm.php" class="btn_1 full-width confirmBut">Confirm Booking</a>
 						</form>
 					</div><div class="resize-sensor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden;"><div class="resize-sensor-expand" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden; z-index: -1; visibility: hidden;"><div style="position: absolute; left: 0px; top: 0px; transition: all 0s ease 0s; width: 390px; height: 1544px;"></div></div><div class="resize-sensor-shrink" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden; z-index: -1; visibility: hidden;"><div style="position: absolute; left: 0; top: 0; transition: 0s; width: 200%; height: 200%"></div></div></div></div></aside>
 				<!-- /asdide -->
@@ -193,7 +204,34 @@
 	<script src="js/jquery-2.2.4.min.js"></script>
 	<script src="js/common_scripts.min.js"></script>
 	<script src="js/functions.js"></script>
-     
+	 
+	<script>
+		$(".confirmBut").click(function(){
+			$.ajax({
+			url: "requests/createBooking.php",
+			type: 'GET',
+		
+			dataType: 'text json', // added data type
+			data: {
+				fname: provCode,
+				lname: ,
+				contact: ,
 
-</body></html>
+			},
+			success: function(res) {
+				$(res).each(function(key,val){
+					$('.sel-city').append($('<option>', {
+						value: val[5],
+						text: val[2]
+					}));
+				});
+				
+			}
+    	});
+		});
+		
+	</script>
+
+</body>
+</html>
 
