@@ -1,6 +1,17 @@
 <html lang="en" style="transform: none;"><head>
 	<?php
+	
 	require('head.php');
+	$timestamp = time();
+	$date = date('Y/m/d',$timestamp);
+	$time = date('h:i A',$timestamp);
+	if(isset($_GET['start']) && isset($_GET['end'])){
+		$startstamp = strtotime($_GET['start']);
+		$endstamp = strtotime($_GET['end']);
+	} else {
+		
+	}
+	
 ?>
 
 <body style="transform: none; overflow: visible;">
@@ -45,16 +56,21 @@
 					</div>
 					<div class="step">
 						<div class="row">
+							<?php 
+								echo '
 							<div class="col-md-6 col-sm-6">
 								<div class="form-group">
 									<label>First name</label>
-									<input type="text" class="form-control" id="firstname_booking" name="firstname_booking" placeholder="John">
+									<input id="userid" value="'.$_SESSION['userid'].'" hidden />
+									<input id="docid" value="'.$_GET['docid'].'" hidden />
+									
+									<input type="text" value="'.$_SESSION['fname'].'" readonly class="form-control" id="firstname_booking" name="firstname_booking" placeholder="John" >
 								</div>
 							</div>
 							<div class="col-md-6 col-sm-6">
 								<div class="form-group">
 									<label>Last name</label>
-									<input type="text" class="form-control" id="lastname_booking" name="lastname_booking" placeholder="Doe">
+									<input type="text" class="form-control"value="'.$_SESSION['lname'].'" readonly  id="lastname_booking" name="lastname_booking" placeholder="Doe">
 								</div>
 							</div>
 						</div>
@@ -62,10 +78,14 @@
 							<div class="col-md-6 col-sm-6">
 								<div class="form-group">
 									<label>Contact Number</label>
-									<input type="text" id="telephone_booking" name="telephone_booking" class="form-control" placeholder="00 44 678 94329">
+									<input type="text" id="telephone_booking" value="'.$_SESSION['tele'].'" readonly  name="telephone_booking" class="form-control" placeholder="00 44 678 94329">
 								</div>
 							</div>
-						</div>
+						</div>';
+							
+							
+							?>
+							
 					</div>
 					<hr>
 					<!--End step -->
@@ -158,11 +178,17 @@
 							<div class="title">
 								<h3>Booking Summary</h3>
 							</div>
-							<div class="summary">
-								<?php 
-							echo '<ul>
-									<li>Date: <strong class="float-right">11/12/2017</strong></li>
-									<li>Time: <strong class="float-right">10.30 am</strong></li>
+							<?php 
+						if($startstamp<$time && $endstamp>$time){
+								
+							
+							echo '<div class="summary">
+								
+								
+							<ul>
+									<input id="timestamp" value="'.$timestamp.'" hidden />
+									<li>Date: <strong class="float-right">'.$date.'</strong></li>
+									<li>Time: <strong class="float-right">'.$time.'</strong></li>
 									<li>Dr. Name: <strong class="float-right">'.$_GET["docfname"].' '.$_GET["doclname"].'</strong></li>
 									<li>Clinic Name: <strong class="float-right">Mactan Doc</strong></li>
 									<li>Clinic Address: <strong class="float-right">';
@@ -177,11 +203,15 @@
 																	 </ul>';
 								}
 									
-								?>
+							echo'
 							</div>
 							
 							<hr>
-							<a href="confirm.php" class="btn_1 full-width confirmBut">Confirm Booking</a>
+							<input type="button" class="btn_1 full-width confirmBut" value="Confirm Booking"></input>';
+							} else {
+								echo "<H1>THE CLINIC IS CLOSED TODAY!</H1>";
+							}
+							?>
 						</form>
 					</div><div class="resize-sensor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden;"><div class="resize-sensor-expand" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden; z-index: -1; visibility: hidden;"><div style="position: absolute; left: 0px; top: 0px; transition: all 0s ease 0s; width: 390px; height: 1544px;"></div></div><div class="resize-sensor-shrink" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden; z-index: -1; visibility: hidden;"><div style="position: absolute; left: 0; top: 0; transition: 0s; width: 200%; height: 200%"></div></div></div></div></aside>
 				<!-- /asdide -->
@@ -207,27 +237,33 @@
 	 
 	<script>
 		$(".confirmBut").click(function(){
-			$.ajax({
-			url: "requests/createBooking.php",
-			type: 'GET',
-		
-			dataType: 'text json', // added data type
-			data: {
-				fname: provCode,
-				lname: ,
-				contact: ,
-
-			},
-			success: function(res) {
-				$(res).each(function(key,val){
-					$('.sel-city').append($('<option>', {
-						value: val[5],
-						text: val[2]
-					}));
-				});
+			
+			if($("#policy_terms").is(":checked")){
+				$.ajax({
+					url: "create/createBookingNow.php",
+					type: 'POST',
 				
+					dataType: 'text json', // added data type
+					data: {
+						userid: $("#userid").val(),
+						docid: $("#docid").val(),
+						bookdate: $("#timestamp").val()
+					},
+					success: function(res) {
+						console.log(res);
+						if(res == 1){
+							$(location).attr("href","confirm.php");
+						} else if(res == 2){
+							alert("fail booking please try again!");
+						}else if(res == 3){
+							alert("you already book the same doctor today!");
+						}
+						
+					}
+				});
+			} else {
+				alert("CHECK THE TERMS AND AGREEMENT");
 			}
-    	});
 		});
 		
 	</script>

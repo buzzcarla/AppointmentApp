@@ -1,3 +1,11 @@
+<?php 
+	session_start();
+	if(isset($_SESSION['userid'])){
+		define('TIMEZONE', 'Asia/Manila');
+		date_default_timezone_set(TIMEZONE);
+	} 
+
+?>
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">

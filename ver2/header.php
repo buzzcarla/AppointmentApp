@@ -26,23 +26,30 @@
 							<li>
 								<span><a href="index.php">Home</a></span>
 							</li>
-							<li>
-								<span><a href="#0">Register</a></span>
-								<ul>
-									<li><a href="register-doctor.php">Register Doctor</a></li>
-									<li><a href="register.php">Register User</a></li>
-								</ul>
-							</li>
-							<li>
-								<span><a href="login.php">Login</a></span>
-							</li>
-							<li>
-								<span><a href="#0">Welcome, <span style="color: red">Name!</span></a></span>
-								<ul>
-									<li><a href="profile.php">View Profile</a></li>
-									<li><a href="login.php">Log Out</a></li>
-								</ul>
-							</li>
+							<?php 
+								if(!isset($_SESSION['userid'])||!isset($_SESSION['docid'])){
+									echo '<li>
+											<span><a href="#0">Register</a></span>
+											<ul>
+												<li><a href="register-doctor.php">Register Doctor</a></li>
+												<li><a href="register.php">Register User</a></li>
+											</ul>
+										</li>
+										<li>
+											<span><a href="login.php">Login</a></span>
+										</li>';
+								} else {
+									echo '<li>
+									<span><a href="#0">Welcome, <span style="color: red">'.$_SESSION['fname'].' '.$_SESSION['mname'].'</span></a></span>
+									<ul>
+										<li><a href="profile.php">View Profile</a></li>
+										<li><a href="login.php?logstat=1">Log Out</a></li>
+									</ul>
+								</li>';
+								}
+							?>
+							
+							
 						</ul>
 					</nav>
 					<!-- /main-menu -->

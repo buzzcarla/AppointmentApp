@@ -89,10 +89,11 @@
 						</figure>';
 						echo '<small>'.$row[1].'</small>';
 						echo '<h3>'.$row[4].'</h3>';
+						echo '<p><strong>Clinic Starts at: '.$row[8].' and Ends at:'.$row[9].'</strong></p>';
 						echo '<ul>
 								<li><a href="#0" onclick="onHtmlClick("Doctors", 2)" class="btn_listing">View on Map</a></li>
 								<li><a href="https://www.google.com/maps/dir//Assistance+%E2%80%93+H%C3%B4pitaux+De+Paris,+3+Avenue+Victoria,+75004+Paris,+Francia/@48.8606548,2.3348734,14z/data=!4m15!1m6!3m5!1s0x0:0xa6a9af76b1e2d899!2sAssistance+%E2%80%93+H%C3%B4pitaux+De+Paris!8m2!3d48.8568376!4d2.3504305!4m7!1m0!1m5!1m1!1s0x47e67031f8c20147:0xa6a9af76b1e2d899!2m2!1d2.3504327!2d48.8568361" target="_blank">Directions</a></li>
-								<li><a href="booking-page.php?docid='.$row[11].'&userid='.$row[12].'&clinname='.$row[1].'&clinadd='.$row[4].'&docfname='.$row[16].'&docmname='.$row[17].'&doclname='.$row[18].'">Book now</a></li>
+								<li><a href="booking-page.php?docid='.$row[11].'&userid='.$row[12].'&clinname='.$row[1].'&clinadd='.$row[4].'&docfname='.$row[16].'&docmname='.$row[17].'&doclname='.$row[18].'&start='.$row[8].'&end='.$row[9].'">Book now</a></li>
 							</ul> </div>';
 					}
 				} else {
@@ -115,10 +116,11 @@
 						</figure>';
 						echo '<small>'.$row[13].'</small>';
 						echo '<h3>Dr.'.$row[3].'</h3>';
+						echo '<p><strong>Clinic Starts at: '.$row[18].' and Ends at:'.$row[19].'</strong></p>';
 						echo '<ul>
 								<li><a href="#0" onclick="onHtmlClick("Doctors", 2)" class="btn_listing">View on Map</a></li>
 								<li><a href="https://www.google.com/maps/dir//Assistance+%E2%80%93+H%C3%B4pitaux+De+Paris,+3+Avenue+Victoria,+75004+Paris,+Francia/@48.8606548,2.3348734,14z/data=!4m15!1m6!3m5!1s0x0:0xa6a9af76b1e2d899!2sAssistance+%E2%80%93+H%C3%B4pitaux+De+Paris!8m2!3d48.8568376!4d2.3504305!4m7!1m0!1m5!1m1!1s0x47e67031f8c20147:0xa6a9af76b1e2d899!2m2!1d2.3504327!2d48.8568361" target="_blank">Directions</a></li>
-								<li><a href="booking-page.php?docid='.$row[11].'&userid='.$row[12].'&clinname='.$row[22].'&clinadd='.$row[25].'&docfname='.$row[1].'&docmname='.$row[2].'&doclname='.$row[3].'">Book now</a></li>
+								<li><a href="booking-page.php?docid='.$row[11].'&userid='.$row[12].'&clinname='.$row[22].'&clinadd='.$row[25].'&docfname='.$row[1].'&docmname='.$row[2].'&doclname='.$row[3].'&start='.$row[18].'&end='.$row[19].'">Book now</a></li>
 							</ul> </div>';
 					}
 				} 
@@ -152,12 +154,13 @@
 										echo '<small>'.$row[13].'</small>';
 										echo '<h3>Dr.'.$row[3].'</h3>';
 										echo '<p>Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis persecuti cuodo....</p>
+										<p><strong>Clinic Starts at: '.$row[18].' and Ends at:'.$row[19].'</strong></p>
 										<span class="rating"><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i><i class="icon_star"></i> <small>(145)</small></span>
 										<a href="badges.html" data-toggle="tooltip" data-placement="top" data-original-title="Badge Level" class="badge_list_1"><img src="img/badges/badge_4.svg" width="15" height="15" alt=""></a>
 										<ul>
 											<li><a href="https://www.google.com/maps/place/Mactan+Doctors+Hospital-CMJredelosa/@10.2901698,123.9648429,17z/data=!3m1!4b1!4m5!3m4!1s0x33a999f88ca2d461:0xbcd42a1c82d0693d!8m2!3d10.2901698!4d123.9670316" class="btn_listing">View on Map</a></li>
 											<li><a href="https://www.google.com/maps/dir/University+of+San+Carlos,+General+Maxilom+Ave,+Cebu+City,+6000+Cebu/Mactan+Doctors+Hospital-CMJredelosa,+Lapu-Lapu+City,+Cebu/@10.3168601,123.9160215,14z/data=!3m1!4b1!4m13!4m12!1m5!1m1!1s0x33a99946c07f77db:0x534b2a92ebc7c7e1!2m2!1d123.9011653!2d10.3117538!1m5!1m1!1s0x33a999f88ca2d461:0xbcd42a1c82d0693d!2m2!1d123.9670316!2d10.2901698">Directions</a></li>
-											<li><a href="booking-page.php?docid='.$row[11].'&userid='.$row[12].'&clinname='.$row[22].'&clinadd='.$row[25].'&docfname='.$row[1].'&docmname='.$row[2].'&doclname='.$row[3].'">Book now</a></li>
+											<li><a href="booking-page.php?docid='.$row[11].'&userid='.$row[12].'&clinname='.$row[22].'&clinadd='.$row[25].'&docfname='.$row[1].'&docmname='.$row[2].'&doclname='.$row[3].'&start='.$row[18].'&end='.$row[19].'">Book now</a></li>
 										</ul>
 									</div>
 								</div>
@@ -199,10 +202,11 @@
 										echo '<small>'.$row[1].'</small>';
 										echo '<h3>'.$row[4].'</h3>';
 										echo '<p>Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis persecuti cuodo....</p>
+										<p><strong>Clinic Starts at: '.$row[8].' and Ends at:'.$row[9].'</strong></p>
 										<ul>
 											<li><a href="https://www.google.com/maps/place/Mactan+Doctors+Hospital-CMJredelosa/@10.2901698,123.9648429,17z/data=!3m1!4b1!4m5!3m4!1s0x33a999f88ca2d461:0xbcd42a1c82d0693d!8m2!3d10.2901698!4d123.9670316" class="btn_listing">View on Map</a></li>
 											<li><a href="https://www.google.com/maps/dir/University+of+San+Carlos,+General+Maxilom+Ave,+Cebu+City,+6000+Cebu/Mactan+Doctors+Hospital-CMJredelosa,+Lapu-Lapu+City,+Cebu/@10.3168601,123.9160215,14z/data=!3m1!4b1!4m13!4m12!1m5!1m1!1s0x33a99946c07f77db:0x534b2a92ebc7c7e1!2m2!1d123.9011653!2d10.3117538!1m5!1m1!1s0x33a999f88ca2d461:0xbcd42a1c82d0693d!2m2!1d123.9670316!2d10.2901698">Directions</a></li>
-											<li><a href="booking-page.php?docid='.$row[11].'&userid='.$row[12].'&clinname='.$row[1].'&docfname='.$row[16].'&docmname='.$row[17].'&doclname='.$row[18].'">Book now</a></li>
+											<li><a href="booking-page.php?docid='.$row[11].'&userid='.$row[12].'&clinname='.$row[1].'&docfname='.$row[16].'&clinadd='.$row[25].'&docmname='.$row[17].'&doclname='.$row[18].'&start='.$row[8].'&end='.$row[9].'">Book now</a></li>
 										</ul>
 									</div>
 								</div>
