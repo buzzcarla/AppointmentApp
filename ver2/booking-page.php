@@ -2,9 +2,15 @@
 	<?php
 	
 	require('head.php');
-	$timestamp = time();
+
+	if(!isset($_GET['timestamp']) || isset($_SESSION['userid'])){
+		header("Location: index.php");
+	}
+	$timestamp = intval($_GET['timestamp']);
 	$date = date('Y/m/d',$timestamp);
 	$time = date('h:i A',$timestamp);
+	$type = $_GET['type'];
+	$docid = $_GET['docid'];
 	if(isset($_GET['start']) && isset($_GET['end'])){
 		$startstamp = strtotime($_GET['start']);
 		$endstamp = strtotime($_GET['end']);
@@ -61,16 +67,16 @@
 							<div class="col-md-6 col-sm-6">
 								<div class="form-group">
 									<label>First name</label>
-									<input id="userid" value="'.$_SESSION['userid'].'" hidden />
-									<input id="docid" value="'.$_GET['docid'].'" hidden />
+									<input type="text" id="userid" value="'.$_SESSION['userid'].'" hidden />
+									<input type="text" id="docid" value="'.$docid.'" />
 									
-									<input type="text" value="'.$_SESSION['fname'].'" readonly class="form-control" id="firstname_booking" name="firstname_booking" placeholder="John" >
+									<input type="text" value="'.$_SESSION['fname'].'"  class="form-control" id="firstname_booking" name="firstname_booking" placeholder="John" >
 								</div>
 							</div>
 							<div class="col-md-6 col-sm-6">
 								<div class="form-group">
 									<label>Last name</label>
-									<input type="text" class="form-control"value="'.$_SESSION['lname'].'" readonly  id="lastname_booking" name="lastname_booking" placeholder="Doe">
+									<input type="text" class="form-control"value="'.$_SESSION['lname'].'"   id="lastname_booking" name="lastname_booking" placeholder="Doe">
 								</div>
 							</div>
 						</div>
@@ -78,7 +84,7 @@
 							<div class="col-md-6 col-sm-6">
 								<div class="form-group">
 									<label>Contact Number</label>
-									<input type="text" id="telephone_booking" value="'.$_SESSION['tele'].'" readonly  name="telephone_booking" class="form-control" placeholder="00 44 678 94329">
+									<input type="text" id="telephone_booking" value="'.$_SESSION['tele'].'"   name="telephone_booking" class="form-control" placeholder="00 44 678 94329">
 								</div>
 							</div>
 						</div>';
@@ -179,14 +185,15 @@
 								<h3>Booking Summary</h3>
 							</div>
 							<?php 
-						if($startstamp<$time && $endstamp>$time){
+						
 								
 							
 							echo '<div class="summary">
 								
 								
 							<ul>
-									<input id="timestamp" value="'.$timestamp.'" hidden />
+									<input type = "text" id="timestamp" value="'.$timestamp.'" hidden />
+									<input type = "text" id="booktype" value="'.$type.'" hidden />
 									<li>Date: <strong class="float-right">'.$date.'</strong></li>
 									<li>Time: <strong class="float-right">'.$time.'</strong></li>
 									<li>Dr. Name: <strong class="float-right">'.$_GET["docfname"].' '.$_GET["doclname"].'</strong></li>
@@ -208,9 +215,7 @@
 							
 							<hr>
 							<input type="button" class="btn_1 full-width confirmBut" value="Confirm Booking"></input>';
-							} else {
-								echo "<H1>THE CLINIC IS CLOSED TODAY!</H1>";
-							}
+							
 							?>
 						</form>
 					</div><div class="resize-sensor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden;"><div class="resize-sensor-expand" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden; z-index: -1; visibility: hidden;"><div style="position: absolute; left: 0px; top: 0px; transition: all 0s ease 0s; width: 390px; height: 1544px;"></div></div><div class="resize-sensor-shrink" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden; z-index: -1; visibility: hidden;"><div style="position: absolute; left: 0; top: 0; transition: 0s; width: 200%; height: 200%"></div></div></div></div></aside>
@@ -237,26 +242,29 @@
 	 
 	<script>
 		$(".confirmBut").click(function(){
-			
 			if($("#policy_terms").is(":checked")){
 				$.ajax({
 					url: "create/createBookingNow.php",
 					type: 'POST',
-				
-					dataType: 'text json', // added data type
+					dataType: 'text json',
 					data: {
 						userid: $("#userid").val(),
 						docid: $("#docid").val(),
-						bookdate: $("#timestamp").val()
+						bookdate: $("#timestamp").val(),
+						type: $("#booktype").val(),
+						fname: $("#firstname_booking").val(),
+						lname: $("#lastname_booking").val()
 					},
 					success: function(res) {
 						console.log(res);
 						if(res == 1){
-							$(location).attr("href","confirm.php");
+							document.location.href = "confirm.php";
 						} else if(res == 2){
 							alert("fail booking please try again!");
 						}else if(res == 3){
 							alert("you already book the same doctor today!");
+						} else if (res == 4){
+							alert("network problem!");
 						}
 						
 					}

@@ -23,7 +23,7 @@
         $gender = $_POST['dgender'];
         $province = $_POST['pcode'];
         $specialization = $_POST['dspecial'];
-		$query = "SELECT * FROM user WHERE username=".$username." OR (user_firstn =".$first." AND user_middlen =".$middle." AND user_lastn =".$last.") OR user_email ='".$email."'";
+		$query = "SELECT * FROM user WHERE username='".$username."' OR (user_firstn ='".$first."' AND user_middlen ='".$middle."' AND user_lastn ='".$last."') OR user_email ='".$email."'";
 		$clinicarr = json_decode($_POST['clinics']);
         $license = $_POST['medli'];
 		$result = mysqli_query($mysql,$query);
