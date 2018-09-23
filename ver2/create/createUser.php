@@ -15,7 +15,7 @@
         $city = $_POST['ccode'];
         $gender = $_POST['dgender'];
         $province = $_POST['pcode'];
-		$query = "SELECT * FROM user WHERE username=".$username." OR (user_firstn =".$first." AND user_middlen =".$middle." AND user_lastn =".$last.") OR user_email ='".$email."'";
+		$query = "SELECT * FROM user WHERE username='".$username."' OR (user_firstn ='".$first."' AND user_middlen ='".$middle."' AND user_lastn ='".$last."') OR user_email ='".$email."'";
 		$result = mysqli_query($mysql,$query);
 
 		if ($result){
