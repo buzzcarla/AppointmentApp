@@ -296,6 +296,7 @@
 			},
 			success: function(res) {
 				$(res).each(function(key,val){
+					
 					$('.sel-city').append($('<option>', {
 						value: val[5],
 						text: val[2]
