@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<?php
+	
+	require('../../ver2/connect.php');
+	
+?>
 <html lang="en">
 
 <head>
@@ -67,84 +72,48 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="odd gradeX">
-                                        <td>John Doe</td>
-                                        <td>12349823</td>
-                                        <td>Mactan Doctors</td>
-                                        <td class="center">Mactan, Lapu-Lapu, Cebu</td>
-                                        <td class="center">Active</td>
-                                    </tr>
-                                    <tr class="even gradeC">
-                                        <<td>Hello There</td>
-                                        <td>12349823</td>
-                                        <td>Mactan Doctors</td>
-                                        <td class="center">Mactan, Lapu-Lapu, Cebu</td>
-                                        <td class="center">Active</td>
-                                    </tr>
-                                    <tr class="odd gradeA">
-                                        <td>John Smith</td>
-                                        <td>12349823</td>
-                                        <td>Mactan Doctors</td>
-                                        <td class="center">Mactan, Lapu-Lapu, Cebu</td>
-                                        <td class="center">Active</td>
-                                    </tr>
-                                    <tr class="odd gradeA">
-                                        <td>John Smith</td>
-                                        <td>12349823</td>
-                                        <td>Mactan Doctors</td>
-                                        <td class="center">Mactan, Lapu-Lapu, Cebu</td>
-                                        <td class="center">Active</td>
-                                    </tr>
-                                    <tr class="odd gradeA">
-                                        <td>John Smith</td>
-                                        <td>12349823</td>
-                                        <td>Mactan Doctors</td>
-                                        <td class="center">Mactan, Lapu-Lapu, Cebu</td>
-                                        <td class="center">Active</td>
-                                    </tr>
-                                    <tr class="even gradeA">
-                                        <td>John Doe</td>
-                                        <td>12349823</td>
-                                        <td>Mactan Doctors</td>
-                                        <td class="center">Mactan, Lapu-Lapu, Cebu</td>
-                                        <td class="center">Active</td>
-                                    </tr>
-                                    <tr class="odd gradeA">
-                                        <td>John Doe</td>
-                                        <td>12349823</td>
-                                        <td>Mactan Doctors</td>
-                                        <td class="center">Mactan, Lapu-Lapu, Cebu</td>
-                                        <td class="center">Active</td>
-                                    </tr>
-                                    <tr class="even gradeA">
-                                        <td>John Doe</td>
-                                        <td>12349823</td>
-                                        <td>Mactan Doctors</td>
-                                        <td class="center">Mactan, Lapu-Lapu, Cebu</td>
-                                        <td class="center">Active</td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>John Doe</td>
-                                        <td>12349823</td>
-                                        <td>Mactan Doctors</td>
-                                        <td class="center">Mactan, Lapu-Lapu, Cebu</td>
-                                        <td class="center">Active</td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>John Doe</td>
-                                        <td>12349823</td>
-                                        <td>Mactan Doctors</td>
-                                        <td class="center">Mactan, Lapu-Lapu, Cebu</td>
-                                        <td class="center">Active</td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>John Doe</td>
-                                        <td>12349823</td>
-                                        <td>Mactan Doctors</td>
-                                        <td class="center">Mactan, Lapu-Lapu, Cebu</td>
-                                        <td class="center">Active</td>
-                                    </tr>
-
+                                   <?php 
+                                        $query = "SELECT * FROM user
+                                                  LEFT JOIN doctors on doctors.user_id = user.user_id
+                                                  LEFT JOIN location_clinic on location_clinic.doctor_id = doctors.doctor_id
+                                                  LEFT JOIN clinic on clinic.clinic_id = location_clinic.clinic_id  
+                                                  where user_level = '1'
+                                                  Group BY user.user_id";
+                                        $res = mysqli_query($mysql,$query);
+                                        $ctr= 0;
+                                        while($row = mysqli_fetch_row($res)){
+                                            
+                                            echo '
+                                          
+                                            <tr class="odd gradeX">
+                                                    <td>'.$row[1].' '.$row[3].'</td>
+                                                    <td>'.$row[16].'</td>
+                                                    <td>'.$row[24].'</td>
+                                                    <td class="center">'.$row[27].'</td>
+                                                    <td class="center" id="'.++$ctr.'">
+                                                        <select id="stat'.$ctr.'">';
+                                                        if($row[12]==0){
+                                                            echo '
+                                                            <option value="1_'.$row[0].'">Active</option> 
+                                                            <option selected value="0_'.$row[0].'">Deactivate/Ban</option>
+                                                            <option value="-1_'.$row[0].'">Delete </option>';
+                                                        } else if($row[12]==1){
+                                                            echo '
+                                                            <option selected value="1_'.$row[0].'">Active</option> 
+                                                            <option  value="0_'.$row[0].'">Deactivate/Ban</option>
+                                                            <option value="-1_'.$row[0].'">Delete </option>';
+                                                        } else if($row[12]==-1){
+                                                            echo '
+                                                            <option value="1_'.$row[0].'">Active</option> 
+                                                            <option  value="0_'.$row[0].'">Deactivate/Ban</option>
+                                                            <option selected value="-1_'.$row[0].'">Delete </option>';
+                                                        }
+                                                        echo '
+                                                        </select>    
+                                                    </td>
+                                                </tr>';
+                                        }
+                                    ?>
                                 </tbody>
                             </table>
                             <!-- /.table-responsive -->
@@ -182,11 +151,33 @@
 
     <!-- Page-Level Demo Scripts - Tables - Use for reference -->
     <script>
+        var fullname;
+        var e;
     $(document).ready(function() {
+       
         $('#dataTables-example').DataTable({
             responsive: true
         });
     });
+    $('select').on("change",function(){
+		var newStat = this.value;
+		$.ajax({
+			url: "../../ver2/requests/updateUserStat.php",
+			type: 'POST',
+		
+			dataType: 'text json', // added data type
+			data: {
+                stat: newStat
+			},
+			success: function(res) {
+				alert(res);
+				
+			}
+    	});
+    });
+
+
+       
     </script>
 
 </body>
