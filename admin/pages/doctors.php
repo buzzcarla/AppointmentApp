@@ -46,9 +46,10 @@
         ?>
 
         <div id="page-wrapper">
+             <img src="https://www.freewebheaders.com/wordpress/wp-content/gallery/medical/medical-doctor-stethoscope-and-office-sign-web-header.jpg" style=" width: 1235px; height: auto; position: absolute;">
             <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="page-header">Doctors Management</h1>
+                <div class="col-lg-12" style="margin-top: 80px">
+                    <h1 class="page-header" style="font-size: -webkit-xxx-large;padding-left: 200px;">Doctors Management</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -63,7 +64,7 @@
                         <div class="panel-body">
                             <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
-                                    <tr>
+                                    <tr style="background-color:#003a6f!important; color:white;">
                                         <th>Name</th>
                                         <th>License Number</th>
                                         <th>Clinic Name</th>
