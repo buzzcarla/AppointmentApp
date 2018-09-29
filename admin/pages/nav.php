@@ -1,8 +1,8 @@
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0; background-color: #003a6f!important;">
             <div class="navbar-header">
-                <img src="icon.png" style="height: 35px; position: absolute; padding-left: 20px;padding-top: 10px;"></img>
-                <a class="navbar-brand" href="index.php" style="padding-left: 80px;color: white!important;">Finding Doctors Admin</a>
+                <img src="icon.png" style="height: 40px; position: absolute; padding-left: 20px;padding-top: 10px;"></img>
+                <a class="navbar-brand" href="index.php" style="padding-left: 90px;color: white!important;">Finding Doctors Admin</a>
             </div>
             <!-- /.navbar-header -->
 
