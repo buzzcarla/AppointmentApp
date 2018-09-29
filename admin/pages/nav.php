@@ -1,11 +1,11 @@
         <!-- Navigation -->
-        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0; background-color: #003a6f!important;">
             <div class="navbar-header">
-                <a class="navbar-brand" href="index.php">Finding Doctors Admin</a>
+                <a class="navbar-brand" href="index.php" style="color: white!important;">Finding Doctors Admin</a>
             </div>
             <!-- /.navbar-header -->
 
-            <ul class="nav navbar-top-links navbar-right">
+<!--             <ul class="nav navbar-top-links navbar-right">
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
@@ -20,7 +20,7 @@
                     <!-- /.dropdown-user -->
                 </li>
                 <!-- /.dropdown -->
-            </ul>
+            <!-- </ul> -->
             <!-- /.navbar-top-links -->
 
             <div class="navbar-default sidebar" role="navigation">
@@ -36,6 +36,9 @@
                             <a href="users.php"><i class="fa fa-edit fa-fw"></i> User List</a>
                         </li>
                         <li>
+                            <a href="./../../ver2/login.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
+                        <!-- <li>
                             <a href="#"><i class="fa fa-files-o fa-fw"></i> Admin <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
@@ -46,7 +49,7 @@
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
-                        </li>
+                        <!-- </li>  -->
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
