@@ -4,7 +4,7 @@
 		define('TIMEZONE', 'Asia/Manila');
 		date_default_timezone_set(TIMEZONE);
 	} 
-
+	require('connect.php')
 ?>
 <head>
 	<meta charset="utf-8">

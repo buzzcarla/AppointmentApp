@@ -44,9 +44,13 @@
 	</div>
 	<!-- /Preload-->
     <?php 
+        session_start();
+        if(!isset($_SESSION['userid'])){
+            $_SESSION['userid'] = -1;
+        }
         echo '<input type="text" id="doc_id" value="'.$_GET['docid'].'" hidden>';
         echo '<input type="text" id="user_id" value="'.$_GET['userid'].'" hidden>';
-        echo '<input type="text" id="clin_name" value="'.$_GET['cliname'].'" hidden>';
+        echo '<input type="text" id="clin_name" value="'.$_GET['clinname'].'" hidden>';
         echo '<input type="text" id="clin_add" value="'.$_GET['clinadd'].'" hidden>';
         echo '<input type="text" id="doc_fname" value="'.$_GET['docfname'].'" hidden>';
         echo '<input type="text" id="doc_mname" value="'.$_GET['docmname'].'" hidden>';
@@ -56,53 +60,7 @@
        
     ?>
 	<div id="page">		
-	<header class="header_sticky">	
-		<a href="#menu" class="btn_mobile">
-			<div class="hamburger hamburger--spin" id="hamburger">
-				<div class="hamburger-box">
-					<div class="hamburger-inner"></div>
-				</div>
-			</div>
-		</a>
-		<!-- /btn_mobile-->
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-3 col-6">
-					<div id="logo_home">
-						<h1><a href="index.php" title="Findoctor">Finding Doctors</a></h1>
-					</div>
-				</div>
-				<div class="col-lg-9 col-6">
-					<ul id="top_access">
-						<li><a href="login.html"><i class="pe-7s-user"></i></a></li>
-						<li><a href="register-doctor.html"><i class="pe-7s-add-user"></i></a></li>
-					</ul>
-					<nav id="menu" class="main-menu">
-						<ul>
-							<li>
-								<span><a href="index.php">Home</a></span>
-							</li>
-							<li>
-								<span><a href="#0">Register</a></span>
-								<ul>
-									<li><a href="register-doctor.html">Register Doctor</a></li>
-									<li><a href="register.html">Register User</a></li>
-								</ul>
-							</li>
-							<li>
-								<span><a href="login.html">Login</a></span>
-							</li>
-							<li>
-								<li><a href="listall.php">Doctor List</a></li>
-							</li>
-						</ul>
-					</nav>
-					<!-- /main-menu -->
-				</div>
-			</div>
-		</div>
-		<!-- /container -->
-	</header>
+	<?php require('header.php');?>
 	<!-- /header -->
 	
 	
@@ -287,7 +245,14 @@
 									</ul>
 								</form>					
 								<hr>
-								<p class="text-center"><button style="margin-left: 40%; margin-top: 5%;"  class="btn_1 medium book">Book Now</button></p>
+                                <?php 
+                                    if($_SESSION['userid'] != -1 ){
+                                        echo '<p class="text-center"><button style="margin-left: 40%; margin-top: 5%;"  class="btn_1 medium book">Book Now</button></p>';
+                                    } else{
+                                        echo '<p class="text-center"><button style="margin-left: 40%; margin-top: 5%; background:grey;"  class="btn_1 medium book"  disabled>Book Now</button></p>';
+                                    }
+                                ?>
+							
 							</div>
 							<!-- /tab_1 -->
 						</div>

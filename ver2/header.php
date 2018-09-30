@@ -27,6 +27,7 @@
 								<span><a href="index.php">Home</a></span>
 							</li>
 							<?php 
+								
 								if(!isset($_SESSION['userid'])||!isset($_SESSION['docid'])){
 									echo '<li>
 											<span><a href="#0">Register</a></span>

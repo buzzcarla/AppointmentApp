@@ -6,47 +6,56 @@
 		session_start();
 		session_destroy();
 	}
+	$message = 'user_exist';
 	if(isset($_POST['user'])&&$_POST['pass']){
-	 	$query = "SELECT * FROM user where username = '".$_POST['user']."' AND user_password='".$_POST['pass']."' LIMIT 1";
+	 	$query = "SELECT * FROM user where username = '".$_POST['user']."' AND user_password='".$_POST['pass']."' AND user_status = '1' LIMIT 1";
 		$res = mysqli_query($mysql,$query);
 		if ($res){
 			$row = mysqli_fetch_row($res); 
-			if($row != null){		
-				session_start();
-				if($row[5]==1){
-					$query1 = "SELECT * FROM user 
-					LEFT JOIN doctors ON user.user_id = doctors.user_id
-					LEFT JOIN location_clinic ON doctors.doctor_id = location_clinic.doctor_id 
-					LEFT JOIN clinic ON clinic.clinic_id = location_clinic.clinic_id
-					WHERE user.user_id = ".$row[0];
-	
-					$res1 = mysqli_query($mysql,$query1);
-					if($res1){
-						$row1 = mysqli_fetch_row($res1);
-						$_SESSION['docid'] = $row1[11];
-						$_SESSION['locid'] = $row1[15];
-						$_SESSION['clinid'] = $row1[16];
-						$_SESSION['sched_start'] = $row1[18];
-						$_SESSION['sched_end'] = $row1[19];
-						$_SESSION['clin_name'] = $row1[21];
-						$_SESSION['clinx'] = $row1[22];
-						$_SESSION['cliny'] = $row1[23];
-						$_SESSION['clin_address'] = $row1[24];
+			if($row != null){
+				if($row[12]==1){
+					session_start();
+						$query1 = "SELECT * FROM user 
+						LEFT JOIN doctors ON user.user_id = doctors.user_id
+						LEFT JOIN location_clinic ON doctors.doctor_id = location_clinic.doctor_id 
+						LEFT JOIN clinic ON clinic.clinic_id = location_clinic.clinic_id
+						WHERE user.user_id = ".$row[0];
+		
+						$res1 = mysqli_query($mysql,$query1);
+						if($res1){
+							$row1 = mysqli_fetch_row($res1);
+							$_SESSION['docid'] = $row1[11];
+							$_SESSION['locid'] = $row1[15];
+							$_SESSION['clinid'] = $row1[16];
+							$_SESSION['sched_start'] = $row1[18];
+							$_SESSION['sched_end'] = $row1[19];
+							$_SESSION['clin_name'] = $row1[21];
+							$_SESSION['clinx'] = $row1[22];
+							$_SESSION['cliny'] = $row1[23];
+							$_SESSION['clin_address'] = $row1[24];
+						}
 					}
-				}
-				$_SESSION['userid'] = $row[0];
-				$_SESSION['username'] = $row[6];
-				$_SESSION['gender'] = $row[4];
-				$_SESSION['fname'] = $row[1];
-				$_SESSION['lname'] = $row[3];
-				$_SESSION['mname'] = $row[2];
-				$_SESSION['mobile'] = $row[8];
-				$_SESSION['tele'] = $row[9];
-				$_SESSION['email'] = $row[7];
-				$_SESSION['stat'] = $row[5];
-
-				header('Location: index.php?stat='.$row[5]);
+					$_SESSION['userid'] = $row[0];
+					$_SESSION['username'] = $row[6];
+					$_SESSION['gender'] = $row[4];
+					$_SESSION['fname'] = $row[1];
+					$_SESSION['lname'] = $row[3];
+					$_SESSION['mname'] = $row[2];
+					$_SESSION['mobile'] = $row[8];
+					$_SESSION['tele'] = $row[9];
+					$_SESSION['email'] = $row[7];
+					$_SESSION['stat'] = $row[5];
+					$_SESSION['pass'] = $row[10];
+					header('Location: index.php?stat='.$row[5]);
+						
+			} else {
+				$message = 'user_not';
 			}
+		} else{
+			if(isset($_GET['login'])){
+				$message = 'user_not';
+			}
+			
 		}
 	} 
 
@@ -57,7 +66,14 @@
 <?php
 	require('head.php');
 ?>
-
+<style>
+	.user_exist{
+		display:none;
+	}
+	.user_not{
+		display:block;
+	}
+</style>
 <body>
 
 	<div id="preloader" class="Fixed">
@@ -76,9 +92,12 @@
 			<div class="container margin_60_35">
 				<div id="login-2">
 					<h1>Please login to Findoctor!</h1>
-					<form method="POST"action="login.php">
+					<form method="POST"action="login.php?login='1'">
 						<div class="box_form clearfix">
 							<div class="box_login last">
+								<div class="form-group">
+									<label class= <?php echo '"'.$message.'"'; ?> >User does not exist</label>
+								</div>
 								<div class="form-group">
 									<input type="text" name="user" class="form-control user" placeholder="Your username">
 								</div>
@@ -125,31 +144,30 @@
 
 </body>
 <script>
-	$( document ).ready(function() {
-		$('.loginbut').on("click",function(){
-			alert("here");
-			$.ajax({
-				url: "requests/getUserOrDoctor.php",
-				type: 'POST',
-				dataType: 'text json', // added data type
-				data: {
-						user:$('.user').val(),
-					  	pass:$('.pass').val()
-					  },
-				success: function(res) {
-					console.log(res);
-					if(res == 3 || res == 2){
-						alert("LOGIN FAILED");
-					}  else {
-						alert("LOGIN SUCCESFUL")
-						window.location.replace("index.php");
-					}
+	// $( document ).ready(function() {
+	// 	$('.loginbut').on("click",function(){
+	// 		$.ajax({
+	// 			url: "requests/getUserOrDoctor.php",
+	// 			type: 'POST',
+	// 			dataType: 'text json', // added data type
+	// 			data: {
+	// 					user:$('.user').val(),
+	// 				  	pass:$('.pass').val()
+	// 				  },
+	// 			success: function(res) {
+	// 				console.log(res);
+	// 				if(res == 3 || res == 2){
+	// 					alert("LOGIN FAILED");
+	// 				}  else {
+	// 					alert("LOGIN SUCCESFUL")
+	// 					window.location.replace("index.php");
+	// 				}
 					
 				
-				}
-    		});
+	// 			}
+    // 		});
 
-		});
-	});
+	// 	});
+	// });
 </script>
 </html>
