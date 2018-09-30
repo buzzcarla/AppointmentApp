@@ -19,15 +19,12 @@
 	<div id="preloader" class="Fixed">
 		<div data-loader="circle-side"></div>
 	</div>
-	<!-- /Preload-->
 	
 	<div id="page">		
-		<?php
-			require('header.php');
-		?>
+	<?php
+		require('header.php');
+	?>
 
-	<!-- /header -->
-	
 	<main class="theia-exception">
 		<div id="results">
 			<div class="container">
@@ -43,11 +40,8 @@
 						</div>
 					</div>
 				</div>
-				<!-- /row -->
 			</div>
-			<!-- /container -->
 		</div>
-		<!-- /results -->
 
 		<div class="filters_listing" style="margin-bottom: 10px;">
 			<div class="container">
@@ -66,9 +60,7 @@
 					
 				</ul>
 			</div>
-			<!-- /container -->
 		</div>
-		<!-- /filters -->
 		</form>
 
 		<?php 
@@ -134,19 +126,6 @@
 				$res = mysqli_query($mysql,$query);
 				if($res){
 					while($row = mysqli_fetch_array($res)) {
-						// echo '<div class="strip_list">
-						// <a href="#0" class="wish_bt"></a>
-						// <figure>
-						// 	<a href="detail-page-2.php"><img src="img/doctor_listing_1.jpg" alt=""></a>
-						// </figure>';
-						// echo '<small>'.$row[13].'</small>';
-						// echo '<h3>Dr.'.$row[3].'</h3>';
-						// echo '<ul>
-						// 		<li><a href="#0" onclick="onHtmlClick("Doctors", 2)" class="btn_listing">View on Map</a></li>
-						// 		<li><a href="https://www.google.com/maps/dir//Assistance+%E2%80%93+H%C3%B4pitaux+De+Paris,+3+Avenue+Victoria,+75004+Paris,+Francia/@48.8606548,2.3348734,14z/data=!4m15!1m6!3m5!1s0x0:0xa6a9af76b1e2d899!2sAssistance+%E2%80%93+H%C3%B4pitaux+De+Paris!8m2!3d48.8568376!4d2.3504305!4m7!1m0!1m5!1m1!1s0x47e67031f8c20147:0xa6a9af76b1e2d899!2m2!1d2.3504327!2d48.8568361" target="_blank">Directions</a></li>
-						// 		<li><a href="detail-page-2.php">Book now</a></li>
-						// 	</ul> </div>';
-
 						echo '<div class="container margin_60_35" style="padding-top: 0px;">
 							<div class="row">
 								<div class="col-lg-7">
@@ -182,19 +161,6 @@
 				$res2 = mysqli_query($mysql,$query2);
 				if($res2){
 					while($row = mysqli_fetch_array($res2)) {
-						// echo '<div class="strip_list">
-						// <a href="#0" class="wish_bt"></a>
-						// <figure>
-						// 	<a href="detail-page-2.php"><img src="img/doctor_listing_1.jpg" alt=""></a>
-						// </figure>';
-						// echo '<small>'.$row1[1].'</small>';
-						// echo '<h3>'.$row1[4].'</h3>';
-						// echo '<ul>
-						// 		<li><a href="#0" onclick="onHtmlClick("Doctors", 2)" class="btn_listing">View on Map</a></li>
-						// 		<li><a href="https://www.google.com/maps/dir//Assistance+%E2%80%93+H%C3%B4pitaux+De+Paris,+3+Avenue+Victoria,+75004+Paris,+Francia/@48.8606548,2.3348734,14z/data=!4m15!1m6!3m5!1s0x0:0xa6a9af76b1e2d899!2sAssistance+%E2%80%93+H%C3%B4pitaux+De+Paris!8m2!3d48.8568376!4d2.3504305!4m7!1m0!1m5!1m1!1s0x47e67031f8c20147:0xa6a9af76b1e2d899!2m2!1d2.3504327!2d48.8568361" target="_blank">Directions</a></li>
-						// 		<li><a href="detail-page-2.php">Book now</a></li>
-						// 	</ul> </div>';
-
 						echo '<div class="container margin_60_35" style="padding-top: 0px;">
 							<div class="row">
 								<div class="col-lg-7">
@@ -220,7 +186,6 @@
 					}
 				}
 			}else {
-				// echo '<div class="row" ><h1>FOUND NONE</h1></div>';
 				echo 
 					'<div class="container margin_60_35" style="padding-top: 0px;">
 						<div class="row">
@@ -241,21 +206,15 @@
 				}
 			?>
 		</div>
-		<!-- /container -->
 	</main>
-	<!-- /main -->
-	
 	
 	<?php 
 		require('footer.php');
 	?>
 	</div>
-	<!--/footer-->
 	</div>
-	<!-- page -->
 
 	<div id="toTop"></div>
-	<!-- Back to top button -->
 
 	<!-- COMMON SCRIPTS -->
 	<script src="js/jquery-2.2.4.min.js"></script>
@@ -266,7 +225,5 @@
 	<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCoz993id_Qq7AcfaoVzviC6swgvQRixuQ"></script>
     <script src="js/map_listing.js"></script>
     <script src="js/infobox.js"></script>
-
-
 </body>
 </html>
