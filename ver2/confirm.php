@@ -1,25 +1,17 @@
-
+<!-- CONFIRM BOOKING PAGE -->
 <!DOCTYPE html>
 <html lang="en">
-
 	<?php
 		require('head.php');
 	?>
 <body>
-
 	<div class="layer"></div>
-	<!-- Mobile menu overlay mask -->
-
 	<div id="preloader">
 		<div data-loader="circle-side"></div>
 	</div>
-	<!-- End Preload -->
-    
 	<?php
 		require('header.php');
 	?>
-	<!-- /Header -->	
-	
 	<main>
 		<div id="breadcrumb">
 			<div class="container">
@@ -30,8 +22,6 @@
 				</ul>
 			</div>
 		</div>
-		<!-- /breadcrumb -->
-
 		<div class="container margin_120">
 			<div class="row justify-content-center">
 				<div class="col-lg-8">
@@ -49,24 +39,20 @@
 					</div>
 				</div>
 			</div>
-			<!-- /row -->
 		</div>
-		<!-- /container -->
 	</main>
-	<!-- /main -->
 	
+	<!--/footer-->
 	<?php
 		require('footer.php');
 	?>
-	<!--/footer-->
 
-	<div id="toTop"></div>
 	<!-- Back to top button -->
+	<div id="toTop"></div>
 
 	<!-- COMMON SCRIPTS -->
 	<script src="js/jquery-2.2.4.min.js"></script>
 	<script src="js/common_scripts.min.js"></script>
-	<script src="js/functions.js"></script>
-     
+	<script src="js/functions.js"></script>     
 </body>
 </html>

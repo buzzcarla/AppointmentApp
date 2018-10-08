@@ -23,17 +23,14 @@
 <body style="transform: none; overflow: visible;">
 
 	<div class="layer"></div>
-	<!-- Mobile menu overlay mask -->
-
 	<div id="preloader" style="display: none;">
 		<div data-loader="circle-side" style="display: none;"></div>
 	</div>
-	<!-- End Preload -->
     
+	<!-- /Header -->	
 	<?php
 		require('header.php');
 	?>
-	<!-- /Header -->	
 	
 	<main style="transform: none;">
 		<div id="breadcrumb">
@@ -45,7 +42,6 @@
 				</ul>
 			</div>
 		</div>
-		<!-- /breadcrumb -->
 
 		<div class="container margin_60" style="transform: none;">
 			<div class="row" style="transform: none;">
@@ -88,13 +84,9 @@
 								</div>
 							</div>
 						</div>';
-							
-							
 							?>
-							
 					</div>
 					<hr>
-					<!--End step -->
 
 					<div class="form_title">
 						<h3><strong>2</strong>Payment Information</h3>
@@ -145,15 +137,12 @@
 								</div>
 							</div>
 						</div>
-						<!--End row -->
-
 						<h5>Pay onsite</h5>
 						<p>
 							Lorem ipsum dolor sit amet, vim id accusata sensibus, id ridens quaeque qui. Ne qui vocent ornatus molestie, reque fierent dissentiunt mel ea.
 						</p>
 					</div>
 					<hr>
-					<!--End step -->
 
 					<div class="form_title">
 						<h3><strong>3</strong>Final Step</h3>
@@ -170,27 +159,19 @@
 								</label>
 							</div>						
 						</div>
-						<!--End row -->
 					</div>
 					
 				</div>
 				</div>
-				<!-- /col -->
 				<aside class="col-xl-4 col-lg-4" id="sidebar" style="position: relative; overflow: visible; box-sizing: border-box; min-height: 1px;">
 					
-					<!-- /box_general -->
 				<div class="theiaStickySidebar" style="padding-top: 0px; padding-bottom: 1px; position: static; transform: none; left: 964.6px; top: 0px;"><div class="box_general_3 booking">
 						<form>
 							<div class="title">
 								<h3>Booking Summary</h3>
 							</div>
 							<?php 
-						
-								
-							
 							echo '<div class="summary">
-								
-								
 							<ul>
 									<input type = "text" id="timestamp" value="'.$timestamp.'" hidden />
 									<input type = "text" id="booktype" value="'.$type.'" hidden />
@@ -200,40 +181,27 @@
 									<li>Clinic Name: <strong class="float-right">Mactan Doc</strong></li>
 									<li>Clinic Address: <strong class="float-right">';
 								if(empty($_GET["clinadd"])){
-									echo 'Address did not Share</strong></li>
-									
-																	 </ul>';
+									echo 'Address did not Share</strong></li></ul>';
 								}	else {
-
-									echo ''.$_GET["clinadd"].'</strong></li>
-									
-																	 </ul>';
+									echo ''.$_GET["clinadd"].'</strong></li></ul>';
 								}
-									
 							echo'
 							</div>
-							
 							<hr>
 							<input type="button" class="btn_1 full-width confirmBut" value="Confirm Booking"></input>';
-							
 							?>
 						</form>
 					</div><div class="resize-sensor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden;"><div class="resize-sensor-expand" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden; z-index: -1; visibility: hidden;"><div style="position: absolute; left: 0px; top: 0px; transition: all 0s ease 0s; width: 390px; height: 1544px;"></div></div><div class="resize-sensor-shrink" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden; z-index: -1; visibility: hidden;"><div style="position: absolute; left: 0; top: 0; transition: 0s; width: 200%; height: 200%"></div></div></div></div></aside>
-				<!-- /asdide -->
 			</div>
-			<!-- /row -->
 		</div>
-		<!-- /container -->
-	</main>
-	<!-- /main -->
-	
+	</main>	
 	<?php 
 		require('footer.php');
 	?>
 	</div>
 
-	<div id="toTop" style="display: block;"></div>
 	<!-- Back to top button -->
+	<div id="toTop" style="display: block;"></div>
 
 	<!-- COMMON SCRIPTS -->
 	<script src="js/jquery-2.2.4.min.js"></script>
@@ -272,10 +240,8 @@
 			} else {
 				alert("CHECK THE TERMS AND AGREEMENT");
 			}
-		});
-		
+		});	
 	</script>
-
 </body>
 </html>
 

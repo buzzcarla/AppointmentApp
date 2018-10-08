@@ -1,7 +1,7 @@
-
+<!-- ERROR PAGE -->
 <!DOCTYPE html>
 <html lang="en">
-
+<!-- head file -->
 <?php
 	require('head.php');
 ?>
@@ -9,13 +9,10 @@
 <body>
 
 	<div class="layer"></div>
-	<!-- Mobile menu overlay mask -->
-
 	<div id="preloader">
 		<div data-loader="circle-side"></div>
 	</div>
-	<!-- End Preload -->
-    
+    <!-- header -->
 	<?php
 	require('header.php');
 	?>
@@ -29,27 +26,19 @@
 						<p>We're sorry, but the page you were looking for doesn't exist.</p>
 					</div>
 				</div>
-				<!-- /row -->
 			</div>
-			<!-- /container -->
 		</div>
-		<!-- /error_page -->
 	</main>
-	<!-- /main -->
-	
+	<!-- Footer -->
 	<?php 
 		require('footer.php');
 	?>
-
-	<div id="toTop"></div>
 	<!-- Back to top button -->
+	<div id="toTop"></div>
 
 	<!-- COMMON SCRIPTS -->
 	<script src="js/jquery-2.2.4.min.js"></script>
 	<script src="js/common_scripts.min.js"></script>
 	<script src="js/functions.js"></script>
-     
-
-
 </body>
 </html>

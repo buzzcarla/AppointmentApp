@@ -1,26 +1,20 @@
-
+<!-- list all doctors -->
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- <?php 
-	require_once('connect.php');
-	
-	$searchname = $_GET['search'];
-	$radiosearch= $_GET['radio_search'];					
-	
-?> -->
-
+<!-- Head contains all the needed links for the program -->
 <?php
 	require('head.php');
 ?>
 
 <body>
-	
+	<!-- Loading icon with animation before the page finished loading -->
 	<div id="preloader" class="Fixed">
 		<div data-loader="circle-side"></div>
 	</div>
 	
 	<div id="page">		
+	<!-- Header file with the navigation bar is added to the page -->
 	<?php
 		require('header.php');
 	?>
@@ -63,8 +57,9 @@
 		</div>
 		</form>
 
+		<!-- Search function -->
 		<?php 
-			if($radiosearch == "clinic"){
+			if($radiosearch == "clinic"){		// if search by clinic
 				$query = "SELECT * FROM clinic 
 						LEFT JOIN location_clinic ON clinic.clinic_id = location_clinic.clinic_id
 						LEFT JOIN doctors ON location_clinic.doctor_id = doctors.doctor_id
@@ -91,7 +86,7 @@
 				} else {
 					echo '<div class="row" ><h1>FOUND NONE</h1></div>';
 				}
-			} else if($radiosearch == "doctor"){
+			} else if($radiosearch == "doctor"){	// if search by doctor
 				$query = "SELECT * FROM user 
 						LEFT JOIN doctors on user.user_id = doctors.user_id
 						LEFT JOIN location_clinic on doctors.doctor_id = location_clinic.doctor_id
@@ -116,7 +111,7 @@
 							</ul> </div>';
 					}
 				} 
-			}	else if($radiosearch == "all"){
+			}	else if($radiosearch == "all"){		// if search through entire db
 				$query = "SELECT * FROM user 
 						LEFT JOIN doctors on user.user_id = doctors.user_id
 						LEFT JOIN location_clinic on doctors.doctor_id = location_clinic.doctor_id
@@ -221,7 +216,7 @@
 	<script src="js/common_scripts.min.js"></script>
 	<script src="js/functions.js"></script>
 	
-	<!-- SPECIFIC SCRIPTS -->
+	<!-- SPECIFIC SCRIPTS FOR THIS PAGE -->
 	<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCoz993id_Qq7AcfaoVzviC6swgvQRixuQ"></script>
     <script src="js/map_listing.js"></script>
     <script src="js/infobox.js"></script>

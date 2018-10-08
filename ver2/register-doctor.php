@@ -4,18 +4,19 @@
 ?>
 <html lang="en">
 
+<!-- Head contains all the needed links for the program -->
 <?php
 	require('head.php');
 ?>
 
 <body>
-
+	<!-- Loading icon with animation before the page finished loading -->
 	<div id="preloader" class="Fixed">
 		<div data-loader="circle-side"></div>
 	</div>
-	<!-- /Preload-->
-	
+
 	<div id="page">		
+	<!-- Header file with the navigation bar is added to the page -->
 	<?php 
 		require('header.php');
 	?>
@@ -26,17 +27,14 @@
 			<div class="container margin_120_95">			
 				<div class="row">
 					<div class="col-lg-6" id="map">
+						<!-- Map is placed here -->
 					</div>
-					<!-- /col -->
 					<div class="col-lg-5 ml-auto">
 						<div class="box_form">
-							<!-- Steps form -->
 							<div class="card">
 							    <div class="card-body mb-4">
-
 							        <h2 class="text-center font-weight-bold pt-4 pb-5"><strong>Enter Credentials</strong></h2>
-
-							        <!-- Stepper -->
+							        <!-- Doctor's Form -->
 							        <div class="steps-form">
 							            <div class="steps-row setup-panel">
 							                <div class="steps-step">
@@ -71,12 +69,12 @@
 							                    <div class="form-group md-form mt-3">
 							                        <label for="yourAddress" data-error="wrong" data-success="right">Gender</label>
 							                        <div class="form-group">
-												  <select  class="form-control sel-gender" required>
-												  		<option value=""disabled selected>Gender</option>
-														<option value="1">Male</option>
-														<option value="0">Female</option>
-												  </select>
-										</div>
+													  	<select  class="form-control sel-gender" required>
+													  		<option value=""disabled selected>Gender</option>
+															<option value="1">Male</option>
+															<option value="0">Female</option>
+													  	</select>
+													</div>
 							                    </div>
 							                    <button class="btn btn-indigo btn-rounded nextBtn float-right" type="button">Next</button>
 							                </div>
@@ -121,18 +119,7 @@
 													</select>
 													</div>
 							                    </div>
-							                   <!--  <div class="form-group md-form mt-3">
-							                        <label for="companyAddress" data-error="wrong" data-success="right">Province</label>
-							                        <select class="form-control sel-prov" required>
-														<option value="" disabled selected>Province</option>
-													</select>
-							                    </div>
-							                    <div class="form-group md-form mt-3">
-							                        <label for="companyAddress" data-error="wrong" data-success="right">City</label>
-							                        <select class="form-control sel-city" disabled required>
-														<option value=""disabled selected>City</option>
-													</select>
-												</div> -->
+							                   
 												<div class="form-group md-form">
 							                        <label for="yourName" data-error="wrong" data-success="right">Clinic Name</label>
 							                        <input id="clinicname" type="text" class="form-control validate" placeholder="Clinic Name" required>
@@ -196,66 +183,46 @@
 							                    <button class="btn btn-default btn-rounded float-right sub">Submit</button>
 							                </div>
 							            </div>
-
 							        </form>
-
 							    </div>
-							</div>
-							<!-- Steps form -->
-
-
-						
+							</div>						
 						</div>
-						<!-- /box_form -->
 					</div>
-					<!-- /col -->
 				</div>
-				<!-- /row -->
 			</div>
-			<!-- /container -->
 		</div>
-		<!-- /hero_register -->
 	</main>
-	<!-- /main -->
-	
+
+	<!-- Include Footer -->
 	<?php 
 		require('footer.php');
 	?>
 	</div>
-	<!-- page -->
 
+	<!-- Back to top button -->
 	<div id="toTop">
 		<img class="topArrow" src="./img/up_arrow.png">
 	</div>
-	<!-- Back to top button -->
 
 	<!-- COMMON SCRIPTS -->
 	<script src="js/email-decode.min.js"></script>
 	<script src="js/jquery-2.2.4.min.js"></script>
-	<!-- <script src="js/common_scripts.min.js"></script> -->
 	<script src="js/functions.js"></script>
 	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 	<script src="js/maps_script.js"></script>
-	<!-- <script>
-      var map;
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -34.397, lng: 150.644},
-          zoom: 8
-        });
-      }
-    </script> -->
+	
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAXvaLsga6mWXFOGi9ttJXGh1FmvdowzFw&callback=initMap"
     async defer></script>
 
 </body>
 </html>
+<!-- Same as register.php functions -->
 <script>
 	$( window ).on( "load", function() {
         $.ajax({
 			url: "requests/getProv.php",
 			type: 'GET',
-			dataType: 'text json', // added data type
+			dataType: 'text json', 
 			success: function(res) {
 				$(res).each(function(key,val){
 					$('.sel-prov').append($('<option>', {
@@ -289,24 +256,22 @@
 		$.ajax({
 			url: "requests/getCity.php",
 			type: 'GET',
-		
-			dataType: 'text json', // added data type
+			dataType: 'text json', 
 			data: {
 				pcode: provCode
 			},
 			success: function(res) {
 				$(res).each(function(key,val){
-					
 					$('.sel-city').append($('<option>', {
 						value: val[5],
 						text: val[2]
 					}));
 				});
-				
 			}
     	});
 		$( ".sel-city" ).prop( "disabled", false );
 	});
+
 	$( ".sub" ).on("click",function(){
 		var len = $('.sel-clinic').val();
 		var jsonObject = [];
@@ -318,16 +283,12 @@
 			item['clinaddress']= $('.clin_adderss'+i).val(); 
 			item['clinfrom']= $('.timestart'+i).val();
 			item['clinto']= $('.timeend'+i).val();
-
 			jsonObject.push(item);
 		}
-		console.log(jsonObject);
-		console.log($('#TimeFrom').val());
 		$.ajax({
 			url: "create/createDoctor.php",
 			type: 'POST',
-		
-			dataType: 'text json', // added data type
+			dataType: 'text json', 
 			data: {
 				dfname:$('#fname').val(),
 				dmname:$('#mname').val(),
@@ -352,7 +313,7 @@
 			},
 			success: function(res) {
 				if(res[0]== 1){
-					alert("SUCCESS");		//register successful
+					alert("SUCCESS");	
 				} else if(res[0] == 2){
 					alert("ERROR");
 				}else if(res[0] == 0){
@@ -366,7 +327,7 @@
     	});
 	});
 
-	$(document).ready(function () {
+	$(document).ready(function () {	// nav buttons for stepper initialization
     var navListItems = $('div.setup-panel div a'),
         allWells = $('.setup-content'),
         allNextBtn = $('.nextBtn'),
@@ -388,7 +349,7 @@
         }
     });
 
-    allPrevBtn.click(function(){
+    allPrevBtn.click(function(){	// previous button in stepper form behaviour controller
         var curStep = $(this).closest(".setup-content"),
             curStepBtn = curStep.attr("id"),
             prevStepSteps = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().prev().children("a");
@@ -396,7 +357,7 @@
             prevStepSteps.removeAttr('disabled').trigger('click');
     });
 
-    allNextBtn.click(function(){
+    allNextBtn.click(function(){		// next button in stepper form behaviour controller
         var curStep = $(this).closest(".setup-content"),
             curStepBtn = curStep.attr("id"),
             nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
@@ -413,9 +374,8 @@
 
         if (isValid)
             nextStepWizard.removeAttr('disabled').trigger('click');
-    });
+   		 });
 
-    $('div.setup-panel div a.btn-indigo').trigger('click');
-});
-	
+    	$('div.setup-panel div a.btn-indigo').trigger('click');
+	});
 </script>

@@ -1,40 +1,11 @@
+<!-- DETAILED INFORMATION OF THE DOCTORS -->
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="description" content="Find easily a doctor and book online an appointment">
-	<meta name="author" content="Ansonika">
-	<title>FINDOCTOR - Find easily a doctor and book online an appointment</title>
-
-	<!-- Favicons-->
-	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-	<link rel="apple-touch-icon" type="image/x-icon" href="img/apple-touch-icon-57x57-precomposed.png">
-	<link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="img/apple-touch-icon-72x72-precomposed.png">
-	<link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="img/apple-touch-icon-114x114-precomposed.png">
-	<link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="img/apple-touch-icon-144x144-precomposed.png">
-
-	<!-- BASE CSS -->
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-	<link href="css/style.css" rel="stylesheet">
-	<link href="css/menu.css" rel="stylesheet">
-	<link href="css/vendors.css" rel="stylesheet">
-	<link href="css/icon_fonts/css/all_icons_min.css" rel="stylesheet">
-   
-    <!-- SPECIFIC CSS -->
-    <link href="css/date_picker.css" rel="stylesheet">
-    
-	<!-- YOUR CUSTOM CSS -->
-	<link href="css/custom.css" rel="stylesheet">
-
-	<style type="text/css">
-		
-
-	</style>
-
+	<?php
+		require('head.php');
+	?>
 </head>
 
 <body>
@@ -42,7 +13,6 @@
 	<div id="preloader" class="Fixed">
 		<div data-loader="circle-side"></div>
 	</div>
-	<!-- /Preload-->
     <?php 
         echo '<input type="text" id="doc_id" value="'.$_GET['docid'].'" hidden>';
         echo '<input type="text" id="user_id" value="'.$_GET['userid'].'" hidden>';
@@ -56,56 +26,10 @@
        
     ?>
 	<div id="page">		
-	<header class="header_sticky">	
-		<a href="#menu" class="btn_mobile">
-			<div class="hamburger hamburger--spin" id="hamburger">
-				<div class="hamburger-box">
-					<div class="hamburger-inner"></div>
-				</div>
-			</div>
-		</a>
-		<!-- /btn_mobile-->
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-3 col-6">
-					<div id="logo_home">
-						<h1><a href="index.php" title="Findoctor">Finding Doctors</a></h1>
-					</div>
-				</div>
-				<div class="col-lg-9 col-6">
-					<ul id="top_access">
-						<li><a href="login.html"><i class="pe-7s-user"></i></a></li>
-						<li><a href="register-doctor.html"><i class="pe-7s-add-user"></i></a></li>
-					</ul>
-					<nav id="menu" class="main-menu">
-						<ul>
-							<li>
-								<span><a href="index.php">Home</a></span>
-							</li>
-							<li>
-								<span><a href="#0">Register</a></span>
-								<ul>
-									<li><a href="register-doctor.html">Register Doctor</a></li>
-									<li><a href="register.html">Register User</a></li>
-								</ul>
-							</li>
-							<li>
-								<span><a href="login.html">Login</a></span>
-							</li>
-							<li>
-								<li><a href="listall.php">Doctor List</a></li>
-							</li>
-						</ul>
-					</nav>
-					<!-- /main-menu -->
-				</div>
-			</div>
-		</div>
-		<!-- /container -->
-	</header>
-	<!-- /header -->
-	
-	
+		<?php
+			require('header.php');
+		?>
+
 	<main>
 		<div id="breadcrumb">
 			<div class="container">
@@ -116,8 +40,7 @@
 				</ul>
 			</div>
 		</div>
-		<!-- /breadcrumb -->
-		
+
 		<div class="container margin_60">
 			<div class="row">
 				
@@ -143,28 +66,13 @@
 						<div class="text-center"><a  href="https://www.google.com/maps/dir/Mandaue+City,+Cebu/LH+Prime+Medical+Clinic+Basak+Mactan,+Lapu-Lapu+City,+Cebu/@10.3170571,123.9294577,7127m/data=!3m2!1e3!4b1!4m13!4m12!1m5!1m1!1s0x33a99889680ceefd:0xa9f911a1f5dda572!2m2!1d123.9415518!2d10.3402623!1m5!1m1!1s0x33a999f9a2431d03:0x4957877e437e6d01!2m2!1d123.9662371!2d10.2926005" class="btn_1 outline" target="_blank"><i class="icon_pin"></i> View on map</a></div>
 					</div>
 				</aside>
-				<!-- /asdide -->
-				
+
 				<div class="col-xl-9 col-lg-8">
-
 					<div class="tabs_styled_2">
-						<!-- <ul class="nav nav-tabs" role="tablist">
-							<li class="nav-item">
-								<a class="nav-link active" id="book-tab" data-toggle="tab" href="#book" role="tab" aria-controls="book">Book an appointment</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" id="general-tab" data-toggle="tab" href="#general" role="tab" aria-controls="general" aria-expanded="true">General info</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" id="reviews-tab" data-toggle="tab" href="#reviews" role="tab" aria-controls="reviews">Reviews</a>
-							</li>
-						</ul> -->
-						<!--/nav-tabs -->
-                
 						<div class="tab-content">
-
 							<div class="tab-pane fade show active" id="book" role="tabpanel" aria-labelledby="book-tab">
 								<p class="lead add_bottom_30">To book an appointment with the selected doctor, please input or choose from the available dates and time.</p>
+								<!-- BOOKING FORM -->
 								<form>
 									<div class="main_title_3">
 										<h3><strong>1</strong>Select your date</h3>
@@ -241,7 +149,6 @@
 											</ul>
 										</div>
 									</div>
-									<!-- /row -->
 									
 									<div class="main_title_3" style="margin-bottom: 4%;">
 										<h3><strong>3</strong>Select visit</h3>
@@ -289,90 +196,24 @@
 								<hr>
 								<p class="text-center"><button style="margin-left: 40%; margin-top: 5%;"  class="btn_1 medium book">Book Now</button></p>
 							</div>
-							<!-- /tab_1 -->
 						</div>
-						<!-- /tab-content -->
 					</div>
-					<!-- /tabs_styled -->
 				</div>
-				<!-- /col -->
 			</div>
-			<!-- /row -->
 		</div>
-		<!-- /container -->
 	</main>
-	<!-- /main -->
 	
 	<footer>
-		<div class="container margin_60_35">
-			<div class="row">
-				<div class="col-lg-3 col-md-12">
-					<p>
-						<a href="index.php" title="Findoctor">
-							<img src="img/icon.png" data-retina="true" alt="" width="163" height="36" class="img-fluid">
-						</a>
-					</p>
-				</div>
-				<div class="col-lg-3 col-md-4">
-					<h5>About</h5>
-					<ul class="links">
-						<li><a href="#0">About us</a></li>
-						<li><a href="blog.html">Blog</a></li>
-						<li><a href="#0">FAQ</a></li>
-						<li><a href="login.html">Login</a></li>
-						<li><a href="register.html">Register</a></li>
-					</ul>
-				</div>
-				<div class="col-lg-3 col-md-4">
-					<h5>Useful links</h5>
-					<ul class="links">
-						<li><a href="#0">Doctors</a></li>
-						<li><a href="#0">Clinics</a></li>
-						<li><a href="#0">Specialization</a></li>
-						<li><a href="#0">Join as a Doctor</a></li>
-						<li><a href="#0">Download App</a></li>
-					</ul>
-				</div>
-				<div class="col-lg-3 col-md-4">
-					<h5>Contact with Us</h5>
-					<ul class="contacts">
-						<li><a href="tel://61280932400"><i class="icon_mobile"></i> + 61 23 8093 3400</a></li>
-						<li><a href="/cdn-cgi/l/email-protection#2a43444c456a4c43444e45495e455804494547"><i class="icon_mail_alt"></i> <span class="__cf_email__" data-cfemail="1e767b726e5e7877707a717d6a716c307d7173">[email&#160;protected]</span></a></li>
-					</ul>
-					<div class="follow_us">
-						<h5>Follow us</h5>
-						<ul>
-							<li><a href="#0"><i class="social_facebook"></i></a></li>
-							<li><a href="#0"><i class="social_twitter"></i></a></li>
-							<li><a href="#0"><i class="social_linkedin"></i></a></li>
-							<li><a href="#0"><i class="social_instagram"></i></a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-			<!--/row-->
-			<hr>
-			<div class="row">
-				<div class="col-md-8">
-					<ul id="additional_links">
-						<li><a href="#0">Terms and conditions</a></li>
-						<li><a href="#0">Privacy</a></li>
-					</ul>
-				</div>
-				<div class="col-md-4">
-					<div id="copy">© 2017 Findoctor</div>
-				</div>
-			</div>
-		</div>
+		<?php
+			require('footer.php');
+		?>
 	</footer>
-	<!--/footer-->
 	</div>
-	<!-- page -->
 
+	<!-- Back to top button -->
 	<div id="toTop">
 		<img class="topArrow" src="./img/up_arrow.png">
 	</div>
-	<!-- Back to top button -->
 
 	<!-- COMMON SCRIPTS -->
 	<script src="js/email-decode.min.js"></script>
@@ -381,7 +222,7 @@
 	<script src="js/functions.js"></script>
    	
 	<!-- SPECIFIC SCRIPTS -->
-    <script src="js/bootstrap-datepicker.js"></script>
+    <script src="js/bootstrap-datepicker.js"></script>		
 	<script>
 		$('#calendar').datepicker({
 			todayHighlight: true,
@@ -391,7 +232,6 @@
 			datesDisabled: ["2017/10/20", "2017/11/21", "2017/12/21", "2018/01/21", "2018/02/21", "2018/03/21"],
 		});
 	</script>
-     
 </body>
 </html>
 
@@ -1011,32 +851,19 @@ $.fn.zabuto_calendar_defaults = function () {
     return settings;
 };
 
-/**
- * Language settings
- *
- * @param lang
- * @returns {{month_labels: Array, dow_labels: Array}}
- */
 $.fn.zabuto_calendar_language = function (lang) {
     if (typeof(lang) == 'undefined' || lang === false) {
         lang = 'en';
     }
-
     switch (lang.toLowerCase()) {
-     
-
         case 'en':
             return {
                 month_labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
                 dow_labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
             };
             break;
-
-     
-    }
-
-};
-
+    	}
+	};
 
    $(document).ready(function () {
     $("#my-calendar").zabuto_calendar({

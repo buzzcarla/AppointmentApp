@@ -1,29 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<?php
-	session_start();
-	if(isset($_GET['stat'])){
-		//do something 
-	}
-?>
-<head>
-
-<?php
-	require('head.php');
-?>
-
-</head>
+	<!-- SESSION START IF USER IS LOGGED IN -->
+	<?php
+		session_start();
+		if(isset($_GET['stat'])){
+			//do something 
+		}
+	?>
+	<head>
+	<!-- Head contains all the needed links for the program -->
+	<?php
+		require('head.php');
+	?>
+	</head>
 <body>
 	
 	<!-- The preloader is the loading icon that will play for 0.95s // see animation presets at [data-loader=circle-side] in style.css-->
-
 	<div id="preloader" class="Fixed">
 		<div data-loader="circle-side"></div>
 	</div>
-	<!-- /Preload-->
 	
-	<!-- start of the page -->
+	<!-- Header file with the navigation bar is added to the page -->
 	<div id="page">		 
 		<?php
 			require('header.php');
@@ -60,9 +57,6 @@
 				</form>
 			</div>
 		</div>
-		<!-- /Hero -->
-
-		<!-- Details Index -->
 		<div class="container margin_120_95" style="padding-bottom: 30px!important;">
 			<div class="main_title">
 				<h2>Book via <strong>online</strong> appointment!</h2>
@@ -141,7 +135,6 @@
 						</a>
 					</div>
 				</div>
-				<!-- /carousel -->
 			</div>
 		</div>
 		<div class="container margin_120_95" style="padding-top: 50px!important;">
@@ -192,15 +185,16 @@
 		</div>
 	</main>
 	
+	<!-- INCLUDE PAGE FOOTER -->
 	<?php 
 		require('footer.php');
 	?>
 	</div>
 
+	<!-- Back to top button -->
 	<div id="toTop">
 		<img class="topArrow" src="./img/up_arrow.png">
 	</div>
-	<!-- Back to top button -->
 
 	<!-- COMMON SCRIPTS -->
 	<script src="js/email-decode.min.js"></script>
@@ -209,12 +203,13 @@
 	<script src="js/functions.js"></script>
 
 </body>
+<!-- HANDLE IF THE SEARCH BUTTON IS PRESSED -->
 <script>
-$( document ).ready(function() {
-	$('.btn_search').on('click',function(){
-		alert('pressed');
+	$( document ).ready(function() {
+		$('.btn_search').on('click',function(){
+			alert('pressed');
 
+		});
 	});
-});
 </script>
 </html>

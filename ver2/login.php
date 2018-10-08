@@ -1,7 +1,7 @@
+<!-- LOGIN FUNCTION FOR USER AND DOCTOR -->
 <!DOCTYPE html>
-
 <?php 
-	require_once('connect.php');
+	require_once('connect.php');	// CONNECT TO DATABASE
 	if(isset($_GET['logstat'])){
 		session_start();
 		session_destroy();
@@ -53,103 +53,90 @@
 ?>
 
 <html lang="en">
-
-<?php
-	require('head.php');
-?>
-
-<body>
-
-	<div id="preloader" class="Fixed">
-		<div data-loader="circle-side"></div>
-	</div>
-	<!-- /Preload-->
-	
-	<div id="page">		
-	<?php 
-		require('header.php');
+	<?php
+		require('head.php');
 	?>
-	
-	
-	<main>
-		<div class="bg_color_2">
-			<div class="container margin_60_35">
-				<div id="login-2">
-					<h1>Please login to Findoctor!</h1>
-					<form method="POST"action="login.php">
-						<div class="box_form clearfix">
-							<div class="box_login last">
-								<div class="form-group">
-									<input type="text" name="user" class="form-control user" placeholder="Your username">
-								</div>
-								<div class="form-group">
-									<input type="password" name="pass" class="form-control pass" placeholder="Your password">
-									
-								</div>
-								<div class="form-group" style="text-align: center;">
-									<input class="btn_1 loginbut" type="submit" value="Login">
-								</div>
-							</div>
-							<div class="box_login" style="margin-bottom: 20px; text-align: center;">
-								<small>Forgot your password?</small>
-								<a href="#0" class="forgot"><small>Click Here.</small></a>
-							</div>
-						</div>
-					</form>
-					<p style="text-align: -webkit-center;" class="text-center link_bright">Do not have an account yet? <a href="register.php"><strong>Register now!</strong></a></p>
-				</div>
-				<!-- /login -->
-			</div>
+	<body>
+		<div id="preloader" class="Fixed">
+			<div data-loader="circle-side"></div>
 		</div>
-	</main>
-	<!-- /main -->
-	
-	<?php 
-		require('footer.php');
-	?>
-	</div>
-	<!-- page -->
+		
+		<div id="page">		
+		<?php 
+			require('header.php');
+		?>
+		<main>
+			<div class="bg_color_2">
+				<div class="container margin_60_35">
+					<div id="login-2">
+						<h1>Please login to Finding Doctors!</h1>
+						<form method="POST"action="login.php">
+							<div class="box_form clearfix">
+								<div class="box_login last">
+									<div class="form-group">
+										<input type="text" name="user" class="form-control user" placeholder="Your username">
+									</div>
+									<div class="form-group">
+										<input type="password" name="pass" class="form-control pass" placeholder="Your password">
+										
+									</div>
+									<div class="form-group" style="text-align: center;">
+										<input class="btn_1 loginbut" type="submit" value="Login">
+									</div>
+								</div>
+								<div class="box_login" style="margin-bottom: 20px; text-align: center;">
+									<small>Forgot your password?</small>
+									<a href="#0" class="forgot"><small>Click Here.</small></a>
+								</div>
+							</div>
+						</form>
+						<p style="text-align: -webkit-center;" class="text-center link_bright">Do not have an account yet? <a href="register.php"><strong>Register now!</strong></a></p>
+					</div>
+				</div>
+			</div>
+		</main>
+		
+		<?php 
+			require('footer.php');
+		?>
+		</div>
 
-	<div id="toTop">
-		<img class="topArrow" src="./img/up_arrow.png">
-	</div>
-	<!-- Back to top button -->
+		<!-- Back to top button -->
+		<div id="toTop">
+			<img class="topArrow" src="./img/up_arrow.png">
+		</div>
 
-	<!-- COMMON SCRIPTS -->
-	<script src="js/email-decode.min.js"></script>
-	<script src="js/jquery-2.2.4.min.js"></script>
-	<script src="js/common_scripts.min.js"></script>
-	<script src="js/functions.js"></script>
-     
+		<!-- COMMON SCRIPTS -->
+		<script src="js/email-decode.min.js"></script>
+		<script src="js/jquery-2.2.4.min.js"></script>
+		<script src="js/common_scripts.min.js"></script>
+		<script src="js/functions.js"></script>
+	</body>
 
-
-</body>
-<script>
-	$( document ).ready(function() {
-		$('.loginbut').on("click",function(){
-			alert("here");
-			$.ajax({
-				url: "requests/getUserOrDoctor.php",
-				type: 'POST',
-				dataType: 'text json', // added data type
-				data: {
-						user:$('.user').val(),
-					  	pass:$('.pass').val()
-					  },
-				success: function(res) {
-					console.log(res);
-					if(res == 3 || res == 2){
-						alert("LOGIN FAILED");
-					}  else {
-						alert("LOGIN SUCCESFUL")
-						window.location.replace("index.php");
+	<!-- WHEN LOGIN BUTTON IS CLICKED -->
+	<script>
+		$( document ).ready(function() {
+			$('.loginbut').on("click",function(){
+				alert("here");
+				$.ajax({
+					url: "requests/getUserOrDoctor.php",
+					type: 'POST',
+					dataType: 'text json', 
+					data: {
+							user:$('.user').val(),
+						  	pass:$('.pass').val()
+						  },
+					success: function(res) {
+						console.log(res);
+						if(res == 3 || res == 2){
+							alert("LOGIN FAILED");
+						}  else {
+							alert("LOGIN SUCCESFUL")
+							window.location.replace("index.php");
+						}
 					}
-					
-				
-				}
-    		});
-
+	    		});
+			});
 		});
-	});
-</script>
+	</script>
 </html>

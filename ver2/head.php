@@ -1,11 +1,12 @@
+<!-- HANDLE USER SESSIONS -->
 <?php 
 	session_start();
 	if(isset($_SESSION['userid'])){
 		define('TIMEZONE', 'Asia/Manila');
 		date_default_timezone_set(TIMEZONE);
 	} 
-
 ?>
+
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,6 +26,7 @@
 	<link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="img/apple-touch-icon-114x114-precomposed.png">
 	<link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="img/apple-touch-icon-144x144-precomposed.png">
 
+	<link href="css/icon_fonts/css/all_icons_min.css" rel="stylesheet">
     <link href="css/date_picker.css" rel="stylesheet">
 	<link href="css/custom.css" rel="stylesheet">
 

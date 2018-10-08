@@ -4,22 +4,22 @@
 ?>
 <html lang="en">
 
+<!-- Head contains all the needed links for the program -->
 <?php
-	require('head.php');
+	require('head.php');		
 ?>
 
 <body>
-
+	<!-- Loading icon with animation before the page finished loading -->
 	<div id="preloader" class="Fixed">
 		<div data-loader="circle-side"></div>
 	</div>
-	<!-- /Preload-->
 	
 	<div id="page">		
+	<!-- Header file with the navigation bar is added to the page -->
 	<?php 
 		require('header.php');
 	?>
-	
 	
 	<main>
 		<div id="hero_register">
@@ -27,7 +27,8 @@
 				<div class="row">
 					<div class="col-lg-6 ml-auto">
 						<div class="box_form">
-							<form id="doctorform">
+							<!-- The user's registration form. ID is still doctorform because they share the same UI styling as the doctor's form-->
+							<form id="doctorform">	
 								<div class="row">
 									<div class="col-md-12 ">
 										<div class="form-group">
@@ -75,7 +76,6 @@
 										</div>
 									</div>
 								</div>
-								<!-- /row -->
 								<div class="row">
 									<div class="col-lg-12">
 										<div class="form-group">
@@ -83,7 +83,6 @@
 										</div>
 									</div>
 								</div>
-								<!-- /row -->
 								<div class="row">
 									<div class="col-lg-12">
 										<div class="form-group">
@@ -91,8 +90,6 @@
 										</div>
 									</div>
 								</div>
-								<!-- /row -->
-								<!-- /row -->
 								<div class="row">
 									<div class="col-lg-12">
 										<div class="form-group">
@@ -100,8 +97,6 @@
 										</div>
 									</div>
 								</div>
-								<!-- /row -->
-								<!-- /row -->
 								<div class="row">
 									<div class="col-lg-12">
 										<div class="form-group">
@@ -109,7 +104,6 @@
 										</div>
 									</div>
 								</div>
-								<!-- /row -->
 								<div class="row">
 									<div class="col-lg-12">
 										<div class="form-group">
@@ -117,7 +111,6 @@
 										</div>
 									</div>
 								</div>
-								<!-- /row -->
 								<div class="checkbox-holder text-left">
 									<div class="checkbox_2">
 										<input type="checkbox" value="accept_2" id="check_2" name="check_2" checked>
@@ -127,9 +120,7 @@
 								<p class="text-center index.php"><input type="button" class="btn_1 sub" value="Submit"></p>
 							</form>
 						</div>
-						<!-- /box_form -->
 					</div>
-					<!-- /col -->
 					<div class="col-lg-6">
 						<h1>Booking an appointment has never been easier!</h1>
 						<p class="lead">Te pri adhuc simul. No eros errem mea. Diam mandamus has ad. Invenire senserit ad has, has ei quis iudico, ad mei nonumes periculis.</p>
@@ -149,28 +140,22 @@
 							<p>Eos eu epicuri eleifend suavitate, te primis placerat suavitate his. Nam ut dico intellegat reprehendunt, everti audiam diceret in pri, id has clita consequat suscipiantur.</p>
 						</div>
 					</div>
-					<!-- /col -->
 				</div>
-				<!-- /row -->
 			</div>
-			<!-- /container -->
 		</div>
-		<!-- /hero_register -->
 	</main>
-	<!-- /main -->
 	
 	<?php 
 		require('footer.php');
 	?>
 	</div>
-	<!-- page -->
 
+	<!-- Back to top button -->
 	<div id="toTop">
 		<img class="topArrow" src="./img/up_arrow.png">
 	</div>
-	<!-- Back to top button -->
 
-	<!-- COMMON SCRIPTS -->
+	<!-- COMMON SCRIPTS USED IN ALL FILES -->
 	<script src="js/email-decode.min.js"></script>
 	<script src="js/jquery-2.2.4.min.js"></script>
 	<script src="js/common_scripts.min.js"></script>
@@ -180,10 +165,11 @@
 </html>
 <script>
 	$( window ).on( "load", function() {
+		// When the page is loading, this function is triggered
 		$.ajax({
-			url: "requests/getProv.php",
+			url: "requests/getProv.php",	// Get the list of provinces from DB
 			type: 'GET',
-			dataType: 'text json', // added data type
+			dataType: 'text json',
 			success: function(res) {
 				$(res).each(function(key,val){
 					$('.sel-prov').append($('<option>', {
@@ -191,11 +177,11 @@
 						text: val[2]
 					}));
 				});
-				console.log(res);
 			}
 		});
     });
-	$('.sel-clinic').on("change",function(){
+
+	$('.sel-clinic').on("change",function(){	// Set the coordinates of the clinic address
 		var num = this.value;
 		$(".clinics-inner").html("");
 		for (i = 0; i < num; i++) { 
@@ -208,37 +194,35 @@
 		}
 	});
 
-	$('.sel-prov').on("change",function(){
+	$('.sel-prov').on("change",function(){		// When a province is selected
 		var provCode = this.value;
 		$('.sel-city').find('option')
 						.remove()
 						.end()
 		$.ajax({
-			url: "requests/getCity.php",
+			url: "requests/getCity.php",	// Load cities from DB according to Province selected
 			type: 'GET',
-		
-			dataType: 'text json', // added data type
+			dataType: 'text json', 
 			data: {
 				pcode: provCode
 			},
 			success: function(res) {
 				$(res).each(function(key,val){
-					$('.sel-city').append($('<option>', {
+					$('.sel-city').append($('<option>', { // Append the selected City with the selected Province
 						value: val[5],
 						text: val[2]
 					}));
 				});
-				console.log(res);
 			}
     	});
-		$( ".sel-city" ).prop( "disabled", false );
+		$( ".sel-city" ).prop( "disabled", false );		// Enable selecting a city
 	});
-	$( ".sub" ).on("click",function(){
+
+	$( ".sub" ).on("click",function(){		// On clicking submit button
 		$.ajax({
-			url: "create/createUser.php",
+			url: "create/createUser.php",	// where the data is posted or sent
 			type: 'POST',
-		
-			dataType: 'text json', // added data type
+			dataType: 'text json', 
 			data: {
 				dfname:$('#fname').val(),
 				dmname:$('#mname').val(),
@@ -252,16 +236,16 @@
 				pcode: $('.sel-prov').text(),
 				
 			},
-			success: function(res) {
+			success: function(res) {		// If the data is successfully posted (user data is sent to db)
 				if(res[0]== 1){
-					alert("SUCCESS");
+					alert("Successfully Created! Please Log in.");
 				} else if(res[0] == 2){
-					alert("ERROR");
+					alert("Error in creating user. Please retry.");
 				}else if(res[0] == 0){
-					alert("USER EXISTED");
+					alert("User already exists.");
 				}
 				else if(res[0] == 3){
-					alert("DATA ERROR");
+					alert("There is invalid data in the form. Please review.");
 				}
 				alert(res);
 			}

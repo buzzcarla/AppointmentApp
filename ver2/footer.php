@@ -1,3 +1,4 @@
+<!-- FOOTER -->
 <footer>
 		<div class="container margin_60_35">
 			<div class="row">
