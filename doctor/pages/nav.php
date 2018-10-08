@@ -4,7 +4,6 @@
         <img src="icon.png" style="height: 40px; position: absolute; padding-left: 20px;padding-top: 10px;"></img>
         <a class="navbar-brand" href="index.php" style="padding-left: 90px;color: white!important;">Finding Doctors: Doctor</a>
     </div>
-
     <div class="navbar-default sidebar" role="navigation">
         <div class="sidebar-nav navbar-collapse">
             <ul class="nav" id="side-menu">

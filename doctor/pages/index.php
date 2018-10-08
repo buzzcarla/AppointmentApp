@@ -17,7 +17,6 @@
         <?php 
             require ('nav.php');
         ?>
-
         <div id="page-wrapper">
              <img src="https://www.freewebheaders.com/wordpress/wp-content/gallery/medical/medical-doctor-stethoscope-and-office-sign-web-header.jpg" style=" width: 1235px; height: auto; position: absolute;">
             <div class="row">
@@ -55,36 +54,34 @@
                                         $res = mysqli_query($mysql,$query);
                                         $ctr= 0;
                                         while($row = mysqli_fetch_row($res)){
-                                            
                                             echo '
-                                          
                                             <tr class="odd gradeX">
-                                                    <td>'.$row[1].' '.$row[3].'</td>
-                                                    <td>'.$row[16].'</td>
-                                                    <td>'.$row[24].'</td>
-                                                    <td class="center">'.$row[27].'</td>
-                                                    <td class="center" id="'.++$ctr.'">
-                                                        <select id="stat'.$ctr.'">';
-                                                        if($row[12]==0){
-                                                            echo '
-                                                            <option value="1_'.$row[0].'">Active</option> 
-                                                            <option selected value="0_'.$row[0].'">Deactivate/Ban</option>
-                                                            <option value="-1_'.$row[0].'">Delete </option>';
-                                                        } else if($row[12]==1){
-                                                            echo '
-                                                            <option selected value="1_'.$row[0].'">Active</option> 
-                                                            <option  value="0_'.$row[0].'">Deactivate/Ban</option>
-                                                            <option value="-1_'.$row[0].'">Delete </option>';
-                                                        } else if($row[12]==-1){
-                                                            echo '
-                                                            <option value="1_'.$row[0].'">Active</option> 
-                                                            <option  value="0_'.$row[0].'">Deactivate/Ban</option>
-                                                            <option selected value="-1_'.$row[0].'">Delete </option>';
-                                                        }
+                                                <td>'.$row[1].' '.$row[3].'</td>
+                                                <td>'.$row[16].'</td>
+                                                <td>'.$row[24].'</td>
+                                                <td class="center">'.$row[27].'</td>
+                                                <td class="center" id="'.++$ctr.'">
+                                                    <select id="stat'.$ctr.'">';
+                                                    if($row[12]==0){
                                                         echo '
-                                                        </select>    
-                                                    </td>
-                                                </tr>';
+                                                        <option value="1_'.$row[0].'">Active</option> 
+                                                        <option selected value="0_'.$row[0].'">Deactivate/Ban</option>
+                                                        <option value="-1_'.$row[0].'">Delete </option>';
+                                                    } else if($row[12]==1){
+                                                        echo '
+                                                        <option selected value="1_'.$row[0].'">Active</option> 
+                                                        <option  value="0_'.$row[0].'">Deactivate/Ban</option>
+                                                        <option value="-1_'.$row[0].'">Delete </option>';
+                                                    } else if($row[12]==-1){
+                                                        echo '
+                                                        <option value="1_'.$row[0].'">Active</option> 
+                                                        <option  value="0_'.$row[0].'">Deactivate/Ban</option>
+                                                        <option selected value="-1_'.$row[0].'">Delete </option>';
+                                                    }
+                                                    echo '
+                                                    </select>    
+                                                </td>
+                                            </tr>';
                                         }
                                     ?>
                                 </tbody>
@@ -108,7 +105,6 @@
         var fullname;
         var e;
     $(document).ready(function() {
-       
         $('#dataTables-example').DataTable({
             responsive: true
         });
@@ -118,14 +114,12 @@
         $.ajax({
             url: "../../ver2/requests/updateUserStat.php",
             type: 'POST',
-        
             dataType: 'text json', 
             data: {
                 stat: newStat
             },
             success: function(res) {
                 alert(res);
-                
             }
         });
     });       
