@@ -1,5 +1,5 @@
 Project FD
-A medical appointment/scheduling system
+A medical appointment/scheduling system with SMS Api (NEXMO)
 
 Authors:
 Lee, J
@@ -7,10 +7,8 @@ Lavador, L
 
 Development start:
 June 10, 2018
-
-*06-15-2018 - official design implemented
-*06-16-2018 - Database implemented
-*06-17-2018 - UI enhancement and validating forms
+---------------------------------------------------
+READ rules.txt for constant definitions
 
 Expected end date of project:
-November 2018
+October 12 2018
