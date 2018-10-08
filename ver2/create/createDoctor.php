@@ -1,6 +1,5 @@
 <?php 
     require_once('../connect.php');
-
     if(isset($_POST['dfname'])&&isset($_POST['dmname'])&&isset($_POST['duser'])&&isset($_POST['dpass'])
     &&isset($_POST['dlname'])&&isset($_POST['dcnum'])&&isset($_POST['donum'])&&isset($_POST['demail'])&&isset($_POST['ccode'])
     &&isset($_POST['dgender'])&&isset($_POST['pcode'])&&isset($_POST['dspecial'])&&isset($_POST['medli'])&&isset($_POST['clinics'])
@@ -49,7 +48,6 @@
                     $query3 = "SELECT * FROM doctors WHERE user_id='".$row[0]."'";
                     $result = mysqli_query($mysql,$query3);
                     $row = mysqli_fetch_row($result); 
-
                     
                     $query = "INSERT INTO `clinic`(`clinic_id`, `clinic_name`, `coordinates_x`, `coordinates_y`, `clinic_address`) 
                             VALUES (NULL,'".$clinicname."','".$x."','".$y."','".$clinadd."')";
@@ -72,14 +70,11 @@
                 } else {
                     echo json_encode("2");
                 }
-			
 			} else {
 				echo json_encode("2");
 			}
-			
 		}
 	} else {
 		echo json_encode("3");
 	}
-
 ?>

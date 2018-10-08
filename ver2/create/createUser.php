@@ -27,16 +27,12 @@
                             "','".$province."','".$city."','".$celnum."','".$ofnum."','".$password."')";
 			$result = mysqli_query($mysql,$query);
 			if($result){
-              
                 echo json_encode("1");
-			
 			} else {
 				echo json_encode("2");
 			}
-			
 		}
 	} else {
 		echo json_encode("3");
 	}
-
 ?>

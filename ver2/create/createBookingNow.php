@@ -19,9 +19,7 @@
             VALUES (NULL,'".$uid."','".$did."','".date('Y-m-d H:i:s',$bd)."','1','".$type."','".$fname."','".$lname."')";
 			$result = mysqli_query($mysql,$query1);
 			if($result){
-              
                 echo json_encode("1");
-			
 			} else {
 				echo json_encode("2");
 			}
