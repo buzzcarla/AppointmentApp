@@ -14,7 +14,7 @@
                     <a href="schedule.php"><i class="fa fa-table fa-fw"></i> Schedule</a>
                 </li>
                 <li>
-                    <a href="./../../ver2/login.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                    <a href="./../../ver2/login.php?logstat=1"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                 </li>
             </ul>
         </div>

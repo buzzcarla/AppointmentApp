@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 09, 2018 at 10:21 AM
--- Server version: 10.1.26-MariaDB
--- PHP Version: 7.1.8
+-- Generation Time: Oct 09, 2018 at 01:14 AM
+-- Server version: 10.1.13-MariaDB
+-- PHP Version: 7.0.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -32,10 +30,42 @@ CREATE TABLE `booking_list` (
   `booking_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `doctor_id` int(11) NOT NULL,
-  `book_date` date DEFAULT NULL,
-  `book_time` varchar(8) NOT NULL,
-  `book_stat` int(3) NOT NULL
+  `book_date` timestamp NULL DEFAULT NULL,
+  `book_stat` int(3) NOT NULL,
+  `booking_type` varchar(50) NOT NULL,
+  `booking_fname` varchar(80) NOT NULL,
+  `booking_lname` varchar(80) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `booking_list`
+--
+
+INSERT INTO `booking_list` (`booking_id`, `user_id`, `doctor_id`, `book_date`, `book_stat`, `booking_type`, `booking_fname`, `booking_lname`) VALUES
+(54, 92, 8, '2018-09-16 07:30:00', 1, 'Other', 'name', 'eqw'),
+(55, 92, 2, '2018-09-22 18:20:00', 1, 'asdasd', 'asdasd', 'asdaad'),
+(56, 92, 2, '2018-09-22 18:34:00', 1, 'asdasd', 'asdasd', 'asdaad'),
+(57, 92, 2, '2018-09-23 06:14:59', 1, '1', '231', '21333333333'),
+(59, 92, 2, '2018-09-23 06:17:43', 1, 'asdasd', 'asd', 'asdas'),
+(60, 92, 2, '2018-09-23 06:17:57', 1, 'asdasd', 'asd', 'asdas'),
+(61, 92, 2, '2018-09-23 06:20:34', 1, '11', 'asd', 'asd'),
+(62, 92, 2, '2018-09-23 06:26:46', 1, '11', 'asd', 'asd'),
+(63, 92, 2, '2018-09-23 06:21:34', 1, 'asdsa', 'asd', 'asd'),
+(64, 92, 2, '2018-09-23 06:31:40', 1, 'asdsa', 'asd', 'asd'),
+(65, 92, 2, '2018-09-23 06:30:36', 2, '2', '2', '2'),
+(67, 92, 2, '2018-09-23 06:32:17', 3, '3', '3', '3'),
+(68, 92, 2, '2018-09-23 06:32:00', 3, '3', '3', '3'),
+(69, 92, 2, '2018-09-22 18:45:00', 1, 'asdasd', '2', '2'),
+(70, 92, 2, '2018-09-22 18:45:00', 1, 'asdasd', '2', '2'),
+(71, 92, 2, '2018-09-23 06:38:14', 1, '1', '1', '1'),
+(72, 92, 2, '2018-09-23 07:07:00', 1, '1', '1', '1'),
+(73, 92, 2, '2018-09-23 06:57:49', 1, '223', '21', '21'),
+(74, 92, 2, '0000-00-00 00:00:00', 1, '223', '21', '21'),
+(75, 92, 2, '2018-09-23 07:00:47', 2, '3', '4', '5'),
+(76, 92, 2, '2018-09-23 08:04:00', 2, '3', '4', '5'),
+(77, 92, 2, '2018-09-23 10:50:00', 1, 'asdasd', '01', '111'),
+(78, 92, 2, '2018-09-23 10:59:00', 1, 'asdasd', '01', '111'),
+(79, 100, 2, '2018-09-23 15:14:00', 1, 'asdasd', 'joshua', 'lee');
 
 -- --------------------------------------------------------
 
@@ -671,7 +701,7 @@ INSERT INTO `refcity` (`id`, `psgcCode`, `citymunDesc`, `regDesc`, `provCode`, `
 (525, '175303000', 'ARACELI', '17', '1753', '175303'),
 (526, '175304000', 'BALABAC', '17', '1753', '175304'),
 (527, '175305000', 'BATARAZA', '17', '1753', '175305'),
-(528, '175306000', 'BROOKE\'S POINT', '17', '1753', '175306'),
+(528, '175306000', 'BROOKE''S POINT', '17', '1753', '175306'),
 (529, '175307000', 'BUSUANGA', '17', '1753', '175307'),
 (530, '175308000', 'CAGAYANCILLO', '17', '1753', '175308'),
 (531, '175309000', 'CORON', '17', '1753', '175309'),
@@ -1453,7 +1483,7 @@ INSERT INTO `refcity` (`id`, `psgcCode`, `citymunDesc`, `regDesc`, `provCode`, `
 (1306, '124707000', 'MAKILALA', '12', '1247', '124707'),
 (1307, '124708000', 'MATALAM', '12', '1247', '124708'),
 (1308, '124709000', 'MIDSAYAP', '12', '1247', '124709'),
-(1309, '124710000', 'M\'LANG', '12', '1247', '124710'),
+(1309, '124710000', 'M''LANG', '12', '1247', '124710'),
 (1310, '124711000', 'PIGKAWAYAN', '12', '1247', '124711'),
 (1311, '124712000', 'PIKIT', '12', '1247', '124712'),
 (1312, '124713000', 'PRESIDENT ROXAS', '12', '1247', '124713'),
@@ -1470,7 +1500,7 @@ INSERT INTO `refcity` (`id`, `psgcCode`, `citymunDesc`, `regDesc`, `provCode`, `
 (1323, '126313000', 'SURALLAH', '12', '1263', '126313'),
 (1324, '126314000', 'TAMPAKAN', '12', '1263', '126314'),
 (1325, '126315000', 'TANTANGAN', '12', '1263', '126315'),
-(1326, '126316000', 'T\'BOLI', '12', '1263', '126316'),
+(1326, '126316000', 'T''BOLI', '12', '1263', '126316'),
 (1327, '126317000', 'TUPI', '12', '1263', '126317'),
 (1328, '126318000', 'SANTO NIÑO', '12', '1263', '126318'),
 (1329, '126319000', 'LAKE SEBU', '12', '1263', '126319'),
@@ -1916,28 +1946,35 @@ CREATE TABLE `user` (
   `user_level` int(3) NOT NULL,
   `username` varchar(60) NOT NULL,
   `user_email` varchar(300) NOT NULL,
-  `user_mobile` varchar(15) NOT NULL,
+  `user_mobile` bigint(20) NOT NULL,
   `user_tele` varchar(15) NOT NULL,
-  `user_password` varchar(60) NOT NULL
+  `user_password` varchar(60) NOT NULL,
+  `profpic` varchar(120) NOT NULL,
+  `user_status` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`user_id`, `user_firstn`, `user_middlen`, `user_lastn`, `user_gender`, `user_level`, `username`, `user_email`, `user_mobile`, `user_tele`, `user_password`) VALUES
-(92, 'name', 'lee', 'eqw', 0, 1, 'test', 'joshua.l@gmail.com', '09151454', '50505815', '123'),
-(93, 'Joshua', 'la', 'Lee', 1, 1, 'regretzzz', 'joshua.lee@gmail.com', '09159831386', '5050812', '321'),
-(94, 'name', 'lee', 'eqw', 0, 1, 'test', 'joshua.l@gmail.com', '09151454', '50505815', '123'),
-(95, 'Joseph', 'Ceniza', 'Alota', 0, 1, 'Jolota', 'alota.j@gmail.com', '0912345678', '486-12345', '123456'),
-(96, 'Kendrick', 'Monserate', 'De la Paz', 1, 0, 'Kenlota', 'kenmon@gmail.com', '091234567', '00', '123456'),
-(97, '', '', '', 0, 1, '', '', '', '', ''),
-(98, 'testnew', 'testnew', 'testnew', 1, 1, 'testnew', 'joshua@mail.com', '09159838138', '5050232', '123'),
-(99, 'Pot', 'Pot', 'Pot', 1, 1, 'pot', 'MAILS@MAIL.COM', '0915873717', '3485868', '123');
+INSERT INTO `user` (`user_id`, `user_firstn`, `user_middlen`, `user_lastn`, `user_gender`, `user_level`, `username`, `user_email`, `user_mobile`, `user_tele`, `user_password`, `profpic`, `user_status`) VALUES
+(92, 'name11', 'lee', 'eqw', 0, 1, 'test', 'joshua.l@gmail.com', 9151454, '50505815', '1234', '', 1),
+(93, 'Joshua', 'la', 'Lee', 1, 1, 'regretzzz', 'joshua.lee@gmail.com', 2147483647, '5050812', '321', '', 0),
+(96, 'Kendrick', 'Monserate', 'De la Paz', 1, 0, 'Kenlota', 'kenmon@gmail.com', 91234567, '00', '123456', '', 1),
+(97, '', '', '', 0, 1, '', '', 0, '', '', '', 0),
+(98, 'testnew', 'testnew', 'testnew', 1, 1, 'testnew', 'joshua@mail.com', 2147483647, '5050232', '123', '', 0),
+(99, 'Pot', 'Pot', 'Pot', 1, 1, 'pot', 'MAILS@MAIL.COM', 915873717, '3485868', '123', '', 0),
+(100, 'joshua', 'lacaba', 'lee', 1, 0, 'testt', 'test@mail.com', 639159831386, '5050812', '123', '', 1);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `booking_list`
+--
+ALTER TABLE `booking_list`
+  ADD PRIMARY KEY (`booking_id`);
 
 --
 -- Indexes for table `clinic`
@@ -1980,6 +2017,11 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `booking_list`
+--
+ALTER TABLE `booking_list`
+  MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+--
 -- AUTO_INCREMENT for table `clinic`
 --
 ALTER TABLE `clinic`
@@ -2008,8 +2050,7 @@ ALTER TABLE `refprovince`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;COMMIT;
-
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -1,11 +1,52 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
 <?php
+	
 	require('head.php');
-?>
+	require_once('connect.php');
+	$message1="Entry is invalid please check again";
+	$mesclass1="info_fail";
+	$message2="Password Didnt Match";
+	$mesclass2="pass_fail";
+	if(isset($_POST['up_stat'])){
+		if($_POST['up_stat'] == 2){
+			if(isset($_POST['pass'])&&isset($_POST['newpass'])&&isset($_POST['confpass'])){
+				if($_POST['pass'] == $_SESSION['pass']){
+					if($_POST['newpass'] == $_POST['confpass']){
+						$query = "UPDATE `user` 
+						SET `user_password`=".$_POST['newpass']."
+						WHERE user_id =".$_SESSION['userid'];
 
+						$res = mysqli_query($mysql,$query);
+						
+						if($res){
+							
+							$message2="Password Updated";
+							$mesclass2="pass_suc";
+							$_SESSION['pass'] = $_POST['newpass'];
+							
+						}
+					}		
+				}
+			}
+		}
+	}
+?>
+<style>
+	.info_suc{
+		display:none;
+	}
+	.info_fail{
+		display:block;
+	}
+	.pass_suc{
+		display:none;
+	}
+	.pass_fail{
+		display:block;
+	}
+</style>
 <body>
 
 	<div class="layer"></div>
@@ -58,90 +99,45 @@
 
 							<div id="collapseOne_payment" class="collapse show" role="tabpanel" data-parent="#payment">
 								<div class="card-body">
-									<form id="doctorform">
+									<form id="doctorform"  method='GET' action="profile.php">
+									
+										<input type='text' name='up_stat' value='1' hidden />
 										<div class="row">
 											<div class="col-md-12 ">
 												<div class="form-group">
-													<input id="fname" type="text" class="form-control" placeholder="First Name" required>
-												</div>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-md-12 ">
-												<div class="form-group">
-													<input id="mname" type="text" class="form-control" placeholder="Middle Name">
+													<input disabled id="fname" name="fname" type="text" class="form-control" placeholder="First Name" value='<?php echo''.$_SESSION['fname']; ?>' >
 												</div>
 											</div>
 										</div>
 										<div class="row">
 											<div class="col-md-12 ">
 												<div class="form-group">
-													<input id="lname" type="text" class="form-control" placeholder="Last Name" required>
+													<input disabled id="mname" name="mname"  type="text" class="form-control" placeholder="Middle Name" value='<?php echo''.$_SESSION['mname']; ?>'>
 												</div>
 											</div>
 										</div>
 										<div class="row">
-											<div class="col-md-12">
+											<div class="col-md-12 ">
 												<div class="form-group">
-													<select class="form-control sel-gender" required>
-														<option value="1" selected>Male</option>
-														<option value="0">Female</option>
-													</select>
-												</div>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-md-6">
-												<div class="form-group">
-													<select class="form-control sel-prov" required>
-														<option value="" disabled selected>Province</option>
-													</select>
-												</div>
-											</div>
-											<div class="col-md-6">
-												<div class="form-group">
-													<select class="form-control sel-city" disabled required>
-														<option value=""disabled selected>City</option>
-													</select>
+													<input disabled id="lname" name="lname"  type="text" class="form-control" placeholder="Last Name" value='<?php echo''.$_SESSION['lname']; ?>' >
 												</div>
 											</div>
 										</div>
 										<div class="row">
 											<div class="col-lg-12">
 												<div class="form-group">
-													<input id="cnum" type="text" class="form-control" placeholder="Mobile Phone" required>
+													<input disabled id="cnum" name="cnum"  type="text" class="form-control" placeholder="Mobile Phone"  value='<?php echo''.$_SESSION['mobile']; ?>'>
 												</div>
 											</div>
 										</div>
 										<div class="row">
 											<div class="col-lg-12">
 												<div class="form-group">
-													<input id ="demail" type="email" class="form-control" placeholder="Email Address" required>
+													<input disabled id ="demail" name="demail"  type="email" class="form-control" placeholder="Email Address" value='<?php echo''.$_SESSION['email']; ?>' >
 												</div>
 											</div>
 										</div>
-										<div class="row">
-											<div class="col-lg-12">
-												<div class="form-group">
-													<input id ="username" type="text" class="form-control" placeholder="Username" required>
-												</div>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-lg-12">
-												<div class="form-group">
-													<input id ="password" type="password" class="form-control" placeholder="Password" required>
-												</div>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-lg-12">
-												<div class="form-group">
-													<input id ="confpass" type="password" class="form-control" placeholder="Confirm Password" required>
-												</div>
-											</div>
-										</div>
-										<p class="text-center"><input type="button" class="btn_1 sub" value="Update Information"></p>
+										<!-- <p class="text-center"><input type="submit" class="btn_1 sub" value="Update Information"></p> -->
 									</form>
 								</div>
 							</div>
@@ -162,29 +158,32 @@
 
 							<div id="collapseOne_tips" class="collapse" role="tabpanel" data-parent="#tips">
 								<div class="card-body">
-									<form id="passwordform">
+								<label class="<?php echo ''.$mesclass2; ?>"><?php echo ''.$message2; ?></label>
+									<form id="passwordform" method='POST' action="profile.php">
+										
+										<input type='text' name='up_stat' value='2' hidden />
 										<div class="row">
 											<div class="col-lg-12">
 												<div class="form-group">
-													<input id ="password" type="password" class="form-control" placeholder="Current Password" required>
+													<input id ="password" name='pass' type="password" class="form-control" placeholder="Current Password" required>
 												</div>
 											</div>
 										</div>
 										<div class="row">
 											<div class="col-lg-12">
 												<div class="form-group">
-													<input id ="password" type="password" class="form-control" placeholder="New Password" required>
+													<input id ="password" name='newpass' type="password" class="form-control" placeholder="New Password" required>
 												</div>
 											</div>
 										</div>
 										<div class="row">
 											<div class="col-lg-12">
 												<div class="form-group">
-													<input id ="confpass" type="password" class="form-control" placeholder="Confirm Password" required>
+													<input id ="confpass" name='confpass' type="password" class="form-control" placeholder="Confirm Password" required>
 												</div>
 											</div>
 										</div>
-										<p class="text-center"><input type="button" class="btn_1 sub" value="Update Password"></p>
+										<p class="text-center"><input type="submit" class="btn_1 sub" value="Update Password"></p>
 									</form>
 								</div>
 							</div>
@@ -208,27 +207,36 @@
 									  <table class="table table-hover">
 									    <thead>
 									      <tr>
-									        <th>Firstname</th>
-									        <th>Lastname</th>
-									        <th>Email</th>
+									        <th>Doctor Name</th>
+									        <th>Date</th>
+											<th>Clinic Address</th>
+									        <th>Booking Type</th>
 									      </tr>
 									    </thead>
 									    <tbody>
-									      <tr>
-									        <td>John</td>
-									        <td>Doe</td>
-									        <td>john@example.com</td>
-									      </tr>
-									      <tr>
-									        <td>Jane</td>
-									        <td>Doe</td>
-									        <td>mary@example.com</td>
-									      </tr>
-									      <tr>
-									        <td>July</td>
-									        <td>Dooley</td>
-									        <td>july@example.com</td>
-									      </tr>
+											<?php 
+												$query = "SELECT * FROM user
+														LEFT JOIN booking_list on booking_list.user_id = user.user_id
+														LEFT JOIN doctors on doctors.doctor_id = booking_list.doctor_id
+														LEFT JOIN user as doctor_info on doctor_info.user_id = doctors.user_id
+														LEFT JOIN location_clinic on location_clinic.doctor_id = doctors.doctor_id
+														LEFT JOIN clinic on clinic.clinic_id = location_clinic.clinic_id  
+														where user.user_id =".$_SESSION['userid']."
+														Group BY booking_id";
+												$res = mysqli_query($mysql,$query);
+												$ctr= 0;
+												while($row = mysqli_fetch_row($res)){
+													
+													echo '
+												
+													<tr class="odd gradeX">
+															<td>'.$row[26].' '.$row[27].'</td>
+															<td>'.$row[16].'</td>
+															<td>'.$row[48].'</td>
+															<td >'.$row[18].'</td>
+														</tr>';
+												}
+											?>
 									    </tbody>
 									  </table>
 									</div>

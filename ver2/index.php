@@ -2,7 +2,7 @@
 <html lang="en">
 	<!-- SESSION START IF USER IS LOGGED IN -->
 	<?php
-		session_start();
+		require('connect.php');
 		if(isset($_GET['stat'])){
 			//do something 
 		}
@@ -94,46 +94,44 @@
 					<p>Usu habeo equidem sanctus no. Suas summo id sed, erat erant oporteat cu pri.</p>
 				</div>
 				<div id="reccomended" class="owl-carousel owl-theme">
-					<div class="item">
-						<a href="detail-page-2.php">
-							<div class="views"><i class="icon-eye-7"></i>140</div>
-							<div class="title">
-								<h4>Dr. John Doe<em>Pediatrician - Cardiologist</em></h4>
-							</div><img src="img/doctor_1_carousel.jpg" alt="">
-						</a>
-					</div>
-					<div class="item">
-						<a href="detail-page-2.php">
-							<div class="views"><i class="icon-eye-7"></i>120</div>
-							<div class="title">
-								<h4>Dr. Jane Doe<em>General Practitioner</em></h4>
-							</div><img src="img/doctor_2_carousel.jpg" alt="">
-						</a>
-					</div>
-					<div class="item">
-						<a href="detail-page-2.php">
-							<div class="views"><i class="icon-eye-7"></i>115</div>
-							<div class="title">
-								<h4>Dr. John Smith<em>Family Medicine</em></h4>
-							</div><img src="img/doctor_3_carousel.jpg" alt="">
-						</a>
-					</div>
-					<div class="item">
-						<a href="detail-page-2.php">
-							<div class="views"><i class="icon-eye-7"></i>98</div>
-							<div class="title">
-								<h4>Dr. Juan de la Cruz<em>ENT Specialist</em></h4>
-							</div><img src="img/doctor_4_carousel.jpg" alt="">
-						</a>
-					</div>
-					<div class="item">
-						<a href="detail-page-2.php">
-							<div class="views"><i class="icon-eye-7"></i>98</div>
-							<div class="title">
-								<h4>Dr. Juana de la Cruz<em>ENT Specialist</em></h4>
-							</div><img src="img/doctor_5_carousel.jpg" alt="">
-						</a>
-					</div>
+					<?php 
+						$query = "SELECT * FROM user 
+								LEFT JOIN doctors on user.user_id = doctors.user_id
+								LEFT JOIN location_clinic on doctors.doctor_id = location_clinic.doctor_id
+								LEFT JOIN clinic on location_clinic.clinic_id = clinic.clinic_id
+								where user.user_level = '1'
+								Group BY user.user_id
+								ORDER BY user.user_id DESC
+								LIMIT 5 
+								";
+						$res = mysqli_query($mysql,$query);
+						$ctr= 0;
+						while($row = mysqli_fetch_row($res)){
+							if($row[4] == 1){
+								echo '
+								
+									<div class="item">
+										<a href="detail-page-2.php?docid='.$row[13].'&userid=-1&clinname='.$row[22].'&clinadd='.$row[25].'&docfname='.$row[1].'&docmname='.$row[2].'&doclname='.$row[3].'&start='.$row[18].'&end='.$row[19].'&mobile='.$row[8].'&tele='.$row[9].'">
+											<div class="views"><i class="icon-eye-7"></i>140</div>
+											<div class="title">
+												<h4>Dr.'.$row[1].' '.$row[3].'</em></h4>
+											</div><img src="img/doctor_1_carousel.jpg" alt="">
+										</a>
+									</div>';
+							} else {
+								echo '
+								
+									<div class="item">
+										<a href="detail-page-2.php?docid='.$row[13].'&userid=-1&clinname='.$row[22].'&clinadd='.$row[25].'&docfname='.$row[1].'&docmname='.$row[2].'&doclname='.$row[3].'&start='.$row[18].'&end='.$row[19].'&mobile='.$row[8].'&tele='.$row[9].'">
+											<div class="views"><i class="icon-eye-7"></i>140</div>
+											<div class="title">
+											<h4>Dr.'.$row[1].' '.$row[3].'</em></h4>
+											</div><img src="img/doctor_2_carousel.jpg" alt="">
+										</a>
+									</div>';
+							}
+						}
+					?>
 				</div>
 			</div>
 		</div>
@@ -205,11 +203,6 @@
 </body>
 <!-- HANDLE IF THE SEARCH BUTTON IS PRESSED -->
 <script>
-	$( document ).ready(function() {
-		$('.btn_search').on('click',function(){
-			alert('pressed');
-
-		});
-	});
+	
 </script>
 </html>

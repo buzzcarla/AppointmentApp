@@ -48,7 +48,7 @@
                                                       LEFT JOIN doctors on doctors.user_id = user.user_id
                                                       LEFT JOIN location_clinic on location_clinic.doctor_id = doctors.doctor_id
                                                       LEFT JOIN clinic on clinic.clinic_id = location_clinic.clinic_id  
-                                                      where user_level = '1'
+                                                      where user_level = '1' AND user_status != '-1'
                                                       Group BY user.user_id";
                                             $res = mysqli_query($mysql,$query);
                                             $ctr= 0;
@@ -71,12 +71,7 @@
                                                             <option selected value="1_'.$row[0].'">Active</option> 
                                                             <option  value="0_'.$row[0].'">Deactivate/Ban</option>
                                                             <option value="-1_'.$row[0].'">Delete </option>';
-                                                        } else if($row[12]==-1){
-                                                            echo '
-                                                            <option value="1_'.$row[0].'">Active</option> 
-                                                            <option  value="0_'.$row[0].'">Deactivate/Ban</option>
-                                                            <option selected value="-1_'.$row[0].'">Delete </option>';
-                                                        }
+                                                        } 
                                                         echo '
                                                         </select>    
                                                     </td>

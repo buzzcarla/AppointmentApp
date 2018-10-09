@@ -1,11 +1,39 @@
-<!-- DETAILED INFORMATION OF THE DOCTORS -->
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
-	<?php
-		require('head.php');
-	?>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Find easily a doctor and book online an appointment">
+	<meta name="author" content="Ansonika">
+	<title>FINDOCTOR - Find easily a doctor and book online an appointment</title>
+
+	<!-- Favicons-->
+	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" type="image/x-icon" href="img/apple-touch-icon-57x57-precomposed.png">
+	<link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="img/apple-touch-icon-72x72-precomposed.png">
+	<link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="img/apple-touch-icon-114x114-precomposed.png">
+	<link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="img/apple-touch-icon-144x144-precomposed.png">
+
+	<!-- BASE CSS -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+	<link href="css/menu.css" rel="stylesheet">
+	<link href="css/vendors.css" rel="stylesheet">
+	<link href="css/icon_fonts/css/all_icons_min.css" rel="stylesheet">
+   
+    <!-- SPECIFIC CSS -->
+    <link href="css/date_picker.css" rel="stylesheet">
+    
+	<!-- YOUR CUSTOM CSS -->
+	<link href="css/custom.css" rel="stylesheet">
+
+	<style type="text/css">
+		
+	</style>
+
 </head>
 
 <body>
@@ -13,10 +41,18 @@
 	<div id="preloader" class="Fixed">
 		<div data-loader="circle-side"></div>
 	</div>
+	<!-- /Preload-->
     <?php 
+        session_start();
+        if(!isset($_SESSION['userid'])){
+            $_SESSION['userid'] = -1;
+        } 
+        if(isset($_SESSION['userid'])&& $_GET['userid'] == -1){
+            $_GET['userid'] = $_SESSION['userid'];
+        }
         echo '<input type="text" id="doc_id" value="'.$_GET['docid'].'" hidden>';
         echo '<input type="text" id="user_id" value="'.$_GET['userid'].'" hidden>';
-        echo '<input type="text" id="clin_name" value="'.$_GET['cliname'].'" hidden>';
+        echo '<input type="text" id="clin_name" value="'.$_GET['clinname'].'" hidden>';
         echo '<input type="text" id="clin_add" value="'.$_GET['clinadd'].'" hidden>';
         echo '<input type="text" id="doc_fname" value="'.$_GET['docfname'].'" hidden>';
         echo '<input type="text" id="doc_mname" value="'.$_GET['docmname'].'" hidden>';
@@ -26,10 +62,10 @@
        
     ?>
 	<div id="page">		
-		<?php
-			require('header.php');
-		?>
-
+	<?php require('header.php');?>
+	<!-- /header -->
+	
+	
 	<main>
 		<div id="breadcrumb">
 			<div class="container">
@@ -40,7 +76,8 @@
 				</ul>
 			</div>
 		</div>
-
+		<!-- /breadcrumb -->
+		
 		<div class="container margin_60">
 			<div class="row">
 				
@@ -66,13 +103,28 @@
 						<div class="text-center"><a  href="https://www.google.com/maps/dir/Mandaue+City,+Cebu/LH+Prime+Medical+Clinic+Basak+Mactan,+Lapu-Lapu+City,+Cebu/@10.3170571,123.9294577,7127m/data=!3m2!1e3!4b1!4m13!4m12!1m5!1m1!1s0x33a99889680ceefd:0xa9f911a1f5dda572!2m2!1d123.9415518!2d10.3402623!1m5!1m1!1s0x33a999f9a2431d03:0x4957877e437e6d01!2m2!1d123.9662371!2d10.2926005" class="btn_1 outline" target="_blank"><i class="icon_pin"></i> View on map</a></div>
 					</div>
 				</aside>
-
+				<!-- /asdide -->
+				
 				<div class="col-xl-9 col-lg-8">
+
 					<div class="tabs_styled_2">
+						<!-- <ul class="nav nav-tabs" role="tablist">
+							<li class="nav-item">
+								<a class="nav-link active" id="book-tab" data-toggle="tab" href="#book" role="tab" aria-controls="book">Book an appointment</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" id="general-tab" data-toggle="tab" href="#general" role="tab" aria-controls="general" aria-expanded="true">General info</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" id="reviews-tab" data-toggle="tab" href="#reviews" role="tab" aria-controls="reviews">Reviews</a>
+							</li>
+						</ul> -->
+						<!--/nav-tabs -->
+                
 						<div class="tab-content">
+
 							<div class="tab-pane fade show active" id="book" role="tabpanel" aria-labelledby="book-tab">
 								<p class="lead add_bottom_30">To book an appointment with the selected doctor, please input or choose from the available dates and time.</p>
-								<!-- BOOKING FORM -->
 								<form>
 									<div class="main_title_3">
 										<h3><strong>1</strong>Select your date</h3>
@@ -149,6 +201,7 @@
 											</ul>
 										</div>
 									</div>
+									<!-- /row -->
 									
 									<div class="main_title_3" style="margin-bottom: 4%;">
 										<h3><strong>3</strong>Select visit</h3>
@@ -194,26 +247,99 @@
 									</ul>
 								</form>					
 								<hr>
-								<p class="text-center"><button style="margin-left: 40%; margin-top: 5%;"  class="btn_1 medium book">Book Now</button></p>
+                                <?php 
+                                    if($_SESSION['userid'] != -1 && $_GET['userid'] !=-1 ){
+                                        echo '<p class="text-center"><button style="margin-left: 40%; margin-top: 5%;"  class="btn_1 medium book">Book Now</button></p>';
+                                    } else{
+                                        echo '<p class="text-center"><button style="margin-left: 40%; margin-top: 5%; background:grey;"  class="btn_1 medium book"  disabled>Book Now</button></p>';
+                                    }
+                                ?>
+							
 							</div>
+							<!-- /tab_1 -->
 						</div>
+						<!-- /tab-content -->
+					</div>
+					<!-- /tabs_styled -->
+				</div>
+				<!-- /col -->
+			</div>
+			<!-- /row -->
+		</div>
+		<!-- /container -->
+	</main>
+	<!-- /main -->
+	
+	<footer>
+		<div class="container margin_60_35">
+			<div class="row">
+				<div class="col-lg-3 col-md-12">
+					<p>
+						<a href="index.php" title="Findoctor">
+							<img src="img/icon.png" data-retina="true" alt="" width="163" height="36" class="img-fluid">
+						</a>
+					</p>
+				</div>
+				<div class="col-lg-3 col-md-4">
+					<h5>About</h5>
+					<ul class="links">
+						<li><a href="#0">About us</a></li>
+						<li><a href="blog.html">Blog</a></li>
+						<li><a href="#0">FAQ</a></li>
+						<li><a href="login.html">Login</a></li>
+						<li><a href="register.html">Register</a></li>
+					</ul>
+				</div>
+				<div class="col-lg-3 col-md-4">
+					<h5>Useful links</h5>
+					<ul class="links">
+						<li><a href="#0">Doctors</a></li>
+						<li><a href="#0">Clinics</a></li>
+						<li><a href="#0">Specialization</a></li>
+						<li><a href="#0">Join as a Doctor</a></li>
+						<li><a href="#0">Download App</a></li>
+					</ul>
+				</div>
+				<div class="col-lg-3 col-md-4">
+					<h5>Contact with Us</h5>
+					<ul class="contacts">
+						<li><a href="tel://61280932400"><i class="icon_mobile"></i> + 61 23 8093 3400</a></li>
+						<li><a href="/cdn-cgi/l/email-protection#2a43444c456a4c43444e45495e455804494547"><i class="icon_mail_alt"></i> <span class="__cf_email__" data-cfemail="1e767b726e5e7877707a717d6a716c307d7173">[email&#160;protected]</span></a></li>
+					</ul>
+					<div class="follow_us">
+						<h5>Follow us</h5>
+						<ul>
+							<li><a href="#0"><i class="social_facebook"></i></a></li>
+							<li><a href="#0"><i class="social_twitter"></i></a></li>
+							<li><a href="#0"><i class="social_linkedin"></i></a></li>
+							<li><a href="#0"><i class="social_instagram"></i></a></li>
+						</ul>
 					</div>
 				</div>
 			</div>
+			<!--/row-->
+			<hr>
+			<div class="row">
+				<div class="col-md-8">
+					<ul id="additional_links">
+						<li><a href="#0">Terms and conditions</a></li>
+						<li><a href="#0">Privacy</a></li>
+					</ul>
+				</div>
+				<div class="col-md-4">
+					<div id="copy">© 2017 Findoctor</div>
+				</div>
+			</div>
 		</div>
-	</main>
-	
-	<footer>
-		<?php
-			require('footer.php');
-		?>
 	</footer>
+	<!--/footer-->
 	</div>
+	<!-- page -->
 
-	<!-- Back to top button -->
 	<div id="toTop">
 		<img class="topArrow" src="./img/up_arrow.png">
 	</div>
+	<!-- Back to top button -->
 
 	<!-- COMMON SCRIPTS -->
 	<script src="js/email-decode.min.js"></script>
@@ -222,7 +348,7 @@
 	<script src="js/functions.js"></script>
    	
 	<!-- SPECIFIC SCRIPTS -->
-    <script src="js/bootstrap-datepicker.js"></script>		
+    <script src="js/bootstrap-datepicker.js"></script>
 	<script>
 		$('#calendar').datepicker({
 			todayHighlight: true,
@@ -232,6 +358,7 @@
 			datesDisabled: ["2017/10/20", "2017/11/21", "2017/12/21", "2018/01/21", "2018/02/21", "2018/03/21"],
 		});
 	</script>
+     
 </body>
 </html>
 
@@ -243,27 +370,21 @@ function onlyOne(checkbox) {
     })
     document.getElementById("visit_type").value = checkbox.value;
 }
-
 function updateTime(radio) {
     document.getElementById("booktime").value = radio.value;
 }
 if (typeof jQuery == 'undefined') {
     throw new Error('jQuery is not loaded');
 }
-
 $(document).ready( function() {
     var now = new Date();
  
     var day = ("0" + now.getDate()).slice(-2);
     var month = ("0" + (now.getMonth() + 1)).slice(-2);
-
     var today = now.getFullYear()+"-"+(month)+"-"+(day) ;
-
-
    $('#datePicker').val(today);
    $('#datePicker').attr('min', today); 
 });
-
 $( ".book" ).click(function() {
     if($("#datePicker").val() && $("#booktime").val() && $("#visit_type").val()){
        var datepart = $("#datePicker").val().split('-');
@@ -289,7 +410,6 @@ $( ".book" ).click(function() {
     } else {
         alert("some fields are empty");
     }
-
 });
 /**
  * Create calendar
@@ -299,11 +419,9 @@ $.fn.zabuto_calendar = function (options) {
     var opts = $.extend({}, $.fn.zabuto_calendar_defaults(), options);
     var languageSettings = $.fn.zabuto_calendar_language(opts.language);
     opts = $.extend({}, opts, languageSettings);
-
     this.each(function () {
         var $calendarElement = $(this);
         $calendarElement.attr('id', "zabuto_calendar_" + Math.floor(Math.random() * 99999).toString(36));
-
         $calendarElement.data('initYear', opts.year);
         $calendarElement.data('initMonth', opts.month);
         $calendarElement.data('monthLabels', opts.month_labels);
@@ -320,38 +438,28 @@ $.fn.zabuto_calendar = function (options) {
         $calendarElement.data('legendList', opts.legend);
         $calendarElement.data('actionFunction', opts.action);
         $calendarElement.data('actionNavFunction', opts.action_nav);
-
         drawCalendar();
-
         function drawCalendar() {
             var dateInitYear = parseInt($calendarElement.data('initYear'));
             var dateInitMonth = parseInt($calendarElement.data('initMonth')) - 1;
             var dateInitObj = new Date(dateInitYear, dateInitMonth, 1, 0, 0, 0, 0);
             $calendarElement.data('initDate', dateInitObj);
-
             var tableClassHtml = ($calendarElement.data('cellBorder') === true) ? ' table-bordered' : '';
-
             $tableObj = $('<table class="table' + tableClassHtml + '"></table>');
             $tableObj = drawTable($calendarElement, $tableObj, dateInitObj.getFullYear(), dateInitObj.getMonth());
-
             $legendObj = drawLegend($calendarElement);
-
             var $containerHtml = $('<div class="zabuto_calendar" id="' + $calendarElement.attr('id') + '"></div>');
             $containerHtml.append($tableObj);
             $containerHtml.append($legendObj);
-
             $calendarElement.append($containerHtml);
-
             var jsonData = $calendarElement.data('jsonData');
             if (false !== jsonData) {
                 checkEvents($calendarElement, dateInitObj.getFullYear(), dateInitObj.getMonth());
             }
         }
-
         function drawTable($calendarElement, $tableObj, year, month) {
             var dateCurrObj = new Date(year, month, 1, 0, 0, 0, 0);
             $calendarElement.data('currDate', dateCurrObj);
-
             $tableObj.empty();
             $tableObj = appendMonthHeader($calendarElement, $tableObj, year, month);
             $tableObj = appendDayOfWeekHeader($calendarElement, $tableObj);
@@ -359,7 +467,6 @@ $.fn.zabuto_calendar = function (options) {
             checkEvents($calendarElement, year, month);
             return $tableObj;
         }
-
         function drawLegend($calendarElement) {
             var $legendObj = $('<div class="legend" id="' + $calendarElement.attr('id') + '_legend"></div>');
             var legend = $calendarElement.data('legendList');
@@ -371,7 +478,6 @@ $.fn.zabuto_calendar = function (options) {
                             if ('label' in item) {
                                 itemLabel = item.label;
                             }
-
                             switch (item.type) {
                                 case 'text':
                                     if (itemLabel !== '') {
@@ -410,16 +516,13 @@ $.fn.zabuto_calendar = function (options) {
                                 case 'spacer':
                                     $legendObj.append('<span class="legend-' + item.type + '"> </span>');
                                     break;
-
                             }
                         }
                     }
                 });
             }
-
             return $legendObj;
         }
-
         function appendMonthHeader($calendarElement, $tableObj, year, month) {
             var navIcons = $calendarElement.data('navIcons');
             var $prevMonthNavIcon = $('<span><span class="glyphicon glyphicon-chevron-left"></span></span>');
@@ -432,12 +535,10 @@ $.fn.zabuto_calendar = function (options) {
                     $nextMonthNavIcon.html(navIcons.next);
                 }
             }
-
             var prevIsValid = $calendarElement.data('showPrevious');
             if (typeof(prevIsValid) === 'number' || prevIsValid === false) {
                 prevIsValid = checkMonthLimit($calendarElement.data('showPrevious'), true);
             }
-
             var $prevMonthNav = $('<div class="calendar-month-navigation"></div>');
             $prevMonthNav.attr('id', $calendarElement.attr('id') + '_nav-prev');
             $prevMonthNav.data('navigation', 'prev');
@@ -457,12 +558,10 @@ $.fn.zabuto_calendar = function (options) {
                     drawTable($calendarElement, $tableObj, prevYear, prevMonth);
                 });
             }
-
             var nextIsValid = $calendarElement.data('showNext');
             if (typeof(nextIsValid) === 'number' || nextIsValid === false) {
                 nextIsValid = checkMonthLimit($calendarElement.data('showNext'), false);
             }
-
             var $nextMonthNav = $('<div class="calendar-month-navigation"></div>');
             $nextMonthNav.attr('id', $calendarElement.attr('id') + '_nav-next');
             $nextMonthNav.data('navigation', 'next');
@@ -482,28 +581,21 @@ $.fn.zabuto_calendar = function (options) {
                     drawTable($calendarElement, $tableObj, nextYear, nextMonth);
                 });
             }
-
             var monthLabels = $calendarElement.data('monthLabels');
-
             var $prevMonthCell = $('<th></th>').append($prevMonthNav);
             var $nextMonthCell = $('<th></th>').append($nextMonthNav);
-
             var $currMonthLabel = $('<span>' + monthLabels[month] + ' ' + year + '</span>');
             $currMonthLabel.dblclick(function () {
                 var dateInitObj = $calendarElement.data('initDate');
                 drawTable($calendarElement, $tableObj, dateInitObj.getFullYear(), dateInitObj.getMonth());
             });
-
             var $currMonthCell = $('<th colspan="5"></th>');
             $currMonthCell.append($currMonthLabel);
-
             var $monthHeaderRow = $('<tr class="calendar-month-header"></tr>');
             $monthHeaderRow.append($prevMonthCell, $currMonthCell, $nextMonthCell);
-
             $tableObj.append($monthHeaderRow);
             return $tableObj;
         }
-
         function appendDayOfWeekHeader($calendarElement, $tableObj) {
             if ($calendarElement.data('showDays') === true) {
                 var weekStartsOn = $calendarElement.data('weekStartsOn');
@@ -513,7 +605,6 @@ $.fn.zabuto_calendar = function (options) {
                     var sunArray = new Array(dowFull.pop());
                     dowLabels = sunArray.concat(dowFull);
                 }
-
                 var $dowHeaderRow = $('<tr class="calendar-dow-header"></tr>');
                 $(dowLabels).each(function (index, value) {
                     $dowHeaderRow.append('<th>' + value + '</th>');
@@ -522,7 +613,6 @@ $.fn.zabuto_calendar = function (options) {
             }
             return $tableObj;
         }
-
         function appendDaysOfMonth($calendarElement, $tableObj, year, month) {
             var ajaxSettings = $calendarElement.data('ajaxSettings');
             var weeksInMonth = calcWeeksInMonth(year, month);
@@ -530,7 +620,6 @@ $.fn.zabuto_calendar = function (options) {
             var firstDow = calcDayOfWeek(year, month, 1);
             var lastDow = calcDayOfWeek(year, month, lastDayinMonth);
             var currDayOfMonth = 1;
-
             var weekStartsOn = $calendarElement.data('weekStartsOn');
             if (weekStartsOn === 0) {
                 if (lastDow == 6) {
@@ -544,7 +633,6 @@ $.fn.zabuto_calendar = function (options) {
                     firstDow = 0;
                 }
             }
-
             for (var wk = 0; wk < weeksInMonth; wk++) {
                 var $dowRow = $('<tr class="calendar-dow"></tr>');
                 for (var dow = 0; dow < 7; dow++) {
@@ -553,22 +641,17 @@ $.fn.zabuto_calendar = function (options) {
                     } else {
                         var dateId = $calendarElement.attr('id') + '_' + dateAsString(year, month, currDayOfMonth);
                         var dayId = dateId + '_day';
-
                         var $dayElement = $('<div id="' + dayId + '" class="day" >' + currDayOfMonth + '</div>');
                         $dayElement.data('day', currDayOfMonth);
-
                         if ($calendarElement.data('showToday') === true) {
                             if (isToday(year, month, currDayOfMonth)) {
                                 $dayElement.html('<span class="badge badge-today">' + currDayOfMonth + '</span>');
                             }
                         }
-
                         var $dowElement = $('<td id="' + dateId + '"></td>');
                         $dowElement.append($dayElement);
-
                         $dowElement.data('date', dateAsString(year, month, currDayOfMonth));
                         $dowElement.data('hasEvent', false);
-
                         if (typeof($calendarElement.data('actionFunction')) === 'function') {
                             $dowElement.addClass('dow-clickable');
                             $dowElement.click(function () {
@@ -576,90 +659,67 @@ $.fn.zabuto_calendar = function (options) {
                             });
                             $dowElement.click($calendarElement.data('actionFunction'));
                         }
-
                         $dowRow.append($dowElement);
-
                         currDayOfMonth++;
                     }
                     if (dow == 6) {
                         firstDow = 0;
                     }
                 }
-
                 $tableObj.append($dowRow);
             }
             return $tableObj;
         }
-
         /* ----- Modal functions ----- */
-
         function createModal(id, title, body, footer) {
             var $modalHeaderButton = $('<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>');
             var $modalHeaderTitle = $('<h4 class="modal-title" id="' + id + '_modal_title">' + title + '</h4>');
-
             var $modalHeader = $('<div class="modal-header"></div>');
             $modalHeader.append($modalHeaderButton);
             $modalHeader.append($modalHeaderTitle);
-
             var $modalBody = $('<div class="modal-body" id="' + id + '_modal_body">' + body + '</div>');
-
             var $modalFooter = $('<div class="modal-footer" id="' + id + '_modal_footer"></div>');
             if (typeof(footer) !== 'undefined') {
                 var $modalFooterAddOn = $('<div>' + footer + '</div>');
                 $modalFooter.append($modalFooterAddOn);
             }
-
             var $modalContent = $('<div class="modal-content"></div>');
             $modalContent.append($modalHeader);
             $modalContent.append($modalBody);
             $modalContent.append($modalFooter);
-
             var $modalDialog = $('<div class="modal-dialog"></div>');
             $modalDialog.append($modalContent);
-
             var $modalFade = $('<div class="modal fade" id="' + id + '_modal" tabindex="-1" role="dialog" aria-labelledby="' + id + '_modal_title" aria-hidden="true"></div>');
             $modalFade.append($modalDialog);
-
             $modalFade.data('dateId', id);
             $modalFade.attr("dateId", id);
-
             return $modalFade;
         }
-
         /* ----- Event functions ----- */
-
         function checkEvents($calendarElement, year, month) {
             var jsonData = $calendarElement.data('jsonData');
             var ajaxSettings = $calendarElement.data('ajaxSettings');
-
             $calendarElement.data('events', false);
-
             if (false !== jsonData) {
                 return jsonEvents($calendarElement);
             } else if (false !== ajaxSettings) {
                 return ajaxEvents($calendarElement, year, month);
             }
-
             return true;
         }
-
         function jsonEvents($calendarElement) {
             var jsonData = $calendarElement.data('jsonData');
             $calendarElement.data('events', jsonData);
             drawEvents($calendarElement, 'json');
             return true;
         }
-
         function ajaxEvents($calendarElement, year, month) {
             var ajaxSettings = $calendarElement.data('ajaxSettings');
-
             if (typeof(ajaxSettings) != 'object' || typeof(ajaxSettings.url) == 'undefined') {
                 alert('Invalid calendar event settings');
                 return false;
             }
-
             var data = {year: year, month: (month + 1)};
-
             $.ajax({
                 type: 'GET',
                 url: ajaxSettings.url,
@@ -673,40 +733,32 @@ $.fn.zabuto_calendar = function (options) {
                 $calendarElement.data('events', events);
                 drawEvents($calendarElement, 'ajax');
             });
-
             return true;
         }
-
         function drawEvents($calendarElement, type) {
             var jsonData = $calendarElement.data('jsonData');
             var ajaxSettings = $calendarElement.data('ajaxSettings');
-
             var events = $calendarElement.data('events');
             if (events !== false) {
                 $(events).each(function (index, value) {
                     var id = $calendarElement.attr('id') + '_' + value.date;
                     var $dowElement = $('#' + id);
                     var $dayElement = $('#' + id + '_day');
-
                     $dowElement.data('hasEvent', true);
-
                     if (typeof(value.title) !== 'undefined') {
                         $dowElement.attr('title', value.title);
                     }
-
                     if (typeof(value.classname) === 'undefined') {
                         $dowElement.addClass('event');
                     } else {
                         $dowElement.addClass('event-styled');
                         $dayElement.addClass(value.classname);
                     }
-
                     if (typeof(value.badge) !== 'undefined' && value.badge !== false) {
                         var badgeClass = (value.badge === true) ? '' : ' badge-' + value.badge;
                         var dayLabel = $dayElement.data('day');
                         $dayElement.html('<span class="badge badge-event' + badgeClass + '">' + dayLabel + '</span>');
                     }
-
                     if (typeof(value.body) !== 'undefined') {
                         var modalUse = false;
                         if (type === 'json' && typeof(value.modal) !== 'undefined' && value.modal === true) {
@@ -714,13 +766,10 @@ $.fn.zabuto_calendar = function (options) {
                         } else if (type === 'ajax' && 'modal' in ajaxSettings && ajaxSettings.modal === true) {
                             modalUse = true;
                         }
-
                         if (modalUse === true) {
                             $dowElement.addClass('event-clickable');
-
                             var $modalElement = createModal(id, value.title, value.body, value.footer);
                             $('body').append($modalElement);
-
                             $('#' + id).click(function () {
                                 $('#' + id + '_modal').modal();
                             });
@@ -729,22 +778,18 @@ $.fn.zabuto_calendar = function (options) {
                 });
             }
         }
-
         /* ----- Helper functions ----- */
-
         function isToday(year, month, day) {
             var todayObj = new Date();
             var dateObj = new Date(year, month, day);
             return (dateObj.toDateString() == todayObj.toDateString());
         }
-
         function dateAsString(year, month, day) {
             d = (day < 10) ? '0' + day : day;
             m = month + 1;
             m = (m < 10) ? '0' + m : m;
             return year + '-' + m + '-' + d;
         }
-
         function calcDayOfWeek(year, month, day) {
             var dateObj = new Date(year, month, day, 0, 0, 0, 0);
             var dow = dateObj.getDay();
@@ -755,7 +800,6 @@ $.fn.zabuto_calendar = function (options) {
             }
             return dow;
         }
-
         function calcLastDayInMonth(year, month) {
             var day = 28;
             while (checkValidDate(year, month + 1, day + 1)) {
@@ -763,7 +807,6 @@ $.fn.zabuto_calendar = function (options) {
             }
             return day;
         }
-
         function calcWeeksInMonth(year, month) {
             var daysInMonth = calcLastDayInMonth(year, month);
             var firstDow = calcDayOfWeek(year, month, 1);
@@ -775,23 +818,19 @@ $.fn.zabuto_calendar = function (options) {
             }
             return Math.ceil(days / 7);
         }
-
         function checkValidDate(y, m, d) {
             return m > 0 && m < 13 && y > 0 && y < 32768 && d > 0 && d <= (new Date(y, m, 0)).getDate();
         }
-
         function checkMonthLimit(count, invert) {
             if (count === false) {
                 count = 0;
             }
             var d1 = $calendarElement.data('currDate');
             var d2 = $calendarElement.data('initDate');
-
             var months;
             months = (d2.getFullYear() - d1.getFullYear()) * 12;
             months -= d1.getMonth() + 1;
             months += d2.getMonth();
-
             if (invert === true) {
                 if (months < (parseInt(count) - 1)) {
                     return true;
@@ -804,10 +843,8 @@ $.fn.zabuto_calendar = function (options) {
             return false;
         }
     }); // each()
-
     return this;
 };
-
 /**
  * Default settings
  *
@@ -850,21 +887,27 @@ $.fn.zabuto_calendar_defaults = function () {
     };
     return settings;
 };
-
+/**
+ * Language settings
+ *
+ * @param lang
+ * @returns {{month_labels: Array, dow_labels: Array}}
+ */
 $.fn.zabuto_calendar_language = function (lang) {
     if (typeof(lang) == 'undefined' || lang === false) {
         lang = 'en';
     }
     switch (lang.toLowerCase()) {
+     
         case 'en':
             return {
                 month_labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
                 dow_labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
             };
             break;
-    	}
-	};
-
+     
+    }
+};
    $(document).ready(function () {
     $("#my-calendar").zabuto_calendar({
       legend: [
@@ -880,5 +923,4 @@ $.fn.zabuto_calendar_language = function (lang) {
       }
     });
   });
-
 </script>

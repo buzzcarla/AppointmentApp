@@ -2,6 +2,7 @@
 <!-- CONNECT TO DATABASE -->
 <?php
     require('../../ver2/connect.php');
+ 
 ?>
 <html lang="en">
 <head>
@@ -45,43 +46,49 @@
                                 <tbody>
                                     <!-- QUERY FOR TABLE CONTENT -->
                                    <?php 
+                                        //1 ----- PENDING
+                                        //2 ----- ACCEPTED
+                                        //3 ----- NOTIFIED
+                                        //4 ----- DECLINED
                                         $query = "SELECT * FROM user
-                                                  LEFT JOIN doctors on doctors.user_id = user.user_id
-                                                  LEFT JOIN location_clinic on location_clinic.doctor_id = doctors.doctor_id
-                                                  LEFT JOIN clinic on clinic.clinic_id = location_clinic.clinic_id  
-                                                  where user_level = '1'
-                                                  Group BY user.user_id";
+                                                  LEFT JOIN booking_list on booking_list.user_id = user.user_id
+                                                  WHERE booking_list.doctor_id ='2' AND booking_list.book_date >= DATE(NOW())
+                                                  Group BY booking_list.booking_id";
                                         $res = mysqli_query($mysql,$query);
                                         $ctr= 0;
-                                        while($row = mysqli_fetch_row($res)){
-                                            echo '
-                                            <tr class="odd gradeX">
-                                                <td>'.$row[1].' '.$row[3].'</td>
-                                                <td>'.$row[16].'</td>
-                                                <td>'.$row[24].'</td>
-                                                <td class="center">'.$row[27].'</td>
-                                                <td class="center" id="'.++$ctr.'">
-                                                    <select id="stat'.$ctr.'">';
-                                                    if($row[12]==0){
+                                        if($res){
+
+                                  
+                                            while($row = mysqli_fetch_row($res)){
+                                                echo '
+                                                <tr class="odd gradeX">
+                                                        <td>'.$row[1].' '.$row[3].'</td>
+                                                        <td>'.$row[16].'</td>
+                                                        <td>'.date('h:i:s A',strtotime($row[16])).'</td>
+                                                        <td class="center">'.$row[18].'</td>
+                                                        <td class="center" id="'.++$ctr.'">
+                                                            <select id="stat'.$ctr.'">';
+                                                        if($row[17]==1){
+                                                            echo '
+                                                            <option value="2_'.$row[13].'">ACCEPTED</option> 
+                                                            <option selected value="1_'.$row[13].'">PENDING</option>
+                                                            <option value="4_'.$row[13].'">DECLINED </option>';
+                                                        } else if($row[17]==2){
+                                                            echo '
+                                                            <option selected value="2_'.$row[13].'">ACCEPTED</option> 
+                                                            <option  value="1_'.$row[13].'">PENDING</option>
+                                                            <option value="4_'.$row[13].'">DECLINED </option>';
+                                                        } else if($row[17]==4){
+                                                            echo '
+                                                            <option value="2_'.$row[13].'">ACCEPTED</option> 
+                                                            <option  value="1_'.$row[13].'">PENDING</option>
+                                                            <option selected value="4_'.$row[13].'">DECLINED </option>';
+                                                        }
+                                            }
                                                         echo '
-                                                        <option value="1_'.$row[0].'">Active</option> 
-                                                        <option selected value="0_'.$row[0].'">Deactivate/Ban</option>
-                                                        <option value="-1_'.$row[0].'">Delete </option>';
-                                                    } else if($row[12]==1){
-                                                        echo '
-                                                        <option selected value="1_'.$row[0].'">Active</option> 
-                                                        <option  value="0_'.$row[0].'">Deactivate/Ban</option>
-                                                        <option value="-1_'.$row[0].'">Delete </option>';
-                                                    } else if($row[12]==-1){
-                                                        echo '
-                                                        <option value="1_'.$row[0].'">Active</option> 
-                                                        <option  value="0_'.$row[0].'">Deactivate/Ban</option>
-                                                        <option selected value="-1_'.$row[0].'">Delete </option>';
-                                                    }
-                                                    echo '
-                                                    </select>    
-                                                </td>
-                                            </tr>';
+                                                        </select>    
+                                                    </td>
+                                                </tr>';
                                         }
                                     ?>
                                 </tbody>
@@ -112,7 +119,7 @@
     $('select').on("change",function(){
         var newStat = this.value;
         $.ajax({
-            url: "../../ver2/requests/updateUserStat.php",
+            url: "../../ver2/requests/updateBookStat.php",
             type: 'POST',
             dataType: 'text json', 
             data: {
