@@ -7,6 +7,19 @@ Primary style
   box-sizing: border-box;
 }
 
+@media screen and (max-width: 600px) {
+  .admin-head-text {
+      font-size: xx-large!important;
+      align-self: right!important;
+      margin-top: -50px!important;
+      text-align: center!important;
+      padding: 10px!important;
+      border-radius: 10px!important;
+      opacity: 0.9!important;
+      background-color: cornflowerblue!important;
+  }
+}
+
 html {
   font-size: 62.5%;
 }

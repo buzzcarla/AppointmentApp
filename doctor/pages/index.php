@@ -19,10 +19,10 @@
             require ('nav.php');
         ?>
         <div id="page-wrapper">
-             <img src="https://www.freewebheaders.com/wordpress/wp-content/gallery/medical/medical-doctor-stethoscope-and-office-sign-web-header.jpg" style=" width: 1235px; height: auto; position: absolute;">
+             <img class="admin-img" src="https://www.freewebheaders.com/wordpress/wp-content/gallery/medical/medical-doctor-stethoscope-and-office-sign-web-header.jpg" style=" width: 1235px; height: auto; position: absolute;">
             <div class="row">
                 <div class="col-lg-12" style="margin-top: 80px">
-                    <h1 class="page-header" style="font-size: -webkit-xxx-large;padding-left: 200px;">Booking Management</h1>
+                    <h1 class="page-header admin-head-text" style="font-size: -webkit-xxx-large;padding-left: 200px;">Booking Management</h1>
                 </div>
             </div>
             <div class="row">
