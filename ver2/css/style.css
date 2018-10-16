@@ -1307,6 +1307,7 @@ a.box_cat_home ul li strong{
         margin-bottom:30px
     }
 }
+
 .animated .draw-arrow{
     animation-name:draw;
     -webkit-animation-name:draw;
@@ -3931,3 +3932,4 @@ ul#cat_nav li:last-child a#active,ul#cat_nav li:last-child a.active,ul#cat_nav l
     .removeUnderline {
         text-decoration: none!important;
     }
+
