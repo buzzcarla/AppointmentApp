@@ -128,7 +128,7 @@
 													<label for="yourName" data-error="wrong" data-success="right">Clinic Opening Hours</label>
 													<input id="TimeFrom" type="time" class="form-control validate" placeholder="From" required>
 													<input id="TimeTo" type="time" class="form-control validate" placeholder="To" required>
-													<button  onclick="findAddress(); return false;">Search for address</button>
+													<button class="form-control" onclick="findAddress(); return false;">Search for address</button>
 													<input name="x" id="lat1" type="text" hidden="true">
 													<input name="y" id="lng1" type="text" hidden="true">
 													<input name="clinname" id="addressclin" type="text" hidden="true">
@@ -170,6 +170,14 @@
 							                    <div class="form-group md-form mt-3">
 							                        <label for="companyAddress" data-error="wrong" data-success="right">Confirm Password</label>
 							                        <input id ="password" type="password" class="form-control" placeholder="Confirm Password" required>
+							                    </div>
+
+							                    <div class="form-group md-form mt-3">
+							                        <label for="companyAddress" data-error="wrong" data-success="right">Proof of Legitimacy</label>
+											            <input type="file" multiple>
+												        <div class="file-path-wrapper">
+												            <input class="file-path validate" hidden="true" type="text" placeholder="Upload one or more files">
+												        </div>
 							                    </div>
 
 							                    <div class="checkbox-holder text-left">
