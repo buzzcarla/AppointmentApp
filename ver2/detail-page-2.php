@@ -34,8 +34,8 @@
 		<div id="breadcrumb">
 			<div class="container">
 				<ul>
-					<li><a href="index.php">Home ></a></li>
-					<li><a href="list-2.php">Doctor List ></a></li>
+					<li><a href="#">Home ></a></li>
+					<li><a href="#">Doctor List ></a></li>
 					<li>Book an Appointment</li>
 				</ul>
 			</div>
