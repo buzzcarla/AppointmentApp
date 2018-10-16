@@ -156,7 +156,7 @@
 							<li><a href="listall.php"><strong>23</strong>Apayao<img src="./img/nexticon.png" class="nextIcon"></a></li>
 							<li><a href="listall.php"><strong>23</strong>Aurora<img src="./img/nexticon.png" class="nextIcon"></a></li>
 							<li><a href="listall.php"><strong>23</strong>Basilan<img src="./img/nexticon.png" class="nextIcon"></a></li>
-							<li style="text-align: right;"><strong><a style="font-weight: bold;" href="listall.php">More...</a></strong></li>
+							<li style="text-align: right;"><strong><a style="font-weight: bold;" href="list-2.php">More...</a></strong></li>
 						</ul>
 					</div>
 				</div>
@@ -175,7 +175,7 @@
 							<li><a href="listall.php"><strong>23</strong>Ophthalmologist<img src="./img/nexticon.png" class="nextIcon"></a></li>
 							<li><a href="listall.php"><strong>23</strong>Optometrist<img src="./img/nexticon.png" class="nextIcon"></a></li>
 							<li><a href="listall.php"><strong>23</strong>Pediatrician<img src="./img/nexticon.png" class="nextIcon"></a></li>
-							<li style="text-align: right;"><a style="font-weight: bold;" href="listall.php">More....</a></li>
+							<li style="text-align: right;"><a style="font-weight: bold;" href="list-2.php">More....</a></li>
 						</ul>
 					</div>
 				</div>
