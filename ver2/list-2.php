@@ -78,19 +78,33 @@
 				$res = mysqli_query($mysql,$query);
 				if($res){
 					while($row = mysqli_fetch_array($res)) {
-						echo '<div class="strip_list">
-						<a href="#0" class="wish_bt"></a>
-						<figure>
-							<a href="detail-page-2.php"><img src="img/doctor_listing_1.jpg" alt=""></a>
-						</figure>';
-						echo '<small>'.$row[1].'</small>';
-						echo '<h3>'.$row[4].'</h3>';
-						echo '<p><strong>Clinic Starts at: '.$row[8].' and Ends at:'.$row[9].'</strong></p>';
-						echo '<ul>
-						<li><a href="#0" onclick="onHtmlClick("Doctors", 2)" class="btn_listing">View on Map</a></li>
-						<li><a href="https://www.google.com/maps/dir//Assistance+%E2%80%93+H%C3%B4pitaux+De+Paris,+3+Avenue+Victoria,+75004+Paris,+Francia/@48.8606548,2.3348734,14z/data=!4m15!1m6!3m5!1s0x0:0xa6a9af76b1e2d899!2sAssistance+%E2%80%93+H%C3%B4pitaux+De+Paris!8m2!3d48.8568376!4d2.3504305!4m7!1m0!1m5!1m1!1s0x47e67031f8c20147:0xa6a9af76b1e2d899!2m2!1d2.3504327!2d48.8568361" target="_blank">Directions</a></li>
-						<li><a href="detail-page-2.php?docid='.$row[11].'&userid='.$row[12].'&clinname='.$row[1].'&clinadd='.$row[4].'&docfname='.$row[16].'&docmname='.$row[17].'&doclname='.$row[18].'&start='.$row[8].'&end='.$row[9].'&mobile='.$row[23].'&tele='.$row[24].'">Book now</a></li>
-						</ul> </div>';
+						echo '
+						<div class="container margin_60_35" style="padding-top: 0px;">
+							<div class="row">
+								<div class="col-lg-7">
+									<div class="strip_list">
+									<a href="#0" class="wish_bt"></a>
+										<figure>
+											<a href="detail-page-2.php"><img src="img/doctor_listing_1.jpg" alt=""></a>
+										</figure>';
+										echo '<small>'.$row[1].'</small>';
+										echo '<h3>'.$row[4].'</h3>';
+										echo '<p><strong>Clinic Starts at: '.$row[8].' and Ends at:'.$row[9].'</strong></p>';
+										echo '<ul>
+										<li><a href="#0" onclick="onHtmlClick("Doctors", 2)" class="btn_listing">View on Map</a></li>
+										<li><a href="https://www.google.com/maps/dir//Assistance+%E2%80%93+H%C3%B4pitaux+De+Paris,+3+Avenue+Victoria,+75004+Paris,+Francia/@48.8606548,2.3348734,14z/data=!4m15!1m6!3m5!1s0x0:0xa6a9af76b1e2d899!2sAssistance+%E2%80%93+H%C3%B4pitaux+De+Paris!8m2!3d48.8568376!4d2.3504305!4m7!1m0!1m5!1m1!1s0x47e67031f8c20147:0xa6a9af76b1e2d899!2m2!1d2.3504327!2d48.8568361" target="_blank">Directions</a></li>
+										<li><a href="detail-page-2.php?docid='.$row[11].'&userid='.$row[12].'&clinname='.$row[1].'&clinadd='.$row[4].'&docfname='.$row[16].'&docmname='.$row[17].'&doclname='.$row[18].'&start='.$row[8].'&end='.$row[9].'&mobile='.$row[23].'&tele='.$row[24].'">Book now</a></li>
+										</ul> 
+									</div>
+								</div>
+							
+							<div class="col-lg-5" id="sidebar">
+								<div id="map_listing" class="normal_list">
+								<p>test</p>
+								</div>
+							</div>
+						</div>
+						</div>';
 					}
 				} else {
 					echo '<div class="row" ><h1>FOUND NONE</h1></div>';
@@ -105,7 +119,10 @@
 				$res = mysqli_query($mysql,$query);
 				if($res){
 					while($row = mysqli_fetch_array($res)) {
-						echo '<div class="strip_list">
+						echo '<div class="container margin_60_35" style="padding-top: 0px;">
+						<div class="row">
+							<div class="col-lg-7">
+							<div class="strip_list">
 						<a href="#0" class="wish_bt"></a>
 						<figure>
 							<a href="detail-page-2.php"><img src="img/doctor_listing_1.jpg" alt=""></a>
@@ -117,7 +134,16 @@
 								<li><a href="#0" onclick="onHtmlClick("Doctors", 2)" class="btn_listing">View on Map</a></li>
 								<li><a href="https://www.google.com/maps/dir//Assistance+%E2%80%93+H%C3%B4pitaux+De+Paris,+3+Avenue+Victoria,+75004+Paris,+Francia/@48.8606548,2.3348734,14z/data=!4m15!1m6!3m5!1s0x0:0xa6a9af76b1e2d899!2sAssistance+%E2%80%93+H%C3%B4pitaux+De+Paris!8m2!3d48.8568376!4d2.3504305!4m7!1m0!1m5!1m1!1s0x47e67031f8c20147:0xa6a9af76b1e2d899!2m2!1d2.3504327!2d48.8568361" target="_blank">Directions</a></li>
 								<li><a href="detail-page-2.php?docid='.$row[11].'&userid='.$row[0].'&clinname='.$row[22].'&clinadd='.$row[25].'&docfname='.$row[1].'&docmname='.$row[2].'&doclname='.$row[3].'&start='.$row[18].'&end='.$row[19].'&mobile='.$row[8].'&tele='.$row[9].'">Book now</a></li>
-							</ul> </div>';
+							</ul> </div>
+							</div>
+							
+							<div class="col-lg-5" id="sidebar">
+								<div id="map_listing" class="normal_list">
+								<p>test</p>
+								</div>
+							</div>
+						</div>
+						</div>';
 					}
 				} 
 			} else if($radiosearch == "all"){
@@ -125,7 +151,8 @@
 						LEFT JOIN doctors on user.user_id = doctors.user_id
 						LEFT JOIN location_clinic on doctors.doctor_id = location_clinic.doctor_id
                         LEFT JOIN clinic on location_clinic.clinic_id = clinic.clinic_id
-						WHERE CONCAT(user.user_firstn,' ',user.user_lastn) LIKE '%".$searchname."%' AND user.user_level = '1'";
+						WHERE CONCAT(user.user_firstn,' ',user.user_lastn) LIKE '%".$searchname."%' AND user.user_level = '1'
+						GROUP BY user.user_id";
 		
 				$res = mysqli_query($mysql,$query);
 				if($res){
@@ -153,6 +180,7 @@
 								<p>test</p>
 								</div>
 							</div>
+						</div>
 						</div>';
 					}
 				}
@@ -160,7 +188,8 @@
 					LEFT JOIN location_clinic ON clinic.clinic_id = location_clinic.clinic_id
 					LEFT JOIN doctors ON location_clinic.doctor_id = doctors.doctor_id
 					LEFT JOIN user ON doctors.user_id = user.user_id
-					WHERE clinic_name LIKE'%".$searchname."%' OR clinic_address LIKE '%".$searchname."%'";
+					WHERE clinic_name LIKE'%".$searchname."%' OR clinic_address LIKE '%".$searchname."%'
+					GROUP BY clinic.clinic_id";
 		
 				$res2 = mysqli_query($mysql,$query2);
 				if($res2){
@@ -186,6 +215,7 @@
 								<p>test</p>
 								</div>
 							</div>
+						</div>
 						</div>';
 					}
 				}
