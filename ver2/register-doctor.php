@@ -49,27 +49,27 @@
 							            </div>
 							        </div>
 							        <br>
-							        <form role="form" action="" method="post">
+							        <form role="form" action="create/createDoctor.php" method="post" enctype="multipart/form-data">
 							            <!-- First Step -->
 							            <div class="row setup-content" id="step-9">
 							                <div class="col-md-12">
 												<h3 class="font-weight-bold pl-0 my-4"><strong>Basic Information</strong></h3>
 							                    <div class="form-group md-form">
 							                        <label for="yourName" data-error="wrong" data-success="right">First Name</label>
-							                        <input id="fname" type="text" class="form-control validate" placeholder="First Name" required>
+							                        <input id="fname" name="dfname" type="text" class="form-control validate" placeholder="First Name" required>
 							                    </div>
 							                    <div class="form-group md-form mt-3">
 							                        <label for="yourLastName" data-error="wrong" data-success="right">Middle Name</label>
-							                        <input id="mname" type="text" class="form-control validate" placeholder="Middle Name">
+							                        <input id="mname" name="dmname" type="text" class="form-control validate" placeholder="Middle Name">
 							                    </div>
 							                    <div class="form-group md-form mt-3">
 							                        <label for="yourLastName" data-error="wrong" data-success="right">Last Name</label>
-							                        <input id="lname" type="text" class="form-control validate" placeholder="Last Name" required>
+							                        <input id="lname" name="dlname" type="text" class="form-control validate" placeholder="Last Name" required>
 							                    </div>
 							                    <div class="form-group md-form mt-3">
 							                        <label for="yourAddress" data-error="wrong" data-success="right">Gender</label>
 							                        <div class="form-group">
-													  	<select  class="form-control sel-gender" required>
+													  	<select name="dgender" class="form-control sel-gender" required>
 													  		<option value=""disabled selected>Gender</option>
 															<option value="1">Male</option>
 															<option value="0">Female</option>
@@ -87,7 +87,7 @@
 							                    <div class="form-group md-form">
 							                        <label for="companyName" data-error="wrong" data-success="right">Specialization</label>
 							                        <div class="form-group">
-													<select  class="form-control sel-special" required>
+													<select name="dspecial"  class="form-control sel-special" required>
 														<option value=""disabled selected>Specialization</option>
 														<option value="ALLERGIST">Allergist</option>
 														<option value="ANESTHESIOLOGIST">Anesthesiologist </option>
@@ -122,21 +122,21 @@
 							                   
 												<div class="form-group md-form">
 							                        <label for="yourName" data-error="wrong" data-success="right">Clinic Name</label>
-							                        <input id="clinicname" type="text" class="form-control validate" placeholder="Clinic Name" required>
+							                        <input id="clinicname" name="clinname"  type="text" class="form-control validate" placeholder="Clinic Name" required>
 							                        <label for="yourName" data-error="wrong" data-success="right">Clinic Address</label>
-													<input id="gmap_where" type="text" class="form-control validate" placeholder="Clinic Address" required>
+													<input id="gmap_where" type="text" name="address" class="form-control validate" placeholder="Clinic Address" required>
 													<label for="yourName" data-error="wrong" data-success="right">Clinic Opening Hours</label>
-													<input id="TimeFrom" type="time" class="form-control validate" placeholder="From" required>
-													<input id="TimeTo" type="time" class="form-control validate" placeholder="To" required>
+													<input id="TimeFrom" name="from" type="time" class="form-control validate" placeholder="From" required>
+													<input id="TimeTo" name="to" type="time" class="form-control validate" placeholder="To" required>
 													<button class="form-control" onclick="findAddress(); return false;">Search for address</button>
-													<input name="x" id="lat1" type="text" hidden="true">
-													<input name="y" id="lng1" type="text" hidden="true">
-													<input name="clinname" id="addressclin" type="text" hidden="true">
+													<input name="lat" id="lat1" type="text" hidden="true">
+													<input name="long" id="lng1" type="text" hidden="true">													
 							                    </div>
 							                    <div class="form-group md-form mt-3">
 							                        <label for="companyAddress" data-error="wrong" data-success="right">Medical License</label>
-							                        <input id="license" type="text" class="form-control" placeholder="Medical License" required>
+							                        <input id="license" name="medli" type="text" class="form-control" placeholder="Medical License" required>
 							                    </div>
+												
 							                    <button class="btn btn-indigo btn-rounded prevBtn float-left" type="button">Previous</button>
 							                    <button class="btn btn-indigo btn-rounded nextBtn float-right" type="button">Next</button>
 							                </div>
@@ -149,37 +149,43 @@
 
 							                    <div class="form-group md-form mt-3">
 							                        <label for="companyAddress" data-error="wrong" data-success="right">Mobile Phone</label>
-							                        <input id="cnum" type="text" class="form-control" placeholder="Mobile Phone" required>
+							                        <input id="cnum" name="dcnum" type="text" class="form-control" placeholder="Mobile Phone" required>
 							                    </div>
 							                    <div class="form-group md-form mt-3">
 							                        <label for="companyAddress" data-error="wrong" data-success="right">Office Phone</label>
-							                        <input id="onum" type="text" class="form-control" placeholder="Office Phone">
+							                        <input id="onum" name="donum" type="text" class="form-control" placeholder="Office Phone">
 							                    </div>
 							                    <div class="form-group md-form mt-3">
 							                        <label for="companyAddress" data-error="wrong" data-success="right">E-mail Address</label>
-							                        <input id ="demail" type="email" class="form-control" placeholder="Email Address" required>
+							                        <input id ="demail" name="demail" type="email" class="form-control" placeholder="Email Address" required>
 							                    </div>
 							                    <div class="form-group md-form mt-3">
 							                        <label for="companyAddress" data-error="wrong" data-success="right">Username</label>
-							                        <input id ="username" type="text" class="form-control" placeholder="Username" required>
+							                        <input id ="username" name="duser" type="text" class="form-control" placeholder="Username" required>
 							                    </div>
 							                    <div class="form-group md-form mt-3">
 							                        <label for="companyAddress" data-error="wrong" data-success="right">Password</label>
-							                        <input id ="password" type="password" class="form-control" placeholder="Password" required>
+							                        <input id ="password" name="dpass" type="password" class="form-control" placeholder="Password" required>
 							                    </div>
 							                    <div class="form-group md-form mt-3">
 							                        <label for="companyAddress" data-error="wrong" data-success="right">Confirm Password</label>
-							                        <input id ="password" type="password" class="form-control" placeholder="Confirm Password" required>
+							                        <input id ="conpassword" name="dconf" type="password" class="form-control" placeholder="Confirm Password" required>
 							                    </div>
 
 							                    <div class="form-group md-form mt-3">
 							                        <label for="companyAddress" data-error="wrong" data-success="right">Proof of Legitimacy</label>
-											            <input type="file" multiple>
+											            <input type="file" name="image">
 												        <div class="file-path-wrapper">
-												            <input class="file-path validate" hidden="true" type="text" placeholder="Upload one or more files">
+												            <input class="file-path validate" hidden="true" type="text" placeholder="Upload one only">
 												        </div>
 							                    </div>
-
+												<div class="form-group md-form mt-3">
+							                        <label for="companyAddress" data-error="wrong" data-success="right">Profile Photo</label>
+											            <input type="file" name="profpic">
+												        <div class="file-path-wrapper">
+												            <input class="file-path validate" hidden="true" type="text" placeholder="Upload one only">
+												        </div>
+							                    </div>
 							                    <div class="checkbox-holder text-left">
 													<div class="checkbox_2">
 														<input type="checkbox" value="accept_2" id="check_2" name="check_2" checked>
@@ -188,7 +194,7 @@
 												</div>
 												<br>
 							                    <button class="btn btn-indigo btn-rounded prevBtn float-left" type="button">Previous</button>
-							                    <button class="btn btn-default btn-rounded float-right sub">Submit</button>
+							                    <button type="submit" class="btn btn-default btn-rounded float-right sub">Submit</button>
 							                </div>
 							            </div>
 							        </form>
@@ -280,60 +286,60 @@
 		$( ".sel-city" ).prop( "disabled", false );
 	});
 
-	$( ".sub" ).on("click",function(){
-		var len = $('.sel-clinic').val();
-		var jsonObject = [];
-		for(var i = 0; i < len ; i++){
-			var item = {};
-			item['x']= $('.x'+i).val();
-			item['y']= $('.y'+i).val();
-			item['clinname']= $('.clin_name'+i).val();
-			item['clinaddress']= $('.clin_adderss'+i).val(); 
-			item['clinfrom']= $('.timestart'+i).val();
-			item['clinto']= $('.timeend'+i).val();
-			jsonObject.push(item);
-		}
-		$.ajax({
-			url: "create/createDoctor.php",
-			type: 'POST',
-			dataType: 'text json', 
-			data: {
-				dfname:$('#fname').val(),
-				dmname:$('#mname').val(),
-				dlname:$('#lname').val(),
-				dcnum:$('#cnum').val(),
-				donum:$('#onum').val(),
-				duser:$('#username').val(),
-				dpass:$('#password').val(),
-				demail:$('#demail').val(),
-				dspecial:$('.sel-special').val(),
-				dgender:$('.sel-gender').val(),
-				ccode:$('.sel-city').text(),
-				pcode: $('.sel-prov').text(),
-				clinics: JSON.stringify(jsonObject),
-				medli: $('#license').val(),
-				lat : $('#lat1').val(),
-				long : $('#lng1').val(),
-				clinname: $('#clinicname').val(),
-				address: $('#addressclin').val(),
-				from: $('#TimeFrom').val(),
-				to: $('#TimeTo').val()
-			},
-			success: function(res) {
-				if(res[0]== 1){
-					alert("SUCCESS");	
-				} else if(res[0] == 2){
-					alert("ERROR");
-				}else if(res[0] == 0){
-					alert("USER EXISTED");
-				}
-				else if(res[0] == 3){
-					alert("DATA ERROR");
-				}
-				alert(res);
-			}
-    	});
-	});
+	// $( ".sub" ).on("click",function(){
+	// 	var len = $('.sel-clinic').val();
+	// 	var jsonObject = [];
+	// 	for(var i = 0; i < len ; i++){
+	// 		var item = {};
+	// 		item['x']= $('.x'+i).val();
+	// 		item['y']= $('.y'+i).val();
+	// 		item['clinname']= $('.clin_name'+i).val();
+	// 		item['clinaddress']= $('.clin_adderss'+i).val(); 
+	// 		item['clinfrom']= $('.timestart'+i).val();
+	// 		item['clinto']= $('.timeend'+i).val();
+	// 		jsonObject.push(item);
+	// 	}
+	// 	$.ajax({
+	// 		url: "create/createDoctor.php",
+	// 		type: 'POST',
+	// 		dataType: 'text json', 
+	// 		data: {
+	// 			dfname:$('#fname').val(),
+	// 			dmname:$('#mname').val(),
+	// 			dlname:$('#lname').val(),
+	// 			dcnum:$('#cnum').val(),
+	// 			donum:$('#onum').val(),
+	// 			duser:$('#username').val(),
+	// 			dpass:$('#password').val(),
+	// 			demail:$('#demail').val(),
+	// 			dspecial:$('.sel-special').val(),
+	// 			dgender:$('.sel-gender').val(),
+	// 			ccode:$('.sel-city').text(),
+	// 			pcode: $('.sel-prov').text(),
+	// 			clinics: JSON.stringify(jsonObject),
+	// 			medli: $('#license').val(),
+	// 			lat : $('#lat1').val(),
+	// 			long : $('#lng1').val(),
+	// 			clinname: $('#clinicname').val(),
+	// 			address: $('#addressclin').val(),
+	// 			from: $('#TimeFrom').val(),
+	// 			to: $('#TimeTo').val()
+	// 		},
+	// 		success: function(res) {
+	// 			if(res[0]== 1){
+	// 				alert("SUCCESS");	
+	// 			} else if(res[0] == 2){
+	// 				alert("ERROR");
+	// 			}else if(res[0] == 0){
+	// 				alert("USER EXISTED");
+	// 			}
+	// 			else if(res[0] == 3){
+	// 				alert("DATA ERROR");
+	// 			}
+	// 			alert(res);
+	// 		}
+    // 	});
+	// });
 
 	$(document).ready(function () {	// nav buttons for stepper initialization
     var navListItems = $('div.setup-panel div a'),

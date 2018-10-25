@@ -1,13 +1,17 @@
 <!-- LOGIN FUNCTION FOR USER AND DOCTOR -->
 <!DOCTYPE html>
 <?php 
+session_set_cookie_params(0, '/', '.AppointmentApp'); 
+session_start();
 	require_once('connect.php');
-	if(isset($_GET['logstat'])){
-		session_start();
+	if(isset($_GET['logstat'])){		
 		session_unset();
 		session_destroy();
+		$message = 'Log out';
+	} else {
+		$message = 'user_exist';
 	}
-	$message = 'user_exist';
+	
 	if(isset($_POST['user'])&&$_POST['pass']){
 	 	$query = "SELECT * FROM user where username = '".$_POST['user']."' AND user_password='".$_POST['pass']."' AND user_status = '1' LIMIT 1";
 		$res = mysqli_query($mysql,$query);
@@ -15,7 +19,7 @@
 			$row = mysqli_fetch_row($res); 
 			if($row != null){
 				if($row[12]==1){
-					session_start();
+					
 						$query1 = "SELECT * FROM user 
 						LEFT JOIN doctors ON user.user_id = doctors.user_id
 						LEFT JOIN location_clinic ON doctors.doctor_id = location_clinic.doctor_id 
@@ -47,7 +51,14 @@
 					$_SESSION['email'] = $row[7];
 					$_SESSION['stat'] = $row[5];
 					$_SESSION['pass'] = $row[10];
-					header('Location: index.php?stat='.$row[5]);
+					if($row[5]== 0)
+					{
+						header('Location: index.php');
+					} else if($row[5]==1)
+					{
+						header('Location: ../doctor/pages/index.php');
+					}
+					
 						
 			} else {
 				$message = 'user_not';

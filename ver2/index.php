@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php 
+
+session_start();
+?>
 <html lang="en">
 	<!-- SESSION START IF USER IS LOGGED IN -->
 	<?php
@@ -23,7 +27,8 @@
 	<!-- Header file with the navigation bar is added to the page -->
 	<div id="page">		 
 		<?php
-			require('header.php');
+			require('header.php');			
+		
 		?>
 
 	<main>
@@ -106,29 +111,59 @@
 								";
 						$res = mysqli_query($mysql,$query);
 						$ctr= 0;
-						while($row = mysqli_fetch_row($res)){
-							if($row[4] == 1){
-								echo '
-								
-									<div class="item">
-										<a href="detail-page-2.php?docid='.$row[13].'&userid=-1&clinname='.$row[22].'&clinadd='.$row[25].'&docfname='.$row[1].'&docmname='.$row[2].'&doclname='.$row[3].'&start='.$row[18].'&end='.$row[19].'&mobile='.$row[8].'&tele='.$row[9].'">
-											<div class="views"><i class="icon-eye-7"></i>140</div>
-											<div class="title">
+						if(isset($_SESSION['userid']))
+						{
+							while($row = mysqli_fetch_row($res)){
+								if($row[4] == 1){
+									echo '
+									
+										<div class="item">
+											<a href="detail-page-2.php?docid='.$row[12].'&userid='.$_SESSION['userid'].'&clinname='.$row[25].'&clinadd='.$row[28].'&docfname='.$row[1].'&docmname='.$row[2].'&doclname='.$row[3].'&start='.$row[18].'&end='.$row[19].'&mobile='.$row[8].'&tele='.$row[9].'">
+												<div class="views"><i class="icon-eye-7"></i>140</div>
+												<div class="title">
+													<h4>Dr.'.$row[1].' '.$row[3].'</em></h4>
+												</div><img src="img/doctor_1_carousel.jpg" alt="">
+											</a>
+										</div>';
+								} else {
+									echo '
+									
+										<div class="item">
+											<a href="detail-page-2.php?docid='.$row[12].'&userid='.$_SESSION['userid'].'&clinname='.$row[25].'&clinadd='.$row[28].'&docfname='.$row[1].'&docmname='.$row[2].'&doclname='.$row[3].'&start='.$row[18].'&end='.$row[19].'&mobile='.$row[8].'&tele='.$row[9].'">
+												<div class="views"><i class="icon-eye-7"></i>140</div>
+												<div class="title">
 												<h4>Dr.'.$row[1].' '.$row[3].'</em></h4>
-											</div><img src="img/doctor_1_carousel.jpg" alt="">
-										</a>
-									</div>';
-							} else {
-								echo '
-								
-									<div class="item">
-										<a href="detail-page-2.php?docid='.$row[13].'&userid=-1&clinname='.$row[22].'&clinadd='.$row[25].'&docfname='.$row[1].'&docmname='.$row[2].'&doclname='.$row[3].'&start='.$row[18].'&end='.$row[19].'&mobile='.$row[8].'&tele='.$row[9].'">
-											<div class="views"><i class="icon-eye-7"></i>140</div>
-											<div class="title">
-											<h4>Dr.'.$row[1].' '.$row[3].'</em></h4>
-											</div><img src="img/doctor_2_carousel.jpg" alt="">
-										</a>
-									</div>';
+												</div><img src="img/doctor_2_carousel.jpg" alt="">
+											</a>
+										</div>';
+								}
+							}
+						} else
+						{
+							while($row = mysqli_fetch_row($res)){
+								if($row[4] == 1){
+									echo '
+									
+										<div class="item">
+											<a href="detail-page-2.php?docid='.$row[12].'&userid=-1&clinname='.$row[25].'&clinadd='.$row[28].'&docfname='.$row[1].'&docmname='.$row[2].'&doclname='.$row[3].'&start='.$row[18].'&end='.$row[19].'&mobile='.$row[8].'&tele='.$row[9].'">
+												<div class="views"><i class="icon-eye-7"></i>140</div>
+												<div class="title">
+													<h4>Dr.'.$row[1].' '.$row[3].'</em></h4>
+												</div><img src="img/doctor_1_carousel.jpg" alt="">
+											</a>
+										</div>';
+								} else {
+									echo '
+									
+										<div class="item">
+											<a href="detail-page-2.php?docid='.$row[12].'&userid=-1&clinname='.$row[25].'&clinadd='.$row[28].'&docfname='.$row[1].'&docmname='.$row[2].'&doclname='.$row[3].'&start='.$row[18].'&end='.$row[19].'&mobile='.$row[8].'&tele='.$row[9].'">
+												<div class="views"><i class="icon-eye-7"></i>140</div>
+												<div class="title">
+												<h4>Dr.'.$row[1].' '.$row[3].'</em></h4>
+												</div><img src="img/doctor_2_carousel.jpg" alt="">
+											</a>
+										</div>';
+								}
 							}
 						}
 					?>
@@ -199,10 +234,16 @@
 	<script src="js/jquery-2.2.4.min.js"></script>
 	<script src="js/common_scripts.min.js"></script>
 	<script src="js/functions.js"></script>
+	<?php if ($_GET['register_suc	'] == 1) : ?>
+   <script type='text/javascript'>
+       //Code runs ONLY if $test_details['done_test'] is empty
+       $(document).ready(function(){
+         alert("Succesful Register please wait for the activation of account");
+       });
+   </script>
+<?php endif; ?>
 
 </body>
 <!-- HANDLE IF THE SEARCH BUTTON IS PRESSED -->
-<script>
-	
-</script>
+
 </html>

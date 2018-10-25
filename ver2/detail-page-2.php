@@ -16,7 +16,7 @@
     <?php 
         echo '<input type="text" id="doc_id" value="'.$_GET['docid'].'" hidden>';
         echo '<input type="text" id="user_id" value="'.$_GET['userid'].'" hidden>';
-        echo '<input type="text" id="clin_name" value="'.$_GET['cliname'].'" hidden>';
+        echo '<input type="text" id="clin_name" value="'.$_GET['clinname'].'" hidden>';
         echo '<input type="text" id="clin_add" value="'.$_GET['clinadd'].'" hidden>';
         echo '<input type="text" id="doc_fname" value="'.$_GET['docfname'].'" hidden>';
         echo '<input type="text" id="doc_mname" value="'.$_GET['docmname'].'" hidden>';
@@ -111,6 +111,7 @@
 													<label for="radio6">12.00pm</label>
 												</li>
 											</ul>
+											<input type="text" id="booktime" hidden></input>
 										</div>
 										<div class="col-md-3 col-6 text-center">
 											<ul class="time_select">
@@ -184,8 +185,9 @@
 										</li>
                                         <input type="text" hidden id="visit_type">
 									</ul>
+									
 								</form>		
-								<p class="text-center"><button style=""  class="btn_1 medium book">Book Now</button></p>
+								<p class="text-center"><button   class="btn_1 medium book">Book Now</button></p>
 							</div>
 						</div>
 					</div>
@@ -253,9 +255,9 @@ $(document).ready( function() {
 
    $('#datePicker').val(today);
    $('#datePicker').attr('min', today); 
-});
 
-$( ".book" ).click(function() {
+   $( ".book" ).click(function() {
+	
     if($("#datePicker").val() && $("#booktime").val() && $("#visit_type").val()){
        var datepart = $("#datePicker").val().split('-');
        var string= datepart[2]+ "-"+datepart[1]+"-"+datepart[0]+" " + $("#booktime").val();
@@ -276,9 +278,14 @@ $( ".book" ).click(function() {
         var clinstart = $("#clin_start").val();
         var clinend = $("#clin_end").val();
         date = date/1000;
+
+		
         document.location.href = 'booking-page.php?docid='+docid+'&userid='+userid+'&clinname='+clinname+'&clinadd='+clinadd+'&docfname='+fname+'&docmname='+mname+'&doclname='+lname+'&start='+clinstart+'&end='+clinend+'&timestamp='+date+'&type='+type;
     } else {
         alert("some fields are empty");
     }
 
 });
+});
+</script>
+

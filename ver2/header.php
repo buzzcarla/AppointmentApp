@@ -25,6 +25,7 @@
 							<span><a href="index.php">Home</a></span>
 						</li>
 						<?php 
+						
 								if(!isset($_SESSION['userid'])){
 									echo '<li>
 											<span><a href="#0">Register</a></span>
@@ -37,13 +38,13 @@
 											<span><a href="login.php">Login</a></span>
 										</li>';
 								} else {
-									echo '<li>
-									<span><a href="#0">Welcome, <span style="color: red">'.$_SESSION['fname'].' '.$_SESSION['mname'].'</span></a></span>
-									<ul>
-										<li><a href="profile.php">View Profile</a></li>
-										<li><a href="login.php?logstat=1">Log Out</a></li>
-									</ul>
-								</li>';
+										echo '<li>
+										<span><a href="#0">Welcome, <span style="color: red">'.$_SESSION['fname'].' '.$_SESSION['mname'].'</span></a></span>
+										<ul>
+											<li><a href="profile.php">View Profile</a></li>
+											<li><a href="login.php?logstat=1">Log Out</a></li>
+										</ul>
+									</li>';
 								}
 							?>
 					</ul>

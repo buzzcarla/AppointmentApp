@@ -60,7 +60,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="row">
+								<!-- <div class="row">
 									<div class="col-md-6">
 										<div class="form-group">
 											<select class="form-control sel-prov" required>
@@ -75,7 +75,7 @@
 											</select>
 										</div>
 									</div>
-								</div>
+								</div> -->
 								<div class="row">
 									<div class="col-lg-12">
 										<div class="form-group">
@@ -83,6 +83,7 @@
 										</div>
 									</div>
 								</div>
+								
 								<div class="row">
 									<div class="col-lg-12">
 										<div class="form-group">
@@ -231,14 +232,13 @@
 				duser:$('#username').val(),
 				dpass:$('#password').val(),
 				demail:$('#demail').val(),
-				dgender:$('.sel-gender').val(),
-				ccode:$('.sel-city').text(),
-				pcode: $('.sel-prov').text(),
+				dgender:$('.sel-gender').val()
 				
 			},
 			success: function(res) {		// If the data is successfully posted (user data is sent to db)
 				if(res[0]== 1){
 					alert("Successfully Created! Please Log in.");
+					document.location.href = 'index.php';
 				} else if(res[0] == 2){
 					alert("Error in creating user. Please retry.");
 				}else if(res[0] == 0){
@@ -247,7 +247,7 @@
 				else if(res[0] == 3){
 					alert("There is invalid data in the form. Please review.");
 				}
-				alert(res);
+				
 			}
     	});
 	});

@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <!-- CONNECT TO DATABASE -->
 <?php
+session_set_cookie_params(0, '/', '.AppointmentApp'); 
+    session_start();
     require('../../ver2/connect.php');
  
 ?>

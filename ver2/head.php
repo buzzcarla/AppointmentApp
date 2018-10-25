@@ -1,6 +1,6 @@
 <!-- HANDLE USER SESSIONS -->
 <?php 
-	session_start();
+	
 	if(isset($_SESSION['userid'])){
 		define('TIMEZONE', 'Asia/Manila');
 		date_default_timezone_set(TIMEZONE);

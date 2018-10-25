@@ -1,4 +1,6 @@
-<html lang="en" style="transform: none;"><head>
+<?php session_start(); ?>
+<html lang="en" style="transform: none;">
+<head>
 <?php
 
 require('head.php');
@@ -10,6 +12,7 @@ $date = date('Y/m/d',$timestamp);
 $time = date('h:i A',$timestamp);
 $type = $_GET['type'];
 $docid = $_GET['docid'];
+$uid = $_GET['userid'];
 if(isset($_GET['start']) && isset($_GET['end'])){
 	$startstamp = strtotime($_GET['start']);
 	$endstamp = strtotime($_GET['end']);
@@ -66,7 +69,7 @@ if(isset($_GET['start']) && isset($_GET['end'])){
 						<div class="col-md-6 col-sm-6">
 							<div class="form-group">
 								<label>First name</label>
-								<input type="text" id="userid" value="'.$_SESSION['userid'].'" hidden />
+								<input type="text" id="userid" value="'.$uid.'" hidden />
 								<input type="text" id="docid" value="'.$docid.'" hidden/>
 								
 								<input type="text" value="'.$_SESSION['fname'].'"  class="form-control" id="firstname_booking" name="firstname_booking" placeholder="John" >
