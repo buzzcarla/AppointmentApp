@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 01, 2018 at 06:43 PM
--- Server version: 10.1.26-MariaDB
--- PHP Version: 7.1.8
+-- Generation Time: Nov 01, 2018 at 07:32 PM
+-- Server version: 10.1.13-MariaDB
+-- PHP Version: 7.0.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -44,21 +42,7 @@ CREATE TABLE `booking_list` (
 --
 
 INSERT INTO `booking_list` (`booking_id`, `user_id`, `doctor_id`, `book_date`, `book_stat`, `booking_type`, `booking_fname`, `booking_lname`) VALUES
-(65, 92, 2, '2018-09-23 06:30:36', 2, '2', '2', '2'),
-(67, 92, 2, '2018-09-23 06:32:17', 3, '3', '3', '3'),
-(68, 92, 2, '2018-09-23 06:32:00', 3, '3', '3', '3'),
-(69, 92, 2, '2018-09-22 18:45:00', 1, 'asdasd', '2', '2'),
-(70, 92, 2, '2018-09-22 18:45:00', 1, 'asdasd', '2', '2'),
-(71, 92, 2, '2018-09-23 06:38:14', 1, '1', '1', '1'),
-(72, 92, 2, '2018-09-23 07:07:00', 1, '1', '1', '1'),
-(73, 92, 2, '2018-09-23 06:57:49', 1, '223', '21', '21'),
-(74, 92, 2, '0000-00-00 00:00:00', 1, '223', '21', '21'),
-(75, 92, 2, '2018-09-23 07:00:47', 2, '3', '4', '5'),
-(76, 92, 2, '2018-09-23 01:30:00', 2, '3', '4', '5'),
-(77, 92, 2, '2018-09-23 10:50:00', 1, 'asdasd', '01', '111'),
-(78, 92, 2, '2018-10-08 01:30:00', 2, 'asdasd', '01', '111'),
-(83, 100, 1, '2018-10-26 01:30:00', 1, 'Icontinence visit', 'joshua', 'lee'),
-(84, 100, 8, '2018-11-02 02:00:00', 2, 'Consultation', 'joshua', 'lee');
+(85, 100, 25, '2018-11-03 04:00:00', 1, 'Consultation', 'Jane', 'Doe');
 
 -- --------------------------------------------------------
 
@@ -79,7 +63,9 @@ CREATE TABLE `clinic` (
 --
 
 INSERT INTO `clinic` (`clinic_id`, `clinic_name`, `coordinates_x`, `coordinates_y`, `clinic_address`) VALUES
-(27, 'Mactan Doctors', 10.2898386, 123.96680830000003, 'Maximo V. Patalinhug Jr. Avenue, Lapu-Lapu City, Cebu, Philippines');
+(27, 'Mactan Doctors', 10.2898386, 123.96680830000003, 'Maximo V. Patalinhug Jr. Avenue, Lapu-Lapu City, Cebu, Philippines'),
+(30, 'Mactan Doctors', 10.2898386, 123.96680830000003, 'Maximo V. Patalinhug Jr. Avenue, Lapu-Lapu City, Cebu, Philippines'),
+(31, 'Mactan Doctors', 10.2898386, 123.96680830000003, 'Maximo V. Patalinhug Jr. Avenue, Lapu-Lapu City, Cebu, Philippines');
 
 -- --------------------------------------------------------
 
@@ -101,7 +87,9 @@ CREATE TABLE `doctors` (
 --
 
 INSERT INTO `doctors` (`doctor_id`, `user_id`, `doc_specialization`, `medical_license`, `medical_evidence`, `doc_profpic`) VALUES
-(25, 123, 'General Practitioner', 0, 'med-license.jpg', 'doctor.jpg');
+(25, 123, 'General Practitioner', 0, 'med-license.jpg', 'doctor.jpg'),
+(28, 126, 'NEUROSURGEON', 0, '5bdb4502b3ecb.jpg', '5bdb4502b3ecb.jpg'),
+(29, 127, 'GYNECOLOGIST', 0, '5bdb4553a1c47.jpg', '5bdb4553a1c47.jpg');
 
 -- --------------------------------------------------------
 
@@ -123,7 +111,9 @@ CREATE TABLE `location_clinic` (
 --
 
 INSERT INTO `location_clinic` (`location_id`, `clinic_id`, `doctor_id`, `schedule_start`, `schedule_end`, `schedule_type`) VALUES
-(27, 27, 25, '09:00', '18:00', 1);
+(27, 27, 25, '09:00', '18:00', 1),
+(30, 30, 28, '06:00', '17:00', 1),
+(31, 31, 29, '09:00', '18:00', 1);
 
 -- --------------------------------------------------------
 
@@ -672,7 +662,7 @@ INSERT INTO `refcity` (`id`, `psgcCode`, `citymunDesc`, `regDesc`, `provCode`, `
 (525, '175303000', 'ARACELI', '17', '1753', '175303'),
 (526, '175304000', 'BALABAC', '17', '1753', '175304'),
 (527, '175305000', 'BATARAZA', '17', '1753', '175305'),
-(528, '175306000', 'BROOKE\'S POINT', '17', '1753', '175306'),
+(528, '175306000', 'BROOKE''S POINT', '17', '1753', '175306'),
 (529, '175307000', 'BUSUANGA', '17', '1753', '175307'),
 (530, '175308000', 'CAGAYANCILLO', '17', '1753', '175308'),
 (531, '175309000', 'CORON', '17', '1753', '175309'),
@@ -1454,7 +1444,7 @@ INSERT INTO `refcity` (`id`, `psgcCode`, `citymunDesc`, `regDesc`, `provCode`, `
 (1306, '124707000', 'MAKILALA', '12', '1247', '124707'),
 (1307, '124708000', 'MATALAM', '12', '1247', '124708'),
 (1308, '124709000', 'MIDSAYAP', '12', '1247', '124709'),
-(1309, '124710000', 'M\'LANG', '12', '1247', '124710'),
+(1309, '124710000', 'M''LANG', '12', '1247', '124710'),
 (1310, '124711000', 'PIGKAWAYAN', '12', '1247', '124711'),
 (1311, '124712000', 'PIKIT', '12', '1247', '124712'),
 (1312, '124713000', 'PRESIDENT ROXAS', '12', '1247', '124713'),
@@ -1471,7 +1461,7 @@ INSERT INTO `refcity` (`id`, `psgcCode`, `citymunDesc`, `regDesc`, `provCode`, `
 (1323, '126313000', 'SURALLAH', '12', '1263', '126313'),
 (1324, '126314000', 'TAMPAKAN', '12', '1263', '126314'),
 (1325, '126315000', 'TANTANGAN', '12', '1263', '126315'),
-(1326, '126316000', 'T\'BOLI', '12', '1263', '126316'),
+(1326, '126316000', 'T''BOLI', '12', '1263', '126316'),
 (1327, '126317000', 'TUPI', '12', '1263', '126317'),
 (1328, '126318000', 'SANTO NIÑO', '12', '1263', '126318'),
 (1329, '126319000', 'LAKE SEBU', '12', '1263', '126319'),
@@ -1930,7 +1920,9 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`user_id`, `user_firstn`, `user_middlen`, `user_lastn`, `user_gender`, `user_level`, `username`, `user_email`, `user_mobile`, `user_tele`, `user_password`, `user_status`) VALUES
 (100, 'Jane', 'Smith', 'Doe', 1, 0, 'testuser', 'test@mail.com', 639159831382, '(032)584-3575', 'password', 1),
 (120, 'admin', 'admin', 'admin', 1, 2, 'admin', 'admin@mail.com', 912391222, '3213123', 'admin', 1),
-(123, 'Albert', 'Jay', 'Klein', 0, 1, 'doctor', 'point@mail.com', 9586546454, '897545464', 'password', 0);
+(123, 'Albert', 'Jay', 'Klein', 0, 1, 'doctor', 'point@mail.com', 9586546454, '897545464', 'password', 0),
+(126, 'Anna', 'Williams', 'Newman', 0, 1, 'testdoctor2', 'anna.newman@mail.com', 9868568754, '6448562', '123', 0),
+(127, 'Robin', 'Peter', 'House', 1, 1, 'testdoctor3', 'robin.house@mail.com', 9655778544, '66532356', 'password', 0);
 
 --
 -- Indexes for dumped tables
@@ -1986,22 +1978,22 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `booking_list`
 --
 ALTER TABLE `booking_list`
-  MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
+  MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
 --
 -- AUTO_INCREMENT for table `clinic`
 --
 ALTER TABLE `clinic`
-  MODIFY `clinic_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `clinic_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 --
 -- AUTO_INCREMENT for table `doctors`
 --
 ALTER TABLE `doctors`
-  MODIFY `doctor_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `doctor_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 --
 -- AUTO_INCREMENT for table `location_clinic`
 --
 ALTER TABLE `location_clinic`
-  MODIFY `location_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `location_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 --
 -- AUTO_INCREMENT for table `refcity`
 --
@@ -2016,8 +2008,7 @@ ALTER TABLE `refprovince`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=124;COMMIT;
-
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=128;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -46,7 +46,7 @@
             $actualExtenstion = strtolower(end($fileExtenstion));
             
             $profActualExtenstion = strtolower(end($profExtenstion));
-            $allowedExt = array('jpg','png','jpeg','pdf'); 
+            $allowedExt = array('jpg', 'png','jpeg','pdf'); 
             
             if(in_array($actualExtenstion,$allowedExt)){
                 if($fileError == 0){
@@ -57,8 +57,8 @@
                         $newFileName = $newFileName.".".$actualExtenstion;
                         $fileDestination = "../uploads/".$newFileName;
                         move_uploaded_file($fileTmpName, $fileDestination);   //done uploading
-                        $fileDestination = "../uploads/".$newProfPicName;
-                        move_uploaded_file($_FILES['profpic']['tmp_name'], $fileDestination);   //done uploading
+                        $fileDestinationprof = "../uploads/".$newProfPicName;
+                        move_uploaded_file($_FILES['profpic']['tmp_name'], $fileDestinationprof);   //done uploading
                         $query = "INSERT INTO `user`(`user_id`, `user_firstn`, `user_middlen`, `user_lastn`, `user_gender`, 
                         `user_level`, `username`, `user_email`,`user_mobile`, `user_tele`, `user_password`,`user_status`) 
                                 VALUES (NULL,'".$first."','".$middle."','".$last."','".$gender."','1','".$username."','".$email.
