@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.7.0
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 01, 2018 at 06:16 PM
--- Server version: 10.1.13-MariaDB
--- PHP Version: 7.0.6
+-- Generation Time: Nov 01, 2018 at 06:31 PM
+-- Server version: 10.1.26-MariaDB
+-- PHP Version: 7.1.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -99,7 +101,7 @@ CREATE TABLE `doctors` (
 --
 
 INSERT INTO `doctors` (`doctor_id`, `user_id`, `doc_specialization`, `medical_license`, `medical_evidence`, `doc_profpic`) VALUES
-(25, 123, 'OCCUPATIONAL MEDICINE PHYSICIAN', 0, '5bdb3383e570f.jpg', '5bdb3383e570f.jpg');
+(25, 123, 'General Practitioner', 0, 'med-license.jpg', 'doctor.jpg');
 
 -- --------------------------------------------------------
 
@@ -670,7 +672,7 @@ INSERT INTO `refcity` (`id`, `psgcCode`, `citymunDesc`, `regDesc`, `provCode`, `
 (525, '175303000', 'ARACELI', '17', '1753', '175303'),
 (526, '175304000', 'BALABAC', '17', '1753', '175304'),
 (527, '175305000', 'BATARAZA', '17', '1753', '175305'),
-(528, '175306000', 'BROOKE''S POINT', '17', '1753', '175306'),
+(528, '175306000', 'BROOKE\'S POINT', '17', '1753', '175306'),
 (529, '175307000', 'BUSUANGA', '17', '1753', '175307'),
 (530, '175308000', 'CAGAYANCILLO', '17', '1753', '175308'),
 (531, '175309000', 'CORON', '17', '1753', '175309'),
@@ -1452,7 +1454,7 @@ INSERT INTO `refcity` (`id`, `psgcCode`, `citymunDesc`, `regDesc`, `provCode`, `
 (1306, '124707000', 'MAKILALA', '12', '1247', '124707'),
 (1307, '124708000', 'MATALAM', '12', '1247', '124708'),
 (1308, '124709000', 'MIDSAYAP', '12', '1247', '124709'),
-(1309, '124710000', 'M''LANG', '12', '1247', '124710'),
+(1309, '124710000', 'M\'LANG', '12', '1247', '124710'),
 (1310, '124711000', 'PIGKAWAYAN', '12', '1247', '124711'),
 (1311, '124712000', 'PIKIT', '12', '1247', '124712'),
 (1312, '124713000', 'PRESIDENT ROXAS', '12', '1247', '124713'),
@@ -1469,7 +1471,7 @@ INSERT INTO `refcity` (`id`, `psgcCode`, `citymunDesc`, `regDesc`, `provCode`, `
 (1323, '126313000', 'SURALLAH', '12', '1263', '126313'),
 (1324, '126314000', 'TAMPAKAN', '12', '1263', '126314'),
 (1325, '126315000', 'TANTANGAN', '12', '1263', '126315'),
-(1326, '126316000', 'T''BOLI', '12', '1263', '126316'),
+(1326, '126316000', 'T\'BOLI', '12', '1263', '126316'),
 (1327, '126317000', 'TUPI', '12', '1263', '126317'),
 (1328, '126318000', 'SANTO NIÑO', '12', '1263', '126318'),
 (1329, '126319000', 'LAKE SEBU', '12', '1263', '126319'),
@@ -1932,7 +1934,7 @@ INSERT INTO `user` (`user_id`, `user_firstn`, `user_middlen`, `user_lastn`, `use
 (117, 'Neil', 'Robin', 'Dy', 1, 0, 'docneil', '232@mail.com', 12312313, '00', 'password', 1),
 (119, 'Sean', 'Patrick', 'Llenes', 1, 0, 'docsean', 'qwww@mail.com', 639159831386, '00', 'password', 1),
 (120, 'admin', 'admin', 'admin', 1, 2, 'admin', 'admin@mail.com', 912391222, '3213123', 'admin', 1),
-(123, 'point', 'harry', 'poterr', 0, 1, 'point', 'point@mail.com', 9586546454, '897545464', '123', 0);
+(123, 'Albert', 'Jay', 'Klein', 0, 1, 'point', 'point@mail.com', 9586546454, '897545464', 'password', 0);
 
 --
 -- Indexes for dumped tables
@@ -2018,7 +2020,8 @@ ALTER TABLE `refprovince`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=124;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=124;COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

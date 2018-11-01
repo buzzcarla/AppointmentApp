@@ -80,7 +80,7 @@ session_start();
 										<img src="https://previews.123rf.com/images/apoev/apoev1804/apoev180400052/98746864-default-placeholder-doctor-half-length-portrait-photo-avatar-.jpg" style="max-width: 60px; margin-left: -70px; float: left;">';
 										echo '<h3>Dr. '.$row[18].' '.$row[20].'</h3>'; //name
 										echo '<p><strong>'.$row[13].'</strong></p>'; //spec
-										echo '<p>Dr. '.$row[4].'</p>'; //add
+										echo '<p>'.$row[4].'</p>'; //add
 
 										echo '<p><strong>Clinic Hours:</strong> '.$row[8].' - '.$row[9].'</p>';
 										echo '<ul>
@@ -117,7 +117,7 @@ session_start();
 						echo '<img src="https://previews.123rf.com/images/apoev/apoev1804/apoev180400052/98746864-default-placeholder-doctor-half-length-portrait-photo-avatar-.jpg" style="max-width: 60px; margin-left: -70px; float: left;">';
 						echo '<h3>Dr. '.$row[3].' '.$row[5].' </h3>'; //name
 						echo '<p><strong>Dr. '.$row[14].'</strong></p>'; //spec
-						echo '<p>Dr. '.$row[28].'</p>'; //add
+						echo '<p>'.$row[28].'</p>'; //add
 						echo '<p><strong>Clinic Hours:</strong> '.$row[18].' - '.$row[19].'</p>';
 						echo '<ul>
 								<li><a href="#0" onclick="onHtmlClick("Doctors", 2)" class="btn_listing">View on Map</a></li>
