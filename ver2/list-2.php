@@ -66,7 +66,7 @@ session_start();
 						LEFT JOIN doctors ON location_clinic.doctor_id = doctors.doctor_id
 						LEFT JOIN user ON doctors.user_id = user.user_id
 						WHERE clinic_name LIKE'%".$searchname."%' OR clinic_address LIKE '%".$searchname."%'
-						GROUP BY clinic.clinic_name";
+						GROUP BY clinic.clinic_id";
 		
 				$res = mysqli_query($mysql,$query);
 				if($res){
@@ -80,7 +80,7 @@ session_start();
 										<img src="https://previews.123rf.com/images/apoev/apoev1804/apoev180400052/98746864-default-placeholder-doctor-half-length-portrait-photo-avatar-.jpg" style="max-width: 60px; margin-left: -70px; float: left;">';
 										echo '<h3>Dr. '.$row[18].' '.$row[20].'</h3>'; //name
 										echo '<p><strong>'.$row[13].'</strong></p>'; //spec
-										echo '<p>'.$row[4].'</p>'; //add
+										echo '<p>Dr. '.$row[4].'</p>'; //add
 
 										echo '<p><strong>Clinic Hours:</strong> '.$row[8].' - '.$row[9].'</p>';
 										echo '<ul>
@@ -117,7 +117,7 @@ session_start();
 						echo '<img src="https://previews.123rf.com/images/apoev/apoev1804/apoev180400052/98746864-default-placeholder-doctor-half-length-portrait-photo-avatar-.jpg" style="max-width: 60px; margin-left: -70px; float: left;">';
 						echo '<h3>Dr. '.$row[3].' '.$row[5].' </h3>'; //name
 						echo '<p><strong>Dr. '.$row[14].'</strong></p>'; //spec
-						echo '<p>'.$row[28].'</p>'; //add
+						echo '<p>Dr. '.$row[28].'</p>'; //add
 						echo '<p><strong>Clinic Hours:</strong> '.$row[18].' - '.$row[19].'</p>';
 						echo '<ul>
 								<li><a href="#0" onclick="onHtmlClick("Doctors", 2)" class="btn_listing">View on Map</a></li>
@@ -165,7 +165,7 @@ session_start();
 					LEFT JOIN doctors ON location_clinic.doctor_id = doctors.doctor_id
 					LEFT JOIN user ON doctors.user_id = user.user_id
 					WHERE clinic_name LIKE'%".$searchname."%' OR clinic_address LIKE '%".$searchname."%'
-					GROUP BY clinic.clinic_name";
+					GROUP BY clinic.clinic_id";
 		
 				$res2 = mysqli_query($mysql,$query2);
 				if($res2){
@@ -175,7 +175,8 @@ session_start();
 							<div class="col-lg-12">
 								<div class="strip_list wow fadeIn">';
 									echo '<img src="https://previews.123rf.com/images/apoev/apoev1804/apoev180400052/98746864-default-placeholder-doctor-half-length-portrait-photo-avatar-.jpg" style="max-width: 60px; margin-left: -70px; float: left;">';
-									echo '<h3>Dr. '.$row[18].' '.$row[20].' </h3>'; // name
+									echo '<h3>'.$row[1].' </h3>'; // name
+									echo '<p><strong>Dr. '.$row[18].' '.$row[20].' </strong></p>'; // name
 									echo '<p><strong>'.$row[13].'</strong></p>'; //specialization then ubos address
 									echo '<p>'.$row[4].' </p> 
 									<p><strong>Clinic Hours:</strong> '.$row[8].' - '.$row[9].'</p>
