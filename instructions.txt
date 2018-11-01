@@ -15,5 +15,5 @@ If changes have been made to the file:
 
 > go to xampp/htdocs/AppointmentApp
 > right click and select Git Bash here
-> copy this to the terminal: git pull origin master
+> copy this to the terminal: git pull 
 > visit site at: http://localhost/AppointmentApp/ver2/index.php
