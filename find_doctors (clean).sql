@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 01, 2018 at 06:31 PM
+-- Generation Time: Nov 01, 2018 at 06:43 PM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.8
 
@@ -1928,13 +1928,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`user_id`, `user_firstn`, `user_middlen`, `user_lastn`, `user_gender`, `user_level`, `username`, `user_email`, `user_mobile`, `user_tele`, `user_password`, `user_status`) VALUES
-(96, 'Ellis', 'Kale', 'Ruiz', 1, 0, 'docellis', 'kenmon@gmail.com', 91234567, '00', 'password', 1),
 (100, 'Jane', 'Smith', 'Doe', 1, 0, 'testuser', 'test@mail.com', 639159831382, '(032)584-3575', 'password', 1),
-(116, 'Kevin', 'James', 'Uy', 1, 0, 'dockevin', '122@mail.com', 876876, '00', 'password', 1),
-(117, 'Neil', 'Robin', 'Dy', 1, 0, 'docneil', '232@mail.com', 12312313, '00', 'password', 1),
-(119, 'Sean', 'Patrick', 'Llenes', 1, 0, 'docsean', 'qwww@mail.com', 639159831386, '00', 'password', 1),
 (120, 'admin', 'admin', 'admin', 1, 2, 'admin', 'admin@mail.com', 912391222, '3213123', 'admin', 1),
-(123, 'Albert', 'Jay', 'Klein', 0, 1, 'point', 'point@mail.com', 9586546454, '897545464', 'password', 0);
+(123, 'Albert', 'Jay', 'Klein', 0, 1, 'doctor', 'point@mail.com', 9586546454, '897545464', 'password', 0);
 
 --
 -- Indexes for dumped tables
