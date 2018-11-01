@@ -15,13 +15,12 @@
         $ofnum = $_POST['donum'];
         $email = $_POST['demail'];
         $x = $_POST['lat'];
+        $clinicname = $_POST['clinname'];
         $clinadd = $_POST['address'];
         $y = $_POST['long'];
       
         $gender = $_POST['dgender'];
         $specialization = $_POST['dspecial'];		
-		$clinicarr = json_decode($_POST['clinics']);
-       
         $query = "SELECT * FROM user WHERE username='".$username."' OR (user_firstn ='".$first."' AND user_middlen ='".$middle."' AND user_lastn ='".$last."') OR user_email ='".$email."'";
 		$result = mysqli_query($mysql,$query);
         

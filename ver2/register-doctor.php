@@ -124,13 +124,15 @@
 							                        <label for="yourName" data-error="wrong" data-success="right">Clinic Name</label>
 							                        <input id="clinicname" name="clinname"  type="text" class="form-control validate" placeholder="Clinic Name" required>
 							                        <label for="yourName" data-error="wrong" data-success="right">Clinic Address</label>
-													<input id="gmap_where" type="text" name="address" class="form-control validate" placeholder="Clinic Address" required>
+													<input id="gmap_where" type="text"  class="form-control validate" placeholder="Search for the Clinic" >
+													<input name="address"  class="form-control validate" id="addressclin" type="text" placeholder="Clininc Address" required>
+													<button class="form-control" onclick="findAddress(); return false;">Search for address</button>
 													<label for="yourName" data-error="wrong" data-success="right">Clinic Opening Hours</label>
 													<input id="TimeFrom" name="from" type="time" class="form-control validate" placeholder="From" required>
-													<input id="TimeTo" name="to" type="time" class="form-control validate" placeholder="To" required>
-													<button class="form-control" onclick="findAddress(); return false;">Search for address</button>
-													<input name="lat" id="lat1" type="text" hidden="true">
-													<input name="long" id="lng1" type="text" hidden="true">													
+													<input id="TimeTo" name="to" type="time" class="form-control validate" placeholder="To" required>													
+													<input name="lat" id="lat1" type="text" hidden>
+													<input name="long" id="lng1" type="text" hidden>
+																										
 							                    </div>
 							                    <div class="form-group md-form mt-3">
 							                        <label for="companyAddress" data-error="wrong" data-success="right">Medical License</label>

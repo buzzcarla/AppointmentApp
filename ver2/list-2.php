@@ -65,7 +65,8 @@ session_start();
 						LEFT JOIN location_clinic ON clinic.clinic_id = location_clinic.clinic_id
 						LEFT JOIN doctors ON location_clinic.doctor_id = doctors.doctor_id
 						LEFT JOIN user ON doctors.user_id = user.user_id
-						WHERE clinic_name LIKE'%".$searchname."%' OR clinic_address LIKE '%".$searchname."%'";
+						WHERE clinic_name LIKE'%".$searchname."%' OR clinic_address LIKE '%".$searchname."%'
+						GROUP BY clinic.clinic_name";
 		
 				$res = mysqli_query($mysql,$query);
 				if($res){
@@ -164,7 +165,7 @@ session_start();
 					LEFT JOIN doctors ON location_clinic.doctor_id = doctors.doctor_id
 					LEFT JOIN user ON doctors.user_id = user.user_id
 					WHERE clinic_name LIKE'%".$searchname."%' OR clinic_address LIKE '%".$searchname."%'
-					GROUP BY clinic.clinic_id";
+					GROUP BY clinic.clinic_name";
 		
 				$res2 = mysqli_query($mysql,$query2);
 				if($res2){

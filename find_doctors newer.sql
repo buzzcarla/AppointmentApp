@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 01, 2018 at 05:40 PM
+-- Generation Time: Nov 01, 2018 at 06:16 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 7.0.6
 
@@ -77,14 +77,7 @@ CREATE TABLE `clinic` (
 --
 
 INSERT INTO `clinic` (`clinic_id`, `clinic_name`, `coordinates_x`, `coordinates_y`, `clinic_address`) VALUES
-(2, 'Mactan Doctors', 10.2898386, 123.96680830000003, 'Maximo V. Patalinhug Jr. Avenue, Lapu-Lapu City, Cebu, Philippines'),
-(3, 'Mactan Doctors', 10.2898386, 123.96680830000003, 'Maximo V. Patalinhug Jr. Avenue, Lapu-Lapu City, Cebu, Philippines'),
-(4, 'Mactan Doctors', 10.2898386, 123.96680830000003, 'Maximo V. Patalinhug Jr. Avenue, Lapu-Lapu City, Cebu, Philippines'),
-(5, 'Mactan Doctors', 10.2898386, 123.96680830000003, 'Maximo V. Patalinhug Jr. Avenue, Lapu-Lapu City, Cebu, Philippines'),
-(6, 'Mactan Doctors', 10.2898386, 123.96680830000003, 'Maximo V. Patalinhug Jr. Avenue, Lapu-Lapu City, Cebu, Philippines'),
-(7, 'Mactan Doctors', 10.2898386, 123.96680830000003, 'Maximo V. Patalinhug Jr. Avenue, Lapu-Lapu City, Cebu, Philippines'),
-(8, 'Mactan Doctors', 10.2898386, 123.96680830000003, 'Maximo V. Patalinhug Jr. Avenue, Lapu-Lapu City, Cebu, Philippines'),
-(22, 'Mactan Doctors', 10.2898386, 123.96680830000003, 'Maximo V. Patalinhug Jr. Avenue, Lapu-Lapu City, Cebu, Philippines');
+(27, 'Mactan Doctors', 10.2898386, 123.96680830000003, 'Maximo V. Patalinhug Jr. Avenue, Lapu-Lapu City, Cebu, Philippines');
 
 -- --------------------------------------------------------
 
@@ -106,14 +99,7 @@ CREATE TABLE `doctors` (
 --
 
 INSERT INTO `doctors` (`doctor_id`, `user_id`, `doc_specialization`, `medical_license`, `medical_evidence`, `doc_profpic`) VALUES
-(2, 92, 'Radiologist', 2123231122, 'med-license.jpg', 'doctor.jpg'),
-(3, 93, 'ENT Specialist', 2147483647, 'med-license.jpg', 'doctor.jpg'),
-(4, 92, 'Pediatrician', 2147423212, 'med-license.jpg', 'doctor.jpg'),
-(5, 95, 'General Practitioner', 2147483647, 'med-license.jpg', 'doctor.jpg'),
-(6, 97, 'Anesthesiologist', 2147483647, 'med-license.jpg', 'doctor.jpg'),
-(7, 98, 'OB Gyne', 2147483647, 'med-license.jpg', 'doctor.jpg'),
-(8, 99, 'Allergist ', 2147483647, 'med-license.jpg', 'doctor.jpg'),
-(22, 115, 'Cardiologist', 2147483647, 'med-license.jpg', 'doctor.jpg');
+(25, 123, 'OCCUPATIONAL MEDICINE PHYSICIAN', 0, '5bdb3383e570f.jpg', '5bdb3383e570f.jpg');
 
 -- --------------------------------------------------------
 
@@ -135,14 +121,7 @@ CREATE TABLE `location_clinic` (
 --
 
 INSERT INTO `location_clinic` (`location_id`, `clinic_id`, `doctor_id`, `schedule_start`, `schedule_end`, `schedule_type`) VALUES
-(2, 2, 2, '12:00', '13:00', 1),
-(3, 3, 3, '08:00', '14:00', 1),
-(4, 4, 3, '08:00', '18:00', 1),
-(5, 5, 3, '07:00', '18:05', 1),
-(6, 6, 2, '12:00', '13:00', 1),
-(7, 7, 2, '12:00', '13:00', 1),
-(8, 8, 6, '9:00', '18:00', 1),
-(22, 22, 20, '09:00', '12:00', 1);
+(27, 27, 25, '09:00', '18:00', 1);
 
 -- --------------------------------------------------------
 
@@ -1947,16 +1926,13 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`user_id`, `user_firstn`, `user_middlen`, `user_lastn`, `user_gender`, `user_level`, `username`, `user_email`, `user_mobile`, `user_tele`, `user_password`, `user_status`) VALUES
-(92, 'John', 'Smith', 'Doe', 0, 1, 'john.doe', 'johndoe@gmail.com', 9132425748, '(032)584-3575', 'password', 1),
 (96, 'Ellis', 'Kale', 'Ruiz', 1, 0, 'docellis', 'kenmon@gmail.com', 91234567, '00', 'password', 1),
-(98, 'Albert', 'Joseph', 'Stein', 1, 1, 'doctor', 'doctor@mail.com', 9128472824, '(032)584-3575', 'password', 0),
-(99, 'Mark', 'Anthony', 'Jacobs', 1, 1, 'docmark', 'MAILS@MAIL.COM', 915873717, '3485868', 'password', 1),
 (100, 'Jane', 'Smith', 'Doe', 1, 0, 'testuser', 'test@mail.com', 639159831382, '(032)584-3575', 'password', 1),
-(115, 'Marion', 'Ann', 'Dale', 1, 1, 'docmar', 'pqwe@mail.com', 123213123, '12312312', 'password', 0),
 (116, 'Kevin', 'James', 'Uy', 1, 0, 'dockevin', '122@mail.com', 876876, '00', 'password', 1),
 (117, 'Neil', 'Robin', 'Dy', 1, 0, 'docneil', '232@mail.com', 12312313, '00', 'password', 1),
 (119, 'Sean', 'Patrick', 'Llenes', 1, 0, 'docsean', 'qwww@mail.com', 639159831386, '00', 'password', 1),
-(120, 'admin', 'admin', 'admin', 1, 2, 'admin', 'admin@mail.com', 912391222, '3213123', 'admin', 1);
+(120, 'admin', 'admin', 'admin', 1, 2, 'admin', 'admin@mail.com', 912391222, '3213123', 'admin', 1),
+(123, 'point', 'harry', 'poterr', 0, 1, 'point', 'point@mail.com', 9586546454, '897545464', '123', 0);
 
 --
 -- Indexes for dumped tables
@@ -2017,17 +1993,17 @@ ALTER TABLE `booking_list`
 -- AUTO_INCREMENT for table `clinic`
 --
 ALTER TABLE `clinic`
-  MODIFY `clinic_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `clinic_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 --
 -- AUTO_INCREMENT for table `doctors`
 --
 ALTER TABLE `doctors`
-  MODIFY `doctor_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `doctor_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 --
 -- AUTO_INCREMENT for table `location_clinic`
 --
 ALTER TABLE `location_clinic`
-  MODIFY `location_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `location_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 --
 -- AUTO_INCREMENT for table `refcity`
 --
@@ -2042,7 +2018,7 @@ ALTER TABLE `refprovince`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=124;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
