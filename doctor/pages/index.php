@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <!-- CONNECT TO DATABASE -->
 <?php
-session_set_cookie_params(0, '/', '.AppointmentApp'); 
     session_start();
     require('../../ver2/connect.php');
- 
+
+    
 ?>
 <html lang="en">
 <head>
@@ -52,9 +52,10 @@ session_set_cookie_params(0, '/', '.AppointmentApp');
                                         //2 ----- ACCEPTED
                                         //3 ----- NOTIFIED
                                         //4 ----- DECLINED
+                                     
                                         $query = "SELECT * FROM user
                                                   LEFT JOIN booking_list on booking_list.user_id = user.user_id
-                                                  WHERE booking_list.doctor_id ='2' AND booking_list.book_date >= DATE(NOW())
+                                                  WHERE booking_list.doctor_id ='".$_SESSION['docid']."' AND booking_list.book_date >= DATE(NOW())
                                                   Group BY booking_list.booking_id";
                                         $res = mysqli_query($mysql,$query);
                                         $ctr= 0;
@@ -65,26 +66,26 @@ session_set_cookie_params(0, '/', '.AppointmentApp');
                                                 echo '
                                                 <tr class="odd gradeX">
                                                         <td>'.$row[1].' '.$row[3].'</td>
-                                                        <td>'.$row[16].'</td>
-                                                        <td>'.date('h:i:s A',strtotime($row[16])).'</td>
-                                                        <td class="center">'.$row[18].'</td>
+                                                        <td>'.date('M-d-Y',strtotime($row[15])).'</td>
+                                                        <td>'.date('h:i:s A',strtotime($row[15])).'</td>
+                                                        <td class="center">'.$row[17].'</td>
                                                         <td class="center" id="'.++$ctr.'">
                                                             <select id="stat'.$ctr.'">';
-                                                        if($row[17]==1){
+                                                        if($row[16]==1){
                                                             echo '
-                                                            <option value="2_'.$row[13].'">ACCEPTED</option> 
-                                                            <option selected value="1_'.$row[13].'">PENDING</option>
-                                                            <option value="4_'.$row[13].'">DECLINED </option>';
-                                                        } else if($row[17]==2){
+                                                            <option value="2_'.$row[12].'">ACCEPTED</option> 
+                                                            <option selected value="1_'.$row[12].'">PENDING</option>
+                                                            <option value="4_'.$row[12].'">DECLINED </option>';
+                                                        } else if($row[16]==2){
                                                             echo '
-                                                            <option selected value="2_'.$row[13].'">ACCEPTED</option> 
-                                                            <option  value="1_'.$row[13].'">PENDING</option>
-                                                            <option value="4_'.$row[13].'">DECLINED </option>';
-                                                        } else if($row[17]==4){
+                                                            <option selected value="2_'.$row[12].'">ACCEPTED</option> 
+                                                            <option  value="1_'.$row[12].'">PENDING</option>
+                                                            <option value="4_'.$row[12].'">DECLINED </option>';
+                                                        } else if($row[16]==4){
                                                             echo '
-                                                            <option value="2_'.$row[13].'">ACCEPTED</option> 
-                                                            <option  value="1_'.$row[13].'">PENDING</option>
-                                                            <option selected value="4_'.$row[13].'">DECLINED </option>';
+                                                            <option value="2_'.$row[12].'">ACCEPTED</option> 
+                                                            <option  value="1_'.$row[12].'">PENDING</option>
+                                                            <option selected value="4_'.$row[12].'">DECLINED </option>';
                                                         }
                                             }
                                                         echo '
@@ -128,7 +129,33 @@ session_set_cookie_params(0, '/', '.AppointmentApp');
                 stat: newStat
             },
             success: function(res) {
-                alert(res);
+                console.log(res[0]);
+
+                var result;
+                if(res[3] == 1)
+                {
+                    result = "was changed to Pending";
+                } else if(res[3] == 2)
+                {
+                    result = "was Accepted";
+                } else if(res[3] == 4)
+                {
+                    result = "was DECLINED";
+                }
+                $.ajax({
+                    url: "https://rest.nexmo.com/sms/json",
+                    type: 'POST',
+                    data: {
+                        api_key:'2bbe7446',
+                        api_secret:'OCiFdzeNX7hPIsx9',
+                        to:res[2],
+                        from:"FINDINGDOC",
+                        text:"Dear Mr/Ms "+res[0]+" your booking "+result // the message that will be sent to the users
+                    },
+                    success: function(res) {
+                        console.log(res);   // check to see if the message with the values are successfullty obtained and sms is sent
+                    }
+                });
             }
         });
     });       

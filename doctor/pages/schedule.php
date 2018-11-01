@@ -1,7 +1,7 @@
 <!doctype html>
 <?php
     require('../../ver2/connect.php');
- 
+	session_start();
 ?>
 <html lang="en" class="no-js">
 	<head>
@@ -121,7 +121,7 @@
 					}	
 					 $query = "SELECT * FROM user
 					 LEFT JOIN booking_list on booking_list.user_id = user.user_id
-					 WHERE booking_list.doctor_id ='2' 
+					 WHERE booking_list.doctor_id ='".$_SESSION['docid']."' 
 					 AND yearweek(DATE(booking_list.book_date), 1) = yearweek(DATE(NOW()), 1) 
 					 AND booking_list.book_stat = '2' 
 					 Group BY booking_list.booking_id
@@ -131,7 +131,7 @@
 
 						while($row = mysqli_fetch_row($res)){
 							
-							$timestamp = strtotime($row[16]);
+							$timestamp = strtotime($row[15]);
 							$day = date('l',$timestamp);
 							$time = date('H:i',$timestamp);
 							echo '<p  class="even '.$day.'_'.$time.' hide-class">'.$row[1].' '.$row[3].'</p>';

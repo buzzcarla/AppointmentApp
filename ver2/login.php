@@ -1,7 +1,6 @@
 <!-- LOGIN FUNCTION FOR USER AND DOCTOR -->
 <!DOCTYPE html>
 <?php 
-session_set_cookie_params(0, '/', '.AppointmentApp'); 
 session_start();
 	require_once('connect.php');
 	if(isset($_GET['logstat'])){		
@@ -13,12 +12,13 @@ session_start();
 	}
 	
 	if(isset($_POST['user'])&&$_POST['pass']){
+		
 	 	$query = "SELECT * FROM user where username = '".$_POST['user']."' AND user_password='".$_POST['pass']."' AND user_status = '1' LIMIT 1";
 		$res = mysqli_query($mysql,$query);
 		if ($res){
 			$row = mysqli_fetch_row($res); 
 			if($row != null){
-				if($row[12]==1){
+				if($row[11]==1){
 					
 						$query1 = "SELECT * FROM user 
 						LEFT JOIN doctors ON user.user_id = doctors.user_id
@@ -29,17 +29,19 @@ session_start();
 						$res1 = mysqli_query($mysql,$query1);
 						if($res1){
 							$row1 = mysqli_fetch_row($res1);
-							$_SESSION['docid'] = $row1[11];
-							$_SESSION['locid'] = $row1[15];
-							$_SESSION['clinid'] = $row1[16];
+							$_SESSION['docid'] = $row1[12];
+							$_SESSION['locid'] = $row1[18];
+							$_SESSION['clinid'] = $row1[19];
 							$_SESSION['sched_start'] = $row1[18];
 							$_SESSION['sched_end'] = $row1[19];
-							$_SESSION['clin_name'] = $row1[21];
-							$_SESSION['clinx'] = $row1[22];
-							$_SESSION['cliny'] = $row1[23];
-							$_SESSION['clin_address'] = $row1[24];
+							$_SESSION['clin_name'] = $row1[26];
+							$_SESSION['clinx'] = $row1[27];
+							$_SESSION['cliny'] = $row1[28];
+							$_SESSION['clin_address'] = $row1[29];
+
 						}
 					}
+					$_SESSION['level'] = $row[5];
 					$_SESSION['userid'] = $row[0];
 					$_SESSION['username'] = $row[6];
 					$_SESSION['gender'] = $row[4];
@@ -56,7 +58,10 @@ session_start();
 						header('Location: index.php');
 					} else if($row[5]==1)
 					{
-						header('Location: ../doctor/pages/index.php');
+						header('Location:../doctor/pages/index.php');
+					} else if($row[5]==2)
+					{
+						header('Location:../admin/pages/index.php');
 					}
 					
 						

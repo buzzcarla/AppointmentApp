@@ -243,35 +243,44 @@ if(isset($_GET['start']) && isset($_GET['end'])){
  
 <script>
 	$(".confirmBut").click(function(){
-		if($("#policy_terms").is(":checked")){
-			$.ajax({
-				url: "create/createBookingNow.php",
-				type: 'POST',
-				dataType: 'text json',
-				data: {
-					userid: $("#userid").val(),
-					docid: $("#docid").val(),
-					bookdate: $("#timestamp").val(),
-					type: $("#booktype").val(),
-					fname: $("#firstname_booking").val(),
-					lname: $("#lastname_booking").val()
-				},
-				success: function(res) {
-					console.log(res);
-					if(res == 1){
-						document.location.href = "confirm.php";
-					} else if(res == 2){
-						alert("fail booking please try again!");
-					}else if(res == 3){
-						alert("you already book the same doctor today!");
-					} else if (res == 4){
-						alert("network problem!");
+		var javaTime = $("#timestamp").val() * 1000;
+		var currentTime = new Date();
+		currentTime.setHours(currentTime.getHours() + 12);
+		if(javaTime > currentTime.getTime())
+		{
+			if($("#policy_terms").is(":checked")){
+				$.ajax({
+					url: "create/createBookingNow.php",
+					type: 'POST',
+					dataType: 'text json',
+					data: {
+						userid: $("#userid").val(),
+						docid: $("#docid").val(),
+						bookdate: $("#timestamp").val(),
+						type: $("#booktype").val(),
+						fname: $("#firstname_booking").val(),
+						lname: $("#lastname_booking").val()
+					},
+					success: function(res) {
+						console.log(res);
+						if(res == 1){
+							document.location.href = "confirm.php";
+						} else if(res == 2){
+							alert("fail booking please try again!");
+						}else if(res == 3){
+							alert("you already book the same doctor please book again once the schedule is finished");
+						} else if (res == 4){
+							alert("network problem!");
+						}
+						
 					}
-					
-				}
-			});
-		} else {
-			alert("CHECK THE TERMS AND AGREEMENT");
+				});
+			} else {
+				alert("CHECK THE TERMS AND AGREEMENT");
+			}
+		} else 
+		{
+			alert("Book Date and Time must be 12 hours earlier than the actual consultation please Book again");
 		}
 	});
 	

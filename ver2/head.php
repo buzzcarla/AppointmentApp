@@ -5,6 +5,15 @@
 		define('TIMEZONE', 'Asia/Manila');
 		date_default_timezone_set(TIMEZONE);
 	} 
+
+    if(isset($_SESSION['level']))
+    {
+        if($_SESSION['level'] == 1)
+        {
+            header('Location:../doctor/pages/index.php');
+        }         
+    }
+
 ?>
 
 <head>

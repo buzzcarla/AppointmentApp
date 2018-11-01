@@ -13,7 +13,7 @@
                     <a href="users.php"><i class="fa fa-edit fa-fw"></i> User List</a>
                 </li>
                 <li>
-                    <a href="./../../ver2/login.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                     <a href="./../../ver2/login.php?logstat=1"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                 </li>
             </ul>
         </div>

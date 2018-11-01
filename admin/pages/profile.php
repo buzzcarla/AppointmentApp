@@ -3,6 +3,7 @@
     <!-- head file -->
     <head>
         <?php
+        session_start();
             require('head.php');
         ?>
     </head>

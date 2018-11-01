@@ -79,7 +79,15 @@
 								<div class="row">
 									<div class="col-lg-12">
 										<div class="form-group">
-											<input id="cnum" type="text" class="form-control" placeholder="Mobile Phone" required>
+											<div class="row">
+												<div class="col-md-1">
+													<p>+63</p>
+												</div>
+												<div class="col-md-11">
+													<input id="cnum" type="number" min="9999999999" max="9999999999" class="form-control" placeholder="Mobile Phone" required>
+												</div>												
+											</div>
+											
 										</div>
 									</div>
 								</div>
@@ -219,36 +227,47 @@
 		$( ".sel-city" ).prop( "disabled", false );		// Enable selecting a city
 	});
 
-	$( ".sub" ).on("click",function(){		// On clicking submit button
-		$.ajax({
-			url: "create/createUser.php",	// where the data is posted or sent
-			type: 'POST',
-			dataType: 'text json', 
-			data: {
-				dfname:$('#fname').val(),
-				dmname:$('#mname').val(),
-				dlname:$('#lname').val(),
-				dcnum:$('#cnum').val(),
-				duser:$('#username').val(),
-				dpass:$('#password').val(),
-				demail:$('#demail').val(),
-				dgender:$('.sel-gender').val()
-				
-			},
-			success: function(res) {		// If the data is successfully posted (user data is sent to db)
-				if(res[0]== 1){
-					alert("Successfully Created! Please Log in.");
-					document.location.href = 'index.php';
-				} else if(res[0] == 2){
-					alert("Error in creating user. Please retry.");
-				}else if(res[0] == 0){
-					alert("User already exists.");
+	$( ".sub" ).on("click",function(){	
+			// On clicking submit button
+		var n = $('#cnum').val();
+
+		var realnum = n.toString();
+		realnum = "63"+realnum;
+		if(realnum.match(/^\d{12}$/) !=null)
+		{		
+			$.ajax({
+				url: "create/createUser.php",	// where the data is posted or sent
+				type: 'POST',
+				dataType: 'text json', 
+				data: {
+					dfname:$('#fname').val(),
+					dmname:$('#mname').val(),
+					dlname:$('#lname').val(),
+					dcnum:realnum,
+					duser:$('#username').val(),
+					dpass:$('#password').val(),
+					demail:$('#demail').val(),
+					dgender:$('.sel-gender').val()
+					
+				},
+				success: function(res) {		// If the data is successfully posted (user data is sent to db)
+					if(res[0]== 1){
+						alert("Successfully Created! Please Log in.");
+						document.location.href = 'index.php';
+					} else if(res[0] == 2){
+						alert("Error in creating user. Please retry.");
+					}else if(res[0] == 0){
+						alert("User already exists.");
+					}
+					else if(res[0] == 3){
+						alert("There is invalid data in the form. Please review.");
+					}
+					
 				}
-				else if(res[0] == 3){
-					alert("There is invalid data in the form. Please review.");
-				}
 				
-			}
-    	});
+			});
+		} else {
+			alert("Invalid Cellphone number have the format ex. 9965556553");
+		}
 	});
 </script>

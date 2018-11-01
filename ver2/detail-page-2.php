@@ -279,8 +279,21 @@ $(document).ready( function() {
         var clinend = $("#clin_end").val();
         date = date/1000;
 
-		
-        document.location.href = 'booking-page.php?docid='+docid+'&userid='+userid+'&clinname='+clinname+'&clinadd='+clinadd+'&docfname='+fname+'&docmname='+mname+'&doclname='+lname+'&start='+clinstart+'&end='+clinend+'&timestamp='+date+'&type='+type;
+		var javaTime = date * 1000;
+
+		var currentTime = new Date();
+		currentTime.setHours(currentTime.getHours() + 12);
+		if(javaTime > currentTime.getTime())
+		{
+			document.location.href = 'booking-page.php?docid='+docid+'&userid='+userid+'&clinname='+clinname+'&clinadd='+clinadd+'&docfname='+fname+'&docmname='+mname+'&doclname='+lname+'&start='+clinstart+'&end='+clinend+'&timestamp='+date+'&type='+type;
+		} 
+		else
+		{
+			alert("Book Date and Time must be 12 hours earlier than the actual consultation please Change the date and book again");
+		}
+
+
+        
     } else {
         alert("some fields are empty");
     }
