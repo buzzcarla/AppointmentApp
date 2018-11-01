@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 01, 2018 at 04:53 PM
--- Server version: 10.1.26-MariaDB
--- PHP Version: 7.1.8
+-- Generation Time: Nov 01, 2018 at 05:40 PM
+-- Server version: 10.1.13-MariaDB
+-- PHP Version: 7.0.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -79,7 +77,6 @@ CREATE TABLE `clinic` (
 --
 
 INSERT INTO `clinic` (`clinic_id`, `clinic_name`, `coordinates_x`, `coordinates_y`, `clinic_address`) VALUES
-(1, 'Mactan Doctors', 10.2898386, 123.96680830000003, 'Maximo V. Patalinhug Jr. Avenue, Lapu-Lapu City, Cebu, Philippines'),
 (2, 'Mactan Doctors', 10.2898386, 123.96680830000003, 'Maximo V. Patalinhug Jr. Avenue, Lapu-Lapu City, Cebu, Philippines'),
 (3, 'Mactan Doctors', 10.2898386, 123.96680830000003, 'Maximo V. Patalinhug Jr. Avenue, Lapu-Lapu City, Cebu, Philippines'),
 (4, 'Mactan Doctors', 10.2898386, 123.96680830000003, 'Maximo V. Patalinhug Jr. Avenue, Lapu-Lapu City, Cebu, Philippines'),
@@ -87,19 +84,7 @@ INSERT INTO `clinic` (`clinic_id`, `clinic_name`, `coordinates_x`, `coordinates_
 (6, 'Mactan Doctors', 10.2898386, 123.96680830000003, 'Maximo V. Patalinhug Jr. Avenue, Lapu-Lapu City, Cebu, Philippines'),
 (7, 'Mactan Doctors', 10.2898386, 123.96680830000003, 'Maximo V. Patalinhug Jr. Avenue, Lapu-Lapu City, Cebu, Philippines'),
 (8, 'Mactan Doctors', 10.2898386, 123.96680830000003, 'Maximo V. Patalinhug Jr. Avenue, Lapu-Lapu City, Cebu, Philippines'),
-(9, 'Mactan Doctors', 10.2898386, 123.96680830000003, 'Maximo V. Patalinhug Jr. Avenue, Lapu-Lapu City, Cebu, Philippines'),
-(10, 'Mactan Doctors', 10.2898386, 123.96680830000003, 'Maximo V. Patalinhug Jr. Avenue, Lapu-Lapu City, Cebu, Philippines'),
-(14, 'Mactan Doctors', 10.2898386, 123.96680830000003, 'Maximo V. Patalinhug Jr. Avenue, Lapu-Lapu City, Cebu, Philippines'),
-(15, 'Mactan Doctors', 10.2898386, 123.96680830000003, 'Maximo V. Patalinhug Jr. Avenue, Lapu-Lapu City, Cebu, Philippines'),
-(16, 'Mactan Doctors', 10.2898386, 123.96680830000003, 'Maximo V. Patalinhug Jr. Avenue, Lapu-Lapu City, Cebu, Philippines'),
-(17, 'Mactan Doctors', 10.2898386, 123.96680830000003, 'Maximo V. Patalinhug Jr. Avenue, Lapu-Lapu City, Cebu, Philippines'),
-(18, 'Mactan Doctors', 10.2898386, 123.96680830000003, 'Maximo V. Patalinhug Jr. Avenue, Lapu-Lapu City, Cebu, Philippines'),
-(19, 'Mactan Doctors', 10.2898386, 123.96680830000003, 'Maximo V. Patalinhug Jr. Avenue, Lapu-Lapu City, Cebu, Philippines'),
-(20, 'Mactan Doctors', 10.2898386, 123.96680830000003, 'Maximo V. Patalinhug Jr. Avenue, Lapu-Lapu City, Cebu, Philippinesd'),
-(21, 'Mactan Doctors', 10.2898386, 123.96680830000003, 'Maximo V. Patalinhug Jr. Avenue, Lapu-Lapu City, Cebu, Philippines'),
-(22, 'Mactan Doctors', 10.2898386, 123.96680830000003, 'Maximo V. Patalinhug Jr. Avenue, Lapu-Lapu City, Cebu, Philippines'),
-(23, 'Mactan Doctors', 10.2898386, 123.96680830000003, 'Maximo V. Patalinhug Jr. Avenue, Lapu-Lapu City, Cebu, Philippines'),
-(24, 'Mactan Doctors', 10.2898386, 123.96680830000003, 'Maximo V. Patalinhug Jr. Avenue, Lapu-Lapu City, Cebu, Philippines');
+(22, 'Mactan Doctors', 10.2898386, 123.96680830000003, 'Maximo V. Patalinhug Jr. Avenue, Lapu-Lapu City, Cebu, Philippines');
 
 -- --------------------------------------------------------
 
@@ -706,7 +691,7 @@ INSERT INTO `refcity` (`id`, `psgcCode`, `citymunDesc`, `regDesc`, `provCode`, `
 (525, '175303000', 'ARACELI', '17', '1753', '175303'),
 (526, '175304000', 'BALABAC', '17', '1753', '175304'),
 (527, '175305000', 'BATARAZA', '17', '1753', '175305'),
-(528, '175306000', 'BROOKE\'S POINT', '17', '1753', '175306'),
+(528, '175306000', 'BROOKE''S POINT', '17', '1753', '175306'),
 (529, '175307000', 'BUSUANGA', '17', '1753', '175307'),
 (530, '175308000', 'CAGAYANCILLO', '17', '1753', '175308'),
 (531, '175309000', 'CORON', '17', '1753', '175309'),
@@ -1488,7 +1473,7 @@ INSERT INTO `refcity` (`id`, `psgcCode`, `citymunDesc`, `regDesc`, `provCode`, `
 (1306, '124707000', 'MAKILALA', '12', '1247', '124707'),
 (1307, '124708000', 'MATALAM', '12', '1247', '124708'),
 (1308, '124709000', 'MIDSAYAP', '12', '1247', '124709'),
-(1309, '124710000', 'M\'LANG', '12', '1247', '124710'),
+(1309, '124710000', 'M''LANG', '12', '1247', '124710'),
 (1310, '124711000', 'PIGKAWAYAN', '12', '1247', '124711'),
 (1311, '124712000', 'PIKIT', '12', '1247', '124712'),
 (1312, '124713000', 'PRESIDENT ROXAS', '12', '1247', '124713'),
@@ -1505,7 +1490,7 @@ INSERT INTO `refcity` (`id`, `psgcCode`, `citymunDesc`, `regDesc`, `provCode`, `
 (1323, '126313000', 'SURALLAH', '12', '1263', '126313'),
 (1324, '126314000', 'TAMPAKAN', '12', '1263', '126314'),
 (1325, '126315000', 'TANTANGAN', '12', '1263', '126315'),
-(1326, '126316000', 'T\'BOLI', '12', '1263', '126316'),
+(1326, '126316000', 'T''BOLI', '12', '1263', '126316'),
 (1327, '126317000', 'TUPI', '12', '1263', '126317'),
 (1328, '126318000', 'SANTO NIÑO', '12', '1263', '126318'),
 (1329, '126319000', 'LAKE SEBU', '12', '1263', '126319'),
@@ -2057,8 +2042,7 @@ ALTER TABLE `refprovince`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;COMMIT;
-
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
