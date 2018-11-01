@@ -20,7 +20,7 @@
 					<ul class="links">
 						<li><a href="register.php">Register</a></li>
 						<li><a href="login.php">Login</a></li>
-						<li><a href="list-2.php">Find a Doctor</a></li>
+						<li><a href="list-2.php?search=&radio_search=all">Find a Doctor</a></li>
 					</ul>
 				</div>
 				<div class="col-lg-3 col-md-4">

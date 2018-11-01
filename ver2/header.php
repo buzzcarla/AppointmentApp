@@ -44,7 +44,8 @@
 											<li><a href="profile.php">View Profile</a></li>
 											<li><a href="login.php?logstat=1">Log Out</a></li>
 										</ul>
-									</li>';
+									</li>
+									<li><a href="list-2.php?search=&radio_search=all">Find Doctor</a></li>';
 								}
 							?>
 					</ul>

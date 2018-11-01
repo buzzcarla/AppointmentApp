@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.7.0
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 09, 2018 at 01:14 AM
--- Server version: 10.1.13-MariaDB
--- PHP Version: 7.0.6
+-- Generation Time: Nov 01, 2018 at 04:53 PM
+-- Server version: 10.1.26-MariaDB
+-- PHP Version: 7.1.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -42,16 +44,6 @@ CREATE TABLE `booking_list` (
 --
 
 INSERT INTO `booking_list` (`booking_id`, `user_id`, `doctor_id`, `book_date`, `book_stat`, `booking_type`, `booking_fname`, `booking_lname`) VALUES
-(54, 92, 8, '2018-09-16 07:30:00', 1, 'Other', 'name', 'eqw'),
-(55, 92, 2, '2018-09-22 18:20:00', 1, 'asdasd', 'asdasd', 'asdaad'),
-(56, 92, 2, '2018-09-22 18:34:00', 1, 'asdasd', 'asdasd', 'asdaad'),
-(57, 92, 2, '2018-09-23 06:14:59', 1, '1', '231', '21333333333'),
-(59, 92, 2, '2018-09-23 06:17:43', 1, 'asdasd', 'asd', 'asdas'),
-(60, 92, 2, '2018-09-23 06:17:57', 1, 'asdasd', 'asd', 'asdas'),
-(61, 92, 2, '2018-09-23 06:20:34', 1, '11', 'asd', 'asd'),
-(62, 92, 2, '2018-09-23 06:26:46', 1, '11', 'asd', 'asd'),
-(63, 92, 2, '2018-09-23 06:21:34', 1, 'asdsa', 'asd', 'asd'),
-(64, 92, 2, '2018-09-23 06:31:40', 1, 'asdsa', 'asd', 'asd'),
 (65, 92, 2, '2018-09-23 06:30:36', 2, '2', '2', '2'),
 (67, 92, 2, '2018-09-23 06:32:17', 3, '3', '3', '3'),
 (68, 92, 2, '2018-09-23 06:32:00', 3, '3', '3', '3'),
@@ -62,10 +54,11 @@ INSERT INTO `booking_list` (`booking_id`, `user_id`, `doctor_id`, `book_date`, `
 (73, 92, 2, '2018-09-23 06:57:49', 1, '223', '21', '21'),
 (74, 92, 2, '0000-00-00 00:00:00', 1, '223', '21', '21'),
 (75, 92, 2, '2018-09-23 07:00:47', 2, '3', '4', '5'),
-(76, 92, 2, '2018-09-23 08:04:00', 2, '3', '4', '5'),
+(76, 92, 2, '2018-09-23 01:30:00', 2, '3', '4', '5'),
 (77, 92, 2, '2018-09-23 10:50:00', 1, 'asdasd', '01', '111'),
-(78, 92, 2, '2018-09-23 10:59:00', 1, 'asdasd', '01', '111'),
-(79, 100, 2, '2018-09-23 15:14:00', 1, 'asdasd', 'joshua', 'lee');
+(78, 92, 2, '2018-10-08 01:30:00', 2, 'asdasd', '01', '111'),
+(83, 100, 1, '2018-10-26 01:30:00', 1, 'Icontinence visit', 'joshua', 'lee'),
+(84, 100, 8, '2018-11-02 02:00:00', 2, 'Consultation', 'joshua', 'lee');
 
 -- --------------------------------------------------------
 
@@ -86,16 +79,27 @@ CREATE TABLE `clinic` (
 --
 
 INSERT INTO `clinic` (`clinic_id`, `clinic_name`, `coordinates_x`, `coordinates_y`, `clinic_address`) VALUES
-(1, 'qweqw', 1, 2, 'ewqe'),
-(2, 'eewqw', 3, 3, 'eeqe'),
-(3, 'SOMETHING', 5, 6, 'WQEQWEWQEQW'),
-(4, 'WEQWEE', 3, 3, 'EEEEEEEEEEEEEE'),
-(5, 'WEWEWQQ', 45, 5, 'EWQQQQQQQ'),
-(6, 'qweqw', 1, 2, 'ewqe'),
-(7, 'eewqw', 3, 3, 'eeqe'),
-(8, '', 0, 0, ''),
-(9, 'Mactan Doc', 0, 0, ''),
-(10, 'Mactan Doc', 10.2898386, 123.96680830000003, 'Maximo V. Patalinhug Jr. Avenue, Lapu-Lapu City, Cebu, Philippines');
+(1, 'Mactan Doctors', 10.2898386, 123.96680830000003, 'Maximo V. Patalinhug Jr. Avenue, Lapu-Lapu City, Cebu, Philippines'),
+(2, 'Mactan Doctors', 10.2898386, 123.96680830000003, 'Maximo V. Patalinhug Jr. Avenue, Lapu-Lapu City, Cebu, Philippines'),
+(3, 'Mactan Doctors', 10.2898386, 123.96680830000003, 'Maximo V. Patalinhug Jr. Avenue, Lapu-Lapu City, Cebu, Philippines'),
+(4, 'Mactan Doctors', 10.2898386, 123.96680830000003, 'Maximo V. Patalinhug Jr. Avenue, Lapu-Lapu City, Cebu, Philippines'),
+(5, 'Mactan Doctors', 10.2898386, 123.96680830000003, 'Maximo V. Patalinhug Jr. Avenue, Lapu-Lapu City, Cebu, Philippines'),
+(6, 'Mactan Doctors', 10.2898386, 123.96680830000003, 'Maximo V. Patalinhug Jr. Avenue, Lapu-Lapu City, Cebu, Philippines'),
+(7, 'Mactan Doctors', 10.2898386, 123.96680830000003, 'Maximo V. Patalinhug Jr. Avenue, Lapu-Lapu City, Cebu, Philippines'),
+(8, 'Mactan Doctors', 10.2898386, 123.96680830000003, 'Maximo V. Patalinhug Jr. Avenue, Lapu-Lapu City, Cebu, Philippines'),
+(9, 'Mactan Doctors', 10.2898386, 123.96680830000003, 'Maximo V. Patalinhug Jr. Avenue, Lapu-Lapu City, Cebu, Philippines'),
+(10, 'Mactan Doctors', 10.2898386, 123.96680830000003, 'Maximo V. Patalinhug Jr. Avenue, Lapu-Lapu City, Cebu, Philippines'),
+(14, 'Mactan Doctors', 10.2898386, 123.96680830000003, 'Maximo V. Patalinhug Jr. Avenue, Lapu-Lapu City, Cebu, Philippines'),
+(15, 'Mactan Doctors', 10.2898386, 123.96680830000003, 'Maximo V. Patalinhug Jr. Avenue, Lapu-Lapu City, Cebu, Philippines'),
+(16, 'Mactan Doctors', 10.2898386, 123.96680830000003, 'Maximo V. Patalinhug Jr. Avenue, Lapu-Lapu City, Cebu, Philippines'),
+(17, 'Mactan Doctors', 10.2898386, 123.96680830000003, 'Maximo V. Patalinhug Jr. Avenue, Lapu-Lapu City, Cebu, Philippines'),
+(18, 'Mactan Doctors', 10.2898386, 123.96680830000003, 'Maximo V. Patalinhug Jr. Avenue, Lapu-Lapu City, Cebu, Philippines'),
+(19, 'Mactan Doctors', 10.2898386, 123.96680830000003, 'Maximo V. Patalinhug Jr. Avenue, Lapu-Lapu City, Cebu, Philippines'),
+(20, 'Mactan Doctors', 10.2898386, 123.96680830000003, 'Maximo V. Patalinhug Jr. Avenue, Lapu-Lapu City, Cebu, Philippinesd'),
+(21, 'Mactan Doctors', 10.2898386, 123.96680830000003, 'Maximo V. Patalinhug Jr. Avenue, Lapu-Lapu City, Cebu, Philippines'),
+(22, 'Mactan Doctors', 10.2898386, 123.96680830000003, 'Maximo V. Patalinhug Jr. Avenue, Lapu-Lapu City, Cebu, Philippines'),
+(23, 'Mactan Doctors', 10.2898386, 123.96680830000003, 'Maximo V. Patalinhug Jr. Avenue, Lapu-Lapu City, Cebu, Philippines'),
+(24, 'Mactan Doctors', 10.2898386, 123.96680830000003, 'Maximo V. Patalinhug Jr. Avenue, Lapu-Lapu City, Cebu, Philippines');
 
 -- --------------------------------------------------------
 
@@ -107,21 +111,24 @@ CREATE TABLE `doctors` (
   `doctor_id` int(11) NOT NULL,
   `user_id` int(11) DEFAULT NULL,
   `doc_specialization` varchar(60) DEFAULT NULL,
-  `medical_license` int(11) NOT NULL
+  `medical_license` int(11) NOT NULL,
+  `medical_evidence` varchar(120) NOT NULL,
+  `doc_profpic` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `doctors`
 --
 
-INSERT INTO `doctors` (`doctor_id`, `user_id`, `doc_specialization`, `medical_license`) VALUES
-(2, 92, '', 2147483647),
-(3, 93, '', 2147483647),
-(4, 92, '', 2147483647),
-(5, 95, '', 98154),
-(6, 97, '', 0),
-(7, 98, '', 2147483647),
-(8, 99, '', 132132131);
+INSERT INTO `doctors` (`doctor_id`, `user_id`, `doc_specialization`, `medical_license`, `medical_evidence`, `doc_profpic`) VALUES
+(2, 92, 'Radiologist', 2123231122, 'med-license.jpg', 'doctor.jpg'),
+(3, 93, 'ENT Specialist', 2147483647, 'med-license.jpg', 'doctor.jpg'),
+(4, 92, 'Pediatrician', 2147423212, 'med-license.jpg', 'doctor.jpg'),
+(5, 95, 'General Practitioner', 2147483647, 'med-license.jpg', 'doctor.jpg'),
+(6, 97, 'Anesthesiologist', 2147483647, 'med-license.jpg', 'doctor.jpg'),
+(7, 98, 'OB Gyne', 2147483647, 'med-license.jpg', 'doctor.jpg'),
+(8, 99, 'Allergist ', 2147483647, 'med-license.jpg', 'doctor.jpg'),
+(22, 115, 'Cardiologist', 2147483647, 'med-license.jpg', 'doctor.jpg');
 
 -- --------------------------------------------------------
 
@@ -143,16 +150,14 @@ CREATE TABLE `location_clinic` (
 --
 
 INSERT INTO `location_clinic` (`location_id`, `clinic_id`, `doctor_id`, `schedule_start`, `schedule_end`, `schedule_type`) VALUES
-(1, 1, 2, '12:00', '13:00', 1),
 (2, 2, 2, '12:00', '13:00', 1),
 (3, 3, 3, '08:00', '14:00', 1),
 (4, 4, 3, '08:00', '18:00', 1),
 (5, 5, 3, '07:00', '18:05', 1),
 (6, 6, 2, '12:00', '13:00', 1),
 (7, 7, 2, '12:00', '13:00', 1),
-(8, 8, 6, '', '', 1),
-(9, 9, 7, '07:08', '20:08', 1),
-(10, 10, 8, '00:00', '12:09', 1);
+(8, 8, 6, '9:00', '18:00', 1),
+(22, 22, 20, '09:00', '12:00', 1);
 
 -- --------------------------------------------------------
 
@@ -701,7 +706,7 @@ INSERT INTO `refcity` (`id`, `psgcCode`, `citymunDesc`, `regDesc`, `provCode`, `
 (525, '175303000', 'ARACELI', '17', '1753', '175303'),
 (526, '175304000', 'BALABAC', '17', '1753', '175304'),
 (527, '175305000', 'BATARAZA', '17', '1753', '175305'),
-(528, '175306000', 'BROOKE''S POINT', '17', '1753', '175306'),
+(528, '175306000', 'BROOKE\'S POINT', '17', '1753', '175306'),
 (529, '175307000', 'BUSUANGA', '17', '1753', '175307'),
 (530, '175308000', 'CAGAYANCILLO', '17', '1753', '175308'),
 (531, '175309000', 'CORON', '17', '1753', '175309'),
@@ -1483,7 +1488,7 @@ INSERT INTO `refcity` (`id`, `psgcCode`, `citymunDesc`, `regDesc`, `provCode`, `
 (1306, '124707000', 'MAKILALA', '12', '1247', '124707'),
 (1307, '124708000', 'MATALAM', '12', '1247', '124708'),
 (1308, '124709000', 'MIDSAYAP', '12', '1247', '124709'),
-(1309, '124710000', 'M''LANG', '12', '1247', '124710'),
+(1309, '124710000', 'M\'LANG', '12', '1247', '124710'),
 (1310, '124711000', 'PIGKAWAYAN', '12', '1247', '124711'),
 (1311, '124712000', 'PIKIT', '12', '1247', '124712'),
 (1312, '124713000', 'PRESIDENT ROXAS', '12', '1247', '124713'),
@@ -1500,7 +1505,7 @@ INSERT INTO `refcity` (`id`, `psgcCode`, `citymunDesc`, `regDesc`, `provCode`, `
 (1323, '126313000', 'SURALLAH', '12', '1263', '126313'),
 (1324, '126314000', 'TAMPAKAN', '12', '1263', '126314'),
 (1325, '126315000', 'TANTANGAN', '12', '1263', '126315'),
-(1326, '126316000', 'T''BOLI', '12', '1263', '126316'),
+(1326, '126316000', 'T\'BOLI', '12', '1263', '126316'),
 (1327, '126317000', 'TUPI', '12', '1263', '126317'),
 (1328, '126318000', 'SANTO NIÑO', '12', '1263', '126318'),
 (1329, '126319000', 'LAKE SEBU', '12', '1263', '126319'),
@@ -1947,9 +1952,8 @@ CREATE TABLE `user` (
   `username` varchar(60) NOT NULL,
   `user_email` varchar(300) NOT NULL,
   `user_mobile` bigint(20) NOT NULL,
-  `user_tele` varchar(15) NOT NULL,
+  `user_tele` varchar(15) NOT NULL DEFAULT '0',
   `user_password` varchar(60) NOT NULL,
-  `profpic` varchar(120) NOT NULL,
   `user_status` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -1957,14 +1961,17 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`user_id`, `user_firstn`, `user_middlen`, `user_lastn`, `user_gender`, `user_level`, `username`, `user_email`, `user_mobile`, `user_tele`, `user_password`, `profpic`, `user_status`) VALUES
-(92, 'name11', 'lee', 'eqw', 0, 1, 'test', 'joshua.l@gmail.com', 9151454, '50505815', '1234', '', 1),
-(93, 'Joshua', 'la', 'Lee', 1, 1, 'regretzzz', 'joshua.lee@gmail.com', 2147483647, '5050812', '321', '', 0),
-(96, 'Kendrick', 'Monserate', 'De la Paz', 1, 0, 'Kenlota', 'kenmon@gmail.com', 91234567, '00', '123456', '', 1),
-(97, '', '', '', 0, 1, '', '', 0, '', '', '', 0),
-(98, 'testnew', 'testnew', 'testnew', 1, 1, 'testnew', 'joshua@mail.com', 2147483647, '5050232', '123', '', 0),
-(99, 'Pot', 'Pot', 'Pot', 1, 1, 'pot', 'MAILS@MAIL.COM', 915873717, '3485868', '123', '', 0),
-(100, 'joshua', 'lacaba', 'lee', 1, 0, 'testt', 'test@mail.com', 639159831386, '5050812', '123', '', 1);
+INSERT INTO `user` (`user_id`, `user_firstn`, `user_middlen`, `user_lastn`, `user_gender`, `user_level`, `username`, `user_email`, `user_mobile`, `user_tele`, `user_password`, `user_status`) VALUES
+(92, 'John', 'Smith', 'Doe', 0, 1, 'john.doe', 'johndoe@gmail.com', 9132425748, '(032)584-3575', 'password', 1),
+(96, 'Ellis', 'Kale', 'Ruiz', 1, 0, 'docellis', 'kenmon@gmail.com', 91234567, '00', 'password', 1),
+(98, 'Albert', 'Joseph', 'Stein', 1, 1, 'doctor', 'doctor@mail.com', 9128472824, '(032)584-3575', 'password', 0),
+(99, 'Mark', 'Anthony', 'Jacobs', 1, 1, 'docmark', 'MAILS@MAIL.COM', 915873717, '3485868', 'password', 1),
+(100, 'Jane', 'Smith', 'Doe', 1, 0, 'testuser', 'test@mail.com', 639159831382, '(032)584-3575', 'password', 1),
+(115, 'Marion', 'Ann', 'Dale', 1, 1, 'docmar', 'pqwe@mail.com', 123213123, '12312312', 'password', 0),
+(116, 'Kevin', 'James', 'Uy', 1, 0, 'dockevin', '122@mail.com', 876876, '00', 'password', 1),
+(117, 'Neil', 'Robin', 'Dy', 1, 0, 'docneil', '232@mail.com', 12312313, '00', 'password', 1),
+(119, 'Sean', 'Patrick', 'Llenes', 1, 0, 'docsean', 'qwww@mail.com', 639159831386, '00', 'password', 1),
+(120, 'admin', 'admin', 'admin', 1, 2, 'admin', 'admin@mail.com', 912391222, '3213123', 'admin', 1);
 
 --
 -- Indexes for dumped tables
@@ -2020,22 +2027,22 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `booking_list`
 --
 ALTER TABLE `booking_list`
-  MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+  MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
 --
 -- AUTO_INCREMENT for table `clinic`
 --
 ALTER TABLE `clinic`
-  MODIFY `clinic_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `clinic_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT for table `doctors`
 --
 ALTER TABLE `doctors`
-  MODIFY `doctor_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `doctor_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT for table `location_clinic`
 --
 ALTER TABLE `location_clinic`
-  MODIFY `location_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `location_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT for table `refcity`
 --
@@ -2050,7 +2057,8 @@ ALTER TABLE `refprovince`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

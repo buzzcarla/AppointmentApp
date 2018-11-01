@@ -1,5 +1,10 @@
 <!-- DETAILED INFORMATION OF THE DOCTORS -->
 <!DOCTYPE html>
+<?php 
+
+session_start();
+
+?>
 <html lang="en">
 
 <head>
@@ -34,8 +39,8 @@
 		<div id="breadcrumb">
 			<div class="container">
 				<ul>
-					<li><a href="#">Home ></a></li>
-					<li><a href="#">Doctor List ></a></li>
+					<li><a href="index.php">Home ></a></li>
+					<li><a href="http://localhost/AppointmentApp/ver2/list-2.php?search=&radio_search=all">Doctor List ></a></li>
 					<li>Book an Appointment</li>
 				</ul>
 			</div>
@@ -46,24 +51,21 @@
 				
 				<aside class="col-xl-3 col-lg-4" id="sidebar">
 					<div class="box_profile">
-						<figure>
-							<img src="img/doctor_listing_2.jpg" alt="" class="img-fluid">
-						</figure>
-						<small>Primary care - Internist</small>
                         <?php 
-						echo '<h1>Dr. '.$_GET['docfname'].' '.$_GET['doclname'].'</h1>
+						echo '<small>'.$_GET['specialization'].'</small>
+								<h1>Dr. '.$_GET['docfname'].' '.$_GET['doclname'].'</h1>
                                 <div>
-                                    <img style="max-height: 100px; width: auto;" src="https://thumbs.dreamstime.com/b/male-doctor-icon-doing-ok-hand-sign-vector-illustration-81961335.jpg">
+                                    <img style="max-height: 100px; width: auto;" src="uploads/'.$_GET['profpic'].'">
                                 </div>
                                 <ul class="statistic">
-                                    <li>4 years in Practice</li>
+                                    <li>Clinic Hours: '.$_GET['start'].':00 - '.$_GET['end'].':00</li>
                                 </ul>
                                 <ul class="contacts">
-                                    <li><h6>Address</h6>'.$_GET['clinadd'].'</li>
-                                    <li><h6>Phone</h6><a>'.$_GET['tele'].'</a></li>
+                                    <li><h6>Clinic Address</h6>'.$_GET['clinadd'].'</li>
+                                    <li><h6>Telephone Number</h6><a>'.$_GET['tele'].'</a></li>
                                 </ul>';
                         ?>
-						<div class="text-center"><a  href="https://www.google.com/maps/dir/Mandaue+City,+Cebu/LH+Prime+Medical+Clinic+Basak+Mactan,+Lapu-Lapu+City,+Cebu/@10.3170571,123.9294577,7127m/data=!3m2!1e3!4b1!4m13!4m12!1m5!1m1!1s0x33a99889680ceefd:0xa9f911a1f5dda572!2m2!1d123.9415518!2d10.3402623!1m5!1m1!1s0x33a999f9a2431d03:0x4957877e437e6d01!2m2!1d123.9662371!2d10.2926005" class="btn_1 outline" target="_blank"><i class="icon_pin"></i> View on map</a></div>
+						<div class="text-center"><a href="https://www.google.com/maps/dir/University+of+San+Carlos+Talamban+Campus,+Gov.+M.+Cuenco+Avenue,+Cebu+City,+Cebu/Mactan+Doctors+Hospital-CMJredelosa,+Lapu-Lapu+City,+Cebu/@10.3181177,123.9155582,6976m/data=!3m1!1e3!4m13!4m12!1m5!1m1!1s0x33a99894d1b6ae25:0xc2d9b9e99316c59d!2m2!1d123.9115758!2d10.3540762!1m5!1m1!1s0x33a999f88ca2d461:0xbcd42a1c82d0693d!2m2!1d123.9670316!2d10.2901698" class="btn_1 outline" target="_blank"><i class="icon_pin"></i> View on map</a></div>
 					</div>
 				</aside>
 
@@ -252,7 +254,6 @@ $(document).ready( function() {
 
     var today = now.getFullYear()+"-"+(month)+"-"+(day) ;
 
-
    $('#datePicker').val(today);
    $('#datePicker').attr('min', today); 
 
@@ -277,6 +278,7 @@ $(document).ready( function() {
         var lname = $("#doc_lname").val();
         var clinstart = $("#clin_start").val();
         var clinend = $("#clin_end").val();
+
         date = date/1000;
 
 		var javaTime = date * 1000;
@@ -289,16 +291,11 @@ $(document).ready( function() {
 		} 
 		else
 		{
-			alert("Book Date and Time must be 12 hours earlier than the actual consultation please Change the date and book again");
-		}
-
-
-        
+			alert("Book Date and Time must be 12 hours earlier than the actual consultation. Please recheck before details before trying again.");
+		}   
     } else {
         alert("some fields are empty");
     }
-
 });
 });
 </script>
-

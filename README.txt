@@ -12,3 +12,18 @@ READ rules.txt for constant definitions
 
 Expected end date of project:
 October 12 2018
+
+User:
+
+username: testuser
+password: password
+
+Admin:
+
+username: admin
+password: admin
+
+Doctor:
+
+username: doctor
+password: password
