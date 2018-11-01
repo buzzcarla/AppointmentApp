@@ -42,7 +42,7 @@ if(isset($_GET['start']) && isset($_GET['end'])){
 		<div class="container">
 			<ul>
 				<li><a href="index.php">Home > </a></li>
-				<li><a href="list-2.php">Doctors' List > </a></li>
+				<li><a href="list-2.php?search=&radio_search=all">Doctors' List > </a></li>
 				<li>Booking</li>
 			</ul>
 		</div>
