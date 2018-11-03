@@ -1,5 +1,8 @@
 <!-- CONFIRM BOOKING PAGE -->
 <!DOCTYPE html>
+<?php
+	session_start();
+	?>
 <html lang="en">
 	<?php
 		require('head.php');

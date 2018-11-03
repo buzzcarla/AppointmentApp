@@ -23,10 +23,10 @@
                                 url: "https://rest.nexmo.com/sms/json",
                                 type: 'POST',
                                 data: {
-                                    api_key:'c65f2141 (Master)',
+                                    api_key:'c65f2141',
                                     api_secret:'r8Ou1cr1iTIaU0tT',
                                     to:val[0],
-                                    from:"NEXMO",
+                                    from:"FINDINGDOC",
                                     text:"In 1 hour you have a scheduled appointment of Dr."+val[1]+" "+val[2] // the message that will be sent to the users
                                 },
                                 success: function(res) {

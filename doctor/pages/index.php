@@ -56,7 +56,8 @@
                                         $query = "SELECT * FROM user
                                                   LEFT JOIN booking_list on booking_list.user_id = user.user_id
                                                   WHERE booking_list.doctor_id ='".$_SESSION['docid']."' AND booking_list.book_date >= DATE(NOW())
-                                                  Group BY booking_list.booking_id";
+                                                  Group BY booking_list.booking_id
+                                                  ORDER BY booking_list.booking_id DESC ";
                                         $res = mysqli_query($mysql,$query);
                                         $ctr= 0;
                                         if($res){
@@ -146,7 +147,7 @@
                     url: "https://rest.nexmo.com/sms/json",
                     type: 'POST',
                     data: {
-                        api_key:'c65f2141 (Master)',
+                        api_key:'c65f2141',
                         api_secret:'r8Ou1cr1iTIaU0tT',
                         to:res[2],
                         from:"FINDINGDOC",
