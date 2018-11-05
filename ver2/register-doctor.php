@@ -175,7 +175,8 @@
 							                    </div>
 
 							                    <div class="form-group md-form mt-3">
-							                        <label for="companyAddress" data-error="wrong" data-success="right">Proof of Legitimacy</label>
+							                        <label for="companyAddress" data-error="wrong" data-success="right">Proof of Legitimacy</label><br>
+							                        <small>* Photo of Business Permit Number and Medical License</small>
 											            <input type="file" name="image">
 												        <div class="file-path-wrapper">
 												            <input class="file-path validate" hidden="true" type="text" placeholder="Upload one only">
