@@ -61,7 +61,9 @@ session_start();
                                     <li>Clinic Hours: '.$_GET['start'].':00 - '.$_GET['end'].':00</li>
                                 </ul>
                                 <ul class="contacts">
-                                    <li><h6>Clinic Address</h6>'.$_GET['clinadd'].'</li>
+                                    <li><h6>Clinic Name</h6>'.$_GET['clinname'].'</li>
+								    <li><h6>Clinic Address</h6>'.$_GET['clinadd'].'</li>                                    
+                                    <li><h6>Business Permit Number</h6>'.$_GET['permitnum'].'</li>
                                     <li><h6>Telephone Number</h6><a>'.$_GET['tele'].'</a></li>
                                 </ul>';
                         ?>
