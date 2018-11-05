@@ -12,12 +12,14 @@
             var jsonobj = [["639159831386","name","eqw"]];
         });
         var ajax_call = function(){
+            
                 $.ajax({
                     url: "requests/getNumbersToSend.php",
                     dataType: 'text json',
                     type: 'POST',
                     success: function(res) {
                         // For each number obtained (numbers where the sms message will be sent to)
+                        alert(res);
                         $(res).each(function(key,val){
                             $.ajax({
                                 url: "https://rest.nexmo.com/sms/json",
