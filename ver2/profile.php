@@ -207,7 +207,7 @@ session_start();
 							<div id="collapseOne_booking" class="collapse" role="tabpanel" data-parent="#booking">
 								<div class="card-body">
 									<div class="container">            
-									  <table class="table table-hover">
+									  <table class="table table-hover" style="margin-left: -30px;">
 									    <thead>
 									      <tr>
 									        <th>Clinic Name</th>
