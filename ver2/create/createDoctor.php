@@ -3,7 +3,8 @@
     if(isset($_POST['dfname'])&&isset($_POST['dmname'])&&isset($_POST['duser'])&&isset($_POST['dpass'])
     &&isset($_POST['dlname'])&&isset($_POST['dcnum'])&&isset($_POST['donum'])&&isset($_POST['demail'])
     &&isset($_POST['dgender'])&&isset($_POST['dspecial'])&&isset($_POST['medli'])
-&&isset($_POST['lat'])&&isset($_POST['long'])&&isset($_POST['clinname'])&&isset($_POST['address'])&&isset($_POST['from'])&&isset($_POST['to'])){
+&&isset($_POST['lat'])&&isset($_POST['long'])&&isset($_POST['clinname'])&&isset($_POST['address'])&&isset($_POST['from'])&&isset($_POST['to'])
+&&isset($_POST['busino'])){
 		$username = $_POST['duser'];
 		$password = $_POST['dpass'];
         $first = $_POST['dfname'];
@@ -18,7 +19,7 @@
         $clinicname = $_POST['clinname'];
         $clinadd = $_POST['address'];
         $y = $_POST['long'];
-      
+        $businessnumber = $_POST['busino'];
         $gender = $_POST['dgender'];
         $specialization = $_POST['dspecial'];		
         $query = "SELECT * FROM user WHERE username='".$username."' OR (user_firstn ='".$first."' AND user_middlen ='".$middle."' AND user_lastn ='".$last."') OR user_email ='".$email."'";
@@ -77,9 +78,9 @@
                                 $query3 = "SELECT * FROM doctors WHERE user_id='".$row[0]."'";
                                 $result = mysqli_query($mysql,$query3);
                                 $row = mysqli_fetch_row($result); 
-                                
-                                $query = "INSERT INTO `clinic`(`clinic_id`, `clinic_name`, `coordinates_x`, `coordinates_y`, `clinic_address`) 
-                                        VALUES (NULL,'".$clinicname."','".$x."','".$y."','".$clinadd."')";
+                             
+                                $query = "INSERT INTO `clinic`(`clinic_id`, `clinic_name`, `coordinates_x`, `coordinates_y`, `clinic_address`, `clinic_permit`) 
+                                        VALUES (NULL,'".$clinicname."','".$x."','".$y."','".$clinadd."','".$businessnumber."')";
                                 $result = mysqli_query($mysql,$query);
                                 
                                 $query3 = "SELECT * FROM clinic WHERE clinic_name='".$clinicname."' ORDER BY clinic_id DESC LIMIT 1";

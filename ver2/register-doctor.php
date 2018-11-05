@@ -137,7 +137,9 @@
 							                    <div class="form-group md-form mt-3">
 							                        <label for="companyAddress" data-error="wrong" data-success="right">Medical License</label>
 							                        <input id="license" name="medli" type="text" class="form-control" placeholder="Medical License" required>
-							                    </div>
+													<label for="companyAddress" data-error="wrong" data-success="right">Business Permit No.</label>
+							                        <input id="businessno" name="busino" type="text" class="form-control" placeholder="Business Permit" required>
+											    </div>
 												
 							                    <button class="btn btn-indigo btn-rounded prevBtn float-left" type="button">Previous</button>
 							                    <button class="btn btn-indigo btn-rounded nextBtn float-right" type="button">Next</button>
