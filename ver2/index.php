@@ -29,7 +29,6 @@ session_start();
 	<div id="page">		 
 		<?php
 			require('header.php');			
-		
 		?>
 
 	<main>

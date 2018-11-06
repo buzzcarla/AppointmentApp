@@ -58,7 +58,8 @@ session_start();
                                     <img style="max-height: 100px; width: auto;" src="uploads/'.$_GET['profpic'].'">
                                 </div>
                                 <ul class="statistic">
-                                    <li>Clinic Hours: '.$_GET['start'].':00 - '.$_GET['end'].':00</li>
+                                    <li>Clinic Hours: '.$_GET['start'].' - '.$_GET['end'].'</li><br>
+                                    <li style="background-color: red;">Medical License: '.$_GET['medlicense'].'</li>
                                 </ul>
                                 <ul class="contacts">
                                     <li><h6>Clinic Name</h6>'.$_GET['clinname'].'</li>
