@@ -19,13 +19,14 @@
         $clinicname = $_POST['clinname'];
         $clinadd = $_POST['address'];
         $y = $_POST['long'];
+        $license = $_POST['medli'];
         $businessnumber = $_POST['busino'];
         $gender = $_POST['dgender'];
         $specialization = $_POST['dspecial'];		
         $query = "SELECT * FROM user WHERE username='".$username."' OR (user_firstn ='".$first."' AND user_middlen ='".$middle."' AND user_lastn ='".$last."') OR user_email ='".$email."'";
 		$result = mysqli_query($mysql,$query);
         
-       
+    
 
 
 		if (mysqli_fetch_row($result)){

@@ -102,7 +102,7 @@ session_start();
 								LEFT JOIN doctors on user.user_id = doctors.user_id
 								LEFT JOIN location_clinic on doctors.doctor_id = location_clinic.doctor_id
 								LEFT JOIN clinic on location_clinic.clinic_id = clinic.clinic_id
-								where user.user_level = '1'
+								where user.user_level = '1' AND user.user_status = '1'
 								Group BY user.user_id
 								ORDER BY user.user_id DESC
 								LIMIT 5 
@@ -116,7 +116,7 @@ session_start();
 									echo '
 									
 										<div class="item">
-											<a href="detail-page-2.php?docid='.$row[12].'&userid='.$_SESSION['userid'].'&clinname='.$row[25].'&clinadd='.$row[28].'&docfname='.$row[1].'&docmname='.$row[2].'&doclname='.$row[3].'&start='.$row[21].'&end='.$row[22].'&mobile='.$row[8].'&tele='.$row[9].'&profpic='.$row[17].'.&specialization='.$row[14].'&permitnum='.$row[29].'">
+											<a href="detail-page-2.php?docid='.$row[12].'&userid='.$_SESSION['userid'].'&clinname='.$row[25].'&clinadd='.$row[28].'&docfname='.$row[1].'&docmname='.$row[2].'&doclname='.$row[3].'&start='.$row[21].'&end='.$row[22].'&mobile='.$row[8].'&tele='.$row[9].'&profpic='.$row[17].'.&specialization='.$row[14].'&permitnum='.$row[29].'&medlicense='.$row[15].'">
 												<div class="views"><i class="icon-eye-7"></i>140</div>
 												<div class="title">
 													<h4>Dr.'.$row[1].' '.$row[3].'</em></h4>
@@ -128,7 +128,7 @@ session_start();
 									echo '
 									
 										<div class="item">
-											<a href="detail-page-2.php?docid='.$row[12].'&userid='.$_SESSION['userid'].'&clinname='.$row[25].'&clinadd='.$row[28].'&docfname='.$row[1].'&docmname='.$row[2].'&doclname='.$row[3].'&start='.$row[21].'&end='.$row[22].'&mobile='.$row[8].'&tele='.$row[9].'&profpic='.$row[17].'.&specialization='.$row[14].'&permitnum='.$row[29].'">
+											<a href="detail-page-2.php?docid='.$row[12].'&userid='.$_SESSION['userid'].'&clinname='.$row[25].'&clinadd='.$row[28].'&docfname='.$row[1].'&docmname='.$row[2].'&doclname='.$row[3].'&start='.$row[21].'&end='.$row[22].'&mobile='.$row[8].'&tele='.$row[9].'&profpic='.$row[17].'.&specialization='.$row[14].'&permitnum='.$row[29].'&medlicense='.$row[15].'">
 												<div class="views"><i class="icon-eye-7"></i>140</div>
 												<div class="title">
 												<h4>Dr.'.$row[1].' '.$row[3].'</em></h4>
@@ -145,7 +145,7 @@ session_start();
 									echo '
 									
 										<div class="item">
-											<a href="detail-page-2.php?docid='.$row[12].'&userid=-1&clinname='.$row[25].'&clinadd='.$row[28].'&docfname='.$row[1].'&docmname='.$row[2].'&doclname='.$row[3].'&start='.$row[21].'&end='.$row[22].'&mobile='.$row[8].'&tele='.$row[9].'&profpic='.$row[17].'.&specialization='.$row[14].'">
+											<a href="detail-page-2.php?docid='.$row[12].'&userid=-1&clinname='.$row[25].'&clinadd='.$row[28].'&docfname='.$row[1].'&docmname='.$row[2].'&doclname='.$row[3].'&start='.$row[21].'&end='.$row[22].'&mobile='.$row[8].'&tele='.$row[9].'&profpic='.$row[17].'.&specialization='.$row[14].'&permitnum='.$row[29].'&medlicense='.$row[15].'">
 												<div class="views"><i class="icon-eye-7"></i>140</div>
 												<div class="title">
 													<h4>Dr.'.$row[1].' '.$row[3].'</em></h4>
@@ -157,7 +157,7 @@ session_start();
 									echo '
 									
 										<div class="item">
-											<a href="detail-page-2.php?docid='.$row[12].'&userid=-1&clinname='.$row[25].'&clinadd='.$row[28].'&docfname='.$row[1].'&docmname='.$row[2].'&doclname='.$row[3].'&start='.$row[21].'&end='.$row[22].'&mobile='.$row[8].'&tele='.$row[9].'&profpic='.$row[17].'.&specialization='.$row[14].'">
+											<a href="detail-page-2.php?docid='.$row[12].'&userid=-1&clinname='.$row[25].'&clinadd='.$row[28].'&docfname='.$row[1].'&docmname='.$row[2].'&doclname='.$row[3].'&start='.$row[21].'&end='.$row[22].'&mobile='.$row[8].'&tele='.$row[9].'&profpic='.$row[17].'.&specialization='.$row[14].'&permitnum='.$row[29].'&medlicense='.$row[15].'">
 												<div class="views"><i class="icon-eye-7"></i>140</div>
 												<div class="title">
 												<h4>Dr.'.$row[1].' '.$row[3].'</em></h4>
