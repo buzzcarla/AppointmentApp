@@ -68,7 +68,11 @@ session_start();
                                     <li><h6>Telephone Number</h6><a>'.$_GET['tele'].'</a></li>
                                 </ul>';
                         ?>
-						<div class="text-center"><a href="https://www.google.com/maps/dir/University+of+San+Carlos+Talamban+Campus,+Gov.+M.+Cuenco+Avenue,+Cebu+City,+Cebu/Mactan+Doctors+Hospital-CMJredelosa,+Lapu-Lapu+City,+Cebu/@10.3181177,123.9155582,6976m/data=!3m1!1e3!4m13!4m12!1m5!1m1!1s0x33a99894d1b6ae25:0xc2d9b9e99316c59d!2m2!1d123.9115758!2d10.3540762!1m5!1m1!1s0x33a999f88ca2d461:0xbcd42a1c82d0693d!2m2!1d123.9670316!2d10.2901698" class="btn_1 outline" target="_blank"><i class="icon_pin"></i> View on map</a></div>
+						<div class="text-center"><?php 
+						$clin = str_replace(" ","+",$_GET['clinname']);
+						$to = str_replace(" ","+",$_GET['clinadd']);
+						$final =  $clin . "" . $to;
+						echo '<a href="https://www.google.com/maps/dir/University+of+San+Carlos+Talamban+Campus,+Gov.+M.+Cuenco+Avenue,+Cebu+City,+Cebu/'.$final.'" class="btn_1 outline" target="_blank"><i class="icon_pin"></i> View on map</a>'; ?></div>
 					</div>
 				</aside>
 
