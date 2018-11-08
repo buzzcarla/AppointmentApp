@@ -65,7 +65,7 @@ session_start();
 						LEFT JOIN location_clinic ON clinic.clinic_id = location_clinic.clinic_id
 						LEFT JOIN doctors ON location_clinic.doctor_id = doctors.doctor_id
 						LEFT JOIN user ON doctors.user_id = user.user_id
-						WHERE clinic_name LIKE'%".$searchname."%' OR clinic_address LIKE '%".$searchname."%'
+						WHERE (clinic_name LIKE'%".$searchname."%' OR clinic_address LIKE '%".$searchname."%') AND user.user_status = 1
 						GROUP BY user.user_id";
 		
 				$res = mysqli_query($mysql,$query);
@@ -107,7 +107,8 @@ session_start();
 							LEFT JOIN doctors on user.user_id = doctors.user_id
 							LEFT JOIN location_clinic on doctors.doctor_id = location_clinic.doctor_id
 							LEFT JOIN clinic on location_clinic.clinic_id = clinic.clinic_id
-							WHERE CONCAT(user.user_firstn,' ',user.user_lastn) LIKE '%".$searchname."%' AND user.user_level = '1'";
+							WHERE (CONCAT(user.user_firstn,' ',user.user_lastn) LIKE '%".$searchname."%') AND user.user_level = '1' AND user.user_status = 1
+							GROUP BY user.user_id";
 			
 					$res = mysqli_query($mysql,$query);
 					if($res){
@@ -145,11 +146,11 @@ session_start();
 				
 			} else if($radiosearch == "all"){
 				$query = "SELECT * FROM user 
-						LEFT JOIN doctors on user.user_id = doctors.user_id
-						LEFT JOIN location_clinic on doctors.doctor_id = location_clinic.doctor_id
-                        LEFT JOIN clinic on location_clinic.clinic_id = clinic.clinic_id
-						WHERE CONCAT(user.user_firstn,' ',user.user_lastn) LIKE '%".$searchname."%' AND user.user_level = '1'
-						GROUP BY user.user_id";
+							LEFT JOIN doctors on user.user_id = doctors.user_id
+							LEFT JOIN location_clinic on doctors.doctor_id = location_clinic.doctor_id
+							LEFT JOIN clinic on location_clinic.clinic_id = clinic.clinic_id
+							WHERE (CONCAT(user.user_firstn,' ',user.user_lastn) LIKE '%".$searchname."%') AND user.user_level = '1' AND user.user_status = 1
+							GROUP BY user.user_id";
 		
 				$res = mysqli_query($mysql,$query);
 				if($res){
@@ -179,11 +180,11 @@ session_start();
 				if($searchname!="" && $res == null)
 				{
 					$query2 = "SELECT * FROM clinic 
-					LEFT JOIN location_clinic ON clinic.clinic_id = location_clinic.clinic_id
-					LEFT JOIN doctors ON location_clinic.doctor_id = doctors.doctor_id
-					LEFT JOIN user ON doctors.user_id = user.user_id
-					WHERE clinic_name LIKE'%".$searchname."%' OR clinic_address LIKE '%".$searchname."%'
-					GROUP BY clinic.clinic_name";
+						LEFT JOIN location_clinic ON clinic.clinic_id = location_clinic.clinic_id
+						LEFT JOIN doctors ON location_clinic.doctor_id = doctors.doctor_id
+						LEFT JOIN user ON doctors.user_id = user.user_id
+						WHERE (clinic_name LIKE'%".$searchname."%' OR clinic_address LIKE '%".$searchname."%') AND user.user_status = 1
+						GROUP BY user.user_id";
 		
 					$res2 = mysqli_query($mysql,$query2);
 					if($res2){
