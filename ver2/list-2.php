@@ -165,7 +165,8 @@ session_start();
 LEFT JOIN doctors on user.user_id = doctors.user_id
 LEFT JOIN location_clinic on doctors.doctor_id = location_clinic.doctor_id
 LEFT JOIN clinic on location_clinic.clinic_id = clinic.clinic_id
-WHERE (doctors.doc_specialization LIKE '%".$searchname."%') AND user.user_level = '1' AND user.user_status = 1
+WHERE ((doctors.doc_specialization LIKE '%".$searchname."%') OR (user.user_firstn LIKE '%".$searchname."%') OR (clinic.clinic_name LIKE '%".$searchname."%') OR (clinic.clinic_address LIKE '%".$searchname."%')) 
+AND user.user_level = '1' AND user.user_status = 1
 GROUP BY user.user_id";
 		
 				$res = mysqli_query($mysql,$query);
