@@ -125,10 +125,6 @@ session_start();
 									<input class="btn_1 loginbut" type="submit" value="Login">
 								</div>
 							</div>
-							<div class="box_login" style="margin-bottom: 20px; text-align: center;">
-								<small>Forgot your password?</small>
-								<a href="#0" class="forgot"><small>Click Here.</small></a>
-							</div>
 						</div>
 					</form>
 					<p style="text-align: -webkit-center;" class="text-center link_bright">Do not have an account yet? <a href="register.php"><strong>Register now!</strong></a></p>

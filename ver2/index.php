@@ -79,7 +79,7 @@ session_start();
 					<div class="box_feat" id="icon_2">
 						<span></span>
 						<h3>View profile</h3>
-						<p>Usu habeo equidem sanctus no. Suas summo id sed, erat erant oporteat cu pri. In eum omnes molestie.</p>
+						<p>Usu habeo equidem sanctus no.` Suas summo id sed, erat erant oporteat cu pri. In eum omnes molestie.</p>
 					</div>
 				</div>
 				<div class="col-lg-4">
@@ -91,7 +91,7 @@ session_start();
 			</div>
 		</div>
 		<div class="bg_color_1" >
-			<div class="container margin_120_95" style="margin-top: -120px;">
+			<div class="container margin_120_95" style="margin-top: -70px;">
 				<div class="main_title">
 					<h2>Featured doctors</h2>
 					<p>Usu habeo equidem sanctus no. Suas summo id sed, erat erant oporteat cu pri.</p>

@@ -37,7 +37,11 @@ session_start();
 		<div id="results">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-6">
+					<div class="col-md-12 row">
+						<form-group class="row" style="display: -webkit-inline-box; padding-left: 50px;">
+ 							<input type="text" class="form-control" placeholder="Enter Search Here...">
+							<button class="" style="margin-left: 5px;vertical-align: sub; padding: 8px;background-color: white;border: none; border-radius: 0.2em;">Submit</button>
+						</form-group>
 					</div>
 				</div>
 			</div>
