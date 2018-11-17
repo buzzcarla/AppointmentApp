@@ -12,7 +12,7 @@
 <body>
 	<!-- Loading icon with animation before the page finished loading -->
 	<div id="preloader" class="Fixed">
-		<div data-loader="circle-side"></div>
+		<div  id="preloader1" data-loader="circle-side"></div>
 	</div>
 
 	<div id="page">		
@@ -193,7 +193,7 @@
 							                    </div>
 							                    <div class="checkbox-holder text-left">
 													<div class="checkbox_2">
-														<input type="checkbox" value="accept_2" id="check_2" name="check_2" checked>
+														<input type="checkbox" value="accept_2" id="check_2" name="check_2" required>
 														<label for="check_2"><span>By clicking submit and signing up to this website, I agree to have read and understood the <a href="#">terms and agreements.</a></span></label>
 													</div>
 												</div>
@@ -233,6 +233,61 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAXvaLsga6mWXFOGi9ttJXGh1FmvdowzFw&callback=initMap"
     async defer></script>
 
+	<?php
+		if(isset($_GET['register_suc'])){
+			if ($_GET['register_suc'] == -1) : ?>
+			<script type='text/javascript'>
+				//Code runs ONLY if $test_details['done_test'] is empty
+				$(document).ready(function(){
+					setTimeout(function () {
+						alert("Wrong File Extension");
+					}, 3000);
+				});
+				
+			
+	</script>
+	<?php endif;}?>
+	<?php
+		if(isset($_GET['register_suc'])){
+			if ($_GET['register_suc'] == 0) : ?>
+			<script type='text/javascript'>
+				//Code runs ONLY if $test_details['done_test'] is empty
+				$(document).ready(function(){
+					setTimeout(function () {
+						alert("Something Went Wrong check the fields and try again");
+					}, 3000);
+				});
+				
+			
+	</script>
+	<?php endif;}?>
+	<?php
+		if(isset($_GET['register_suc'])){
+			if ($_GET['register_suc'] == -3) : ?>
+			<script type='text/javascript'>
+				//Code runs ONLY if $test_details['done_test'] is empty
+				$(document).ready(function(){
+					setTimeout(function () {
+						alert("File size too large must be less than 5mb");
+					}, 3000);
+				});
+	</script>
+	<?php endif;}?>
+	<?php
+		if(isset($_GET['register_suc'])){
+			if ($_GET['register_suc'] == -2) : ?>
+			<script type='text/javascript'>
+				//Code runs ONLY if $test_details['done_test'] is empty
+				$(document).ready(function(){
+					setTimeout(function () {
+						alert("File Error Encoutered: Check if File is Corrupted");
+					}, 3000);
+				});
+	</script>
+	<?php endif;}?>
+	
+
+	
 </body>
 </html>
 <!-- Same as register.php functions -->

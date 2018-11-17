@@ -16,9 +16,11 @@ session_start();
 	} else {
 		$userid = -1;
 	}
-
-	$searchname = $_GET['search'];
-	$radiosearch= $_GET['radio_search'];		
+	if(isset($_GET['search']) && isset($_GET['radio_search'])){
+		$searchname = $_GET['search'];
+		$radiosearch= $_GET['radio_search'];
+	}
+			
 ?>
 
 <body>
@@ -38,10 +40,31 @@ session_start();
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12 row">
-						<form-group class="row" style="display: -webkit-inline-box; padding-left: 50px;">
- 							<input type="text" class="form-control" placeholder="Enter Search Here...">
-							<button class="" style="margin-left: 5px;vertical-align: sub; padding: 8px;background-color: white;border: none; border-radius: 0.2em;">Submit</button>
-						</form-group>
+						<form method="GET" action="list-2.php">
+							<div id="custom-search-input">
+								<div class="input-group">
+									<?php 
+
+										echo '<input type="text" name="search" class=" search-query" value="'.$_GET['search'].'" placeholder="Ex. Doctor Name, Clinic Address ...">';
+									 ?>
+									<input type="submit" class="btn_search" value="Search">
+								</div>
+								<ul>
+									<li>
+										<input type="radio" id="all" name="radio_search" value="all" checked>
+										<label for="all">All</label>
+									</li>
+									<li>
+										<input type="radio" id="doctor" name="radio_search" value="doctor">
+										<label for="doctor">Doctor</label>
+									</li>
+									<li>
+										<input type="radio" id="clinic" name="radio_search" value="clinic">
+										<label for="clinic">Clinic</label>
+									</li>
+								</ul>
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>
@@ -166,12 +189,12 @@ session_start();
 				
 			} else if($radiosearch == "all"){
 				$query = "SELECT * FROM user 
-LEFT JOIN doctors on user.user_id = doctors.user_id
-LEFT JOIN location_clinic on doctors.doctor_id = location_clinic.doctor_id
-LEFT JOIN clinic on location_clinic.clinic_id = clinic.clinic_id
-WHERE ((doctors.doc_specialization LIKE '%".$searchname."%') OR (user.user_firstn LIKE '%".$searchname."%') OR (clinic.clinic_name LIKE '%".$searchname."%') OR (clinic.clinic_address LIKE '%".$searchname."%')) 
-AND user.user_level = '1' AND user.user_status = 1
-GROUP BY user.user_id";
+							LEFT JOIN doctors on user.user_id = doctors.user_id
+							LEFT JOIN location_clinic on doctors.doctor_id = location_clinic.doctor_id
+							LEFT JOIN clinic on location_clinic.clinic_id = clinic.clinic_id
+							WHERE ((doctors.doc_specialization LIKE '%".$searchname."%') OR (CONCAT(user.user_firstn,' ',user.user_lastn) LIKE '%".$searchname."%') OR (clinic.clinic_name LIKE '%".$searchname."%') OR (clinic.clinic_address LIKE '%".$searchname."%')) 
+							AND user.user_level = '1' AND user.user_status = 1
+							GROUP BY user.user_id";
 		
 				$res = mysqli_query($mysql,$query);
 				if($res){

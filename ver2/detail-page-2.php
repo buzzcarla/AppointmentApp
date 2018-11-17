@@ -97,27 +97,27 @@ session_start();
 											<ul class="time_select">
 												<li>
 													<input type="radio" id="radio1" name="radio_time" value="09:30" onclick="updateTime(this)">
-													<label for="radio1">09.30am</label>
+													<label id="radio11" for="radio1">09.30am</label>
 												</li>
 												<li>
 													<input type="radio" id="radio2" name="radio_time" value="10:00" onclick="updateTime(this)">
-													<label for="radio2">10.00am</label>
+													<label id="radio22" for="radio2">10.00am</label>
 												</li>
 												<li>
 													<input type="radio" id="radio3" name="radio_time" value="10:30" onclick="updateTime(this)">
-													<label for="radio3">10.30am</label>
+													<label id="radio33"  for="radio3">10.30am</label>
 												</li>
 												<li>
 													<input type="radio" id="radio4" name="radio_time" value="11:00" onclick="updateTime(this)">
-													<label for="radio4">11.00am</label>
+													<label id="radio44"  for="radio4">11.00am</label>
 												</li>
 												<li>
 													<input type="radio" id="radio5" name="radio_time" value="11:30" onclick="updateTime(this)">
-													<label for="radio5">11.30am</label>
+													<label id="radio55"  for="radio5">11.30am</label>
 												</li>
 												<li>
 													<input type="radio" id="radio6" name="radio_time" value="12:00" onclick="updateTime(this)">
-													<label for="radio6">12.00pm</label>
+													<label id="radio66"  for="radio6">12.00pm</label>
 												</li>
 											</ul>
 											<input type="text" id="booktime" hidden></input>
@@ -126,27 +126,27 @@ session_start();
 											<ul class="time_select">
 												<li>
 													<input type="radio" id="radio7" name="radio_time" value="13:30" onclick="updateTime(this)">
-													<label for="radio7">01.30pm</label>
+													<label id="radio77"  for="radio7">01.30pm</label>
 												</li>
 												<li>
 													<input type="radio" id="radio8" name="radio_time" value="14:00" onclick="updateTime(this)">
-													<label for="radio8">02.00pm</label>
+													<label id="radio88"  for="radio8">02.00pm</label>
 												</li>
 												<li>
 													<input type="radio" id="radio9" name="radio_time" value="14:30" onclick="updateTime(this)">
-													<label for="radio9">02.30pm</label>
+													<label id="radio99"  for="radio9">02.30pm</label>
 												</li>
 												<li>
 													<input type="radio" id="radio10" name="radio_time" value="15:00" onclick="updateTime(this)">
-													<label for="radio10">03.00pm</label>
-												</li>
+													<label id="radio1010"  for="radio10">03.00pm</label>
+												</li> 
 												<li>
 													<input type="radio" id="radio11" name="radio_time" value="15:30" onclick="updateTime(this)">
-													<label for="radio11">03.30pm</label>
+													<label id="radio1111"  for="radio11">03.30pm</label>
 												</li>
 												<li>
 													<input type="radio" id="radio12" name="radio_time" value="16:00" onclick="updateTime(this)">
-													<label for="radio12">04.00pm</label>
+													<label id="radio1212"  for="radio12">04.00pm</label>
 												</li>
 											</ul>
 										</div>
@@ -254,6 +254,45 @@ if (typeof jQuery == 'undefined') {
 }
 
 $(document).ready( function() {
+	$('#datePicker').ready(function() 
+	{
+		$.ajax({
+			url: "requests/checkConflicts.php",	// where the data is posted or sent
+			type: 'POST',
+			dataType: 'text json', 
+			data: {
+				datesel: $('#datePicker').val(),
+				docid: $('#doc_id').val()
+			},
+			success: function(res) {		// If the data is successfully posted (user data is sent to db)
+				for(var i =0 ;i <12; i++)
+				{
+					if(res[i] == 1)
+					{
+						var radid = "#radio"+(i+1);
+						$(radid).attr('disabled', true);
+						radid = radid+(i+1);
+						$(radid).css('background-color', 'grey');
+
+						console.log(radid);
+					} 
+					else
+					{
+						var radid = "#radio"+(i+1);
+						$(radid).attr('disabled', false);
+						radid = radid+(i+1);
+						$(radid).removeAttr("style");
+
+						console.log(radid);
+					}
+				
+				}
+				console.log(res);
+			
+			}
+		});
+	});
+
     var now = new Date();
  
     var day = ("0" + now.getDate()).slice(-2);
@@ -263,7 +302,43 @@ $(document).ready( function() {
 
    $('#datePicker').val(today);
    $('#datePicker').attr('min', today); 
+   $('#datePicker').change(function() {
+		$.ajax({
+			url: "requests/checkConflicts.php",	// where the data is posted or sent
+			type: 'POST',
+			dataType: 'text json', 
+			data: {
+				datesel: $('#datePicker').val(),
+				docid: $('#doc_id').val()
+			},
+			success: function(res) {		// If the data is successfully posted (user data is sent to db)
+				for(var i =0 ;i <12; i++)
+				{
+					if(res[i] == 1)
+					{
+						var radid = "#radio"+(i+1);
+						$(radid).attr('disabled', true);
+						radid = radid+(i+1);
+						$(radid).css('background-color', 'grey');
 
+						console.log(radid);
+					} 
+					else
+					{
+						var radid = "#radio"+(i+1);
+						$(radid).attr('disabled', false);
+						radid = radid+(i+1);
+						$(radid).removeAttr("style");
+
+						console.log(radid);
+					}
+				
+				}
+				console.log(res);
+			
+			}
+		});
+	});
    $( ".book" ).click(function() {
 	
     if($("#datePicker").val() && $("#booktime").val() && $("#visit_type").val()){

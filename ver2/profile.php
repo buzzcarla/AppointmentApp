@@ -229,15 +229,38 @@ session_start();
 												$res = mysqli_query($mysql,$query);
 												$ctr= 0;
 												while($row = mysqli_fetch_row($res)){
+													if($row[16] == 2){
+														echo '
+														
+															<tr class="odd gradeX">
+																	<td>'.$row[45].'</td>
+																	<td>'.$row[48].'</td>
+																	<td>'.$row[15].'</td>
+																	<td >Accepted</td>
+																	
+																</tr>';
+													} else if($row[16] == 1){
+														echo '
+														
+															<tr class="odd gradeX">
+																	<td>'.$row[45].'</td>
+																	<td>'.$row[48].'</td>
+																	<td>'.$row[15].'</td>
+																	<td >Pending</td>
+																	
+																</tr>';
+													} else if($row[16] == 1){
+														echo '
+														
+															<tr class="odd gradeX">
+																	<td>'.$row[45].'</td>
+																	<td>'.$row[48].'</td>
+																	<td>'.$row[15].'</td>
+																	<td >Declined</td>
+																	
+																</tr>';
+													}
 													
-													echo '
-												
-													<tr class="odd gradeX">
-															<td>'.$row[45].'</td>
-															<td>'.$row[48].'</td>
-															<td>'.$row[15].'</td>
-															<td >'.$row[17].'</td>
-														</tr>';
 												}
 											?>
 									    </tbody>

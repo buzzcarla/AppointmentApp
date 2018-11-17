@@ -151,7 +151,19 @@ session_start();
 	<script src="js/jquery-2.2.4.min.js"></script>
 	<script src="js/common_scripts.min.js"></script>
 	<script src="js/functions.js"></script>
+	<?php
+	if(isset($_GET['error_status'])){
+		if ($_GET['error_status'] == 4) : ?>
+   <script type='text/javascript'>
+	   //Code runs ONLY if $test_details['done_test'] is empty
+	   $(document).ready(function(){
+					setTimeout(function () {
+						alert("You have to login first before booking");
+					}, 3000);
+				});
      
+   </script>
+<?php endif; }?>
 
 
 </body>

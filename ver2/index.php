@@ -194,10 +194,13 @@ session_start();
 	if(isset($_GET['register_suc'])){
 		if ($_GET['register_suc'] == 1) : ?>
    <script type='text/javascript'>
-       //Code runs ONLY if $test_details['done_test'] is empty
-       $(document).ready(function(){
-         alert("Succesful Register please wait for the activation of account");
-       });
+	   //Code runs ONLY if $test_details['done_test'] is empty
+	   $(document).ready(function(){
+					setTimeout(function () {
+						alert("Succesful Register please wait for the activation of account");
+					}, 3000);
+				});
+     
    </script>
 <?php endif; }?>
 

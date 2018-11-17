@@ -5,7 +5,7 @@
 
 require('head.php');
 if(!isset($_GET['timestamp']) || !isset($_SESSION['userid'])){
-	header("Location: index.php");
+	header("Location: login.php?error_status=4");
 }
 $timestamp = intval($_GET['timestamp']);
 $date = date('Y/m/d',$timestamp);
@@ -86,7 +86,7 @@ if(isset($_GET['start']) && isset($_GET['end'])){
 						<div class="col-md-6 col-sm-6">
 							<div class="form-group">
 								<label>Contact Number</label>
-								<input type="text" id="telephone_booking" value="'.$_SESSION['tele'].'"   name="telephone_booking" class="form-control" placeholder="00 44 678 94329">
+								<input type="text" id="telephone_booking" value="'.$_SESSION['mobile'].'"   name="telephone_booking" class="form-control" placeholder="00 44 678 94329">
 							</div>
 						</div>
 					</div>';
