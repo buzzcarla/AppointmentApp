@@ -12,8 +12,8 @@ session_start();
 	}
 	
 	if(isset($_POST['user'])&&$_POST['pass']){
-		
-	 	$query = "SELECT * FROM user where username = '".$_POST['user']."' AND user_password='".$_POST['pass']."' AND user_status = '1' LIMIT 1";
+		$password = md5($_POST['pass']);
+	 	$query = "SELECT * FROM user where username = '".$_POST['user']."' AND user_password='".$password."' AND user_status = '1' LIMIT 1";
 		$res = mysqli_query($mysql,$query);
 		if ($res){
 			$row = mysqli_fetch_row($res); 

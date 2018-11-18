@@ -115,50 +115,64 @@
     <script>
         var fullname;
         var e;
+        var prev;
     $(document).ready(function() {
         $('#dataTables-example').DataTable({
             responsive: true
         });
     });
+    $('select').on('focus',function(){
+        prev = this.value;
+
+    });
     $('select').on("change",function(){
         var newStat = this.value;
-        $.ajax({
-            url: "../../ver2/requests/updateBookStat.php",
-            type: 'POST',
-            dataType: 'text json', 
-            data: {
-                stat: newStat
-            },
-            success: function(res) {
-                console.log(res[0]);
+        
+        console.log(prev);
+        var conf = confirm("Are you sure you want to change booking status?");
+        if(conf)
+        {
+            $.ajax({
+                url: "../../ver2/requests/updateBookStat.php",
+                type: 'POST',
+                dataType: 'text json', 
+                data: {
+                    stat: newStat
+                },
+                success: function(res) {
+                    console.log(res[0]);
 
-                var result;
-                if(res[3] == 1)
-                {
-                    result = "was changed to Pending";
-                } else if(res[3] == 2)
-                {
-                    result = "was Accepted";
-                } else if(res[3] == 4)
-                {
-                    result = "was DECLINED";
-                }
-                $.ajax({
-                    url: "https://rest.nexmo.com/sms/json",
-                    type: 'POST',
-                    data: {
-                        api_key:'c65f2141',
-                        api_secret:'r8Ou1cr1iTIaU0tT',
-                        to:res[2],
-                        from:"FINDINGDOC",
-                        text:"Dear Mr/Ms "+res[0]+" your booking "+result // the message that will be sent to the users
-                    },
-                    success: function(res) {
-                        console.log(res);   // check to see if the message with the values are successfullty obtained and sms is sent
+                    var result;
+                    if(res[3] == 1)
+                    {
+                        result = "was changed to Pending";
+                    } else if(res[3] == 2)
+                    {
+                        result = "was Accepted";
+                    } else if(res[3] == 4)
+                    {
+                        result = "was DECLINED";
                     }
-                });
-            }
-        });
+                    $.ajax({
+                        url: "https://rest.nexmo.com/sms/json",
+                        type: 'POST',
+                        data: {
+                            api_key:'c65f2141',
+                            api_secret:'r8Ou1cr1iTIaU0tT',
+                            to:res[2],
+                            from:"FINDINGDOC",
+                            text:"Dear Mr/Ms "+res[0]+" your booking "+result // the message that will be sent to the users
+                        },
+                        success: function(res) {
+                            console.log(res);   // check to see if the message with the values are successfullty obtained and sms is sent
+                        }
+                    });
+                }
+            });
+        } else{
+            this.value = prev;
+        }
+       
     });       
     </script>
 </body>

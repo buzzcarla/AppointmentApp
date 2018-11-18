@@ -14,7 +14,7 @@
         $gender = $_POST['dgender'];      
 		$query = "SELECT * FROM user WHERE username='".$username."' OR (user_firstn ='".$first."' AND user_middlen ='".$middle."' AND user_lastn ='".$last."') OR user_email ='".$email."'";
 		$result = mysqli_query($mysql,$query);
-
+        $password = md5($password);
         if (mysqli_fetch_row($result)){
             echo json_encode(mysqli_fetch_row($result));
            // echo 'waht';
