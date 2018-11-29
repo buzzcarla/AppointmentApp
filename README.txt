@@ -5,9 +5,6 @@ SMS Api (NEXMO) and Google Maps API
 PHP 7
 Bootstrap 4
 
-Authors:
-Lee, J
-Lavador, L
 
 Development start:
 June 10, 2018

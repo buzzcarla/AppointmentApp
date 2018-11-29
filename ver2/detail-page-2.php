@@ -58,14 +58,21 @@ session_start();
                                     <img style="max-height: 100px; width: auto;" src="uploads/'.$_GET['profpic'].'">
                                 </div>
                                 <ul class="statistic">
-                                    <li>Clinic Hours: '.$_GET['start'].':00 - '.$_GET['end'].':00</li>
+                                    <li>Clinic Hours: '.$_GET['start'].' - '.$_GET['end'].'</li><br>
+                                    <li style="background-color: red;">Medical License: '.$_GET['medlicense'].'</li>
                                 </ul>
                                 <ul class="contacts">
-                                    <li><h6>Clinic Address</h6>'.$_GET['clinadd'].'</li>
+                                    <li><h6>Clinic Name</h6>'.$_GET['clinname'].'</li>
+								    <li><h6>Clinic Address</h6>'.$_GET['clinadd'].'</li>                                    
+                                    <li><h6>Business Permit Number</h6>'.$_GET['permitnum'].'</li>
                                     <li><h6>Telephone Number</h6><a>'.$_GET['tele'].'</a></li>
                                 </ul>';
                         ?>
-						<div class="text-center"><a href="https://www.google.com/maps/dir/University+of+San+Carlos+Talamban+Campus,+Gov.+M.+Cuenco+Avenue,+Cebu+City,+Cebu/Mactan+Doctors+Hospital-CMJredelosa,+Lapu-Lapu+City,+Cebu/@10.3181177,123.9155582,6976m/data=!3m1!1e3!4m13!4m12!1m5!1m1!1s0x33a99894d1b6ae25:0xc2d9b9e99316c59d!2m2!1d123.9115758!2d10.3540762!1m5!1m1!1s0x33a999f88ca2d461:0xbcd42a1c82d0693d!2m2!1d123.9670316!2d10.2901698" class="btn_1 outline" target="_blank"><i class="icon_pin"></i> View on map</a></div>
+						<div class="text-center"><?php 
+						$clin = str_replace(" ","+",$_GET['clinname']);
+						$to = str_replace(" ","+",$_GET['clinadd']);
+						$final =  $clin . "" . $to;
+						echo '<a href="https://www.google.com/maps/dir/University+of+San+Carlos+Talamban+Campus,+Gov.+M.+Cuenco+Avenue,+Cebu+City,+Cebu/'.$final.'" class="btn_1 outline" target="_blank"><i class="icon_pin"></i> View on map</a>'; ?></div>
 					</div>
 				</aside>
 
@@ -90,27 +97,27 @@ session_start();
 											<ul class="time_select">
 												<li>
 													<input type="radio" id="radio1" name="radio_time" value="09:30" onclick="updateTime(this)">
-													<label for="radio1">09.30am</label>
+													<label id="radio11" for="radio1">09.30am</label>
 												</li>
 												<li>
 													<input type="radio" id="radio2" name="radio_time" value="10:00" onclick="updateTime(this)">
-													<label for="radio2">10.00am</label>
+													<label id="radio22" for="radio2">10.00am</label>
 												</li>
 												<li>
 													<input type="radio" id="radio3" name="radio_time" value="10:30" onclick="updateTime(this)">
-													<label for="radio3">10.30am</label>
+													<label id="radio33"  for="radio3">10.30am</label>
 												</li>
 												<li>
 													<input type="radio" id="radio4" name="radio_time" value="11:00" onclick="updateTime(this)">
-													<label for="radio4">11.00am</label>
+													<label id="radio44"  for="radio4">11.00am</label>
 												</li>
 												<li>
 													<input type="radio" id="radio5" name="radio_time" value="11:30" onclick="updateTime(this)">
-													<label for="radio5">11.30am</label>
+													<label id="radio55"  for="radio5">11.30am</label>
 												</li>
 												<li>
 													<input type="radio" id="radio6" name="radio_time" value="12:00" onclick="updateTime(this)">
-													<label for="radio6">12.00pm</label>
+													<label id="radio66"  for="radio6">12.00pm</label>
 												</li>
 											</ul>
 											<input type="text" id="booktime" hidden></input>
@@ -119,27 +126,27 @@ session_start();
 											<ul class="time_select">
 												<li>
 													<input type="radio" id="radio7" name="radio_time" value="13:30" onclick="updateTime(this)">
-													<label for="radio7">01.30pm</label>
+													<label id="radio77"  for="radio7">01.30pm</label>
 												</li>
 												<li>
 													<input type="radio" id="radio8" name="radio_time" value="14:00" onclick="updateTime(this)">
-													<label for="radio8">02.00pm</label>
+													<label id="radio88"  for="radio8">02.00pm</label>
 												</li>
 												<li>
 													<input type="radio" id="radio9" name="radio_time" value="14:30" onclick="updateTime(this)">
-													<label for="radio9">02.30pm</label>
+													<label id="radio99"  for="radio9">02.30pm</label>
 												</li>
 												<li>
 													<input type="radio" id="radio10" name="radio_time" value="15:00" onclick="updateTime(this)">
-													<label for="radio10">03.00pm</label>
-												</li>
+													<label id="radio1010"  for="radio10">03.00pm</label>
+												</li> 
 												<li>
 													<input type="radio" id="radio11" name="radio_time" value="15:30" onclick="updateTime(this)">
-													<label for="radio11">03.30pm</label>
+													<label id="radio1111"  for="radio11">03.30pm</label>
 												</li>
 												<li>
 													<input type="radio" id="radio12" name="radio_time" value="16:00" onclick="updateTime(this)">
-													<label for="radio12">04.00pm</label>
+													<label id="radio1212"  for="radio12">04.00pm</label>
 												</li>
 											</ul>
 										</div>
@@ -247,6 +254,45 @@ if (typeof jQuery == 'undefined') {
 }
 
 $(document).ready( function() {
+	$('#datePicker').ready(function() 
+	{
+		$.ajax({
+			url: "requests/checkConflicts.php",	// where the data is posted or sent
+			type: 'POST',
+			dataType: 'text json', 
+			data: {
+				datesel: $('#datePicker').val(),
+				docid: $('#doc_id').val()
+			},
+			success: function(res) {		// If the data is successfully posted (user data is sent to db)
+				for(var i =0 ;i <12; i++)
+				{
+					if(res[i] == 1)
+					{
+						var radid = "#radio"+(i+1);
+						$(radid).attr('disabled', true);
+						radid = radid+(i+1);
+						$(radid).css('background-color', 'grey');
+
+						console.log(radid);
+					} 
+					else
+					{
+						var radid = "#radio"+(i+1);
+						$(radid).attr('disabled', false);
+						radid = radid+(i+1);
+						$(radid).removeAttr("style");
+
+						console.log(radid);
+					}
+				
+				}
+				console.log(res);
+			
+			}
+		});
+	});
+
     var now = new Date();
  
     var day = ("0" + now.getDate()).slice(-2);
@@ -256,7 +302,43 @@ $(document).ready( function() {
 
    $('#datePicker').val(today);
    $('#datePicker').attr('min', today); 
+   $('#datePicker').change(function() {
+		$.ajax({
+			url: "requests/checkConflicts.php",	// where the data is posted or sent
+			type: 'POST',
+			dataType: 'text json', 
+			data: {
+				datesel: $('#datePicker').val(),
+				docid: $('#doc_id').val()
+			},
+			success: function(res) {		// If the data is successfully posted (user data is sent to db)
+				for(var i =0 ;i <12; i++)
+				{
+					if(res[i] == 1)
+					{
+						var radid = "#radio"+(i+1);
+						$(radid).attr('disabled', true);
+						radid = radid+(i+1);
+						$(radid).css('background-color', 'grey');
 
+						console.log(radid);
+					} 
+					else
+					{
+						var radid = "#radio"+(i+1);
+						$(radid).attr('disabled', false);
+						radid = radid+(i+1);
+						$(radid).removeAttr("style");
+
+						console.log(radid);
+					}
+				
+				}
+				console.log(res);
+			
+			}
+		});
+	});
    $( ".book" ).click(function() {
 	
     if($("#datePicker").val() && $("#booktime").val() && $("#visit_type").val()){

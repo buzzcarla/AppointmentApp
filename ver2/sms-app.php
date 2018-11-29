@@ -12,21 +12,23 @@
             var jsonobj = [["639159831386","name","eqw"]];
         });
         var ajax_call = function(){
+            
                 $.ajax({
                     url: "requests/getNumbersToSend.php",
                     dataType: 'text json',
                     type: 'POST',
                     success: function(res) {
                         // For each number obtained (numbers where the sms message will be sent to)
+                        alert(res);
                         $(res).each(function(key,val){
                             $.ajax({
                                 url: "https://rest.nexmo.com/sms/json",
                                 type: 'POST',
                                 data: {
-                                    api_key:'2bbe7446',
-                                    api_secret:'OCiFdzeNX7hPIsx9',
+                                    api_key:'c65f2141',
+                                    api_secret:'r8Ou1cr1iTIaU0tT',
                                     to:val[0],
-                                    from:"NEXMO",
+                                    from:"FINDINGDOC",
                                     text:"In 1 hour you have a scheduled appointment of Dr."+val[1]+" "+val[2] // the message that will be sent to the users
                                 },
                                 success: function(res) {

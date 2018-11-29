@@ -64,10 +64,11 @@ function findAddress() {
             console.log(results[0].formatted_address);
             document.getElementById('addressclin').value = results[0].formatted_address;
             // store current coordinates into hidden variables
+            console.log(results);
             document.getElementById('lat1').value = results[0].geometry.location.lat();
             document.getElementById('lng1').value = results[0].geometry.location.lng();
 
-            alert("lat:" + results[0].geometry.location + "  long:"+ results[0].geometry.location);
+            
 
             // and then - add new custom marker
             var addrMarker = new google.maps.Marker({

@@ -98,28 +98,41 @@
         <script>
             var fullname;
             var e;
-
+            var prev;                                
         $(document).ready(function() {
             
             $('#dataTables-example').DataTable({
                 responsive: true
             });
+            $('select').on('focus',function(){
+                prev = this.value;
 
-            $('select').on("change",function(){
-            var newStat = this.value;
-            $.ajax({
-                url: "../../ver2/requests/updateUserStat.php",
-                type: 'POST',
-            
-                dataType: 'text json', // added data type
-                data: {
-                    stat: newStat
-                },
-                success: function(res) {
-                    alert("Update Successful.");
-                }
             });
-        });
+            $('select').on("change",function(){
+
+                var conf = confirm("Are you sure you want to change user status?");
+                var newStat = this.value;
+                if(conf)
+                {
+                    $.ajax({
+                        url: "../../ver2/requests/updateUserStat.php",
+                        type: 'POST',
+                    
+                        dataType: 'text json', // added data type
+                        data: {
+                            stat: newStat
+                        },
+                        success: function(res) {
+                            alert("Update Successful.");
+                        }
+                    });
+                }
+                else
+                {
+                    this.value = prev;
+                }
+               
+            });
         });
         
         </script>

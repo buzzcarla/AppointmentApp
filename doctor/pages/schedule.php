@@ -114,18 +114,18 @@
 					$timeSpan[10][1] = "04:30";
 					$timeSpan[11][0] = "04:00";
 					$timeSpan[11][1] = "05:00";
-					for ($x = 0; $x <= 5; $x++) {
+					for ($x = 0; $x <= 6; $x++) {
 						for ($y = 0; $y <= 11; $y++) {
 							$userCount[$x][$y] = 0;
 						}
 					}	
-					 $query = "SELECT * FROM user
-					 LEFT JOIN booking_list on booking_list.user_id = user.user_id
-					 WHERE booking_list.doctor_id ='".$_SESSION['docid']."' 
-					 AND yearweek(DATE(booking_list.book_date), 1) = yearweek(DATE(NOW()), 1) 
-					 AND booking_list.book_stat = '2' 
-					 Group BY booking_list.booking_id
-					 ORDER BY booking_list.book_date ASC ";
+						 $query = "SELECT * FROM user
+						 LEFT JOIN booking_list on booking_list.user_id = user.user_id
+						 WHERE booking_list.doctor_id ='".$_SESSION['docid']."' 
+						 AND yearweek(DATE(booking_list.book_date), 1) = yearweek(DATE(NOW()), 1) 
+						 AND booking_list.book_stat = '2' 
+						 Group BY booking_list.booking_id
+						 ORDER BY booking_list.book_date ASC ";
 					$res = mysqli_query($mysql,$query);
 					if (mysqli_num_rows($res)!=0){
 
@@ -297,6 +297,33 @@
 									$userCount[5][10] = $userCount[5][10]+ 1;
 								}else if($time == "04:00"){
 									$userCount[5][11] = $userCount[5][11] + 1;
+								}
+							}else if($day == "Sunday"){
+								$time = date('H:i',$timestamp);
+								if($time == "09:30"){
+									$userCount[6][0] = $userCount[6][0] + 1;
+								} else if($time == "10:00"){
+									$userCount[6][1] = $userCount[6][1] + 1;
+								}else if($time == "10:30"){
+									$userCount[6][2] = $userCount[6][2] + 1;
+								}else if($time == "11:00"){
+									$userCount[6][3] = $userCount[6][3] + 1;
+								}else if($time == "11:30"){
+									$userCount[6][4] = $userCount[6][4] + 1;
+								}else if($time == "12:00"){
+									$userCount[6][5] = $userCount[6][5] + 1;
+								}else if($time == "01:30"){
+									$userCount[6][6] = $userCount[6][6] + 1;
+								}else if($time == "02:00"){
+									$userCount[6][7] = $userCount[6][7] + 1;
+								}else if($time == "02:30"){
+									$userCount[6][8] = $userCount[6][8] + 1;
+								}else if($time == "03:00"){
+									$userCount[6][9] = $userCount[6][9] + 1;
+								}else if($time == "03:30"){
+									$userCount[6][10] = $userCount[6][10]+ 1;
+								}else if($time == "04:00"){
+									$userCount[6][11] = $userCount[6][11] + 1;
 								}
 							}
 							
@@ -566,6 +593,50 @@
 												<a href="#0" onclick="ShowPara('; 
 												echo "'Saturday','".$timeSpan[$y][0]."')";echo '">
 													<em class="event-name">Number of Patients: '.$userCount[5][$y].'</em>
+													<p>Patients that are Accepted</p>
+												</a>
+											</li>';
+									}
+								}
+								
+							
+							
+							?>		
+							<!-- <li class="single-event" data-start="10:00" data-end="11:00"  data-content="event-rowing-workout" data-event="event-2">
+								<a href="#0">
+									<em class="event-name">Bla Bla</em>
+									<p>Consultation</p>
+								</a>
+							</li>
+
+							<li class="single-event" data-start="12:30" data-end="14:00" data-content="event-abs-circuit" data-event="event-1">
+								<a href="#0">
+									<em class="event-name">Bla Bla</em>
+									<p>Consultation</p>
+								</a>
+							</li>
+
+							<li class="single-event" data-start="15:45" data-end="16:45"  data-content="event-yoga-1" data-event="event-3">
+								<a href="#0">
+									<em class="event-name">Bla Bla</em>
+									<p>Consultation</p>
+								</a>
+							</li> -->
+						</ul>
+					</li>
+					<li class="events-group">
+						<div class="top-info"><span>Sunday</span></div>
+
+						<ul>
+
+							<?php 
+								
+								for ($y = 0; $y <= 11; $y++) {
+									if($userCount[6][$y]>0){
+										echo '<li class="single-event" data-start="'.$timeSpan[$y][0].'" data-end="'.$timeSpan[$y][1].'" data-content="event-abs-circuit" data-event="event-1">
+												<a href="#0" onclick="ShowPara('; 
+												echo "'Sunday','".$timeSpan[$y][0]."')";echo '">
+													<em class="event-name">Number of Patients: '.$userCount[6][$y].'</em>
 													<p>Patients that are Accepted</p>
 												</a>
 											</li>';

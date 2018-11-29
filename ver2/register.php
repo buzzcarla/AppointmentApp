@@ -32,6 +32,7 @@
 								<div class="row">
 									<div class="col-md-12 ">
 										<div class="form-group">
+											<label>First Name*</label>
 											<input id="fname" type="text" class="form-control" placeholder="First Name" required>
 										</div>
 									</div>
@@ -39,6 +40,7 @@
 								<div class="row">
 									<div class="col-md-12 ">
 										<div class="form-group">
+											<label>Middle Name</label>
 											<input id="mname" type="text" class="form-control" placeholder="Middle Name">
 										</div>
 									</div>
@@ -46,6 +48,7 @@
 								<div class="row">
 									<div class="col-md-12 ">
 										<div class="form-group">
+											<label>Last Name*</label>
 											<input id="lname" type="text" class="form-control" placeholder="Last Name" required>
 										</div>
 									</div>
@@ -53,6 +56,7 @@
 								<div class="row">
 									<div class="col-md-12">
 										<div class="form-group">
+											<label>Gender*</label>
 											<select class="form-control sel-gender" required>
 												<option value="1" selected>Male</option>
 												<option value="0">Female</option>
@@ -60,25 +64,10 @@
 										</div>
 									</div>
 								</div>
-								<!-- <div class="row">
-									<div class="col-md-6">
-										<div class="form-group">
-											<select class="form-control sel-prov" required>
-												<option value="" disabled selected>Province</option>
-											</select>
-										</div>
-									</div>
-									<div class="col-md-6">
-										<div class="form-group">
-											<select class="form-control sel-city" disabled required>
-												<option value=""disabled selected>City</option>
-											</select>
-										</div>
-									</div>
-								</div> -->
 								<div class="row">
 									<div class="col-lg-12">
 										<div class="form-group">
+											<label>Contact Number*</label>
 											<div class="row">
 												<div class="col-md-1">
 													<p>+63</p>
@@ -95,6 +84,7 @@
 								<div class="row">
 									<div class="col-lg-12">
 										<div class="form-group">
+											<label>Email Address*</label>
 											<input id ="demail" type="email" class="form-control" placeholder="Email Address" required>
 										</div>
 									</div>
@@ -102,6 +92,7 @@
 								<div class="row">
 									<div class="col-lg-12">
 										<div class="form-group">
+											<label>Username*</label>
 											<input id ="username" type="text" class="form-control" placeholder="Username" required>
 										</div>
 									</div>
@@ -109,6 +100,7 @@
 								<div class="row">
 									<div class="col-lg-12">
 										<div class="form-group">
+											<label>Password*</label>
 											<input id ="password" type="password" class="form-control" placeholder="Password" required>
 										</div>
 									</div>
@@ -116,6 +108,7 @@
 								<div class="row">
 									<div class="col-lg-12">
 										<div class="form-group">
+											<label>Confirm Password*</label>
 											<input id ="confpass" type="password" class="form-control" placeholder="Confirm Password" required>
 										</div>
 									</div>
@@ -228,46 +221,67 @@
 	});
 
 	$( ".sub" ).on("click",function(){	
-			// On clicking submit button
+		// form validation
+		var fname = $('#fname').val();
+		var lname = $('#lname').val();
 		var n = $('#cnum').val();
-
 		var realnum = n.toString();
 		realnum = "63"+realnum;
-		if(realnum.match(/^\d{12}$/) !=null)
-		{		
-			$.ajax({
-				url: "create/createUser.php",	// where the data is posted or sent
-				type: 'POST',
-				dataType: 'text json', 
-				data: {
-					dfname:$('#fname').val(),
-					dmname:$('#mname').val(),
-					dlname:$('#lname').val(),
-					dcnum:realnum,
-					duser:$('#username').val(),
-					dpass:$('#password').val(),
-					demail:$('#demail').val(),
-					dgender:$('.sel-gender').val()
-					
-				},
-				success: function(res) {		// If the data is successfully posted (user data is sent to db)
-					if(res[0]== 1){
-						alert("Successfully Created! Please Log in.");
-						document.location.href = 'index.php';
-					} else if(res[0] == 2){
-						alert("Error in creating user. Please retry.");
-					}else if(res[0] == 0){
-						alert("User already exists.");
-					}
-					else if(res[0] == 3){
-						alert("There is invalid data in the form. Please review.");
-					}
-					
-				}
+		var username = $('#username').val();
+		var password = $('#password').val();
+		var demail = $('#demail').val();
+		var gender = $('.sel-gender').val();
+
+		if (fname == ""){
+			alert("Please input first name");
+		} else if(lname == ""){
+			alert("Please input last name");
+		} else if(realnum.match(/^\d{12}$/) == null)
+		{
+			alert("Please input contact number");
+		} else if(username == "")
+		{
+			alert("Please input a username");
+		} else if(password == "")
+		{
+			alert("Please input a password");
+		} else if(demail == "")
+		{
+			alert("Please input an e-mail address");
+		} else if(gender == null)
+		{
+			alert("Please select a gender");
+		}	
+
+		$.ajax({
+			url: "create/createUser.php",	// where the data is posted or sent
+			type: 'POST',
+			dataType: 'text json', 
+			data: {
+				dfname:$('#fname').val(),
+				dmname:$('#mname').val(),
+				dlname:$('#lname').val(),
+				dcnum:realnum,
+				duser:$('#username').val(),
+				dpass:$('#password').val(),
+				demail:$('#demail').val(),
+				dgender:$('.sel-gender').val()
 				
-			});
-		} else {
-			alert("Invalid Cellphone number have the format ex. 9965556553");
-		}
+			},
+			success: function(res) {		// If the data is successfully posted (user data is sent to db)
+				if(res[0]== 1){
+					alert("Successfully Created! Please Log in.");
+					document.location.href = 'login.php';
+				} else if(res[0] == 2){
+					alert("Error in creating user. Please retry.");
+				}else if(res[0] == 0){
+					alert("User already exists.");
+				}
+				else if(res[0] == 3){
+					alert("There is invalid data in the form. Please review.");
+				}	
+			}
+		});
 	});
+
 </script>

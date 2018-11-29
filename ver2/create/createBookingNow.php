@@ -9,7 +9,7 @@
         $type = $_POST['type'];
         $fname = $_POST['fname'];
         $lname = $_POST['lname'];
-        $query = "SELECT * FROM booking_list WHERE user_id='".$uid."' AND doctor_id ='".$did."'";
+        $query = "SELECT * FROM booking_list WHERE user_id='".$uid."' AND doctor_id ='".$did."' AND book_stat = 1 AND book_stat != 3    ";
         $result = mysqli_query($mysql,$query);
         $bd = intval($bd);
         $row1 = mysqli_fetch_row($result);

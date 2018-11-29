@@ -206,14 +206,13 @@ session_start();
 
 							<div id="collapseOne_booking" class="collapse" role="tabpanel" data-parent="#booking">
 								<div class="card-body">
-									<div class="container">
-									  <p>The .table-hover class enables a hover state on table rows:</p>            
-									  <table class="table table-hover">
+									<div class="container">            
+									  <table class="table table-hover" style="margin-left: -30px;">
 									    <thead>
 									      <tr>
-									        <th>Doctor Name</th>
-									        <th>Date</th>
+									        <th>Clinic Name</th>
 											<th>Clinic Address</th>
+									        <th>Booking Date</th>
 									        <th>Booking Type</th>
 									      </tr>
 									    </thead>
@@ -230,15 +229,38 @@ session_start();
 												$res = mysqli_query($mysql,$query);
 												$ctr= 0;
 												while($row = mysqli_fetch_row($res)){
+													if($row[16] == 2){
+														echo '
+														
+															<tr class="odd gradeX">
+																	<td>'.$row[45].'</td>
+																	<td>'.$row[48].'</td>
+																	<td>'.$row[15].'</td>
+																	<td >Accepted</td>
+																	
+																</tr>';
+													} else if($row[16] == 1){
+														echo '
+														
+															<tr class="odd gradeX">
+																	<td>'.$row[45].'</td>
+																	<td>'.$row[48].'</td>
+																	<td>'.$row[15].'</td>
+																	<td >Pending</td>
+																	
+																</tr>';
+													} else if($row[16] == 1){
+														echo '
+														
+															<tr class="odd gradeX">
+																	<td>'.$row[45].'</td>
+																	<td>'.$row[48].'</td>
+																	<td>'.$row[15].'</td>
+																	<td >Declined</td>
+																	
+																</tr>';
+													}
 													
-													echo '
-												
-													<tr class="odd gradeX">
-															<td>'.$row[26].' '.$row[27].'</td>
-															<td>'.$row[16].'</td>
-															<td>'.$row[48].'</td>
-															<td >'.$row[18].'</td>
-														</tr>';
 												}
 											?>
 									    </tbody>

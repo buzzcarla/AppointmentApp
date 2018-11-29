@@ -29,7 +29,6 @@ session_start();
 	<div id="page">		 
 		<?php
 			require('header.php');			
-		
 		?>
 
 	<main>
@@ -42,7 +41,7 @@ session_start();
 				<form method="GET" action="list-2.php">
 					<div id="custom-search-input">
 						<div class="input-group">
-							<input type="text" name="search" class=" search-query" placeholder="Ex. Name, Specialization ....">
+							<input type="text" name="search" class=" search-query" placeholder="Ex. Doctor Name, Clinic Address ...">
 							<input type="submit" class="btn_search" value="Search">
 						</div>
 						<ul>
@@ -80,7 +79,7 @@ session_start();
 					<div class="box_feat" id="icon_2">
 						<span></span>
 						<h3>View profile</h3>
-						<p>Usu habeo equidem sanctus no. Suas summo id sed, erat erant oporteat cu pri. In eum omnes molestie.</p>
+						<p>Usu habeo equidem sanctus no.` Suas summo id sed, erat erant oporteat cu pri. In eum omnes molestie.</p>
 					</div>
 				</div>
 				<div class="col-lg-4">
@@ -92,7 +91,7 @@ session_start();
 			</div>
 		</div>
 		<div class="bg_color_1" >
-			<div class="container margin_120_95" style="margin-top: -120px;">
+			<div class="container margin_120_95" style="margin-top: -70px;">
 				<div class="main_title">
 					<h2>Featured doctors</h2>
 					<p>Usu habeo equidem sanctus no. Suas summo id sed, erat erant oporteat cu pri.</p>
@@ -103,7 +102,7 @@ session_start();
 								LEFT JOIN doctors on user.user_id = doctors.user_id
 								LEFT JOIN location_clinic on doctors.doctor_id = location_clinic.doctor_id
 								LEFT JOIN clinic on location_clinic.clinic_id = clinic.clinic_id
-								where user.user_level = '1'
+								where user.user_level = '1' AND user.user_status = '1'
 								Group BY user.user_id
 								ORDER BY user.user_id DESC
 								LIMIT 5 
@@ -117,7 +116,7 @@ session_start();
 									echo '
 									
 										<div class="item">
-											<a href="detail-page-2.php?docid='.$row[12].'&userid='.$_SESSION['userid'].'&clinname='.$row[25].'&clinadd='.$row[28].'&docfname='.$row[1].'&docmname='.$row[2].'&doclname='.$row[3].'&start='.$row[18].'&end='.$row[19].'&mobile='.$row[8].'&tele='.$row[9].'">
+											<a href="detail-page-2.php?docid='.$row[12].'&userid='.$_SESSION['userid'].'&clinname='.$row[25].'&clinadd='.$row[28].'&docfname='.$row[1].'&docmname='.$row[2].'&doclname='.$row[3].'&start='.$row[21].'&end='.$row[22].'&mobile='.$row[8].'&tele='.$row[9].'&profpic='.$row[17].'.&specialization='.$row[14].'&permitnum='.$row[29].'&medlicense='.$row[15].'">
 												<div class="views"><i class="icon-eye-7"></i>140</div>
 												<div class="title">
 													<h4>Dr.'.$row[1].' '.$row[3].'</em></h4>
@@ -129,7 +128,7 @@ session_start();
 									echo '
 									
 										<div class="item">
-											<a href="detail-page-2.php?docid='.$row[12].'&userid='.$_SESSION['userid'].'&clinname='.$row[25].'&clinadd='.$row[28].'&docfname='.$row[1].'&docmname='.$row[2].'&doclname='.$row[3].'&start='.$row[18].'&end='.$row[19].'&mobile='.$row[8].'&tele='.$row[9].'">
+											<a href="detail-page-2.php?docid='.$row[12].'&userid='.$_SESSION['userid'].'&clinname='.$row[25].'&clinadd='.$row[28].'&docfname='.$row[1].'&docmname='.$row[2].'&doclname='.$row[3].'&start='.$row[21].'&end='.$row[22].'&mobile='.$row[8].'&tele='.$row[9].'&profpic='.$row[17].'.&specialization='.$row[14].'&permitnum='.$row[29].'&medlicense='.$row[15].'">
 												<div class="views"><i class="icon-eye-7"></i>140</div>
 												<div class="title">
 												<h4>Dr.'.$row[1].' '.$row[3].'</em></h4>
@@ -146,7 +145,7 @@ session_start();
 									echo '
 									
 										<div class="item">
-											<a href="detail-page-2.php?docid='.$row[12].'&userid=-1&clinname='.$row[25].'&clinadd='.$row[28].'&docfname='.$row[1].'&docmname='.$row[2].'&doclname='.$row[3].'&start='.$row[18].'&end='.$row[19].'&mobile='.$row[8].'&tele='.$row[9].'">
+											<a href="detail-page-2.php?docid='.$row[12].'&userid=-1&clinname='.$row[25].'&clinadd='.$row[28].'&docfname='.$row[1].'&docmname='.$row[2].'&doclname='.$row[3].'&start='.$row[21].'&end='.$row[22].'&mobile='.$row[8].'&tele='.$row[9].'&profpic='.$row[17].'.&specialization='.$row[14].'&permitnum='.$row[29].'&medlicense='.$row[15].'">
 												<div class="views"><i class="icon-eye-7"></i>140</div>
 												<div class="title">
 													<h4>Dr.'.$row[1].' '.$row[3].'</em></h4>
@@ -158,7 +157,7 @@ session_start();
 									echo '
 									
 										<div class="item">
-											<a href="detail-page-2.php?docid='.$row[12].'&userid=-1&clinname='.$row[25].'&clinadd='.$row[28].'&docfname='.$row[1].'&docmname='.$row[2].'&doclname='.$row[3].'&start='.$row[18].'&end='.$row[19].'&mobile='.$row[8].'&tele='.$row[9].'">
+											<a href="detail-page-2.php?docid='.$row[12].'&userid=-1&clinname='.$row[25].'&clinadd='.$row[28].'&docfname='.$row[1].'&docmname='.$row[2].'&doclname='.$row[3].'&start='.$row[21].'&end='.$row[22].'&mobile='.$row[8].'&tele='.$row[9].'&profpic='.$row[17].'.&specialization='.$row[14].'&permitnum='.$row[29].'&medlicense='.$row[15].'">
 												<div class="views"><i class="icon-eye-7"></i>140</div>
 												<div class="title">
 												<h4>Dr.'.$row[1].' '.$row[3].'</em></h4>
@@ -191,14 +190,19 @@ session_start();
 	<script src="js/jquery-2.2.4.min.js"></script>
 	<script src="js/common_scripts.min.js"></script>
 	<script src="js/functions.js"></script>
-	<?php if ($_GET['register_suc	'] == 1) : ?>
+	<?php
+	if(isset($_GET['register_suc'])){
+		if ($_GET['register_suc'] == 1) : ?>
    <script type='text/javascript'>
-       //Code runs ONLY if $test_details['done_test'] is empty
-       $(document).ready(function(){
-         alert("Succesful Register please wait for the activation of account");
-       });
+	   //Code runs ONLY if $test_details['done_test'] is empty
+	   $(document).ready(function(){
+					setTimeout(function () {
+						alert("Succesful Register please wait for the activation of account");
+					}, 3000);
+				});
+     
    </script>
-<?php endif; ?>
+<?php endif; }?>
 
 </body>
 <!-- HANDLE IF THE SEARCH BUTTON IS PRESSED -->

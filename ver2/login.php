@@ -12,8 +12,8 @@ session_start();
 	}
 	
 	if(isset($_POST['user'])&&$_POST['pass']){
-		
-	 	$query = "SELECT * FROM user where username = '".$_POST['user']."' AND user_password='".$_POST['pass']."' AND user_status = '1' LIMIT 1";
+		$password = md5($_POST['pass']);
+	 	$query = "SELECT * FROM user where username = '".$_POST['user']."' AND user_password='".$password."' AND user_status = '1' LIMIT 1";
 		$res = mysqli_query($mysql,$query);
 		if ($res){
 			$row = mysqli_fetch_row($res); 
@@ -125,10 +125,6 @@ session_start();
 									<input class="btn_1 loginbut" type="submit" value="Login">
 								</div>
 							</div>
-							<div class="box_login" style="margin-bottom: 20px; text-align: center;">
-								<small>Forgot your password?</small>
-								<a href="#0" class="forgot"><small>Click Here.</small></a>
-							</div>
 						</div>
 					</form>
 					<p style="text-align: -webkit-center;" class="text-center link_bright">Do not have an account yet? <a href="register.php"><strong>Register now!</strong></a></p>
@@ -155,7 +151,19 @@ session_start();
 	<script src="js/jquery-2.2.4.min.js"></script>
 	<script src="js/common_scripts.min.js"></script>
 	<script src="js/functions.js"></script>
+	<?php
+	if(isset($_GET['error_status'])){
+		if ($_GET['error_status'] == 4) : ?>
+   <script type='text/javascript'>
+	   //Code runs ONLY if $test_details['done_test'] is empty
+	   $(document).ready(function(){
+					setTimeout(function () {
+						alert("You have to login first before booking");
+					}, 3000);
+				});
      
+   </script>
+<?php endif; }?>
 
 
 </body>

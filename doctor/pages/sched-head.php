@@ -6,3 +6,16 @@
 <link rel="stylesheet" href="css/style.css"> 
 	
 <title>Finding Doctors | Schedule</title>
+
+<?php 
+    if(isset($_SESSION['level']))
+    {
+        if($_SESSION['level'] == 0 || $_SESSION['level'] == 2)
+        {
+            header('Location:../../ver2/index.php');
+        }
+        
+    }
+
+
+?>
