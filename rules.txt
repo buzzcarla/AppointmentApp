@@ -1,0 +1,9 @@
+user_stat
+1 = active
+0 = deactivated
+-1 = delete
+
+user_level
+1 = doctor
+0 = user
+2 = admin

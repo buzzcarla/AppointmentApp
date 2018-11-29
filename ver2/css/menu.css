@@ -35,7 +35,7 @@
         color:#333;
         padding:0 8px 17px;
         font-size:14px;
-        font-size:.875rem;
+/*        font-size:.875rem;*/
         font-weight:500
     }
     .main-menu>ul>li span:hover>a{
@@ -75,7 +75,7 @@
     }
     .main-menu ul ul li a{
         font-size:13px;
-        font-size:.8125rem;
+        /*font-size:.8125rem;*/
         color:#555;
         border-bottom:1px solid #ededed;
         display:block;
