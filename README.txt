@@ -1,16 +1,25 @@
 Project FD
-A medical appointment/scheduling system
+A Medical Appointment/Scheduling System integrating 
+SMS Api (NEXMO) and Google Maps API
 
-Authors:
-Lee, J
-Lavador, L
+PHP 7
+Bootstrap 4
+
 
 Development start:
 June 10, 2018
+---------------------------------------------------
+READ rules.txt for constant definitions
+READ instructions.txt for repository management
 
-*06-15-2018 - official design implemented
-*06-16-2018 - Database implemented
-*06-17-2018 - UI enhancement and validating forms
+User:
+username: testuser
+password: password
 
-Expected end date of project:
-November 2018
+Admin:
+username: admin
+password: admin
+
+Doctor:
+username: doctor
+password: password

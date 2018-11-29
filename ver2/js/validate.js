@@ -70,7 +70,6 @@ jQuery(document).ready(function(){
 				$('#register_doctor .loader').fadeOut('slow',function(){$(this).remove()});
 				$('#submit-register').removeAttr('disabled');
 				if(data.match('success') != null) $('#register_doctor').slideUp('slow');
-
 			}
 		);
 

@@ -1,0 +1,19 @@
+Deployment Instructions:
+
+Pre-requisites: 
+Downloaded and installed Git for Windows
+
+> go to xampp/htdocs
+> right click and select Git Bash here
+> copy this to the terminal: git clone "https://github.com/leonillechristie/AppointmentApp.git"
+> copy this to the terminal: cd AppointmentApp
+> go to phpmyadmin and import the sql file: find_doctors (clean).sql
+> visit site at: http://localhost/AppointmentApp/ver2/index.php
+
+If changes have been made to the file:
+************* DO NOT CLONE AGAIN OR DOWNLOAD .ZIP FILE AND REPLACE THE FOLDER CONTENTS *************
+
+> go to xampp/htdocs/AppointmentApp
+> right click and select Git Bash here
+> copy this to the terminal: git pull 
+> visit site at: http://localhost/AppointmentApp/ver2/index.php
